@@ -1,0 +1,6 @@
+dialoguekit
+ollama
+websocket-client
+colorama
+datasets
+bm25s
