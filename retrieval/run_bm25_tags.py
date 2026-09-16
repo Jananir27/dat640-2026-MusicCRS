@@ -1,14 +1,15 @@
-"""Generate BM25 + tags predictions for a dataset split.
+"""Generate BM25 + tags predictions for the MusicCRS dataset.
 
-Uses extended track metadata:
-- track_name
-- artist_name
-- album_name
-- tag_list
+This runner extends the original BM25 baseline by indexing and retrieving
+over the following track metadata fields:
 
-Supports limiting the number of sessions for development/testing so that
-BM25 + tags can be compared fairly with dense and hybrid retrieval on
-the same subset.
+    - track_name
+    - artist_name
+    - album_name
+    - tag_list
+
+The resulting predictions are compatible with
+retrieval.evaluation.evaluate.
 """
 
 import argparse
@@ -22,7 +23,8 @@ from .data_loader import MusicCatalogLoader
 
 NUM_TURNS = 8
 
-# Metadata fields used by our improved BM25 experiment.
+
+# Metadata fields used by the improved BM25 retriever.
 CORPUS_TYPES = [
     "track_name",
     "artist_name",
@@ -39,20 +41,37 @@ def _build_retrieval_input(
 ) -> str:
     """Build retrieval query from conversation history.
 
-    Includes all messages up to and including the current user's
-    message. Previous music recommendations are expanded to their
-    track metadata.
+    The query contains all dialogue messages up to and including the
+    current user's message.
+
+    Previous music recommendations are expanded into track metadata.
+
+    Args:
+        conversations:
+            Full conversation for the session.
+
+        target_turn_number:
+            Current turn to retrieve tracks for.
+
+        catalog:
+            Track metadata catalog.
+
+        corpus_types:
+            Metadata fields used when expanding previous music turns.
+
+    Returns:
+        Conversation history formatted as a retrieval query.
     """
 
     lines = []
 
     for message in conversations:
 
-        # Ignore messages belonging to future turns.
+        # Stop once we pass the target turn.
         if message["turn_number"] > target_turn_number:
             break
 
-        # For the current turn, stop after the user's message.
+        # For the current turn, only include the user's message.
         if (
             message["turn_number"] == target_turn_number
             and message["role"] != "user"
@@ -62,8 +81,9 @@ def _build_retrieval_input(
         role = message["role"]
         content = message["content"]
 
-        # Convert previous music track IDs into readable metadata.
+        # Expand previous music track IDs into metadata.
         if role == "music":
+
             role = "assistant"
 
             content = catalog.id_to_metadata_str(
@@ -78,45 +98,16 @@ def _build_retrieval_input(
     return "\n".join(lines)
 
 
-def run_baseline(
+def run_bm25_tags(
     retriever: BM25Retriever,
     catalog: MusicCatalogLoader,
     dataset_name: str,
     split: str,
     topk: int,
-    corpus_types: list[str],
     max_sessions: int | None = None,
 ) -> list[dict]:
-    """Run BM25 + tags retrieval.
+    """Run BM25 + tags retrieval over a dialogue dataset split."""
 
-    Args:
-        retriever:
-            BM25 retriever.
-
-        catalog:
-            Track metadata catalog.
-
-        dataset_name:
-            Hugging Face dialogue dataset.
-
-        split:
-            Dataset split, for example "test".
-
-        topk:
-            Number of tracks to retrieve.
-
-        corpus_types:
-            Metadata fields used for retrieval.
-
-        max_sessions:
-            Optional number of sessions to process.
-            If None, the complete dataset split is used.
-
-    Returns:
-        Predictions in MusicCRS evaluation format.
-    """
-
-    print()
     print("Loading dialogue dataset...")
 
     dataset = load_dataset(
@@ -124,37 +115,33 @@ def run_baseline(
         split=split,
     )
 
-    # ---------------------------------------------------------
-    # Optional subset
-    # ---------------------------------------------------------
-
+    # Optional small test run.
     if max_sessions is not None:
 
-        number_of_sessions = min(
+        max_sessions = min(
             max_sessions,
             len(dataset),
         )
 
         dataset = dataset.select(
-            range(number_of_sessions)
+            range(max_sessions)
         )
 
     print(
-        f"Using {len(dataset)} sessions"
+        f"Sessions: {len(dataset)}"
     )
-
-    print(
-        f"Expected predictions: "
-        f"{len(dataset) * NUM_TURNS}"
-    )
-
-    # ---------------------------------------------------------
-    # Retrieval
-    # ---------------------------------------------------------
 
     predictions = []
 
+    # ---------------------------------------------------------
+    # Process every session
+    # ---------------------------------------------------------
+
     for session_index, item in enumerate(dataset):
+
+        # -----------------------------------------------------
+        # Eight recommendation turns per session
+        # -----------------------------------------------------
 
         for turn_number in range(
             1,
@@ -162,16 +149,16 @@ def run_baseline(
         ):
 
             query = _build_retrieval_input(
-                item["conversations"],
-                turn_number,
-                catalog,
-                corpus_types,
+                conversations=item["conversations"],
+                target_turn_number=turn_number,
+                catalog=catalog,
+                corpus_types=CORPUS_TYPES,
             )
 
             predicted_track_ids = (
                 retriever.text_to_item_retrieval(
-                    query,
-                    topk,
+                    query=query,
+                    topk=topk,
                 )
             )
 
@@ -191,11 +178,12 @@ def run_baseline(
                 }
             )
 
-        # Progress indicator
+        # Progress display.
         if (
             (session_index + 1) % 100 == 0
             or session_index + 1 == len(dataset)
         ):
+
             print(
                 f"Processed "
                 f"{session_index + 1}/"
@@ -210,8 +198,8 @@ def main() -> None:
 
     parser = argparse.ArgumentParser(
         description=(
-            "Run BM25 retrieval with "
-            "track name + artist + album + tags"
+            "Run MusicCRS BM25 retrieval "
+            "using track metadata and tags"
         )
     )
 
@@ -221,127 +209,101 @@ def main() -> None:
             "talkpl-ai/"
             "TalkPlayData-Challenge-Dataset"
         ),
-        help="Hugging Face dialogue dataset",
     )
 
     parser.add_argument(
         "--split",
         default="test",
-        help="Dataset split",
     )
 
     parser.add_argument(
         "--topk",
         type=int,
         default=20,
-        help="Number of tracks to retrieve",
     )
-
-    # ---------------------------------------------------------
-    # NEW: allows us to evaluate only first N sessions
-    # ---------------------------------------------------------
 
     parser.add_argument(
         "--max_sessions",
         type=int,
         default=None,
         help=(
-            "Limit the number of sessions. "
-            "Example: --max_sessions 100. "
-            "If omitted, all sessions are processed."
+            "Optional number of sessions "
+            "for quick experiments"
         ),
     )
 
     parser.add_argument(
         "--output",
         required=True,
-        help="Path to write predictions JSON",
+        help="Path to predictions JSON",
     )
 
     args = parser.parse_args()
 
     # ---------------------------------------------------------
-    # Experiment information
+    # Configuration
     # ---------------------------------------------------------
 
     print()
     print("=" * 60)
-    print("MusicCRS - BM25 + Tags Retrieval")
+    print("MusicCRS BM25 + Tags Retrieval")
     print("=" * 60)
 
     print(
-        f"Split       : {args.split}"
+        f"Split      : {args.split}"
     )
 
     print(
-        f"Top-k       : {args.topk}"
-    )
-
-    if args.max_sessions is None:
-        print(
-            "Sessions    : ALL"
-        )
-    else:
-        print(
-            f"Sessions    : "
-            f"{args.max_sessions}"
-        )
-
-    print(
-        "Metadata     : "
-        "track_name + artist_name + "
-        "album_name + tag_list"
+        f"Top-k      : {args.topk}"
     )
 
     print(
-        f"Output      : {args.output}"
+        f"Sessions   : "
+        f"{args.max_sessions or 'ALL'}"
+    )
+
+    print(
+        f"Fields     : "
+        f"{', '.join(CORPUS_TYPES)}"
+    )
+
+    print(
+        f"Output     : {args.output}"
     )
 
     # ---------------------------------------------------------
-    # Initialize BM25 + tags
+    # Initialize BM25
     # ---------------------------------------------------------
 
     print()
-    print(
-        "Initializing BM25 + tags retriever..."
-    )
+    print("Initializing BM25 + tags index...")
 
     retriever = BM25Retriever(
         corpus_types=CORPUS_TYPES,
     )
 
     # ---------------------------------------------------------
-    # Track metadata catalog
+    # Load catalog
     # ---------------------------------------------------------
-
-    print(
-        "Loading music catalog..."
-    )
 
     catalog = MusicCatalogLoader()
 
     # ---------------------------------------------------------
-    # Generate predictions
+    # Run retrieval
     # ---------------------------------------------------------
 
-    predictions = run_baseline(
+    predictions = run_bm25_tags(
         retriever=retriever,
         catalog=catalog,
         dataset_name=args.dialogue_dataset,
         split=args.split,
         topk=args.topk,
-        corpus_types=CORPUS_TYPES,
         max_sessions=args.max_sessions,
     )
 
     # ---------------------------------------------------------
-    # Save
+    # Save predictions
     # ---------------------------------------------------------
-
-    print()
-    print(
-        "Saving predictions..."
-    )
 
     with open(
         args.output,
@@ -355,21 +317,21 @@ def main() -> None:
             indent=2,
         )
 
+    # ---------------------------------------------------------
+    # Done
+    # ---------------------------------------------------------
+
     print()
     print("=" * 60)
-    print(
-        "BM25 + tags retrieval completed"
-    )
+    print("BM25 + Tags retrieval completed")
     print("=" * 60)
 
     print(
-        f"Predictions : "
-        f"{len(predictions)}"
+        f"Predictions : {len(predictions)}"
     )
 
     print(
-        f"Saved to    : "
-        f"{args.output}"
+        f"Saved to    : {args.output}"
     )
 
 
