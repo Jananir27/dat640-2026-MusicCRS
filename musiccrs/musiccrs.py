@@ -1,5 +1,7 @@
 """MusicCRS conversational agent."""
 
+import json
+
 import ollama
 from dialoguekit.core.annotated_utterance import AnnotatedUtterance
 from dialoguekit.core.dialogue_act import DialogueAct
@@ -9,6 +11,9 @@ from dialoguekit.core.utterance import Utterance
 from dialoguekit.participant.agent import Agent
 from dialoguekit.participant.participant import DialogueParticipant
 from dialoguekit.platforms import FlaskSocketPlatform
+
+from .music_intelligence import MusicIntelligence
+from .music_service import ConversationState, get_shared_music_service
 
 OLLAMA_HOST = "https://ollama.ux.uis.no"
 OLLAMA_MODEL = "llama3.3:70b"
@@ -30,7 +35,11 @@ class MusicCRS(Agent):
         else:
             self._llm = None
 
-        self._playlist = []  # Stores the current playlist
+        # Catalog/retrieval data is shared by the server process; mutable
+        # playlist and pending-choice state belongs to this connected user.
+        self._music_service = get_shared_music_service()
+        self._conversation_state = ConversationState()
+        self._music_intelligence = MusicIntelligence(self._music_service)
 
     def welcome(self) -> None:
         """Sends the agent's welcome message."""
@@ -82,8 +91,21 @@ class MusicCRS(Agent):
         elif utterance.text == "/quit":
             self.goodbye()
             return
+        elif utterance.text.startswith("/playlist"):
+            response, include_playlist = self._handle_playlist_command(utterance.text)
+            if include_playlist:
+                dialogue_acts = [self._playlist_updated_dialogue_act()]
         else:
-            response = "I'm sorry, I don't understand that command."
+            handled = self._music_intelligence.handle(
+                utterance.text,
+                self._conversation_state,
+            )
+            if handled is None:
+                response = "I'm sorry, I don't understand that request."
+            else:
+                response, playlist_updated = handled
+                if playlist_updated:
+                    dialogue_acts = [self._playlist_updated_dialogue_act()]
 
         self._dialogue_connector.register_agent_utterance(
             AnnotatedUtterance(
@@ -94,6 +116,62 @@ class MusicCRS(Agent):
         )
 
     # --- Response handlers ---
+
+    def _handle_playlist_command(self, command: str) -> tuple[str, bool]:
+        """Handle ID-based playlist actions sent by the web playlist panel."""
+        parts = command.strip().split(maxsplit=2)
+        if len(parts) < 2:
+            return "Use /playlist add <track_id>, remove <track_id>, clear, or show.", False
+
+        action = parts[1].casefold()
+        try:
+            if action == "show":
+                records = self._music_service.get_playlist_records(
+                    self._conversation_state
+                )
+                if not records:
+                    response = "Your playlist is empty."
+                else:
+                    response = "Your playlist:\n" + "\n".join(
+                        f"{index}. {record['track_name']} — {record['artist_name']}"
+                        for index, record in enumerate(records, start=1)
+                    )
+                return response, True
+            if action == "clear":
+                self._music_service.clear_playlist(self._conversation_state)
+                return "Your playlist is now empty.", True
+            if action in {"add", "remove"} and len(parts) == 3:
+                track_id = parts[2].strip()
+                track = self._music_service.get_track(track_id)
+                if track is None:
+                    return "That track ID is not in the catalog, so I didn't change your playlist.", False
+                if action == "add":
+                    self._music_service.add_tracks(
+                        self._conversation_state,
+                        [track_id],
+                    )
+                    return f"Added {self._music_service.display_track(track)} to your playlist.", True
+                self._music_service.remove_tracks(
+                    self._conversation_state,
+                    [track_id],
+                )
+                return f"Removed {self._music_service.display_track(track)} from your playlist.", True
+        except ValueError as error:
+            return str(error), False
+
+        return "Use /playlist add <track_id>, remove <track_id>, clear, or show.", False
+
+    def _playlist_updated_dialogue_act(self) -> DialogueAct:
+        records = self._music_service.get_playlist_records(self._conversation_state)
+        return DialogueAct(
+            intent=Intent("PLAYLIST_UPDATED"),
+            annotations=[
+                SlotValueAnnotation(
+                    "playlist_json",
+                    json.dumps(records, ensure_ascii=False),
+                )
+            ],
+        )
 
     def _info(self) -> str:
         """Gives information about the agent."""

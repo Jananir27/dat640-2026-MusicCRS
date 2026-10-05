@@ -23,6 +23,7 @@ class BM25Retriever(RetrievalModule):
         split_types: list[str] = DEFAULT_SPLIT_TYPES,
         corpus_types: list[str] = DEFAULT_CORPUS_TYPES,
         cache_dir: str = "./cache",
+        catalog: MusicCatalogLoader | None = None,
     ) -> None:
         """Initialize the BM25 retriever, building or loading the index.
 
@@ -35,7 +36,9 @@ class BM25Retriever(RetrievalModule):
         self.corpus_types = corpus_types
         self.corpus_name = "_".join(corpus_types)
         self.cache_dir = cache_dir
-        self.catalog = MusicCatalogLoader(dataset_name, split_types)
+        # Callers that already loaded the catalog can share it rather than
+        # reading the same 47k records a second time.
+        self.catalog = catalog or MusicCatalogLoader(dataset_name, split_types)
 
         index_dir = os.path.join(self.cache_dir, "bm25", self.corpus_name)
         if not os.path.exists(index_dir):
