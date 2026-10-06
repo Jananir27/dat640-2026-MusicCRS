@@ -1,7 +1,11 @@
+/* =========================================================
+   Existing ChatBox styles
+   ========================================================= */
+
 #chatBox .form-control {
-    border-color: transparent;
-  }
-  
+  border-color: transparent;
+}
+
 #chatBox .form-control:focus {
   border-color: transparent;
   box-shadow: inset 0px 0px 0px 1px transparent;
@@ -15,8 +19,222 @@
   background: #eee;
 }
 
-#chatBox .card-body{
+#chatBox .card-body {
   overflow-y: auto;
   display: flex;
   flex-direction: column-reverse;
- }
+}
+
+
+/* =========================================================
+   MusicCRS main layout
+   ========================================================= */
+
+.musiccrs-layout {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  width: 100%;
+}
+
+.chat-widget-content {
+  flex: 1;
+  min-width: 0;
+}
+
+
+/* =========================================================
+   Playlist panel
+   ========================================================= */
+
+.playlist-panel {
+  width: 340px;
+  min-width: 300px;
+
+  background: white;
+
+  border-radius: 15px;
+
+  padding: 18px;
+
+  box-shadow:
+    0 2px 10px
+    rgba(0, 0, 0, 0.1);
+}
+
+
+/* =========================================================
+   Playlist header
+   ========================================================= */
+
+.playlist-header {
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  gap: 10px;
+
+  padding-bottom: 12px;
+
+  border-bottom:
+    1px solid #eeeeee;
+}
+
+.playlist-header h5 {
+  margin: 0;
+
+  font-weight: 700;
+}
+
+.playlist-count {
+  color: #777777;
+}
+
+
+/* =========================================================
+   Empty playlist
+   ========================================================= */
+
+.playlist-empty {
+  padding: 40px 10px;
+
+  text-align: center;
+
+  color: #777777;
+}
+
+.playlist-empty-icon {
+  font-size: 36px;
+
+  margin-bottom: 10px;
+}
+
+.playlist-empty p {
+  margin-bottom: 8px;
+
+  font-weight: 500;
+}
+
+
+/* =========================================================
+   Playlist track list
+   ========================================================= */
+
+.playlist-tracks {
+  max-height: 500px;
+
+  overflow-y: auto;
+}
+
+.playlist-track {
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+
+  padding: 12px 0;
+
+  border-bottom:
+    1px solid #eeeeee;
+}
+
+.playlist-track:last-child {
+  border-bottom: none;
+}
+
+
+/* Track number */
+
+.playlist-track-number {
+  width: 24px;
+
+  min-width: 24px;
+
+  height: 24px;
+
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  border-radius: 50%;
+
+  background: #eeeeee;
+
+  font-size: 12px;
+
+  font-weight: 600;
+}
+
+
+/* Track information */
+
+.playlist-track-info {
+  flex: 1;
+
+  min-width: 0;
+}
+
+.playlist-track-name {
+  display: block;
+
+  overflow: hidden;
+
+  text-overflow: ellipsis;
+
+  white-space: nowrap;
+}
+
+.playlist-track-artist {
+  color: #555555;
+
+  font-size: 14px;
+
+  overflow: hidden;
+
+  text-overflow: ellipsis;
+
+  white-space: nowrap;
+}
+
+.playlist-track-album {
+  display: block;
+
+  color: #888888;
+
+  overflow: hidden;
+
+  text-overflow: ellipsis;
+
+  white-space: nowrap;
+}
+
+
+/* Remove button */
+
+.playlist-remove-button {
+  flex-shrink: 0;
+}
+
+
+/* =========================================================
+   Responsive layout
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+  .musiccrs-layout {
+    flex-direction: column;
+  }
+
+  .playlist-panel {
+    width: 100%;
+
+    min-width: 0;
+  }
+
+}

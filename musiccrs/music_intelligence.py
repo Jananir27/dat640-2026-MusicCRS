@@ -46,9 +46,53 @@ def _exact_title_matches(query: str, tracks: list[dict], service: MusicService) 
     ]
     return exact or tracks
 
+def _reasonable_title_matches(
+    query: str,
+    tracks: list[dict],
+    service: MusicService,
+) -> list[dict]:
+    """Reject obviously weak fuzzy matches while preserving useful loose references."""
+    normalized_query = re.sub(r"[^a-z0-9]+", "", query.casefold())
+    if not normalized_query:
+        return []
+
+    reasonable: list[dict] = []
+    for track in tracks:
+        for title in service.display_value(track.get("track_name")).split(", "):
+            normalized_title = re.sub(r"[^a-z0-9]+", "", title.casefold())
+            if not normalized_title:
+                continue
+
+            # Exact after ignoring case/punctuation.
+            if normalized_query == normalized_title:
+                reasonable.append(track)
+                break
+
+            # Permit small spelling differences, but not unrelated fragments
+            # such as ABC / 123 / Son for "xyzabc123notasong".
+            max_len = max(len(normalized_query), len(normalized_title))
+            common_prefix = 0
+            for left, right in zip(normalized_query, normalized_title):
+                if left != right:
+                    break
+                common_prefix += 1
+
+            # A close length plus a meaningful shared prefix is a conservative
+            # loose-reference allowance.
+            if (
+                max_len >= 4
+                and abs(len(normalized_query) - len(normalized_title)) <= 2
+                and common_prefix >= max(3, min(len(normalized_query), len(normalized_title)) - 2)
+            ):
+                reasonable.append(track)
+                break
+
+    return reasonable
+
+
 
 class MusicIntelligence:
-    """Route R5–R8 utterances using a shared service and per-agent state."""
+    """Route MusicCRS natural-language requests for R2–R8."""
 
     def __init__(self, service: MusicService) -> None:
         self.service = service
@@ -59,21 +103,245 @@ class MusicIntelligence:
         if not message:
             return None
 
+        # Existing pending disambiguation / recommendation selection.
         selection = self._handle_pending_selection(message, state)
         if selection is not None:
             return selection
 
+        # R3: explain the available functionality in natural language.
+        help_response = self._handle_help(message)
+        if help_response is not None:
+            return help_response, False
+
+        # R2: natural-language playlist management.
+        playlist_action = self._handle_playlist_action(message, state)
+        if playlist_action is not None:
+            return playlist_action
+
+        # Existing R5: questions about tracks/artists.
         question = self._handle_question(message, state)
         if question is not None:
             return question, False
 
+        # Existing R8: create a playlist from a description.
         if self._is_playlist_creation(message):
             return self._create_playlist(message, state)
 
+        # Existing R6: recommendations based on the current playlist.
         if self._is_recommendation_request(message):
             return self._recommend(message, state)
 
         return None
+
+    def _handle_help(self, message: str) -> str | None:
+        """R3: Explain MusicCRS functionality using natural language."""
+        lowered = message.casefold().strip()
+
+        help_patterns = [
+            r"^help[.!?]*$",
+            r"\bwhat can you do\b",
+            r"\bhow do i use\b",
+            r"\bhow can i use\b",
+            r"\bwhat can i ask\b",
+            r"\bwhat do you do\b",
+        ]
+
+        if not any(re.search(pattern, lowered) for pattern in help_patterns):
+            return None
+
+        return (
+            "I can help you manage and explore music. You can ask me to:\n"
+            "• add a song — for example, “Add Numb by Linkin Park”\n"
+            "• remove a song — “Remove Numb from my playlist”\n"
+            "• view your playlist — “Show my playlist”\n"
+            "• clear your playlist — “Clear my playlist”\n"
+            "• answer questions about tracks and artists\n"
+            "• recommend songs based on your current playlist\n"
+            "• create a playlist from a description, such as "
+            "“Create a workout playlist”."
+        )
+
+    def _handle_playlist_action(
+        self,
+        message: str,
+        state: ConversationState,
+    ) -> tuple[str, bool] | None:
+        """R2: Natural-language add/remove/view/clear playlist operations."""
+        lowered = message.casefold().strip()
+
+        # VIEW
+        if re.search(
+            r"\b(show|view|display|see|list|what(?:'s| is))\b.*\bplaylist\b",
+            lowered,
+        ):
+            records = self.service.get_playlist_records(state)
+            if not records:
+                return "Your playlist is empty.", False
+
+            rendered = "\n".join(
+                f"{index}. {self.service.display_track(track)}"
+                for index, track in enumerate(records, start=1)
+            )
+            return f"Your playlist:\n{rendered}", False
+
+        # CLEAR
+        if re.search(
+            r"\b(clear|empty|reset|delete all|remove all)\b.*\bplaylist\b",
+            lowered,
+        ):
+            self.service.clear_playlist(state)
+            state.pending_disambiguation_ids.clear()
+            state.pending_disambiguation_action = None
+            state.pending_recommendation_ids.clear()
+            return "Your playlist is now empty.", True
+
+        # ADD
+        add_match = re.match(
+            r"^(?:please\s+)?(?:add|put|include)\s+(.+?)(?:\s+(?:to|in|into)\s+(?:my\s+|the\s+)?playlist)?[.!?]*$",
+            message,
+            flags=re.I,
+        )
+        if add_match:
+            entity = _clean_entity(add_match.group(1))
+            return self._add_track_from_text(entity, state)
+
+        # REMOVE
+        remove_match = re.match(
+            r"^(?:please\s+)?(?:remove|delete|take out)\s+(.+?)(?:\s+from\s+(?:my\s+|the\s+)?playlist)?[.!?]*$",
+            message,
+            flags=re.I,
+        )
+        if remove_match:
+            entity = _clean_entity(remove_match.group(1))
+            return self._remove_track_from_text(entity, state)
+
+        return None
+
+    @staticmethod
+    def _split_title_artist(entity: str) -> tuple[str, str | None]:
+        """Split 'track by artist' while still allowing title-only requests."""
+        match = re.match(r"^(.+?)\s+by\s+(.+)$", entity, flags=re.I)
+        if match:
+            return _clean_entity(match.group(1)), _clean_entity(match.group(2))
+        return _clean_entity(entity), None
+
+    def _add_track_from_text(
+        self,
+        entity: str,
+        state: ConversationState,
+    ) -> tuple[str, bool]:
+        """Find a catalog track and add it, or ask for disambiguation."""
+        title, artist = self._split_title_artist(entity)
+        matches = self.service.search_tracks(
+            title=title,
+            artist=artist,
+            limit=10,
+        )
+        matches = _reasonable_title_matches(title, matches, self.service)
+        matches = _exact_title_matches(title, matches, self.service)
+
+        if not matches:
+            return (
+                f"I couldn't find “{entity}” in the music catalog, "
+                "so I didn't add anything.",
+                False,
+            )
+
+        # A supplied artist normally makes the request specific enough.
+        if artist:
+            track = matches[0]
+            track_id = track["track_id"]
+            self.service.add_tracks(state, [track_id])
+            return (
+                f"Added {self.service.display_track(track)} to your playlist.",
+                True,
+            )
+
+        if len(matches) == 1:
+            track = matches[0]
+            track_id = track["track_id"]
+            self.service.add_tracks(state, [track_id])
+            return (
+                f"Added {self.service.display_track(track)} to your playlist.",
+                True,
+            )
+
+        # R4: multiple same-title/fuzzy candidates. search_tracks() already
+        # ranks them by similarity and popularity.
+        choices = matches[:5]
+        state.pending_disambiguation_ids = [
+            track["track_id"] for track in choices
+        ]
+        state.pending_disambiguation_action = "add"
+        state.pending_recommendation_ids.clear()
+
+        lines = [
+            f"{index}. {self.service.display_track(track)}"
+            for index, track in enumerate(choices, start=1)
+        ]
+        return (
+            f"I found several matches for “{title}”. Which one did you mean?\n"
+            + "\n".join(lines)
+            + "\nReply with a number, for example “1” or “the second one”.",
+            False,
+        )
+
+    def _remove_track_from_text(
+        self,
+        entity: str,
+        state: ConversationState,
+    ) -> tuple[str, bool]:
+        """Remove a matching track from the current playlist."""
+        title, artist = self._split_title_artist(entity)
+
+        if not state.playlist_ids:
+            return "Your playlist is already empty.", False
+
+        matches = self.service.search_tracks(
+            title=title,
+            artist=artist,
+            limit=20,
+        )
+        playlist_ids = set(state.playlist_ids)
+        matches = [
+            track for track in matches
+            if track["track_id"] in playlist_ids
+        ]
+        matches = _exact_title_matches(title, matches, self.service)
+
+        if not matches:
+            return (
+                f"I couldn't find “{entity}” in your current playlist.",
+                False,
+            )
+
+        if artist or len(matches) == 1:
+            track = matches[0]
+            track_id = track["track_id"]
+            self.service.remove_tracks(state, [track_id])
+            return (
+                f"Removed {self.service.display_track(track)} from your playlist.",
+                True,
+            )
+
+        choices = matches[:5]
+        state.pending_disambiguation_ids = [
+            track["track_id"] for track in choices
+        ]
+        state.pending_disambiguation_action = "remove"
+        state.pending_recommendation_ids.clear()
+
+        lines = [
+            f"{index}. {self.service.display_track(track)}"
+            for index, track in enumerate(choices, start=1)
+        ]
+        return (
+            f"I found several matching tracks in your playlist. "
+            f"Which “{title}” do you want to remove?\n"
+            + "\n".join(lines)
+            + "\nReply with a number.",
+            False,
+        )
 
     def _handle_pending_selection(
         self,
@@ -167,7 +435,8 @@ class MusicIntelligence:
 
     @staticmethod
     def _selected_positions(message: str, count: int) -> list[int] | None:
-        lowered = message.casefold()
+        lowered = message.casefold().strip()
+
         if (
             not re.search(
                 r"\b(add|choose|select|take|want|option|number|first|second|third|fourth|fifth|last)\b",
@@ -176,26 +445,47 @@ class MusicIntelligence:
             and not re.fullmatch(r"\s*\d+\s*", lowered)
         ):
             return None
-        if re.search(r"\b(first\s+two|first\s+2)\b", lowered):
+
+        # Multi-selection expressions used for recommendation follow-ups.
+        if re.search(r"\bfirst\s+(?:two|2)\b", lowered):
             return list(range(min(2, count)))
-        if re.search(r"\b(first\s+three|first\s+3)\b", lowered):
+
+        if re.search(r"\bfirst\s+(?:three|3)\b", lowered):
             return list(range(min(3, count)))
-        if re.search(r"\b(first\s+\d+)\b", lowered):
-            number = int(re.search(r"\bfirst\s+(\d+)\b", lowered).group(1))
+
+        first_number = re.search(r"\bfirst\s+(\d+)\b", lowered)
+        if first_number:
+            number = int(first_number.group(1))
             return list(range(min(number, count)))
 
-        found: list[int] = []
-        for word, one_based in _WORD_NUMBERS.items():
-            if re.search(rf"\b{re.escape(word)}\b", lowered):
-                index = count - 1 if one_based == -1 else one_based - 1
-                if 0 <= index < count:
-                    found.append(index)
-        for numeric in re.findall(r"\b(?:number\s*)?(\d+)(?:st|nd|rd|th)?\b", lowered):
-            index = int(numeric) - 1
+        # Resolve ordinal phrases before generic words such as "one".
+        ordinal_words = {
+            "first": 0,
+            "second": 1,
+            "third": 2,
+            "fourth": 3,
+            "fifth": 4,
+        }
+
+        for word, index in ordinal_words.items():
+            if re.search(rf"\b{word}\b", lowered):
+                if index < count:
+                    return [index]
+
+        if re.search(r"\blast\b", lowered):
+            return [count - 1] if count else None
+
+        # Numeric forms: "2", "number 2", "option 2", "2nd".
+        numeric = re.search(
+            r"\b(?:number\s+|option\s+)?(\d+)(?:st|nd|rd|th)?\b",
+            lowered,
+        )
+        if numeric:
+            index = int(numeric.group(1)) - 1
             if 0 <= index < count:
-                found.append(index)
-        selected = list(dict.fromkeys(found))
-        return selected or None
+                return [index]
+
+        return None
 
     def _match_pending_description(
         self,
