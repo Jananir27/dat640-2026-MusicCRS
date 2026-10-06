@@ -4,3 +4,5 @@ websocket-client
 colorama
 datasets
 bm25s
+sentence-transformers
+torch
