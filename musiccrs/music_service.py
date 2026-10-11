@@ -15,11 +15,11 @@ import re
 from threading import Lock
 from typing import Any
 
-from retrieval.bm25 import BM25Retriever
+from retrieval.base import RetrievalModule
 from retrieval.data_loader import MusicCatalogLoader
+from retrieval.final import FinalRetriever
 
 
-_INDEX_FIELDS = ["track_name", "artist_name", "album_name", "tag_list"]
 _TOKEN_RE = re.compile(r"[^a-z0-9]+")
 
 
@@ -31,6 +31,7 @@ class ConversationState:
     pending_disambiguation_ids: list[str] = field(default_factory=list)
     pending_disambiguation_action: str | None = None
     pending_recommendation_ids: list[str] = field(default_factory=list)
+    recent_retrieval_requests: list[str] = field(default_factory=list)
 
 
 def _values(value: Any) -> list[str]:
@@ -86,7 +87,7 @@ class MusicService:
     def __init__(
         self,
         catalog: MusicCatalogLoader | None = None,
-        retriever: BM25Retriever | None = None,
+        retriever: RetrievalModule | None = None,
     ) -> None:
         self.catalog = catalog or MusicCatalogLoader()
         self._retriever = retriever
@@ -198,14 +199,11 @@ class MusicService:
         ranked.sort(key=lambda item: tuple(-score for score in item[0]))
         return [metadata for _, metadata in ranked[:limit]]
 
-    def _get_retriever(self) -> BM25Retriever:
+    def _get_retriever(self) -> RetrievalModule:
         if self._retriever is None:
             with self._retriever_lock:
                 if self._retriever is None:
-                    self._retriever = BM25Retriever(
-                        corpus_types=_INDEX_FIELDS,
-                        catalog=self.catalog,
-                    )
+                    self._retriever = FinalRetriever(catalog=self.catalog)
         return self._retriever
 
     def recommend_tracks(
@@ -213,20 +211,43 @@ class MusicService:
         query: str,
         exclude_ids: set[str] | None = None,
         limit: int = 5,
+        *,
+        state: ConversationState | None = None,
+        request: str | None = None,
+        new_playlist: bool = False,
     ) -> list[dict]:
-        """Retrieve related catalog tracks with BM25 and remove excluded IDs."""
+        """Run final G1 retrieval and filter playlist exclusions after ranking.
+
+        Live R6/R8 requests use LL (discovery), since chat has no dataset goal
+        labels. New playlist descriptions start a fresh retrieval context.
+        """
         if limit <= 0 or not query.strip():
             return []
         excluded = exclude_ids or set()
         retriever = self._get_retriever()
-        candidate_count = min(
-            len(self.catalog.metadata_dict),
-            max(limit * 8 + len(excluded), 40),
-        )
-        candidate_ids = retriever.text_to_item_retrieval(query, candidate_count)
+        request = request or query
+        if isinstance(retriever, FinalRetriever):
+            history = [] if state is None or new_playlist else state.recent_retrieval_requests[-2:]
+            playlist_ids = [] if state is None or new_playlist else state.playlist_ids[-2:]
+            conversations = [
+                {"role": "user", "content": text, "turn_number": index}
+                for index, text in enumerate(history, start=1)
+            ]
+            conversations.extend(
+                {"role": "music", "content": track_id, "turn_number": index}
+                for index, track_id in enumerate(playlist_ids, start=1)
+            )
+            conversations.append({"role": "user", "content": request, "turn_number": 3})
+            candidate_ids = retriever.retrieve_context({
+                "conversations": conversations,
+                "conversation_goal": {"specificity": "LL", "listener_goal": query},
+            }, 3, topk=20)
+        else:
+            # Explicitly injected retrievers are used by focused unit tests.
+            candidate_ids = retriever.text_to_item_retrieval(query, min(20, len(self.catalog.metadata_dict)))
 
         tracks = []
-        for track_id in candidate_ids:
+        for track_id in dict.fromkeys(candidate_ids):
             if track_id in excluded:
                 continue
             metadata = self.get_track(track_id)
@@ -234,12 +255,16 @@ class MusicService:
                 tracks.append(metadata)
                 if len(tracks) == limit:
                     break
+        if tracks and state is not None:
+            previous = [] if new_playlist else state.recent_retrieval_requests
+            state.recent_retrieval_requests = (previous + [request])[-2:]
         return tracks
 
     def recommend_from_playlist(
         self,
         state: ConversationState,
         limit: int = 5,
+        request: str = "Recommend something based on my playlist",
     ) -> list[dict]:
         """Build a compact catalog query from the playlist and retrieve matches."""
         seeds = [self.get_track(track_id) for track_id in state.playlist_ids]
@@ -268,6 +293,8 @@ class MusicService:
             "; ".join(query_parts),
             exclude_ids=set(state.playlist_ids),
             limit=limit,
+            state=state,
+            request=request,
         )
 
     def get_playlist(self, state: ConversationState) -> list[str]:
@@ -311,6 +338,10 @@ class MusicService:
 
     def clear_playlist(self, state: ConversationState) -> list[str]:
         state.playlist_ids.clear()
+        state.pending_recommendation_ids.clear()
+        state.pending_disambiguation_ids.clear()
+        state.pending_disambiguation_action = None
+        state.recent_retrieval_requests.clear()
         return self.get_playlist(state)
 
 

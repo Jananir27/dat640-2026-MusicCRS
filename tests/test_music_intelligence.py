@@ -7,6 +7,9 @@ from musiccrs.music_service import ConversationState, MusicService
 
 
 class FakeCatalog:
+    def id_to_metadata(self, track_id):
+        return self.metadata_dict[track_id]
+
     def __init__(self):
         rows = [
             ("Love", "Artist One", ["pop", "love"], "2000-01-01", 70),

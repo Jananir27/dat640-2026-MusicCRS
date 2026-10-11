@@ -16,6 +16,11 @@ Install dependencies by running:
 pip install -r requirements.txt
 ```
 
+Before starting the server, export the saved G1 retrieval settings and statistics
+as described in [the final retrieval setup](retrieval/README.md#final-g1-retrieval-in-the-chat-backend).
+The backend uses the full hybrid and reranking pipeline for recommendations;
+it requires that artifact and loads the Qwen embedding model at startup.
+
 Then, start the server by running:
 
 ```bash

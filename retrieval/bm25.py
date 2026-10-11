@@ -41,7 +41,13 @@ class BM25Retriever(RetrievalModule):
         self.catalog = catalog or MusicCatalogLoader(dataset_name, split_types)
 
         index_dir = os.path.join(self.cache_dir, "bm25", self.corpus_name)
-        if not os.path.exists(index_dir):
+        # An interrupted build can leave an existing but incomplete directory.
+        required_files = (
+            "params.index.json", "vocab.index.json", "data.csc.index.npy",
+            "indices.csc.index.npy", "indptr.csc.index.npy", "corpus.jsonl",
+            "track_ids.json",
+        )
+        if not all(os.path.isfile(os.path.join(index_dir, name)) for name in required_files):
             self._build_index(index_dir)
         self.bm25_model, self.track_ids = self._load_index(index_dir)
 
@@ -74,7 +80,8 @@ class BM25Retriever(RetrievalModule):
     def _load_index(self, index_dir: str) -> tuple[bm25s.BM25, list[str]]:
         """Load a cached BM25 index and its track id list."""
         bm25_model = bm25s.BM25.load(index_dir, load_corpus=True)
-        track_ids = json.load(open(os.path.join(index_dir, "track_ids.json")))
+        with open(os.path.join(index_dir, "track_ids.json")) as file:
+            track_ids = json.load(file)
         return bm25_model, track_ids
 
     def text_to_item_retrieval(self, query: str, topk: int) -> list[str]:

@@ -138,7 +138,7 @@ class MusicIntelligence:
         lowered = message.casefold().strip()
 
         help_patterns = [
-            r"^help[.!?]*$",
+            r"^(?:please\s+)?help(?:\s+me)?[.!?]*$",
             r"\bwhat can you do\b",
             r"\bhow do i use\b",
             r"\bhow can i use\b",
@@ -437,6 +437,16 @@ class MusicIntelligence:
     def _selected_positions(message: str, count: int) -> list[int] | None:
         lowered = message.casefold().strip()
 
+        # Preserve every explicit position in selections such as "Add 1 and 3".
+        number_list = re.fullmatch(
+            r"(?:(?:add|choose|select|take)\s+)?(?:options?\s+|numbers?\s+)?"
+            r"(\d+(?:\s*(?:,\s*(?:and\s+)?|and\s+)\d+)+)[.!]?",
+            lowered,
+        )
+        if number_list:
+            positions = list(dict.fromkeys(int(n) - 1 for n in re.findall(r"\d+", number_list.group(1))))
+            return positions if all(0 <= p < count for p in positions) else None
+
         if (
             not re.search(
                 r"\b(add|choose|select|take|want|option|number|first|second|third|fourth|fifth|last)\b",
@@ -613,7 +623,7 @@ class MusicIntelligence:
     def _recommend(self, message: str, state: ConversationState) -> tuple[str, bool]:
         if not state.playlist_ids:
             return "Add at least one song to your playlist first, and I can suggest related tracks.", False
-        recommendations = self.service.recommend_from_playlist(state, limit=5)
+        recommendations = self.service.recommend_from_playlist(state, limit=5, request=message)
         if not recommendations:
             return "I couldn't find enough related tracks in the catalog for your playlist.", False
         state.pending_recommendation_ids = [track["track_id"] for track in recommendations]
@@ -675,7 +685,9 @@ class MusicIntelligence:
         query = " ".join(query.split()).strip(" .!?,-") or message
         if query == message and not re.search(r"\b(mood|genre|style|activity|energy)\b", message, re.I):
             return "What mood, genre, or activity should I use for the playlist?", False
-        candidates = self.service.recommend_tracks(query, exclude_ids=set(), limit=30)
+        candidates = self.service.recommend_tracks(
+            query, exclude_ids=set(), limit=20, state=state, request=message, new_playlist=True,
+        )
         unique_candidates = list(
             {track["track_id"]: track for track in candidates}.values()
         )
@@ -693,7 +705,7 @@ class MusicIntelligence:
         total_duration_ms = 0
         minimum_tracks = min(8, len(unique_candidates))
         for track in unique_candidates:
-            if len(unique_tracks) >= 24:
+            if len(unique_tracks) >= 20:
                 break
             unique_tracks.append(track)
             try:
