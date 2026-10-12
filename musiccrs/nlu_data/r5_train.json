@@ -3,7 +3,13 @@
     "Who sang this song?", "Who performed this song?", "Who is the artist of this song?",
     "Tell me the performer of this song", "Whose song is this?", "Who recorded this song?",
     "Which band plays this song?", "Name the singer on this song", "Who is this song by?",
-    "Who made this song?", "Who is singing that track?", "Which musician performs it?"
+    "Who made this song?", "Who is singing that track?", "Which musician performs it?",
+    "Who made this song by this artist?", "Who performs this song by this artist?",
+    "Who sings this track by this artist?", "Tell me the singer of this song by this artist",
+    "Who is the performer of this track by this artist?", "Who recorded this song by this artist?",
+    "Which artist performs this song by this artist?", "Name the singer for this song by this artist",
+    "Who is singing this track by this artist?", "Who is the artist behind this song by this artist?",
+    "Tell me which musician performs this song by this artist"
   ],
   "album": [
     "What album is this song on?", "Which record contains this song?", "Name the album for this song",
