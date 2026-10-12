@@ -1,0 +1,49 @@
+{
+  "artist": [
+    "Who sang this song?", "Who performed this song?", "Who is the artist of this song?",
+    "Tell me the performer of this song", "Whose song is this?", "Who recorded this song?",
+    "Which band plays this song?", "Name the singer on this song", "Who is this song by?",
+    "Who made this song?", "Who is singing that track?", "Which musician performs it?"
+  ],
+  "album": [
+    "What album is this song on?", "Which record contains this song?", "Name the album for this song",
+    "Where can I find this song on an album?", "Which album features this track?",
+    "What is the album title for this song?", "Tell me the album that includes this song",
+    "Which release does this song belong to?", "What album did this song appear on?",
+    "Album of this song?", "Which album is it from?", "What record is that track from?"
+  ],
+  "release": [
+    "When was this song released?", "What year did this song come out?", "When did this song first come out?",
+    "Tell me the release date of this song", "How old is this song?", "When was this track published?",
+    "Which year is this song from?", "What is the release year of this song?",
+    "When did they release this song?", "On what date was this song released?",
+    "When was it released?", "What year did that track come out?"
+  ],
+  "tags": [
+    "What genre is this song?", "What style of music is this song?", "How is this song tagged?",
+    "Tell me the catalog tags for this song", "Which genres describe this song?",
+    "What kind of music is this song?", "What musical style does this song have?",
+    "How would you categorize this song?", "Is this song rock or pop?",
+    "What tags does this song have?", "What genre is it?", "What style is that track?"
+  ],
+  "artist_tracks": [
+    "What songs by this artist?", "Other songs by this artist?", "What other tracks by this artist?",
+    "Show me tracks by this artist", "List tracks from this artist", "Show me songs performed by this artist",
+    "What else has this artist recorded?", "Anything else from this artist?",
+    "Which songs does this artist perform?", "Name some tracks by this artist",
+    "Show me this artist's songs", "What music has this artist made?",
+    "More songs by the same artist", "What other songs have they released?"
+  ],
+  "other": [
+    "Hello", "Thanks for helping", "What is the weather today?", "Tell me a joke",
+    "Add this song to my playlist", "Remove this song", "Clear my playlist", "Show my playlist",
+    "Recommend songs based on my playlist", "Suggest something similar to this song",
+    "Create a workout playlist", "Make a sad playlist", "Add the first two", "Don't add any of them",
+    "I hate this song", "Play this song", "What is this song about?", "Who wrote this song?",
+    "Show me the lyrics of this song", "Who produced this song?", "What key is this song in?",
+    "What is the tempo of this song?", "Tell me about this artist's childhood",
+    "Delete everything except this song", "When is this artist touring?",
+    "Is this artist still alive?", "I listened to this song yesterday", "Tell me about this song",
+    "Compare this song with another song", "Change the release date of this song"
+  ]
+}

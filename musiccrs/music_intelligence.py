@@ -94,8 +94,9 @@ def _reasonable_title_matches(
 class MusicIntelligence:
     """Route MusicCRS natural-language requests for R2–R8."""
 
-    def __init__(self, service: MusicService) -> None:
+    def __init__(self, service: MusicService, r5_router=None) -> None:
         self.service = service
+        self._r5_router = r5_router
 
     def handle(self, text: str, state: ConversationState) -> tuple[str, bool] | None:
         """Return response and whether the playlist changed; None if unhandled."""
@@ -118,18 +119,18 @@ class MusicIntelligence:
         if playlist_action is not None:
             return playlist_action
 
-        # Existing R5: questions about tracks/artists.
-        question = self._handle_question(message, state)
-        if question is not None:
-            return question, False
+        # Keep conversational recommendation requests on the final G1 retriever.
+        if self._is_recommendation_request(message):
+            return self._recommend(message, state)
 
         # Existing R8: create a playlist from a description.
         if self._is_playlist_creation(message):
             return self._create_playlist(message, state)
 
-        # Existing R6: recommendations based on the current playlist.
-        if self._is_recommendation_request(message):
-            return self._recommend(message, state)
+        # R5 semantic intent routing and catalog-grounded answers.
+        question = self._handle_question(message, state)
+        if question is not None:
+            return question, False
 
         return None
 
@@ -367,6 +368,11 @@ class MusicIntelligence:
                     self.service.remove_tracks(state, [track_id])
                     track = self.service.get_track(track_id)
                     return f"Removed {self.service.display_track(track)} from your playlist.", True
+                state.last_question_track_id = track_id
+                track = self.service.get_track(track_id)
+                state.last_question_artist = (
+                    self.service.display_value(track.get("artist_name")) if track else None
+                )
                 return self._answer_track_action(track_id, action), False
             return None
 
@@ -519,39 +525,94 @@ class MusicIntelligence:
         return matches
 
     def _handle_question(self, message: str, state: ConversationState) -> str | None:
-        patterns = [
-            ("artist", r"^(?:who\s+(?:sings|performs)\s+|who\s+is\s+the\s+artist\s+of\s+)(.+?)\??$"),
-            ("album", r"^(?:what\s+album\s+is\s+)(.+?)\s+on\??$"),
-            ("release", r"^(?:when\s+was\s+)(.+?)\s+released\??$"),
-            ("tags", r"^what\s+is\s+the\s+(?:genre|style)\s+of\s+(.+?)\??$"),
-            ("tags", r"^what\s+(?:genre|style|tags?)\s+(?:is|are|of)\s+(.+?)\??$"),
-            ("tags", r"^what\s+(?:genre|style|tags?)\s+(?:does|do)\s+(.+?)\s+(?:have|use)\??$"),
-        ]
-        lowered = message.strip()
-        artist_tracks = re.match(
-            r"^(?:what\s+)?(?:songs|tracks)\s+(?:by|from)\s+(.+?)(?:\s+(?:are|does).*)?\??$",
-            lowered,
-            flags=re.I,
-        )
-        if artist_tracks:
-            artist = _clean_entity(artist_tracks.group(1))
-            results = self.service.search_tracks(artist=artist, limit=5)
-            exact = [
-                track for track in results
-                if artist.casefold() in self.service.display_value(track.get("artist_name")).casefold()
-            ]
-            results = exact or results
-            if not results:
-                return f"I couldn't find tracks by {artist} in the catalog."
-            rendered = [self.service.display_track(track) for track in results[:5]]
-            return f"Here are tracks by {artist} in the catalog: " + "; ".join(rendered) + "."
+        from musiccrs.r5_nlu import get_r5_router
 
-        for action, pattern in patterns:
-            match = re.match(pattern, lowered, flags=re.I)
-            if match:
-                entity = _clean_entity(match.group(1))
-                return self._resolve_track_question(entity, action, state)
-        return None
+        entities = self.service.get_r5_entities()
+        title_mentions = entities.mentions(message, "title")
+        artist_mentions = entities.mentions(message, "artist")
+        masked_message = entities.mask(message, title_mentions, artist_mentions)
+        router = self._r5_router or get_r5_router()
+        prediction = router.predict(masked_message)
+        if not prediction.accepted:
+            return None
+
+        # Spend fuzzy matching only on messages already classified as an R5
+        # lookup. Ordinary chat and playlist actions use the fast exact index.
+        if prediction.intent == "artist_tracks" and not artist_mentions:
+            artist_mentions = entities.mentions(message, "artist", fuzzy=True)
+        elif prediction.intent in {"artist", "album", "release", "tags"}:
+            if not title_mentions:
+                title_mentions = entities.mentions(message, "title", fuzzy=True)
+            if not artist_mentions:
+                artist_mentions = entities.mentions(message, "artist", fuzzy=True)
+        if title_mentions or artist_mentions:
+            masked_message = entities.mask(message, title_mentions, artist_mentions)
+            prediction = router.predict(masked_message)
+            if not prediction.accepted:
+                return None
+
+        if prediction.intent == "artist_tracks":
+            artist = artist_mentions[0] if artist_mentions else None
+            artist_name = artist.name if artist else state.last_question_artist
+            if not artist_name:
+                return "Which artist do you mean?"
+            exact_artist_ids = set(artist.ids) if artist else None
+            results = self.service.search_tracks(artist=artist_name, limit=100)
+            results = [
+                track for track in results
+                if (exact_artist_ids is None or track["track_id"] in exact_artist_ids)
+                and self.service.display_value(track.get("artist_name")).casefold().find(artist_name.casefold()) >= 0
+            ]
+            if not results:
+                return f"I couldn't find tracks by {artist_name} in the catalog."
+            if "other" in masked_message.casefold() or "else" in masked_message.casefold():
+                excluded = set(state.playlist_ids)
+                if state.last_question_track_id:
+                    excluded.add(state.last_question_track_id)
+                results = [track for track in results if track["track_id"] not in excluded]
+            if not results:
+                return f"I couldn't find other tracks by {artist_name} beyond the ones already in context."
+            state.last_question_artist = artist_name
+            rendered = [self.service.display_track(track) for track in results[:5]]
+            return f"Here are tracks by {artist_name} in the catalog: " + "; ".join(rendered) + "."
+
+        if prediction.intent not in {"artist", "album", "release", "tags"}:
+            return None
+        action = prediction.intent
+        title = title_mentions[0] if title_mentions else None
+        artist = artist_mentions[0] if artist_mentions else None
+
+        # Resolve explicit “that/it/this song” references against the last
+        # track discussed by this user; never infer a silent playlist change.
+        if title is None and re.search(r"\b(that|it|this song|this track|the song|the track)\b", message, re.I):
+            track_id = state.last_question_track_id
+            if track_id and self.service.get_track(track_id):
+                state.pending_disambiguation_ids = []
+                state.pending_disambiguation_action = None
+                state.last_question_artist = self.service.display_value(
+                    self.service.get_track(track_id).get("artist_name")
+                )
+                return self._answer_track_action(track_id, action)
+
+        if title is None:
+            return "Which song or track should I look up?"
+        candidates = [self.service.get_track(track_id) for track_id in title.ids]
+        candidates = [track for track in candidates if track]
+        if artist:
+            candidates = [track for track in candidates if track["track_id"] in artist.ids]
+        if not candidates:
+            return f"I couldn't find a catalog track matching {title.name}."
+        if len(candidates) > 1:
+            choices = candidates[:5]
+            state.pending_disambiguation_ids = [track["track_id"] for track in choices]
+            state.pending_disambiguation_action = action
+            state.pending_recommendation_ids.clear()
+            lines = [f"{i}. {self.service.display_track(track)}" for i, track in enumerate(choices, 1)]
+            return "Which track did you mean? Reply with its number.\n" + "\n".join(lines)
+        track_id = candidates[0]["track_id"]
+        state.last_question_track_id = track_id
+        state.last_question_artist = self.service.display_value(candidates[0].get("artist_name"))
+        return self._answer_track_action(track_id, action)
 
     def _resolve_track_question(
         self,

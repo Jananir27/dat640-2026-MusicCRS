@@ -32,6 +32,8 @@ class ConversationState:
     pending_disambiguation_action: str | None = None
     pending_recommendation_ids: list[str] = field(default_factory=list)
     recent_retrieval_requests: list[str] = field(default_factory=list)
+    last_question_track_id: str | None = None
+    last_question_artist: str | None = None
 
 
 def _values(value: Any) -> list[str]:
@@ -92,6 +94,22 @@ class MusicService:
         self.catalog = catalog or MusicCatalogLoader()
         self._retriever = retriever
         self._retriever_lock = Lock()
+        self._r5_entities = None
+        self._r5_entities_lock = Lock()
+
+    def get_r5_entities(self):
+        """Build the read-only name index once for all connected users."""
+        if self._r5_entities is None:
+            with self._r5_entities_lock:
+                if self._r5_entities is None:
+                    from musiccrs.r5_nlu import CatalogEntities
+                    self._r5_entities = CatalogEntities(self.catalog)
+        return self._r5_entities
+
+    def warm_r5(self):
+        from musiccrs.r5_nlu import get_r5_router
+        self.get_r5_entities()
+        get_r5_router()
 
     @staticmethod
     def display_value(value: Any) -> str:
@@ -342,6 +360,8 @@ class MusicService:
         state.pending_disambiguation_ids.clear()
         state.pending_disambiguation_action = None
         state.recent_retrieval_requests.clear()
+        state.last_question_track_id = None
+        state.last_question_artist = None
         return self.get_playlist(state)
 
 

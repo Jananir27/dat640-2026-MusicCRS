@@ -214,7 +214,9 @@ if __name__ == "__main__":
     from retrieval.final import load_artifact
 
     load_artifact()
-    get_shared_music_service()._get_retriever()
+    music_service = get_shared_music_service()
+    music_service._get_retriever()
+    music_service.warm_r5()
     platform = FlaskSocketPlatform(MusicCRS)
     platform.start()
     platform.start()
