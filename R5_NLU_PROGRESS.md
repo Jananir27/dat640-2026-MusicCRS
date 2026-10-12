@@ -55,6 +55,8 @@ The follow-up run changed the first question to “Who made Numb by Linkin Park?
 
 The next browser conversation exposed a missing R5 case: “what other songs are on the album?” was treated as an artist-track request. The router now has an `album_tracks` intent and album-name lookup, including distinctive album-word aliases such as “Issa” for “Issa Album.” Adding a track also records it as the current conversational reference, so “other songs on the track” can use that track's album. This album-listing change still needs a manual rerun.
 
+The first browser rerun after that change used “what other songs are in this album?” and “what other songs are in the issa album”; both remained unhandled. The album intent examples had emphasized “on” rather than “in.” Training examples now include “in this album,” “in the album,” and “from this album” phrasings. This wording update still needs a browser rerun.
+
 The prior test downloaded about 85 MB of model weights. It did not report per-message latency, so the 3–5 second target still needs to be checked in the browser after the router is warm.
 
 ## Browser backend restart

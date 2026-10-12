@@ -50,7 +50,13 @@
     "What songs appear on this record?", "What music is on this album?",
     "List songs from the album containing this track", "Which other tracks appear on this album?",
     "Give me the track listing for this album", "What are the other tracks on the album?",
-    "What other songs are on this artist this album?"
+    "What other songs are on this artist this album?", "What other songs are in this album?",
+    "What other songs are in the album?", "What songs are in this album?",
+    "List other songs in this album", "What tracks are in this album?",
+    "What other music is in this record?", "What else is included in this album?",
+    "Which songs are in the same album as this track?", "What other tracks are from this album?",
+    "Show me other songs from this album", "What songs are included in this record?",
+    "What else can I listen to from this album?", "Are there other tracks in the album?"
   ],
   "other": [
     "Hello", "Thanks for helping", "What is the weather today?", "Tell me a joke",
