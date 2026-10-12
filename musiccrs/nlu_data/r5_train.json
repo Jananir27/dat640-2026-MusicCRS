@@ -9,28 +9,35 @@
     "Who is the performer of this track by this artist?", "Who recorded this song by this artist?",
     "Which artist performs this song by this artist?", "Name the singer for this song by this artist",
     "Who is singing this track by this artist?", "Who is the artist behind this song by this artist?",
-    "Tell me which musician performs this song by this artist"
+    "Tell me which musician performs this song by this artist", "Who sings it?",
+    "Who is the singer?", "What band is this?", "Who is the artist?"
   ],
   "album": [
     "What album is this song on?", "Which record contains this song?", "Name the album for this song",
     "Where can I find this song on an album?", "Which album features this track?",
     "What is the album title for this song?", "Tell me the album that includes this song",
     "Which release does this song belong to?", "What album did this song appear on?",
-    "Album of this song?", "Which album is it from?", "What record is that track from?"
+    "Album of this song?", "Which album is it from?", "What record is that track from?",
+    "Is it part of an album?", "What's the album?", "What album is it on?",
+    "Tell me the record name", "Which project is this from?"
   ],
   "release": [
     "When was this song released?", "What year did this song come out?", "When did this song first come out?",
     "Tell me the release date of this song", "How old is this song?", "When was this track published?",
     "Which year is this song from?", "What is the release year of this song?",
     "When did they release this song?", "On what date was this song released?",
-    "When was it released?", "What year did that track come out?"
+    "When was it released?", "What year did that track come out?", "What year?",
+    "When did it drop?", "When did it come out?", "What is the release date?",
+    "Is this a new song?", "How old is it?"
   ],
   "tags": [
     "What genre is this song?", "What style of music is this song?", "How is this song tagged?",
     "Tell me the catalog tags for this song", "Which genres describe this song?",
     "What kind of music is this song?", "What musical style does this song have?",
     "How would you categorize this song?", "Is this song rock or pop?",
-    "What tags does this song have?", "What genre is it?", "What style is that track?"
+    "What tags does this song have?", "What genre is it?", "What style is that track?",
+    "Genre?", "What's the vibe?", "Is it a rock song?", "What type of music is this?",
+    "How is it categorized?"
   ],
   "artist_tracks": [
     "What songs by this artist?", "Other songs by this artist?", "What other tracks by this artist?",
@@ -38,7 +45,9 @@
     "What else has this artist recorded?", "Anything else from this artist?",
     "Which songs does this artist perform?", "Name some tracks by this artist",
     "Show me this artist's songs", "What music has this artist made?",
-    "More songs by the same artist", "What other songs have they released?"
+    "More songs by the same artist", "What other songs have they released?",
+    "Anything else by them?", "What else do they sing?", "More from them?",
+    "Do they have other music?", "List their other tracks"
   ],
   "album_tracks": [
     "What other songs are on this album?", "What songs are on the same album as this track?",
@@ -56,7 +65,8 @@
     "What other music is in this record?", "What else is included in this album?",
     "Which songs are in the same album as this track?", "What other tracks are from this album?",
     "Show me other songs from this album", "What songs are included in this record?",
-    "What else can I listen to from this album?", "Are there other tracks in the album?"
+    "What else can I listen to from this album?", "Are there other tracks in the album?",
+    "What else is on it?", "Show me the rest of the album", "Full tracklist for this record"
   ],
   "other": [
     "Hello", "Thanks for helping", "What is the weather today?", "Tell me a joke",
@@ -68,6 +78,9 @@
     "What is the tempo of this song?", "Tell me about this artist's childhood",
     "Delete everything except this song", "When is this artist touring?",
     "Is this artist still alive?", "I listened to this song yesterday", "Tell me about this song",
-    "Compare this song with another song", "Change the release date of this song"
+    "Compare this song with another song", "Change the release date of this song",
+    "How long is this song?", "What is the duration?", "Is this song explicit?",
+    "Play an album by this artist", "Skip this track", "Pause the music",
+    "Turn up the volume", "Who is the drummer?", "Did this win a Grammy?"
   ]
 }

@@ -57,6 +57,8 @@ The next browser conversation exposed a missing R5 case: “what other songs are
 
 The first browser rerun after that change used “what other songs are in this album?” and “what other songs are in the issa album”; both remained unhandled. The album intent examples had emphasized “on” rather than “in.” Training examples now include “in this album,” “in the album,” and “from this album” phrasings. This wording update still needs a browser rerun.
 
+Additional manual feedback recommends natural pronoun-only follow-ups and stronger `other` examples for unsupported catalog questions. Training examples now cover short “who sings it?”, “what year?”, and “anything else by them?” forms, plus duration, explicitness, playback controls, awards, and musician-role questions as unsupported intents. When R5 recognizes a supported question but no entity is named, it now uses the last discussed track. This update has not been tested yet.
+
 The prior test downloaded about 85 MB of model weights. It did not report per-message latency, so the 3–5 second target still needs to be checked in the browser after the router is warm.
 
 ## Browser backend restart

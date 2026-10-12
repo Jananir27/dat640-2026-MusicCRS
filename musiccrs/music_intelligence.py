@@ -649,9 +649,9 @@ class MusicIntelligence:
         title = title_mentions[0] if title_mentions else None
         artist = artist_mentions[0] if artist_mentions else None
 
-        # Resolve explicit “that/it/this song” references against the last
-        # track discussed by this user; never infer a silent playlist change.
-        if title is None and re.search(r"\b(that|it|this song|this track|the song|the track)\b", message, re.I):
+        # A short R5 follow-up with a clear information intent uses the last
+        # discussed track even when the user omits a title ("what year?").
+        if title is None:
             track_id = state.last_question_track_id
             if track_id and self.service.get_track(track_id):
                 state.pending_disambiguation_ids = []
