@@ -226,6 +226,12 @@ class MusicIntelligence:
             return _clean_entity(match.group(1)), _clean_entity(match.group(2))
         return _clean_entity(entity), None
 
+    def _remember_track(self, track_id: str, state: ConversationState) -> None:
+        track = self.service.get_track(track_id)
+        if track:
+            state.last_question_track_id = track_id
+            state.last_question_artist = self.service.display_value(track.get("artist_name"))
+
     def _add_track_from_text(
         self,
         entity: str,
@@ -253,6 +259,7 @@ class MusicIntelligence:
             track = matches[0]
             track_id = track["track_id"]
             self.service.add_tracks(state, [track_id])
+            self._remember_track(track_id, state)
             return (
                 f"Added {self.service.display_track(track)} to your playlist.",
                 True,
@@ -262,6 +269,7 @@ class MusicIntelligence:
             track = matches[0]
             track_id = track["track_id"]
             self.service.add_tracks(state, [track_id])
+            self._remember_track(track_id, state)
             return (
                 f"Added {self.service.display_track(track)} to your playlist.",
                 True,
@@ -363,6 +371,7 @@ class MusicIntelligence:
                 if action in {"add", "add_track", "ADD_TRACK"}:
                     self.service.add_tracks(state, [track_id])
                     track = self.service.get_track(track_id)
+                    self._remember_track(track_id, state)
                     return f"Added {self.service.display_track(track)} to your playlist.", True
                 if action in {"remove", "remove_track", "REMOVE_TRACK"}:
                     self.service.remove_tracks(state, [track_id])
@@ -530,7 +539,8 @@ class MusicIntelligence:
         entities = self.service.get_r5_entities()
         title_mentions = entities.mentions(message, "title")
         artist_mentions = entities.mentions(message, "artist")
-        masked_message = entities.mask(message, title_mentions, artist_mentions)
+        album_mentions = entities.mentions(message, "album")
+        masked_message = entities.mask(message, title_mentions, artist_mentions, album_mentions)
         router = self._r5_router or get_r5_router()
         prediction = router.predict(masked_message)
         if not prediction.accepted:
@@ -540,16 +550,73 @@ class MusicIntelligence:
         # lookup. Ordinary chat and playlist actions use the fast exact index.
         if prediction.intent == "artist_tracks" and not artist_mentions:
             artist_mentions = entities.mentions(message, "artist", fuzzy=True)
+        elif prediction.intent == "album_tracks" and not album_mentions:
+            album_mentions = entities.mentions(message, "album", fuzzy=True)
         elif prediction.intent in {"artist", "album", "release", "tags"}:
             if not title_mentions:
                 title_mentions = entities.mentions(message, "title", fuzzy=True)
             if not artist_mentions:
                 artist_mentions = entities.mentions(message, "artist", fuzzy=True)
-        if title_mentions or artist_mentions:
-            masked_message = entities.mask(message, title_mentions, artist_mentions)
+        if title_mentions or artist_mentions or album_mentions:
+            masked_message = entities.mask(message, title_mentions, artist_mentions, album_mentions)
             prediction = router.predict(masked_message)
             if not prediction.accepted:
                 return None
+
+        if prediction.intent == "album_tracks":
+            album_name = None
+            album_ids = None
+            if album_mentions:
+                album_ids = set(album_mentions[0].ids)
+                album_names = {}
+                for candidate_id in album_ids:
+                    candidate = self.service.get_track(candidate_id)
+                    if candidate:
+                        for value in self.service.display_value(candidate.get("album_name")).split(", "):
+                            if value:
+                                album_names[normalize(value)] = value
+                if len(album_names) != 1:
+                    return "Which album do you mean? Please name the album or a track on it."
+                album_name = next(iter(album_names.values()))
+            else:
+                seed_id = None
+                if title_mentions:
+                    title_ids = {track_id for mention in title_mentions for track_id in mention.ids}
+                    if state.last_question_track_id in title_ids:
+                        seed_id = state.last_question_track_id
+                    elif len(title_ids) == 1:
+                        seed_id = next(iter(title_ids))
+                    elif title_ids:
+                        return "Which track do you mean? Please name the artist or choose a track first."
+                if seed_id is None:
+                    seed_id = state.last_question_track_id
+                seed = self.service.get_track(seed_id) if seed_id else None
+                if not seed or not self.service.display_value(seed.get("album_name")):
+                    return "Which album or track should I use to find other songs?"
+                album_name = self.service.display_value(seed.get("album_name")).split(", ")[0]
+                album_ids = {
+                    track_id for track_id, row in self.service.catalog.metadata_dict.items()
+                    if normalize(album_name) in {
+                        normalize(value) for value in self.service.display_value(row.get("album_name")).split(", ")
+                    }
+                }
+
+            album_ids = album_ids or set()
+            results = [
+                row for track_id, row in self.service.catalog.metadata_dict.items()
+                if track_id in album_ids
+            ]
+            if not results:
+                return f"I couldn't find tracks from {album_name} in the catalog."
+            if re.search(r"\b(other|else|more)\b", message, re.I):
+                excluded = set(state.playlist_ids)
+                if state.last_question_track_id:
+                    excluded.add(state.last_question_track_id)
+                results = [track for track in results if track["track_id"] not in excluded]
+            if not results:
+                return f"There are no other tracks from {album_name} beyond the ones already in context."
+            rendered = [self.service.display_track(track) for track in results[:10]]
+            return f"Tracks from {album_name}: " + "; ".join(rendered) + "."
 
         if prediction.intent == "artist_tracks":
             artist = artist_mentions[0] if artist_mentions else None

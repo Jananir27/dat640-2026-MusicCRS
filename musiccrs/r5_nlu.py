@@ -36,9 +36,13 @@ class Mention:
 
 class CatalogEntities:
     def __init__(self, catalog):
-        self.index = {"title": defaultdict(set), "artist": defaultdict(set)}
+        self.index = {
+            "title": defaultdict(set),
+            "artist": defaultdict(set),
+            "album": defaultdict(set),
+        }
         for track_id, row in catalog.metadata_dict.items():
-            for kind, field in (("title", "track_name"), ("artist", "artist_name")):
+            for kind, field in (("title", "track_name"), ("artist", "artist_name"), ("album", "album_name")):
                 values = row.get(field) or []
                 if isinstance(values, str):
                     values = [values]
@@ -46,6 +50,12 @@ class CatalogEntities:
                     name = normalize(str(value))
                     if name:
                         self.index[kind][name].add(track_id)
+                        # A distinctive word is a useful album shorthand
+                        # ("Issa" for "Issa Album"). Skip generic words.
+                        if kind == "album":
+                            for token in name.split():
+                                if len(token) >= 4 and token not in GRAMMAR:
+                                    self.index[kind][token].add(track_id)
         self.max_words = {kind: max((len(n.split()) for n in names), default=1)
                           for kind, names in self.index.items()}
 
@@ -87,18 +97,23 @@ class CatalogEntities:
                 selected.append(mention)
         return selected
 
-    def mask(self, text: str, title_mentions=None, artist_mentions=None) -> str:
+    def mask(self, text: str, title_mentions=None, artist_mentions=None, album_mentions=None) -> str:
         words = normalize(text).split()
         artist_mentions = artist_mentions if artist_mentions is not None else self.mentions(text, "artist")
         title_mentions = title_mentions if title_mentions is not None else self.mentions(text, "title")
+        album_mentions = album_mentions if album_mentions is not None else self.mentions(text, "album")
         spans = [(m, "this artist") for m in artist_mentions]
         spans += [(m, "this song") for m in title_mentions]
+        spans += [(m, "this album") for m in album_mentions]
         replacements = {}
         occupied = set()
         for m, replacement in sorted(spans, key=lambda pair: -(pair[0].end - pair[0].start)):
-            positions = set(range(m.start, m.end))
+            replacement_start = m.start
+            if replacement.startswith("this ") and replacement_start > 0 and words[replacement_start - 1] in {"a", "an", "the"}:
+                replacement_start -= 1
+            positions = set(range(replacement_start, m.end))
             if not positions & occupied:
-                replacements[m.start] = replacement
+                replacements[replacement_start] = replacement
                 occupied.update(positions)
         return " ".join(replacements.get(i, word) for i, word in enumerate(words)
                         if i not in occupied or i in replacements)

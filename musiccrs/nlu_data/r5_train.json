@@ -40,6 +40,18 @@
     "Show me this artist's songs", "What music has this artist made?",
     "More songs by the same artist", "What other songs have they released?"
   ],
+  "album_tracks": [
+    "What other songs are on this album?", "What songs are on the same album as this track?",
+    "List other tracks from this album", "What else is on this record?",
+    "Which songs are included on this album?", "Show me the tracks on this album",
+    "What other songs are on this track?", "What other songs are on the track?",
+    "What else is on that track?", "What else is on the album?",
+    "Are there more songs on this album?", "Tell me other tracks on the same album",
+    "What songs appear on this record?", "What music is on this album?",
+    "List songs from the album containing this track", "Which other tracks appear on this album?",
+    "Give me the track listing for this album", "What are the other tracks on the album?",
+    "What other songs are on this artist this album?"
+  ],
   "other": [
     "Hello", "Thanks for helping", "What is the weather today?", "Tell me a joke",
     "Add this song to my playlist", "Remove this song", "Clear my playlist", "Show my playlist",
