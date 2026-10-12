@@ -7,7 +7,6 @@ instance, which DialogueKit creates for each connected user.
 
 from __future__ import annotations
 
-from collections import Counter
 from dataclasses import dataclass, field
 from difflib import SequenceMatcher
 import math
@@ -18,6 +17,7 @@ from typing import Any
 from retrieval.base import RetrievalModule
 from retrieval.data_loader import MusicCatalogLoader
 from retrieval.final import FinalRetriever
+from musiccrs.music_features import extract_preferences, profile_tracks, select_diverse
 
 
 _TOKEN_RE = re.compile(r"[^a-z0-9]+")
@@ -233,6 +233,7 @@ class MusicService:
         state: ConversationState | None = None,
         request: str | None = None,
         new_playlist: bool = False,
+        use_playlist_context: bool = True,
     ) -> list[dict]:
         """Run final G1 retrieval and filter playlist exclusions after ranking.
 
@@ -246,7 +247,10 @@ class MusicService:
         request = request or query
         if isinstance(retriever, FinalRetriever):
             history = [] if state is None or new_playlist else state.recent_retrieval_requests[-2:]
-            playlist_ids = [] if state is None or new_playlist else state.playlist_ids[-2:]
+            playlist_ids = (
+                [] if state is None or new_playlist or not use_playlist_context
+                else state.playlist_ids[-2:]
+            )
             conversations = [
                 {"role": "user", "content": text, "turn_number": index}
                 for index, text in enumerate(history, start=1)
@@ -292,28 +296,59 @@ class MusicService:
 
         titles: list[str] = []
         artists: list[str] = []
-        tag_counts: Counter[str] = Counter()
-        for track in seeds[-5:]:
+        recent_seeds = seeds[-5:]
+        genre_profile, mood_profile = profile_tracks(seeds)
+        requested_genres, requested_moods = extract_preferences(request)
+        genre_profile.update(requested_genres)
+        mood_profile.update(requested_moods)
+        for track in recent_seeds:
             titles.extend(_values(track.get("track_name"))[:1])
             artists.extend(_values(track.get("artist_name"))[:2])
-            tag_counts.update(tag.casefold() for tag in _values(track.get("tag_list")))
 
-        common_tags = [tag for tag, _ in tag_counts.most_common(8)]
         query_parts = []
-        if common_tags:
-            query_parts.append("music styles: " + ", ".join(common_tags))
-        if artists:
-            query_parts.append("artists: " + ", ".join(dict.fromkeys(artists)))
-        if titles:
-            query_parts.append("tracks similar to: " + ", ".join(dict.fromkeys(titles)))
+        if genre_profile:
+            query_parts.append("preferred genres: " + ", ".join(
+                genre for genre, _ in genre_profile.most_common(5)
+            ))
+        if mood_profile:
+            query_parts.append("preferred moods: " + ", ".join(
+                mood for mood, _ in mood_profile.most_common(4)
+            ))
+        # When tags provide a usable preference profile, lead with those
+        # features so one seed artist does not dominate the candidate pool.
+        if not genre_profile and not mood_profile:
+            if artists:
+                query_parts.append("artists: " + ", ".join(dict.fromkeys(artists)))
+            if titles:
+                query_parts.append("tracks similar to: " + ", ".join(dict.fromkeys(titles)))
 
-        return self.recommend_tracks(
+        candidates = self.recommend_tracks(
             "; ".join(query_parts),
             exclude_ids=set(state.playlist_ids),
-            limit=limit,
+            limit=min(20, len(self.catalog.metadata_dict)),
             state=state,
             request=request,
+            use_playlist_context=False,
         )
+        return select_diverse(candidates, limit, genre_profile, mood_profile)
+
+    def recommend_for_playlist_description(
+        self,
+        query: str,
+        limit: int = 20,
+        request: str | None = None,
+        state: ConversationState | None = None,
+    ) -> list[dict]:
+        """Retrieve and preference-rerank candidates for a new playlist."""
+        genres, moods = extract_preferences(query)
+        candidates = self.recommend_tracks(
+            query,
+            limit=min(20, len(self.catalog.metadata_dict)),
+            state=state,
+            request=request or query,
+            new_playlist=True,
+        )
+        return select_diverse(candidates, limit, genres, moods)
 
     def get_playlist(self, state: ConversationState) -> list[str]:
         return list(state.playlist_ids)

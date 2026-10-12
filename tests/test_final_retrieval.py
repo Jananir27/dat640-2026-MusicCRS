@@ -61,6 +61,32 @@ class FinalRetrievalTests(unittest.TestCase):
         service.clear_playlist(state)
         self.assertEqual(state.recent_retrieval_requests, [])
 
+    def test_playlist_recommendation_builds_genre_mood_query_and_keeps_final_retriever(self):
+        service = MusicService(self.catalog, self.retriever)
+        state = ConversationState(playlist_ids=["1"])
+        with patch.object(self.retriever, "retrieve_context", return_value=[str(i) for i in range(1, 21)]) as call:
+            result = service.recommend_from_playlist(
+                state, limit=5, request="Recommend something mellow based on my playlist",
+            )
+        self.assertEqual(len(result), 5)
+        goal = call.call_args.args[0]["conversation_goal"]["listener_goal"]
+        self.assertIn("preferred genres: pop", goal)
+        self.assertIn("preferred moods: chill", goal)
+        self.assertNotIn("love", goal)
+        self.assertNotIn("favorites", goal)
+        self.assertNotIn("Linkin Park", goal)
+        self.assertNotIn("music", [turn["role"] for turn in call.call_args.args[0]["conversations"]])
+
+    def test_new_playlist_uses_genre_and_mood_preferences(self):
+        service = MusicService(self.catalog, self.retriever)
+        with patch.object(self.retriever, "retrieve_context", return_value=[str(i) for i in range(1, 21)]) as call:
+            tracks = service.recommend_for_playlist_description(
+                "hip-hop and R&B mellow", limit=5, request="Make a hip-hop and R&B mellow playlist",
+            )
+        self.assertEqual(len(tracks), 5)
+        goal = call.call_args.args[0]["conversation_goal"]["listener_goal"]
+        self.assertIn("hip-hop and R&B mellow", goal)
+
     def test_default_service_creates_final_retriever(self):
         service = MusicService(self.catalog)
         with patch("musiccrs.music_service.FinalRetriever", return_value=self.retriever) as factory:

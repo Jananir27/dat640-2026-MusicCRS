@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import re
 
+from musiccrs.music_features import classify_tags
 from musiccrs.music_service import ConversationState, MusicService
 
 
@@ -25,6 +26,14 @@ _WORD_NUMBERS = {
     "5th": 5,
     "last": -1,
 }
+
+_R5_QUESTION_TERMS = set(
+    "a an the who what which when where how is was are were do does did made by "
+    "from on of in for to me my this that it they their same song songs track "
+    "tracks music artist artists album release released date year genre style "
+    "tags other else more out come came sings performs recorded tell show list "
+    "name please anything something band singer record kind tagged drop".split()
+)
 
 
 def _clean_entity(text: str) -> str:
@@ -231,6 +240,43 @@ class MusicIntelligence:
         if track:
             state.last_question_track_id = track_id
             state.last_question_artist = self.service.display_value(track.get("artist_name"))
+
+    @staticmethod
+    def _canonicalize_r5_message(message: str, state: ConversationState) -> str:
+        """Resolve a few clear paraphrases against the current conversation.
+
+        This happens before catalog entity matching. In these constructions,
+        ``drop`` is a release verb and ``them`` is an artist pronoun; neither
+        should shadow an exact catalog title or album alias elsewhere.
+        """
+        text = message.strip()
+
+        release_drop = re.match(
+            r"^(when\s+did\s+)(.+?)\s+drop\s*([?.!]*)$",
+            text,
+            flags=re.I,
+        )
+        if release_drop:
+            subject = release_drop.group(2).strip()
+            if re.fullmatch(
+                r"(?:it|this|that|this song|that song|this track|that track)",
+                subject,
+                re.I,
+            ):
+                subject = "this song"
+            text = f"When was {subject} released{release_drop.group(3)}"
+
+        # In artist-list requests, "by them" and "from them" refer to the
+        # remembered artist. Other uses of Them remain eligible as catalog names.
+        if state.last_question_artist and re.search(
+            r"\b(?:by|from)\s+them\b", text, re.I
+        ):
+            text = re.sub(r"\bthem\b", "this artist", text, flags=re.I)
+
+        # The catalog stores performers, not songwriter/producer credits. In a
+        # track question, users commonly use "made" to mean "performed".
+        text = re.sub(r"^who\s+made\b", "Who performs", text, count=1, flags=re.I)
+        return text
 
     def _add_track_from_text(
         self,
@@ -536,6 +582,22 @@ class MusicIntelligence:
     def _handle_question(self, message: str, state: ConversationState) -> str | None:
         from musiccrs.r5_nlu import get_r5_router, normalize
 
+        # This short release follow-up is both common and highly ambiguous to
+        # catalog entity matching ("Drop" is a real title). Resolve it from
+        # conversation state before the intent/entity router sees the verb.
+        release_followup = re.fullmatch(
+            r"when\s+did\s+(?:it|this|that|this song|that song|this track|that track)\s+drop\s*[?.!]*",
+            message.strip(),
+            flags=re.I,
+        )
+        if release_followup and state.last_question_track_id:
+            track = self.service.get_track(state.last_question_track_id)
+            if track:
+                state.pending_disambiguation_ids = []
+                state.pending_disambiguation_action = None
+                return self._answer_track_action(state.last_question_track_id, "release")
+
+        message = self._canonicalize_r5_message(message, state)
         entities = self.service.get_r5_entities()
         title_mentions = entities.mentions(message, "title")
         artist_mentions = entities.mentions(message, "artist")
@@ -548,7 +610,11 @@ class MusicIntelligence:
 
         # Spend fuzzy matching only on messages already classified as an R5
         # lookup. Ordinary chat and playlist actions use the fast exact index.
-        if prediction.intent == "artist_tracks" and not artist_mentions:
+        if (
+            prediction.intent == "artist_tracks"
+            and not artist_mentions
+            and not state.last_question_artist
+        ):
             artist_mentions = entities.mentions(message, "artist", fuzzy=True)
         elif prediction.intent == "album_tracks" and not album_mentions:
             album_mentions = entities.mentions(message, "album", fuzzy=True)
@@ -652,8 +718,18 @@ class MusicIntelligence:
         # A short R5 follow-up with a clear information intent uses the last
         # discussed track even when the user omits a title ("what year?").
         if title is None:
+            has_unmatched_term = any(
+                token not in _R5_QUESTION_TERMS
+                for token in re.findall(r"\w+", message.casefold())
+            )
             track_id = state.last_question_track_id
-            if track_id and self.service.get_track(track_id):
+            if (
+                track_id
+                and not has_unmatched_term
+                and not artist
+                and not album_mentions
+                and self.service.get_track(track_id)
+            ):
                 state.pending_disambiguation_ids = []
                 state.pending_disambiguation_action = None
                 state.last_question_artist = self.service.display_value(
@@ -764,30 +840,34 @@ class MusicIntelligence:
         state.pending_disambiguation_ids.clear()
         state.pending_disambiguation_action = None
         rendered = []
-        seed_tags = {
-            tag.casefold()
+        seed_genres: set[str] = set()
+        seed_moods: set[str] = set()
+        seed_artists = {
+            artist.casefold()
             for track_id in state.playlist_ids
             if (seed := self.service.get_track(track_id)) is not None
-            for tag in self.service.display_value(seed.get("tag_list")).split(", ")
-            if tag
+            for artist in self.service.display_value(seed.get("artist_name")).split(", ")
+            if artist
         }
+        for track_id in state.playlist_ids:
+            seed = self.service.get_track(track_id)
+            if seed:
+                genres, moods = classify_tags(
+                    self.service.display_value(seed.get("tag_list")).split(", ")
+                )
+                seed_genres.update(genres)
+                seed_moods.update(moods)
         for index, track in enumerate(recommendations, start=1):
-            track_tags = {
-                tag.casefold()
-                for tag in self.service.display_value(track.get("tag_list")).split(", ")
-                if tag
-            }
-            common = sorted(seed_tags & track_tags)
-            if common:
-                reason = f"; shares tags: {', '.join(common[:3])}"
+            genres, moods = classify_tags(
+                self.service.display_value(track.get("tag_list")).split(", ")
+            )
+            common_genres = sorted(seed_genres & genres)
+            common_moods = sorted(seed_moods & moods)
+            if common_genres:
+                reason = f"; shares genres: {', '.join(common_genres[:3])}"
+            elif common_moods:
+                reason = f"; shares moods: {', '.join(common_moods[:3])}"
             else:
-                seed_artists = {
-                    artist.casefold()
-                    for seed_id in state.playlist_ids
-                    if (seed := self.service.get_track(seed_id)) is not None
-                    for artist in self.service.display_value(seed.get("artist_name")).split(", ")
-                    if artist
-                }
                 candidate_artists = {
                     artist.casefold()
                     for artist in self.service.display_value(track.get("artist_name")).split(", ")
@@ -819,8 +899,15 @@ class MusicIntelligence:
         query = " ".join(query.split()).strip(" .!?,-") or message
         if query == message and not re.search(r"\b(mood|genre|style|activity|energy)\b", message, re.I):
             return "What mood, genre, or activity should I use for the playlist?", False
-        candidates = self.service.recommend_tracks(
-            query, exclude_ids=set(), limit=20, state=state, request=message, new_playlist=True,
+
+        # Length cues determine how many tracks to select below; they should
+        # not become retrieval terms (for example, "short commute" otherwise
+        # favors tracks whose titles contain "short"). Keep the theme/activity
+        # words and the original theme for the user-facing confirmation.
+        retrieval_query = re.sub(r"\b(short|quick)\b|\blong\s+trip\b", " ", query, flags=re.I)
+        retrieval_query = " ".join(retrieval_query.split()).strip(" .,!?:;-") or "music"
+        candidates = self.service.recommend_for_playlist_description(
+            retrieval_query, limit=20, state=state, request=retrieval_query,
         )
         unique_candidates = list(
             {track["track_id"]: track for track in candidates}.values()

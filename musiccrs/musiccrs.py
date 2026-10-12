@@ -1,6 +1,7 @@
 """MusicCRS conversational agent."""
 
 import json
+import os
 
 import ollama
 from dialoguekit.core.annotated_utterance import AnnotatedUtterance
@@ -15,19 +16,29 @@ from dialoguekit.platforms import FlaskSocketPlatform
 from .music_intelligence import MusicIntelligence
 from .music_service import ConversationState, get_shared_music_service
 
-OLLAMA_HOST = "https://ollama.ux.uis.no"
-OLLAMA_MODEL = "llama3.3:70b"
-OLLAMA_API_KEY = "SET YOUR API KEY HERE"
+OLLAMA_HOST = os.environ.get("OLLAMA_HOST", "https://ollama.ux.uis.no")
+OLLAMA_MODEL = os.environ.get("OLLAMA_MODEL", "llama3.3:70b")
+OLLAMA_API_KEY = os.environ.get("OLLAMA_API_KEY", "")
 
 _INTENT_OPTIONS = Intent("OPTIONS")
 
 
 class MusicCRS(Agent):
-    def __init__(self, use_llm: bool = True):
+    def __init__(self, use_llm: bool | None = None):
         """Initialize MusicCRS agent."""
         super().__init__(id="MusicCRS")
 
+        if use_llm is None:
+            setting = os.environ.get("MUSICCRS_USE_LLM")
+            use_llm = bool(OLLAMA_API_KEY) if setting is None else setting.casefold() not in {
+                "0", "false", "no", "off",
+            }
+
         if use_llm:
+            if not OLLAMA_API_KEY:
+                raise RuntimeError(
+                    "MUSICCRS_USE_LLM is enabled, but OLLAMA_API_KEY is not set."
+                )
             self._llm = ollama.Client(
                 host=OLLAMA_HOST,
                 headers={"Authorization": f"Bearer {OLLAMA_API_KEY}"},
@@ -218,5 +229,7 @@ if __name__ == "__main__":
     music_service._get_retriever()
     music_service.warm_r5()
     platform = FlaskSocketPlatform(MusicCRS)
-    platform.start()
-    platform.start()
+    platform.start(
+        host=os.environ.get("MUSICCRS_HOST", "127.0.0.1"),
+        port=os.environ.get("MUSICCRS_PORT", "5000"),
+    )

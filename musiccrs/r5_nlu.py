@@ -72,7 +72,12 @@ class CatalogEntities:
                 if name in names:
                     candidates.append(Mention(name, start, end, frozenset(names[name])))
         if not candidates and fuzzy:
-            from rapidfuzz import process, fuzz
+            try:
+                from rapidfuzz import process, fuzz
+            except ImportError:
+                # Keep exact and context-based lookup usable when optional
+                # typo-tolerant matching has not been installed yet.
+                return []
             # Only compare plausible entity spans, not whole questions. A small
             # edit is allowed; close competing names are retained for clarification.
             for start in range(len(words)):
@@ -83,6 +88,11 @@ class CatalogEntities:
                         continue
                     query = " ".join(words[start:end])
                     if len(query) < 4:
+                        continue
+                    # Short title spans are too ambiguous for fuzzy expansion:
+                    # e.g. "Them" should not silently become "Theme". Exact
+                    # title mentions are still matched above.
+                    if kind == "title" and len(query.replace(" ", "")) < 5:
                         continue
                     hits = process.extract(query, names.keys(), scorer=fuzz.ratio,
                                            score_cutoff=85, limit=2)

@@ -76,3 +76,47 @@ sbatch run_backend.sbatch cache/g1-485101/final_retrieval.json
 Use the newly printed job ID with `squeue -u otogun` and inspect `logs/backend-JOBID.out` for the assigned node and port. Recreate the `gorina11 → ssh1` reverse tunnel using those new values. Keep the Mac’s local tunnel to port `5050` open and open the frontend at `http://localhost:3000/build`.
 
 The updated code has been committed and pushed to `origin/ft/core-fn-impl` through `8bf5cd1`. The latest known instruction was to restart the browser backend; no confirmation of that restart has been received yet.
+
+## Laptop browser check and context-aware phrasing fix (2026-10-12)
+
+The browser backend was later started on the laptop at `127.0.0.1:5000`; the frontend initially pointed to port `5050` and showed `ERR_CONNECTION_REFUSED`. Restarting the frontend with `REACT_APP_BACKEND_URL=http://127.0.0.1:5000` restored the connection.
+
+With `Numb — 21 Savage` in the conversation, the browser returned useful answers for “what other tracks are on this album?” (tracks from *Issa Album*), “Who performs it?”, “What kind of music is it?”, “What year?”, and “And what album is it on?”. An explicit “Other songs by 21 Savage?” also listed catalog tracks.
+
+Three phrasings exposed ambiguity that the intent model alone did not resolve: “When did it drop?” matched tracks titled *Drop*; “Anything else by them?” matched an album alias and asked which album; and “Who made Numb?” was unhandled. Do not add `drop` or `them` to a global stop-word list: either can be a genuine catalog name. The current code canonicalizes these specific constructions before entity lookup: a release question ending in “did … drop” becomes a release-date question, “by/from them” uses the remembered artist, and “who made …” becomes “who performs …” because the catalog provides performer metadata rather than songwriter/producer credits. Explicit title-position queries such as “What album is Drop on?” and “What album is Them on?” are left unchanged.
+
+A targeted unit test now checks these rewrites and confirms title-position names remain intact; it passes. I also ran the cached MiniLM classifier against a small fixture catalog in local-only mode. It answered all three previously failing phrasings and preserved exact title lookups for *Drop* and *Them*. The repository `.venv` lacks RapidFuzz, so that classifier check stubbed only the optional fuzzy-search call; exact matching and the intent classifier were real. The laptop backend must be restarted to load this code before repeating the browser checks.
+
+### Follow-up browser rerun
+
+The next browser rerun used the laptop backend at `127.0.0.1:5000` with *Numb — 21 Savage* in the playlist. “Who made Numb?” now answers “Numb is by 21 Savage.” “What album is Drop on?” asks the user to disambiguate catalog tracks named *Drop*; this is correct because *Drop* can be a track title. “When did it drop?” was unhandled, and “What album is Them on?” fuzzy-matched *Theme* and answered with that track’s album. This shows that preserving the word is not enough when fuzzy matching substitutes a different title.
+
+I added a direct remembered-track release follow-up path for “When did it drop?” plus a unit test asserting it returns the previous track’s date; that targeted test passes. After the user reported restarting, the browser still returned the unhandled response. The listener on `127.0.0.1:5000` was still PID `50164`, unchanged from the prior process check, so the updated code is not yet confirmed as running. Tighten title fuzzy matching so a near-match like *Them* → *Theme* is clarified or rejected rather than answered as if it were exact.
+
+The user restarted the backend again. The port-5000 listener changed to PID `51255`, confirming a process restart. A direct Socket.IO polling request with the browser origin and referer received HTTP 200 and `Access-Control-Allow-Origin: http://127.0.0.1:3000`. The browser still returned 403, and its response headers identified `server: AirTunes/940.23.1`; the request was reaching macOS AirTunes on port 5000 rather than the Flask service. The backend now accepts `MUSICCRS_HOST` and `MUSICCRS_PORT` environment variables when started with `python -m musiccrs.musiccrs`, so use a free port such as 5051 and point the frontend at that same port. This browser failure is a port collision/routing issue, not an R5 response.
+
+After moving the backend to port 5051, the browser answered “When did it drop?” with “Numb was released on 2017-09-23.” The next “Anything else by them?” request crashed in `CatalogEntities.mentions()` because the active Python 3.14 virtual environment lacked `rapidfuzz`. Remembered-artist follow-ups now use `last_question_artist` without fuzzy matching, and fuzzy lookup degrades gracefully if RapidFuzz is absent. On the next restart, “Anything else by them?” correctly listed tracks by 21 Savage. A further browser check found that “What album is Them on?” still fuzzy-matched *Theme* and returned its album. I tightened fuzzy matching for short title spans and prevented unmatched explicit title words from falling back to the previously discussed track. Three focused regression tests pass; restart the backend once more to verify this final title safeguard in the browser. Installing `rapidfuzz` from `requirements.txt` remains necessary for typo-tolerant entity lookup.
+
+### Browser rerun after title-matching safeguard (2026-10-12)
+
+Confirmed the local backend had restarted, then tested in the browser with *Numb — 21 Savage* in the playlist:
+
+- “What album is Them on?” now asks “Which song or track should I look up?” instead of incorrectly matching *Theme*.
+- “When did it drop?” correctly returns “Numb was released on 2017-09-23.”
+- “What album is Drop on?” presents the matching *Drop* tracks for disambiguation, preserving the intended behavior for real track titles.
+- “Anything else by them?” correctly lists tracks by 21 Savage.
+- “Who performs Numb by 21 Savage?” correctly returns “Numb is by 21 Savage.”
+
+The short-name safeguard avoids the false *Them* → *Theme* answer, but this run did not establish that *Them* is an exact catalog title; the bot appropriately requests clarification. The playlist still contains *Numb — 21 Savage* after these checks.
+
+### Independent browser rerun (2026-10-12)
+
+Repeated the checks in the live browser after finding the chat had reset to an empty conversation. Added *Numb — 21 Savage* again, then observed: “What album is Them on?” → “Which song or track should I look up?”; “When did it drop?” → “Numb was released on 2017-09-23.”; “What album is Drop on?” → a four-track disambiguation list; “Anything else by them?” → a list of 21 Savage tracks; and “Who performs Numb by 21 Savage?” → “Numb is by 21 Savage.” The live responses matched the prior report.
+
+### RapidFuzz and latency verification (2026-10-12)
+
+Confirmed the running backend uses the `dat640` Conda interpreter (`/opt/homebrew/Caskroom/miniconda/base/envs/dat640/bin/python`) and RapidFuzz 3.14.6 is installed there. Also installed RapidFuzz 3.14.6 in the repository `.venv` for local checks. A focused `CatalogEntities` check with RapidFuzz matched the misspelled title *Numbb* to *Numb* and artist *Linkin Prk* to *Linkin Park*.
+
+Live browser results show partial end-to-end typo handling: “What album is Numb by Linkin Prk on?” correctly returned the Meteora album, while “What album is Numbb by Linkin Park on?” and “Other songs by Linkin Prk?” returned the generic “I'm sorry, I don't understand that request.” The matching library works, but typo recognition is not reliable across intent routes; R5 still needs a fallback that can identify the supported intent before fuzzy entity resolution when the initial classifier rejects a typo-bearing query.
+
+Measured three warmed browser replies from send to visible answer: exact album lookup 211 ms, album lookup with misspelled artist 228 ms, and artist lookup 161 ms. These observed responses are comfortably below the 3–5 second target; this small sample is not a full latency benchmark.

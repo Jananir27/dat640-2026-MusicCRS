@@ -1,5 +1,39 @@
 # DAT640-2026 MusicCRS starting package
 
+## Run the frontend and backend with Docker Compose
+
+The Compose setup runs the Python backend and React development server together.
+It does not require a local `cache/` directory. The final retrieval settings
+are included at `retrieval/artifacts/final_retrieval.json`; Compose creates a
+Docker-managed volume for the Hugging Face catalog and embeddings, Qwen model,
+MiniLM R5 model, and local indexes.
+
+The first image build installs the CPU-only PyTorch runtime and application
+dependencies. On first startup, the backend downloads the catalog, precomputed
+track embeddings, and Qwen and MiniLM model weights into the Docker volume.
+This initial download can take a while; later starts reuse those files.
+
+```bash
+docker compose up --build
+```
+
+Open [http://localhost:3000/build](http://localhost:3000/build). The backend is
+published at `http://127.0.0.1:5050`; the container listens internally on port
+5000. Host port 5050 avoids the macOS AirPlay/AirTunes service that can occupy
+port 5000. The frontend is configured to connect to this backend address.
+
+To follow backend startup and model loading in another terminal:
+
+```bash
+docker compose logs -f backend
+```
+
+Stop both services with `Ctrl+C`, or run `docker compose down` in another
+terminal. Docker-managed model data remains available across `docker compose down`
+and `docker compose up` runs. To enable the optional `/ask_llm` command, set `MUSICCRS_USE_LLM=true`
+and `OLLAMA_API_KEY` in the environment before starting Compose. Normal chat
+works with the LLM disabled.
+
 This repository contains a starting package for the MusicCRS group project.
 
 It has some basic functionality to provide static responses (type `/info`), display options to the user to choose from (`/option`), prompt a large language model (`/ask_llm [prompt]`) and terminate the conversation (`/quit`).
