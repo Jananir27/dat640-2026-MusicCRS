@@ -23,7 +23,7 @@ def normalize(text: str) -> str:
 
 # Grammatical words must not become entities merely because a catalog contains
 # a song called "Who" or "When". Quoted names can override this stop list.
-GRAMMAR = set("a an the who what which when where how is was are were do does did by from on of in for to me my this that it they their same song songs track tracks music artist artists album release date year genre style tags other else more out come came sings performs recorded tell show list name please anything something band singer record kind".split())
+GRAMMAR = set("a an the who what which when where how is was are were do does did made by from on of in for to me my this that it they their same song songs track tracks music artist artists album release date year genre style tags other else more out come came sings performs recorded tell show list name please anything something band singer record kind".split())
 
 
 @dataclass(frozen=True)

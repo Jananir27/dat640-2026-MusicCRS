@@ -525,7 +525,7 @@ class MusicIntelligence:
         return matches
 
     def _handle_question(self, message: str, state: ConversationState) -> str | None:
-        from musiccrs.r5_nlu import get_r5_router
+        from musiccrs.r5_nlu import get_r5_router, normalize
 
         entities = self.service.get_r5_entities()
         title_mentions = entities.mentions(message, "title")
@@ -600,6 +600,12 @@ class MusicIntelligence:
         candidates = [track for track in candidates if track]
         if artist:
             candidates = [track for track in candidates if track["track_id"] in artist.ids]
+        elif state.last_question_track_id in title.ids:
+            # A repeated title inherits its artist only when the immediately
+            # preceding R5 lookup identified that exact same catalog title.
+            previous = self.service.get_track(state.last_question_track_id)
+            if previous and normalize(self.service.display_value(previous.get("track_name"))) == normalize(title.name):
+                candidates = [previous]
         if not candidates:
             return f"I couldn't find a catalog track matching {title.name}."
         if len(candidates) > 1:
