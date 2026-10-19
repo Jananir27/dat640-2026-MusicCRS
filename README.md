@@ -21,6 +21,27 @@ additions validate IDs against SQLite; retrieval and NLU use indexes built from
 the database records. No database server or additional setup is required.
 For a local Python run, `MUSICCRS_CATALOG_DB` can select another database path.
 
+### Saved playlists without accounts
+
+The web app remembers an anonymous random ID in browser local storage. Each
+browser profile gets its own saved playlist library; no registration is needed.
+Playlists and the last selected playlist are stored by the backend in
+`cache/playlists.sqlite3`, alongside the catalog database. In Docker this file
+persists in the existing `musiccrs_cache` volume. `MUSICCRS_PLAYLIST_DB` can
+override the playlist database path for a local Python run.
+
+Use **Saved playlists** to reopen a playlist, **New playlist** to start an empty
+one, and **Rename** to give it a name. Adding/removing songs and **Clear all**
+automatically save changes to the selected playlist. Generating a playlist in
+chat saves it as a new named entry, preserving earlier playlists. Deleting a
+playlist requires confirmation in the panel.
+
+Refreshing or reconnecting restores the selected playlist. Another browser
+profile or device gets a separate library. Clearing this site's browser storage
+loses the anonymous ID, so the old library will no longer be accessible through
+that browser. This is a simple device convenience feature, not account-based
+authentication or cross-device syncing.
+
 ```bash
 docker compose up --build
 ```

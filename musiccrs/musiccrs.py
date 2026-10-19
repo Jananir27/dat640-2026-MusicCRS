@@ -2,6 +2,9 @@
 
 import json
 import os
+from uuid import UUID
+
+from flask import g, has_request_context
 
 import ollama
 from dialoguekit.core.annotated_utterance import AnnotatedUtterance
@@ -16,6 +19,7 @@ from dialoguekit.platforms.flask_socket_platform import ChatNamespace
 
 from .music_intelligence import MusicIntelligence
 from .music_service import ConversationState, get_shared_music_service
+from .playlist_store import PlaylistStore
 
 OLLAMA_HOST = os.environ.get("OLLAMA_HOST", "https://ollama.ux.uis.no")
 OLLAMA_MODEL = os.environ.get("OLLAMA_MODEL", "llama3.3:70b")
@@ -24,17 +28,40 @@ OLLAMA_API_KEY = os.environ.get("OLLAMA_API_KEY", "")
 _INTENT_OPTIONS = Intent("OPTIONS")
 
 
+class MusicChatNamespace(ChatNamespace):
+    def on_connect(self, auth=None):
+        device_id = (auth or {}).get("device_id") if isinstance(auth, dict) else None
+        if device_id is not None:
+            try:
+                g.musiccrs_device_id = str(UUID(device_id))
+            except (ValueError, TypeError, AttributeError):
+                return False
+        super().on_connect()
+
+    def on_disconnect(self, reason=None):
+        super().on_disconnect()
+
+
 class MusicCRSPlatform(FlaskSocketPlatform):
     """Run the assignment's Socket.IO server with its Werkzeug dev server."""
 
     def start(self, host: str = "127.0.0.1", port: str = "5000") -> None:
-        self.socketio.on_namespace(ChatNamespace("/", self))
+        self.socketio.on_namespace(MusicChatNamespace("/", self))
         self.socketio.run(
             self.app,
             host=host,
             port=port,
             allow_unsafe_werkzeug=True,
         )
+
+    def get_new_agent(self):
+        agent = super().get_new_agent()
+        device_id = getattr(g, "musiccrs_device_id", None) if has_request_context() else None
+        if device_id:
+            if not hasattr(self, "_playlist_store"):
+                self._playlist_store = PlaylistStore()
+            agent.attach_device(device_id, self._playlist_store)
+        return agent
 
 
 class MusicCRS(Agent):
@@ -66,12 +93,47 @@ class MusicCRS(Agent):
         self._music_service = get_shared_music_service()
         self._conversation_state = ConversationState()
         self._music_intelligence = MusicIntelligence(self._music_service)
+        self._playlist_store = None
+        self._device_id = None
+        self._active_playlist_id = None
+
+    def attach_device(self, device_id, store):
+        self._device_id = device_id
+        self._playlist_store = store
+        self._restore_playlist()
+
+    def _restore_playlist(self, keep_selection=False):
+        saved = None
+        if keep_selection and self._active_playlist_id:
+            try:
+                saved = self._playlist_store.get(self._device_id, self._active_playlist_id)
+            except ValueError:
+                pass  # Another tab may have deleted it; open the remaining playlist.
+        if saved is None:
+            saved = self._playlist_store.active(self._device_id)
+        if saved["id"] != self._active_playlist_id:
+            self._conversation_state = ConversationState()
+        self._active_playlist_id = saved["id"]
+        self._conversation_state.playlist_ids = [
+            track_id for track_id in saved["track_ids"]
+            if self._music_service.get_track(track_id) is not None
+        ]
+
+    def _library_dialogue_act(self):
+        return DialogueAct(intent=Intent("SAVED_PLAYLISTS"), annotations=[
+            SlotValueAnnotation("library_json", json.dumps({
+                "active_id": self._active_playlist_id,
+                "playlists": self._playlist_store.library(self._device_id),
+            }, ensure_ascii=False))
+        ])
 
     def welcome(self) -> None:
         """Sends the agent's welcome message."""
         utterance = AnnotatedUtterance(
             "Hello, I'm MusicCRS. What are you in the mood for?",
             participant=DialogueParticipant.AGENT,
+            dialogue_acts=([self._playlist_updated_dialogue_act(), self._library_dialogue_act()]
+                           if self._playlist_store else []),
         )
         self._dialogue_connector.register_agent_utterance(utterance)
 
@@ -94,6 +156,9 @@ class MusicCRS(Agent):
         """
         response = ""
         dialogue_acts = []
+        if self._playlist_store:
+            self._restore_playlist(keep_selection=True)
+        self._conversation_state.created_playlist_name = None
         if utterance.text.startswith("/info"):
             response = self._info()
         elif utterance.text.startswith("/ask_llm "):
@@ -133,6 +198,21 @@ class MusicCRS(Agent):
                 if playlist_updated:
                     dialogue_acts = [self._playlist_updated_dialogue_act()]
 
+        if self._playlist_store:
+            if any(str(act.intent) == "PLAYLIST_UPDATED" for act in dialogue_acts):
+                name = self._conversation_state.created_playlist_name
+                if name:
+                    self._active_playlist_id = self._playlist_store.create(
+                        self._device_id, name, self._conversation_state.playlist_ids)
+                    self._conversation_state.created_playlist_name = None
+                else:
+                    self._playlist_store.save(self._device_id, self._active_playlist_id,
+                                              self._conversation_state.playlist_ids)
+            # Sync any edits made to this playlist in another tab.
+            if not any(str(act.intent) == "PLAYLIST_UPDATED" for act in dialogue_acts):
+                dialogue_acts.append(self._playlist_updated_dialogue_act())
+            dialogue_acts.append(self._library_dialogue_act())
+
         self._dialogue_connector.register_agent_utterance(
             AnnotatedUtterance(
                 response,
@@ -151,6 +231,29 @@ class MusicCRS(Agent):
 
         action = parts[1].casefold()
         try:
+            if action in {"new", "open", "rename", "delete", "saved"}:
+                if not self._playlist_store:
+                    return "Saved playlists are available in the web app on your device.", False
+                argument = parts[2].strip() if len(parts) == 3 else ""
+                if action == "new":
+                    self._playlist_store.create(self._device_id, argument or "Untitled playlist")
+                    self._restore_playlist()
+                    return "Created a new empty playlist. Changes are saved automatically.", True
+                if action == "open" and argument:
+                    self._playlist_store.open(self._device_id, argument)
+                    self._restore_playlist()
+                    return "Opened your saved playlist. You can add or remove songs.", True
+                if action == "rename" and argument:
+                    self._playlist_store.rename(self._device_id, self._active_playlist_id, argument)
+                    return f"Renamed your playlist to ‘{argument}’.", True
+                if action == "delete" and argument:
+                    self._playlist_store.delete(self._device_id, argument)
+                    self._restore_playlist()
+                    return "Deleted the saved playlist.", True
+                if action == "saved":
+                    names = [p["name"] for p in self._playlist_store.library(self._device_id)]
+                    return "Your saved playlists: " + "; ".join(names), True
+                return "Choose a saved playlist or enter a playlist name.", False
             if action == "show":
                 records = self._music_service.get_playlist_records(
                     self._conversation_state

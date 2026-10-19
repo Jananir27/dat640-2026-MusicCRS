@@ -49,3 +49,14 @@ export type PlaylistTrack = {
   artist_name?: string;
   album_name?: string;
 };
+
+export type SavedPlaylist = {
+  id: string;
+  name: string;
+  track_count: number;
+};
+
+export type PlaylistLibrary = {
+  active_id: string;
+  playlists: SavedPlaylist[];
+};

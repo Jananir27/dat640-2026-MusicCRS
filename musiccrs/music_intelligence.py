@@ -1113,6 +1113,7 @@ class MusicIntelligence:
             )
         ids = [track["track_id"] for track in unique_tracks]
         self.service.replace_playlist(state, ids)
+        state.created_playlist_name = query[:100]
         state.pending_recommendation_ids.clear()
         state.pending_disambiguation_ids.clear()
         state.pending_disambiguation_action = None

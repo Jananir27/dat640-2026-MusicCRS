@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import io, { Socket } from "socket.io-client";
 import { AgentMessage, UserMessage, ChatMessage } from "../types";
+import { getDeviceId } from "../deviceIdentity";
 
 export default function useSocketConnection(
   url: string = process.env.REACT_APP_BACKEND_URL || "http://127.0.0.1:5000",
@@ -15,7 +16,7 @@ export default function useSocketConnection(
     useRef<(success: boolean, error: string) => void>();
 
   useEffect(() => {
-    const newSocket = io(url, { path: path });
+    const newSocket = io(url, { path: path, auth: { device_id: getDeviceId() } });
     setSocket(newSocket);
 
     newSocket.on("connect_error", (error) => {

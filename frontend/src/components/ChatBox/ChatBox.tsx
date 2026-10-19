@@ -31,6 +31,7 @@ import {
 import {
   ChatMessage,
   PlaylistTrack,
+  PlaylistLibrary,
 } from "../../types";
 
 
@@ -44,6 +45,7 @@ export default function ChatBox() {
     onMessage,
     onRestart,
     giveFeedback,
+    isConnected,
   } = useSocket();
 
   // ---------------------------------------------------------
@@ -65,6 +67,7 @@ export default function ChatBox() {
 
   const [playlist, setPlaylist] =
     useState<PlaylistTrack[]>([]);
+  const [library, setLibrary] = useState<PlaylistLibrary | null>(null);
 
   // ---------------------------------------------------------
   // Refs
@@ -102,7 +105,7 @@ export default function ChatBox() {
 
     const message = inputValue.trim();
 
-    if (message === "") {
+    if (message === "" || !isConnected) {
       return;
     }
 
@@ -214,6 +217,16 @@ export default function ChatBox() {
 
   const handlePlaylistUpdate = useCallback(
     (message: ChatMessage) => {
+      const libraryAnnotation = message.dialogue_acts
+        ?.find((act) => act.intent === "SAVED_PLAYLISTS")
+        ?.annotations.find((annotation) => annotation.slot === "library_json");
+      if (libraryAnnotation) {
+        try {
+          setLibrary(JSON.parse(libraryAnnotation.value) as PlaylistLibrary);
+        } catch (error) {
+          console.error("Could not parse saved playlists:", error);
+        }
+      }
       const playlistAct =
         message.dialogue_acts?.find(
           (act) =>
@@ -303,6 +316,7 @@ export default function ChatBox() {
       setChatButtons([]);
 
       setPlaylist([]);
+      setLibrary(null);
 
       chatMessagesRef.current = [];
     });
@@ -406,11 +420,13 @@ export default function ChatBox() {
                   )
                 }
                 placeholder="Type message"
+                disabled={!isConnected}
                 ref={inputRef}
               />
 
               <button
                 type="submit"
+                disabled={!isConnected}
                 className="
                   btn
                   btn-link
@@ -440,6 +456,9 @@ export default function ChatBox() {
         tracks={playlist}
         onRemove={handleRemoveTrack}
         onClear={handleClearPlaylist}
+        library={library}
+        connected={isConnected}
+        onLibraryAction={(command) => sendMessage({ message: command })}
       />
 
     </div>

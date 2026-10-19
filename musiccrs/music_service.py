@@ -36,6 +36,7 @@ class ConversationState:
     recent_retrieval_requests: list[str] = field(default_factory=list)
     last_question_track_id: str | None = None
     last_question_artist: str | None = None
+    created_playlist_name: str | None = None
 
 
 def _values(value: Any) -> list[str]:

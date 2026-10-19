@@ -62,6 +62,43 @@
     rgba(0, 0, 0, 0.1);
 }
 
+.playlist-library {
+  border-bottom: 1px solid #eee;
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+}
+
+.playlist-library label {
+  display: block;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.playlist-library-row, .playlist-library-footer {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.playlist-library-row select, .playlist-library-row input {
+  flex: 1;
+  min-width: 0;
+}
+
+.playlist-library-row button {
+  flex-shrink: 0;
+}
+
+.playlist-library-footer {
+  justify-content: space-between;
+  color: #777;
+}
+
+.playlist-delete-confirmation p {
+  margin-bottom: 8px;
+}
+
 
 /* =========================================================
    Playlist header
