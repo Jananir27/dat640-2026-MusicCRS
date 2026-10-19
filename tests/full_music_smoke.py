@@ -275,7 +275,8 @@ class FullMusicSmoke(unittest.TestCase):
             with self.subTest(description=description):
                 answer = self.send(f"Create a playlist for {description}", updated=True)
                 self.assertIn("created a playlist", answer)
-                self.assertTrue(8 <= len(self.state.playlist_ids) <= 20)
+                minimum = 4 if "short" in description else 8
+                self.assertTrue(minimum <= len(self.state.playlist_ids) <= 20)
                 self.assertFalse(self.state.pending_recommendation_ids)
                 self.assertFalse(self.state.pending_disambiguation_ids)
 

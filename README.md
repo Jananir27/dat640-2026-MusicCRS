@@ -13,6 +13,14 @@ dependencies. On first startup, the backend downloads the catalog, precomputed
 track embeddings, and Qwen and MiniLM model weights into the Docker volume.
 This initial download can take a while; later starts reuse those files.
 
+The TalkPlay track metadata is imported into a SQLite database on first startup
+(`cache/catalog.sqlite3`, or `/app/cache/catalog.sqlite3` inside Compose).
+The database and models persist in the same Docker volume. Later catalog loads
+read SQLite without downloading the dataset again. Track answers and playlist
+additions validate IDs against SQLite; retrieval and NLU use indexes built from
+the database records. No database server or additional setup is required.
+For a local Python run, `MUSICCRS_CATALOG_DB` can select another database path.
+
 ```bash
 docker compose up --build
 ```

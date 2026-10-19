@@ -8,6 +8,7 @@ these two useful preference groups.
 from __future__ import annotations
 
 from collections import Counter
+import math
 import re
 from typing import Iterable
 
@@ -120,6 +121,92 @@ def profile_tracks(tracks: Iterable[dict]) -> tuple[Counter[str], Counter[str]]:
         genres.update(track_genres)
         moods.update(track_moods)
     return genres, moods
+
+
+# Preserve these distinctions for R6 instead of collapsing every rock style
+# into one feature. R8 continues to use the broader genre/mood preferences.
+_STYLE_ALIASES = {
+    "nu metal": ("nu-metal", "new metal"),
+    "alternative metal": (),
+    "rap metal": (),
+    "rap rock": (),
+    "hard rock": (),
+    "alternative rock": (),
+    "punk rock": (),
+    "pop punk": (),
+    "post punk": (),
+    "indie rock": (),
+    "indie pop": (),
+    "synth pop": ("synthpop",),
+    "death metal": (),
+    "black metal": (),
+    "metalcore": (),
+    "deep house": (),
+    "progressive house": (),
+}
+_STYLE_MAP = _alias_map(_STYLE_ALIASES)
+
+
+def track_style(track: dict) -> Counter[str]:
+    """Genre vector with extra evidence for specific catalog subgenres."""
+    tags = track.get("tag_list") or []
+    if isinstance(tags, str):
+        tags = tags.split(",")
+    genres, _ = classify_tags(tags)
+    features = Counter({genre: 1.0 for genre in genres})
+    for tag in tags:
+        style = _STYLE_MAP.get(_key(str(tag)))
+        if style:
+            features[style] = 2.0  # aliases must not count as extra votes
+    return features
+
+
+def select_playlist_matches(tracks: list[dict], seeds: list[dict], limit: int,
+                            request: str = "") -> list[dict]:
+    """Rank R6 candidates by style similarity before applying artist variety.
+
+    Compare against individual seeds so a mixed playlist does not manufacture
+    a broad union of genres that makes unrelated tracks look like close matches.
+    Retrieval order breaks near ties; diversity cannot outweigh style fit.
+    """
+    def artists(track):
+        values = track.get("artist_name") or []
+        return {_key(value) for value in ([values] if isinstance(values, str) else values)}
+
+    def cosine(left, right):
+        norm = math.sqrt(sum(v * v for v in left.values()) * sum(v * v for v in right.values()))
+        return sum(value * right.get(key, 0) for key, value in left.items()) / norm if norm else 0.0
+
+    seed_features = [(track_style(seed), artists(seed)) for seed in seeds]
+    has_seed_style = any(features for features, _ in seed_features)
+    requested_genres, requested_moods = extract_preferences(request)
+    scored = []
+    for rank, track in enumerate(tracks):
+        style, names = track_style(track), artists(track)
+        similarity = max((cosine(style, features) for features, _ in seed_features), default=0.0)
+        same_artist = any(names & seed_names for _, seed_names in seed_features)
+        # Sparse catalogs may have no style tags. Keep artist-based discovery
+        # available there, but do not pad a tagged playlist with unrelated songs.
+        if has_seed_style and similarity < 0.25 and not same_artist:
+            continue
+        tags = track.get("tag_list") or []
+        genres, moods = classify_tags(tags.split(",") if isinstance(tags, str) else tags)
+        preference_fit = (
+            len(set(requested_genres) & genres) / max(1, len(requested_genres))
+            + len(set(requested_moods) & moods) / max(1, len(requested_moods))
+        )
+        score = similarity + 0.15 * same_artist + 0.2 * preference_fit + 0.05 / (rank + 1)
+        scored.append((score, track, names))
+
+    result = []
+    artist_counts = Counter()
+    while scored and len(result) < limit:
+        best = max(range(len(scored)), key=lambda i: scored[i][0] -
+                   0.12 * max((artist_counts[name] for name in scored[i][2]), default=0))
+        _, track, names = scored.pop(best)
+        result.append(track)
+        artist_counts.update(names)
+    return result
 
 
 def select_diverse(

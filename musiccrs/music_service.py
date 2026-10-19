@@ -17,7 +17,9 @@ from typing import Any
 from retrieval.base import RetrievalModule
 from retrieval.data_loader import MusicCatalogLoader
 from retrieval.final import FinalRetriever
-from musiccrs.music_features import extract_preferences, profile_tracks, select_diverse
+from musiccrs.music_features import (
+    extract_preferences, profile_tracks, select_diverse, select_playlist_matches, track_style,
+)
 
 
 _TOKEN_RE = re.compile(r"[^a-z0-9]+")
@@ -142,7 +144,10 @@ class MusicService:
         return record
 
     def get_track(self, track_id: str) -> dict | None:
-        return self.catalog.metadata_dict.get(track_id)
+        try:
+            return self.catalog.id_to_metadata(track_id)
+        except KeyError:
+            return None
 
     def search_tracks(
         self,
@@ -308,19 +313,22 @@ class MusicService:
         query_parts = []
         if genre_profile:
             query_parts.append("preferred genres: " + ", ".join(
-                genre for genre, _ in genre_profile.most_common(5)
+                genre for genre, _ in sorted(genre_profile.items(), key=lambda item: (-item[1], item[0]))
             ))
         if mood_profile:
             query_parts.append("preferred moods: " + ", ".join(
-                mood for mood, _ in mood_profile.most_common(4)
+                mood for mood, _ in sorted(mood_profile.items(), key=lambda item: (-item[1], item[0]))[:4]
             ))
-        # When tags provide a usable preference profile, lead with those
-        # features so one seed artist does not dominate the candidate pool.
-        if not genre_profile and not mood_profile:
-            if artists:
-                query_parts.append("artists: " + ", ".join(dict.fromkeys(artists)))
-            if titles:
-                query_parts.append("tracks similar to: " + ", ".join(dict.fromkeys(titles)))
+        # Retain the seed identity and specific styles: broad tags alone can
+        # turn a rock playlist into generic electronic/hip-hop discovery.
+        styles = dict.fromkeys(style for seed in recent_seeds for style, weight in track_style(seed).items()
+                               if weight > 1)
+        if styles:
+            query_parts.append("styles: " + ", ".join(styles))
+        if artists:
+            query_parts.append("artists: " + ", ".join(dict.fromkeys(artists)))
+        if titles:
+            query_parts.append("tracks similar to: " + ", ".join(dict.fromkeys(titles)))
 
         candidates = self.recommend_tracks(
             "; ".join(query_parts),
@@ -330,7 +338,7 @@ class MusicService:
             request=request,
             use_playlist_context=False,
         )
-        return select_diverse(candidates, limit, genre_profile, mood_profile)
+        return select_playlist_matches(candidates, seeds, limit, request)
 
     def recommend_for_playlist_description(
         self,
@@ -365,7 +373,7 @@ class MusicService:
         unknown_ids = [
             track_id
             for track_id in unique_ids
-            if track_id not in self.catalog.metadata_dict
+            if self.get_track(track_id) is None
         ]
         if unknown_ids:
             raise ValueError(f"Unknown track ID(s): {', '.join(unknown_ids)}")

@@ -12,6 +12,7 @@ from dialoguekit.core.utterance import Utterance
 from dialoguekit.participant.agent import Agent
 from dialoguekit.participant.participant import DialogueParticipant
 from dialoguekit.platforms import FlaskSocketPlatform
+from dialoguekit.platforms.flask_socket_platform import ChatNamespace
 
 from .music_intelligence import MusicIntelligence
 from .music_service import ConversationState, get_shared_music_service
@@ -23,10 +24,24 @@ OLLAMA_API_KEY = os.environ.get("OLLAMA_API_KEY", "")
 _INTENT_OPTIONS = Intent("OPTIONS")
 
 
+class MusicCRSPlatform(FlaskSocketPlatform):
+    """Run the assignment's Socket.IO server with its Werkzeug dev server."""
+
+    def start(self, host: str = "127.0.0.1", port: str = "5000") -> None:
+        self.socketio.on_namespace(ChatNamespace("/", self))
+        self.socketio.run(
+            self.app,
+            host=host,
+            port=port,
+            allow_unsafe_werkzeug=True,
+        )
+
+
 class MusicCRS(Agent):
-    def __init__(self, use_llm: bool | None = None):
+    def __init__(self, id: str = "MusicCRS", *, use_llm: bool | None = None):
         """Initialize MusicCRS agent."""
-        super().__init__(id="MusicCRS")
+        # DialogueKit's Platform.get_new_agent() passes the class name first.
+        super().__init__(id=id)
 
         if use_llm is None:
             setting = os.environ.get("MUSICCRS_USE_LLM")
@@ -228,7 +243,7 @@ if __name__ == "__main__":
     music_service = get_shared_music_service()
     music_service._get_retriever()
     music_service.warm_r5()
-    platform = FlaskSocketPlatform(MusicCRS)
+    platform = MusicCRSPlatform(MusicCRS)
     platform.start(
         host=os.environ.get("MUSICCRS_HOST", "127.0.0.1"),
         port=os.environ.get("MUSICCRS_PORT", "5000"),

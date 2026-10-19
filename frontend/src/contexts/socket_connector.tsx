@@ -60,10 +60,6 @@ export default function useSocketConnection(
     };
   }, [url, path]);
 
-  const startConversation = () => {
-    socket?.emit("start_conversation", {});
-  };
-
   const sendMessage = (message: UserMessage) => {
     socket?.emit("message", message);
   };
@@ -100,7 +96,6 @@ export default function useSocketConnection(
 
   return {
     isConnected,
-    startConversation,
     sendMessage,
     giveFeedback,
     quickReply,

@@ -23,7 +23,7 @@ def normalize(text: str) -> str:
 
 # Grammatical words must not become entities merely because a catalog contains
 # a song called "Who" or "When". Quoted names can override this stop list.
-GRAMMAR = set("a an the who what which when where how is was are were do does did made by from on of in for to me my this that it they their same song songs track tracks music artist artists album release date year genre style tags other else more out come came sings performs recorded tell show list name please anything something band singer record kind".split())
+GRAMMAR = set("a an the who what which when where how is was are were do does did made by from on of in for to me my you your we our us this that it they their same song songs track tracks music artist artists album release released date year genre style tags other else more out come came sings sang sung said performs performed recorded tell show list name please anything something band singer record kind can could would should have has had".split())
 
 
 @dataclass(frozen=True)
@@ -41,6 +41,7 @@ class CatalogEntities:
             "artist": defaultdict(set),
             "album": defaultdict(set),
         }
+        self.full_names = {kind: defaultdict(set) for kind in self.index}
         for track_id, row in catalog.metadata_dict.items():
             for kind, field in (("title", "track_name"), ("artist", "artist_name"), ("album", "album_name")):
                 values = row.get(field) or []
@@ -50,6 +51,7 @@ class CatalogEntities:
                     name = normalize(str(value))
                     if name:
                         self.index[kind][name].add(track_id)
+                        self.full_names[kind][name].add(track_id)
                         # A distinctive word is a useful album shorthand
                         # ("Issa" for "Issa Album"). Skip generic words.
                         if kind == "album":
@@ -58,16 +60,53 @@ class CatalogEntities:
                                     self.index[kind][token].add(track_id)
         self.max_words = {kind: max((len(n.split()) for n in names), default=1)
                           for kind, names in self.index.items()}
+        self.compact_names = {kind: defaultdict(set) for kind in self.index}
+        for kind, names in self.full_names.items():
+            for name in names:
+                self.compact_names[kind][name.replace(" ", "")].add(name)
+
+    def match_name(self, text: str, kind: str, *, fuzzy: bool = True) -> list[Mention]:
+        """Resolve a complete entity slot, without matching question words.
+
+        Full names exclude the album shorthand aliases used by free-text
+        mentions. Whitespace-only differences are safe here ("savagemode").
+        Numbered releases must retain their suffix even during fuzzy lookup.
+        """
+        query = normalize(text)
+        names = self.full_names[kind]
+        compact = query.replace(" ", "")
+        hits = sorted(self.compact_names[kind].get(compact, ()))
+        if not hits and fuzzy and len(compact) >= 5:
+            try:
+                from rapidfuzz import process, fuzz
+            except ImportError:
+                return []
+            suffix = re.search(r"(?:^|\s)(\d+|ii|iii|iv|v|vi|vii|viii|ix|x)$", query)
+            suffix = suffix.group(1) if suffix else None
+            scored = process.extract(query, names.keys(), scorer=fuzz.ratio,
+                                     score_cutoff=85, limit=5)
+            eligible = []
+            for name, score, _ in scored:
+                candidate_suffix = re.search(r"(?:^|\s)(\d+|ii|iii|iv|v|vi|vii|viii|ix|x)$", name)
+                candidate_suffix = candidate_suffix.group(1) if candidate_suffix else None
+                if candidate_suffix == suffix:
+                    eligible.append((name, score))
+            if eligible:
+                hits = sorted(name for name, score in eligible if score >= eligible[0][1] - 3)
+        return [Mention(name, 0, len(query.split()), frozenset(names[name])) for name in hits]
 
     def mentions(self, text: str, kind: str, fuzzy: bool = False) -> list[Mention]:
         words = normalize(text).split()
         quoted = {normalize(s) for s in re.findall(r'["“]([^"”]+)["”]', text)}
         candidates = []
         names = self.index[kind]
+        album_context = bool(re.search(r"\b(album|record|tracklist|on|in|from)\b", text, re.I))
         for start in range(len(words)):
             for end in range(start + 1, min(len(words), start + self.max_words[kind]) + 1):
                 name = " ".join(words[start:end])
                 if name not in quoted and all(w in GRAMMAR for w in words[start:end]):
+                    continue
+                if kind == "album" and name not in self.full_names[kind] and not album_context:
                     continue
                 if name in names:
                     candidates.append(Mention(name, start, end, frozenset(names[name])))

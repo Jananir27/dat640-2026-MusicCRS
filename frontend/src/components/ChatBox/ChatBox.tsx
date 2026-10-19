@@ -39,7 +39,6 @@ export default function ChatBox() {
   const { user } = useContext(UserContext);
 
   const {
-    startConversation,
     sendMessage,
     quickReply,
     onMessage,
@@ -75,14 +74,6 @@ export default function ChatBox() {
 
   const inputRef =
     useRef<HTMLInputElement>(null);
-
-  // ---------------------------------------------------------
-  // Start conversation
-  // ---------------------------------------------------------
-
-  useEffect(() => {
-    startConversation();
-  }, [startConversation]);
 
   // ---------------------------------------------------------
   // Add message to chat

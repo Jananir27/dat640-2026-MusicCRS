@@ -10,7 +10,15 @@
     "Which artist performs this song by this artist?", "Name the singer for this song by this artist",
     "Who is singing this track by this artist?", "Who is the artist behind this song by this artist?",
     "Tell me which musician performs this song by this artist", "Who sings it?",
-    "Who is the singer?", "What band is this?", "Who is the artist?"
+    "Who is the singer?", "What band is this?", "Who is the artist?",
+    "Who sang this song by this artist?", "Who said this song?",
+    "Who said this song by this artist?", "Who sang this album?",
+    "Who recorded this album?", "Who performs this album?",
+    "Who are the performers on this album?", "Who sang this album by this artist?",
+    "Who sings this album?", "Who is this album by?", "Who made this album?",
+    "Which artist recorded this album?", "Which band performs this album?",
+    "Who performed this album?", "Name the artist of this album",
+    "Tell me who sang this album"
   ],
   "album": [
     "What album is this song on?", "Which record contains this song?", "Name the album for this song",
@@ -19,13 +27,22 @@
     "Which release does this song belong to?", "What album did this song appear on?",
     "Album of this song?", "Which album is it from?", "What record is that track from?",
     "Is it part of an album?", "What's the album?", "What album is it on?",
-    "Tell me the record name", "Which project is this from?"
+    "Tell me the record name", "Which project is this from?",
+    "What album did this song come from?", "Which album did this track come from?",
+    "What album was this song released on?", "Which album was this track released on?",
+    "What album did this song by this artist come from?",
+    "Which album did this track by this artist come from?",
+    "Do you know what album this song is on?"
   ],
   "release": [
     "When was this song released?", "What year did this song come out?", "When did this song first come out?",
     "Tell me the release date of this song", "How old is this song?", "When was this track published?",
     "Which year is this song from?", "What is the release year of this song?",
     "When did they release this song?", "On what date was this song released?",
+    "When was this song by this artist released?", "When was this track by this artist released?",
+    "What is the release date for this song by this artist?",
+    "What year did this song by this artist come out?",
+    "When did this artist release this song?", "On what date did this artist release this track?",
     "When was it released?", "What year did that track come out?", "What year?",
     "When did it drop?", "When did it come out?", "What is the release date?",
     "Is this a new song?", "How old is it?"

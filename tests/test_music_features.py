@@ -3,7 +3,10 @@
 import unittest
 from collections import Counter
 
-from musiccrs.music_features import classify_tags, extract_preferences, profile_tracks, select_diverse
+from musiccrs.music_features import (
+    classify_tags, extract_preferences, profile_tracks, select_diverse,
+    select_playlist_matches, track_style,
+)
 
 
 class MusicFeatureTests(unittest.TestCase):
@@ -40,6 +43,34 @@ class MusicFeatureTests(unittest.TestCase):
         self.assertEqual([track["track_id"] for track in selected], ["1", "3"])
         self.assertNotEqual(selected[0]["artist_name"], selected[1]["artist_name"])
         self.assertIn("rock", classify_tags(selected[1]["tag_list"])[0])
+
+    def test_playlist_style_preserves_subgenres_without_counting_aliases_twice(self):
+        style = track_style({"tag_list": ["nu metal", "nu-metal", "new metal", "hard rock", "2003", "favorites"]})
+        self.assertEqual(style, {"nu metal": 2.0, "hard rock": 2.0, "rock": 1.0})
+
+    def test_playlist_matches_prioritize_style_over_rank_and_broad_tag_overlap(self):
+        def track(track_id, artist, tags):
+            return {"track_id": track_id, "artist_name": [artist], "tag_list": tags}
+
+        seed = track("seed", "Seed Artist", ["nu metal", "alternative rock", "rock", "hip-hop", "electronic", "pop"])
+        candidates = [
+            track("country", "Country Artist", ["country", "pop"]),
+            track("electronic", "Electronic Artist", ["electronic", "hip-hop"]),
+            track("metal", "Metal Artist", ["nu-metal", "alternative rock", "rock"]),
+            track("same", "Seed Artist", ["nu metal", "alternative rock", "rock"]),
+            track("rock", "Rock Artist", ["hard rock", "alternative rock", "rock"]),
+        ]
+        selected = select_playlist_matches(candidates, [seed], 3)
+        self.assertEqual({t["track_id"] for t in selected}, {"same", "metal", "rock"})
+
+    def test_playlist_matches_do_not_fill_slots_with_unrelated_tracks(self):
+        seed = {"artist_name": ["Seed"], "tag_list": ["metal"]}
+        unrelated = {"track_id": "country", "artist_name": ["Other"], "tag_list": ["country"]}
+        self.assertEqual(select_playlist_matches([unrelated], [seed], 5), [])
+
+    def test_playlist_matches_support_tagless_seed_and_string_metadata(self):
+        track = {"track_id": "other", "artist_name": "Artist", "tag_list": "rock, hard rock"}
+        self.assertEqual(select_playlist_matches([track], [{"artist_name": ["Seed"]}], 5), [track])
 
 
 if __name__ == "__main__":

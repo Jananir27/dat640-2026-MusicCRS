@@ -72,6 +72,8 @@ class FinalRetrievalTests(unittest.TestCase):
         goal = call.call_args.args[0]["conversation_goal"]["listener_goal"]
         self.assertIn("preferred genres: pop", goal)
         self.assertIn("preferred moods: chill", goal)
+        self.assertIn("artists: Artist One", goal)
+        self.assertIn("tracks similar to: Track 1", goal)
         self.assertNotIn("love", goal)
         self.assertNotIn("favorites", goal)
         self.assertNotIn("Linkin Park", goal)
