@@ -226,6 +226,72 @@ class MusicIntelligenceTests(unittest.TestCase):
         self.assertIn("related to your playlist", response)
         self.assertFalse(changed)
 
+    def test_recommendation_selection_combines_ordinal_and_numeric_positions(self):
+        for message, expected in [
+            ("Add first, second and fourth", ["2", "3", "5"]),
+            ("Add the first, the second, and the fourth songs", ["2", "3", "5"]),
+            ("Could you add 1st, second and 4 to my playlist?", ["2", "3", "5"]),
+            ("Add 1, 2 and 4", ["2", "3", "5"]),
+            ("Add fourth, 2nd and first", ["5", "3", "2"]),
+            ("Add first, last and first", ["2", "6"]),
+            ("Add the first two", ["2", "3"]),
+            ("Add the first four", ["2", "3", "4", "5"]),
+            ("the second one", ["3"]),
+        ]:
+            with self.subTest(message=message):
+                state = ConversationState(
+                    playlist_ids=["1"], pending_recommendation_ids=["2", "3", "4", "5", "6"],
+                )
+                response, changed = self.handler.handle(message, state)
+                self.assertTrue(changed)
+                self.assertEqual(state.playlist_ids, ["1", *expected])
+                self.assertIn(f"Added {len(expected)} song(s)", response)
+                self.assertFalse(state.pending_recommendation_ids)
+
+    def test_invalid_recommendation_position_preserves_playlist_and_all_suggestions(self):
+        for message in [
+            "Add first, second and ninth", "Add 1, 2 and 9", "Add first and 0",
+            "Add the ninth", "Add the first nine", "Add 0", "Add 2 and 99th",
+        ]:
+            with self.subTest(message=message):
+                pending = ["2", "3", "4", "5", "6"]
+                state = ConversationState(playlist_ids=["1"], pending_recommendation_ids=pending[:])
+                response, changed = self.handler.handle(message, state)
+                self.assertFalse(changed)
+                self.assertIn("1 to 5", response)
+                self.assertEqual(state.playlist_ids, ["1"])
+                self.assertEqual(state.pending_recommendation_ids, pending)
+                response, changed = self.handler.handle("Add first, second and fourth", state)
+                self.assertTrue(changed)
+                self.assertEqual(state.playlist_ids, ["1", "2", "3", "5"])
+
+    def test_disambiguation_requires_one_valid_position_and_preserves_question(self):
+        state = ConversationState(
+            pending_disambiguation_ids=["1", "2"], pending_disambiguation_action="artist",
+        )
+        for message, expected in [
+            ("first and ninth", "1 to 2"), ("first and second", "choose one"),
+        ]:
+            response, changed = self.handler.handle(message, state)
+            self.assertFalse(changed)
+            self.assertIn(expected, response)
+            self.assertEqual(state.pending_disambiguation_ids, ["1", "2"])
+            self.assertEqual(state.pending_disambiguation_action, "artist")
+        response, changed = self.handler.handle("the second one", state)
+        self.assertEqual(response, "Love is by Metallica.")
+        self.assertFalse(changed)
+
+    def test_pending_selection_does_not_consume_numbers_in_a_song_title(self):
+        self.service.catalog.metadata_dict["9"] = {
+            "track_id": "9", "track_name": ["The Second Coming"],
+            "artist_name": ["Artist Nine"], "tag_list": [],
+        }
+        state = ConversationState(playlist_ids=["1"], pending_recommendation_ids=["2", "3"])
+        response, changed = self.handler.handle("Add The Second Coming", state)
+        self.assertTrue(changed)
+        self.assertEqual(state.playlist_ids, ["1", "9"])
+        self.assertIn("The Second Coming", response)
+
     def test_natural_language_exclusion_and_rejection(self):
         state = ConversationState(playlist_ids=["1"])
         self.handler.handle("/recommend", state)

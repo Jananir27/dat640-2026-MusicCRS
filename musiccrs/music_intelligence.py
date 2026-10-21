@@ -25,6 +25,16 @@ _WORD_NUMBERS = {
     "five": 5,
     "fifth": 5,
     "5th": 5,
+    "six": 6,
+    "sixth": 6,
+    "seven": 7,
+    "seventh": 7,
+    "eight": 8,
+    "eighth": 8,
+    "nine": 9,
+    "ninth": 9,
+    "ten": 10,
+    "tenth": 10,
     "last": -1,
 }
 
@@ -432,6 +442,8 @@ class MusicIntelligence:
         if state.pending_disambiguation_ids:
             selected = self._selected_positions(message, len(state.pending_disambiguation_ids))
             if selected is not None:
+                if not selected:
+                    return f"Please choose an option from 1 to {len(state.pending_disambiguation_ids)}. I haven't changed your playlist.", False
                 if len(selected) != 1:
                     return "Please choose one option number for this track.", False
                 track_id = state.pending_disambiguation_ids[selected[0]]
@@ -483,6 +495,8 @@ class MusicIntelligence:
         else:
             positions = self._selected_positions(message, len(pending))
             if positions is not None:
+                if not positions:
+                    return f"Please choose recommendations from 1 to {len(pending)}. I haven't added any songs; your suggestions are still available.", False
                 selected_ids = [pending[index] for index in positions]
             else:
                 artist_match = re.search(
@@ -520,67 +534,53 @@ class MusicIntelligence:
 
     @staticmethod
     def _selected_positions(message: str, count: int) -> list[int] | None:
-        lowered = message.casefold().strip()
+        """Return positions, [] for invalid bounds, or None for other requests.
 
-        # Preserve every explicit position in selections such as "Add 1 and 3".
-        number_list = re.fullmatch(
-            r"(?:(?:add|choose|select|take)\s+)?(?:options?\s+|numbers?\s+)?"
-            r"(\d+(?:\s*(?:,\s*(?:and\s+)?|and\s+)\d+)+)[.!]?",
+        Match the complete selection so a valid first item cannot hide an
+        invalid later item, or steal a title such as "The Second Coming".
+        """
+        lowered = message.casefold().strip().rstrip(".!?").strip()
+        lead = (
+            r"(?:(?:please|could you|can you|would you|will you)\s+)*"
+            r"(?:(?:add|choose|select|take|i want|i'd like|i would like)\s+)?"
+        )
+        tail = r"(?:\s+(?:to|in|into)\s+(?:my\s+|the\s+)?playlist)?(?:\s+please)?"
+        suffix = r"(?:\s+(?:ones?|songs?|tracks?|options?))?"
+        amount = r"(?:\d+|one|two|three|four|five|six|seven|eight|nine|ten)"
+        first_n = re.fullmatch(
+            lead + r"(?:the\s+)?first\s+(?P<amount>" + amount + ")" + suffix + tail,
             lowered,
         )
-        if number_list:
-            positions = list(dict.fromkeys(int(n) - 1 for n in re.findall(r"\d+", number_list.group(1))))
-            return positions if all(0 <= p < count for p in positions) else None
+        if first_n:
+            value = first_n.group("amount")
+            number = int(value) if value.isdigit() else _WORD_NUMBERS[value]
+            return list(range(number)) if 0 < number <= count else []
 
-        if (
-            not re.search(
-                r"\b(add|choose|select|take|want|option|number|first|second|third|fourth|fifth|last)\b",
-                lowered,
-            )
-            and not re.fullmatch(r"\s*\d+\s*", lowered)
-        ):
+        number = r"(?:\d+(?:st|nd|rd|th)?|" + "|".join(_WORD_NUMBERS) + ")"
+        label = r"(?:(?:the|options?|numbers?|songs?|tracks?)\s+)*"
+        item = label + number + suffix
+        separator = r"(?:\s*,\s*(?:and\s+)?|\s+and\s+)"
+        selection = re.fullmatch(
+            lead + r"(?P<items>" + item + "(?:" + separator + item + ")*)" + tail,
+            lowered,
+        )
+        if not selection:
             return None
 
-        # Multi-selection expressions used for recommendation follow-ups.
-        if re.search(r"\bfirst\s+(?:two|2)\b", lowered):
-            return list(range(min(2, count)))
-
-        if re.search(r"\bfirst\s+(?:three|3)\b", lowered):
-            return list(range(min(3, count)))
-
-        first_number = re.search(r"\bfirst\s+(\d+)\b", lowered)
-        if first_number:
-            number = int(first_number.group(1))
-            return list(range(min(number, count)))
-
-        # Resolve ordinal phrases before generic words such as "one".
-        ordinal_words = {
-            "first": 0,
-            "second": 1,
-            "third": 2,
-            "fourth": 3,
-            "fifth": 4,
-        }
-
-        for word, index in ordinal_words.items():
-            if re.search(rf"\b{word}\b", lowered):
-                if index < count:
-                    return [index]
-
-        if re.search(r"\blast\b", lowered):
-            return [count - 1] if count else None
-
-        # Numeric forms: "2", "number 2", "option 2", "2nd".
-        numeric = re.search(
-            r"\b(?:number\s+|option\s+)?(\d+)(?:st|nd|rd|th)?\b",
-            lowered,
-        )
-        if numeric:
-            index = int(numeric.group(1)) - 1
-            if 0 <= index < count:
-                return [index]
-
-        return None
+        positions = []
+        for part in re.split(separator, selection.group("items")):
+            value = re.fullmatch(label + "(?P<number>" + number + ")" + suffix, part).group("number")
+            if value == "last":
+                position = count - 1
+            elif value in _WORD_NUMBERS:
+                position = _WORD_NUMBERS[value] - 1
+            else:
+                position = int(re.match(r"\d+", value).group()) - 1
+            if not 0 <= position < count:
+                return []
+            if position not in positions:
+                positions.append(position)
+        return positions
 
     def _match_pending_description(
         self,
