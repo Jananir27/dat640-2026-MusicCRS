@@ -6,3 +6,5 @@ datasets
 bm25s
 sentence-transformers
 torch
+scikit-learn
+rapidfuzz

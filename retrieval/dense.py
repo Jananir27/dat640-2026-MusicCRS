@@ -137,9 +137,20 @@ class DenseRetriever(RetrievalModule):
 
         print("Loading Qwen3 embedding model...")
 
+        # Qwen weights may be stored in BF16. Several CPU architectures
+        # (including the CPUs exposed by Docker Desktop on Apple Silicon)
+        # cannot use the oneDNN BF16 matmul path and fall back to very slow
+        # BLAS operations. Load explicitly in FP32 on CPU; retain the model's
+        # native precision on CUDA.
+        model_kwargs = (
+            {"torch_dtype": torch.float32}
+            if self.device == "cpu"
+            else None
+        )
         self.model = SentenceTransformer(
             model_name,
             device=self.device,
+            model_kwargs=model_kwargs,
         )
 
         print(
@@ -159,7 +170,9 @@ class DenseRetriever(RetrievalModule):
             batch_size = 8
 
         # Prevent very long conversation histories from exhausting GPU memory.
-        self.model.max_seq_length = 2048
+        # Conversational retrieval prompts are short. A smaller cap avoids
+        # unexpectedly expensive CPU inference on long histories.
+        self.model.max_seq_length = 512
         print(
             f"Encoding {len(queries)} queries "
             f"on {self.device} "

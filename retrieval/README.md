@@ -5,6 +5,11 @@ MusicCRS challenge, plus evaluation utilities for scoring predictions.
 Adapted from [`music-crs-baselines`](https://github.com/nlp4musa/music-crs-baselines)
 and [`music-crs-evaluator`](https://github.com/nlp4musa/music-crs-evaluator).
 
+The chat backend uses `FinalRetriever` in `final.py`. See
+[Final G1 retrieval in the chat backend](#final-g1-retrieval-in-the-chat-backend)
+for setup, saved-artifact requirements, and server verification commands.
+The BM25 examples below document the original baseline.
+
 ## Task
 
 Given a conversation between a user and a music recommender system, your task is to
@@ -187,3 +192,196 @@ while ours is retrieval only.
   `retrieval.evaluation.make_ground_truth` for local development. Do not
   use it to fit your method (e.g. hard-coding gold tracks); it's for
   evaluation only.
+
+## Final G1 retrieval in the chat backend
+
+`MusicService` uses `FinalRetriever` for R6 and R8. There is no automatic
+BM25-only fallback. R5 still answers catalog metadata questions, and R7 adds
+tracks from the saved recommendation list without rerunning retrieval.
+
+### Ranking stages
+
+The adapter reuses the original G1 functions in this order:
+
+1. `build_adaptive_query()` and `build_goal_aware_query()` construct queries.
+2. BM25 plus Qwen3 dense retrieval, fused with weighted RRF, produce each
+   branch's top 20. The original scripts use 50 candidates per component.
+3. `weighted_rrf()` fuses adaptive and goal-aware rankings with the saved
+   specificity-dependent weights.
+4. `rerank_tracks()` applies the saved exact-metadata weights.
+5. `rerank_prediction()` applies the saved initial diversity settings.
+6. A separate adaptive hybrid retrieval uses 100 candidates per component
+   to produce the top-100 reservoir.
+7. `selective_rerank()` expands the lower positions using the saved settings.
+
+The report's final selective configuration is `protect_top=12`,
+`reservoir_start=11`, `reservoir_end=100`, `novelty_weight=1.35`, and
+`original_bonus=0.14`. Commit `0e28727` records final score `0.223511684`.
+The runtime loads the actual saved winning settings rather than retuning them.
+
+The original top-20 branch is computed separately from the top-100 reservoir.
+Taking the first 20 of a fusion with a larger candidate pool can change its
+ranking and does not reproduce the original pipeline.
+
+### Export the saved artifacts on the school server
+
+If the original files cannot be recovered, regenerate them with the updated
+checkout on a compute/GPU node, in the project's activated Python environment:
+
+```bash
+bash run_g1_artifacts.sh cache/g1-rerun
+export MUSICCRS_RETRIEVAL_ARTIFACT="$PWD/cache/g1-rerun/final_retrieval.json"
+python -m tests.full_music_smoke --quiet
+```
+
+The runner requires a new output directory, saves `pipeline.log` there, and
+stops on any failing stage. It runs both hybrid branches, fusion tuning,
+exact-match tuning, initial diversity tuning, the top-100 reservoir, and
+the final selective fine search. It then evaluates the predictions and
+exports the verified runtime artifact. This is a full G1 regeneration, not
+a smoke test; downloads, embedding inference, and CPU tuning can take time.
+Keep it in your school's compute job/session for the duration of the run.
+If interrupted, completed files remain available; the runner itself does not
+automatically resume stages. The goal-aware script supports chunk resumption.
+
+The fine search stops at the first configuration meeting its score target,
+or saves the best improvement if the search finishes below the target.
+A rerun can choose different weights or produce different metrics; inspect
+`results_selective_expansion_fine.json` and `results_final.json` rather than
+assuming the report's exact score has been reproduced. The earlier coarse
+candidate-expansion search is not required as input to the final fine search.
+
+Use the updated checkout and its activated Python environment. Locate the
+directory containing these G1 files:
+
+```text
+results_prediction_fusion.json
+  (or prediction_fusion_tuning_results.json)
+results_exact_specificity_tuning.json
+results_diversity_tuning.json
+results_selective_expansion_fine.json
+predictions_exact_specificity_best.json
+predictions_diversity_best.json
+predictions_adaptive_goal_top100_full.json
+predictions_selective_expansion_fine_best.json
+```
+
+Then, from the project root:
+
+```bash
+python -m retrieval.export_final --artifacts-dir /absolute/path/to/G1/results
+```
+
+This writes `cache/final_retrieval.json`. The exporter checks matching
+session/turn keys and unique rankings, derives the two sets of recommendation
+frequency statistics, and replays both diversity stages. Every result must
+match the saved predictions exactly before it writes the artifact. Source
+file hashes are stored with the configuration. No model or ground truth is
+used for this export.
+
+If the final fine-search predictions were renamed to `predictions.json`, use
+`--final-predictions predictions.json`. If both fusion result names exist,
+select the correct one with `--fusion-results results_prediction_fusion.json`.
+Relative filenames are resolved within `--artifacts-dir`.
+
+Hybrid settings default to those in `run_final.sh`: candidate depth 50,
+dense weight 0.25, RRF constant 60, fusion RRF constant 60. If the winning run
+used different values, supply `--candidate-k`, `--dense-weight`, `--rrf-k`,
+and `--fusion-rrf-k` explicitly. The export verifies the saved diversity
+stages; it does not prove that these upstream settings regenerate the saved
+hybrid rankings.
+
+`run_final.sh` currently ends with the earlier coarse candidate-expansion
+search. Running it alone does not reproduce the report's final fine search
+in `tune_selective_expansion.py`. Recover the existing winning artifacts
+before starting any expensive rerun.
+
+If an artifact is kept elsewhere, configure both the app and smoke test:
+
+```bash
+export MUSICCRS_RETRIEVAL_ARTIFACT=/absolute/path/to/final_retrieval.json
+```
+
+Do not substitute fixture settings or empty frequency counts for missing
+G1 artifacts. Missing or malformed settings stop initialization explicitly.
+
+### Run the actual pipeline
+
+```bash
+python -c 'import torch; print("CUDA available:", torch.cuda.is_available())'
+python -m tests.full_music_smoke --quiet
+python -m musiccrs.musiccrs
+```
+
+The real smoke test loads the saved settings, real catalog, precomputed track
+embeddings, and Qwen query encoder. CUDA accelerates query encoding when
+available; the current dense implementation ranks NumPy vectors on CPU.
+Model/catalog setup time is reported separately from dialogue timings.
+The chat server initializes retrieval before accepting connections.
+
+### Live-conversation adaptation and limits
+
+- Chat does not have the dataset's annotated specificity or user profiles.
+  R6/R8 use the LL discovery branch. R6 supplies the actual request, a goal
+  derived from playlist titles/artists/tags, the two latest successful
+  retrieval requests, and metadata for two recent playlist tracks.
+- R8 starts fresh context using the new description. It replaces the playlist
+  only after candidates are available. Clearing the playlist clears recent
+  retrieval requests as well. Context remains local to the connected user.
+- Novelty uses frozen G1 recommendation frequencies, not catalog popularity
+  or mutable counts shared between live users.
+- The final result contains at most 20 tracks. Playlist exclusions are applied
+  after ranking, so R6 may return fewer than five if too few eligible tracks
+  remain. R8 chooses a duration-based playlist from these results, now at
+  most 20 songs. It does not append unreranked reservoir tracks.
+- Protecting the first 12 means final selective expansion normally cannot
+  change R6's first five suggestions. Exclusions can expose lower positions.
+  The protected-prefix policy has not been retuned for a five-song display.
+- The reported G1 score belongs to the saved development evaluation. It is
+  not a measured score for new chat requests or proof of recommendation quality.
+
+See [MusicCRS verification](#musiccrs-verification) below for offline and browser checks.
+
+## MusicCRS verification
+
+Run from the project root in the activated Python environment:
+
+```bash
+python -m unittest tests.test_final_retrieval tests.test_music_intelligence tests.test_bm25_cache
+python -m tests.full_music_smoke --offline --quiet
+```
+
+The unit tests check the final pipeline's protected prefix, candidate expansion,
+separate 50/100 retrieval depths, saved-artifact replay, missing-configuration
+failure, context handling, playlist exclusions, and existing music operations.
+
+Offline smoke mode exercises the agent, playlist events, real BM25, and real
+G1 fusion/reranking functions using eight fixture tracks, synthetic settings,
+and deterministic fake dense rankings. It does not test Qwen, semantic quality,
+or the submitted development score. The larger unit fixture exercises the
+reranked tail, which the eight-track smoke fixture cannot do.
+
+For the real catalog and embedding pipeline, first follow
+[the final retrieval setup](#final-g1-retrieval-in-the-chat-backend), then run:
+
+```bash
+python -m tests.full_music_smoke --quiet
+```
+
+Omit `--quiet` to see the full conversation transcript. The legacy command
+`python -m tests.live_music_smoke` invokes the same suite. The test requires
+`FinalRetriever`; it does not fall back to BM25. It disables only the chat LLM,
+not the Qwen embedding model. No web server or simulator upload is started.
+
+For manual UI verification, run the backend and frontend, then:
+
+1. Add a known track and confirm the playlist panel updates.
+2. Ask who performs it, its album, release date, and genre.
+3. Request related songs and inspect whether the explanations and music fit.
+4. Select recommendations by position, exclusion, and accept/reject-all.
+5. Create playlists for a mood and an activity; confirm the shared panel is
+   replaced and the tracks fit the request.
+6. Clear the playlist and confirm old recommendations cannot be accepted.
+
+Backend tests validate behavior and payloads. Browser rendering, socket
+transport, and recommendation quality still require these manual checks.

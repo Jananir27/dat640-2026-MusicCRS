@@ -1,9 +1,10 @@
 import { useState, useEffect, useRef } from "react";
 import io, { Socket } from "socket.io-client";
 import { AgentMessage, UserMessage, ChatMessage } from "../types";
+import { getDeviceId } from "../deviceIdentity";
 
 export default function useSocketConnection(
-  url: string = "http://127.0.0.1:5000",
+  url: string = process.env.REACT_APP_BACKEND_URL || "http://127.0.0.1:5000",
   path: string | undefined
 ) {
   const [socket, setSocket] = useState<Socket | null>(null);
@@ -15,7 +16,7 @@ export default function useSocketConnection(
     useRef<(success: boolean, error: string) => void>();
 
   useEffect(() => {
-    const newSocket = io(url, { path: path });
+    const newSocket = io(url, { path: path, auth: { device_id: getDeviceId() } });
     setSocket(newSocket);
 
     newSocket.on("connect_error", (error) => {
@@ -60,10 +61,6 @@ export default function useSocketConnection(
     };
   }, [url, path]);
 
-  const startConversation = () => {
-    socket?.emit("start_conversation", {});
-  };
-
   const sendMessage = (message: UserMessage) => {
     socket?.emit("message", message);
   };
@@ -100,7 +97,6 @@ export default function useSocketConnection(
 
   return {
     isConnected,
-    startConversation,
     sendMessage,
     giveFeedback,
     quickReply,

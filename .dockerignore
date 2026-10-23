@@ -1,0 +1,14 @@
+.git
+.venv
+venv
+env
+__pycache__
+*.py[cod]
+.pytest_cache
+.mypy_cache
+.ruff_cache
+cache
+logs
+frontend/node_modules
+frontend/build
+retrieval/evaluation/.venv
