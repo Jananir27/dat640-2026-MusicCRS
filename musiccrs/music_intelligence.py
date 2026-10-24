@@ -25,6 +25,16 @@ _WORD_NUMBERS = {
     "five": 5,
     "fifth": 5,
     "5th": 5,
+    "six": 6,
+    "sixth": 6,
+    "seven": 7,
+    "seventh": 7,
+    "eight": 8,
+    "eighth": 8,
+    "nine": 9,
+    "ninth": 9,
+    "ten": 10,
+    "tenth": 10,
     "last": -1,
 }
 
@@ -436,6 +446,8 @@ class MusicIntelligence:
         if state.pending_disambiguation_ids:
             selected = self._selected_positions(message, len(state.pending_disambiguation_ids))
             if selected is not None:
+                if not selected:
+                    return f"Please choose an option from 1 to {len(state.pending_disambiguation_ids)}. I haven't changed your playlist.", False
                 if len(selected) != 1:
                     return "Please choose one option number for this track.", False
                 track_id = state.pending_disambiguation_ids[selected[0]]
@@ -487,6 +499,8 @@ class MusicIntelligence:
         else:
             positions = self._selected_positions(message, len(pending))
             if positions is not None:
+                if not positions:
+                    return f"Please choose recommendations from 1 to {len(pending)}. I haven't added any songs; your suggestions are still available.", False
                 selected_ids = [pending[index] for index in positions]
             else:
                 artist_match = re.search(
@@ -524,67 +538,53 @@ class MusicIntelligence:
 
     @staticmethod
     def _selected_positions(message: str, count: int) -> list[int] | None:
-        lowered = message.casefold().strip()
+        """Return positions, [] for invalid bounds, or None for other requests.
 
-        # Preserve every explicit position in selections such as "Add 1 and 3".
-        number_list = re.fullmatch(
-            r"(?:(?:add|choose|select|take)\s+)?(?:options?\s+|numbers?\s+)?"
-            r"(\d+(?:\s*(?:,\s*(?:and\s+)?|and\s+)\d+)+)[.!]?",
+        Match the complete selection so a valid first item cannot hide an
+        invalid later item, or steal a title such as "The Second Coming".
+        """
+        lowered = message.casefold().strip().rstrip(".!?").strip()
+        lead = (
+            r"(?:(?:please|could you|can you|would you|will you)\s+)*"
+            r"(?:(?:add|choose|select|take|i want|i'd like|i would like)\s+)?"
+        )
+        tail = r"(?:\s+(?:to|in|into)\s+(?:my\s+|the\s+)?playlist)?(?:\s+please)?"
+        suffix = r"(?:\s+(?:ones?|songs?|tracks?|options?))?"
+        amount = r"(?:\d+|one|two|three|four|five|six|seven|eight|nine|ten)"
+        first_n = re.fullmatch(
+            lead + r"(?:the\s+)?first\s+(?P<amount>" + amount + ")" + suffix + tail,
             lowered,
         )
-        if number_list:
-            positions = list(dict.fromkeys(int(n) - 1 for n in re.findall(r"\d+", number_list.group(1))))
-            return positions if all(0 <= p < count for p in positions) else None
+        if first_n:
+            value = first_n.group("amount")
+            number = int(value) if value.isdigit() else _WORD_NUMBERS[value]
+            return list(range(number)) if 0 < number <= count else []
 
-        if (
-            not re.search(
-                r"\b(add|choose|select|take|want|option|number|first|second|third|fourth|fifth|last)\b",
-                lowered,
-            )
-            and not re.fullmatch(r"\s*\d+\s*", lowered)
-        ):
+        number = r"(?:\d+(?:st|nd|rd|th)?|" + "|".join(_WORD_NUMBERS) + ")"
+        label = r"(?:(?:the|options?|numbers?|songs?|tracks?)\s+)*"
+        item = label + number + suffix
+        separator = r"(?:\s*,\s*(?:and\s+)?|\s+and\s+)"
+        selection = re.fullmatch(
+            lead + r"(?P<items>" + item + "(?:" + separator + item + ")*)" + tail,
+            lowered,
+        )
+        if not selection:
             return None
 
-        # Multi-selection expressions used for recommendation follow-ups.
-        if re.search(r"\bfirst\s+(?:two|2)\b", lowered):
-            return list(range(min(2, count)))
-
-        if re.search(r"\bfirst\s+(?:three|3)\b", lowered):
-            return list(range(min(3, count)))
-
-        first_number = re.search(r"\bfirst\s+(\d+)\b", lowered)
-        if first_number:
-            number = int(first_number.group(1))
-            return list(range(min(number, count)))
-
-        # Resolve ordinal phrases before generic words such as "one".
-        ordinal_words = {
-            "first": 0,
-            "second": 1,
-            "third": 2,
-            "fourth": 3,
-            "fifth": 4,
-        }
-
-        for word, index in ordinal_words.items():
-            if re.search(rf"\b{word}\b", lowered):
-                if index < count:
-                    return [index]
-
-        if re.search(r"\blast\b", lowered):
-            return [count - 1] if count else None
-
-        # Numeric forms: "2", "number 2", "option 2", "2nd".
-        numeric = re.search(
-            r"\b(?:number\s+|option\s+)?(\d+)(?:st|nd|rd|th)?\b",
-            lowered,
-        )
-        if numeric:
-            index = int(numeric.group(1)) - 1
-            if 0 <= index < count:
-                return [index]
-
-        return None
+        positions = []
+        for part in re.split(separator, selection.group("items")):
+            value = re.fullmatch(label + "(?P<number>" + number + ")" + suffix, part).group("number")
+            if value == "last":
+                position = count - 1
+            elif value in _WORD_NUMBERS:
+                position = _WORD_NUMBERS[value] - 1
+            else:
+                position = int(re.match(r"\d+", value).group()) - 1
+            if not 0 <= position < count:
+                return []
+            if position not in positions:
+                positions.append(position)
+        return positions
 
     def _match_pending_description(
         self,
@@ -606,6 +606,30 @@ class MusicIntelligence:
             if any(needle in value for value in values if needle):
                 matches.append(track_id)
         return matches
+
+    @staticmethod
+    def _match_performer_album(entities, text: str, *, fuzzy: bool = True):
+        """Resolve an album slot, allowing a surrounding descriptive 'album'.
+
+        Exact catalog names win before removing words: 'Issa Album' is a
+        name, while the last word in 'Issa Album album' is a type label.
+        """
+        raw = _clean_entity(text)
+        without_prefix = re.sub(r"^(?:the\s+)?album\s+", "", raw, flags=re.I)
+        without_article = re.sub(r"^the\s+", "", raw, flags=re.I)
+        variants = list(dict.fromkeys([
+            raw,
+            without_prefix,
+            without_article,
+            re.sub(r"\s+album$", "", raw, flags=re.I),
+            re.sub(r"\s+album$", "", without_prefix, flags=re.I),
+            re.sub(r"\s+album$", "", without_article, flags=re.I),
+        ]))
+        for value in variants:
+            matches = entities.match_name(value, "album", fuzzy=False)
+            if matches:
+                return matches
+        return entities.match_name(without_prefix, "album") if fuzzy else []
 
     def _handle_question(self, message: str, state: ConversationState) -> str | None:
         from musiccrs.r5_nlu import IntentPrediction, get_r5_router, normalize
@@ -629,6 +653,8 @@ class MusicIntelligence:
         entities = self.service.get_r5_entities()
         performer_target = None
         explicit_artist = None
+        explicit_album = None
+        album_constraint_mentions = []
         # Extract the subject of performer questions before catalog matching.
         # This supplies typed entity slots to the NLU classifier: question verbs
         # cannot become artists, nor can a misspelled artist become a song title.
@@ -646,19 +672,42 @@ class MusicIntelligence:
                 performer_target = performer_target[type_prefix.end():]
             # A real title such as "Stand By Me" wins over splitting on "by".
             title_mentions = entities.match_name(performer_target, "title", fuzzy=False)
-            album_mentions = entities.match_name(performer_target, "album", fuzzy=False)
+            album_mentions = self._match_performer_album(entities, performer_target, fuzzy=False)
+            if not title_mentions and not album_mentions:
+                trailing_artist = re.fullmatch(r"(.+)\s+by\s+(.+)", performer_target, re.I)
+                if trailing_artist and entities.match_name(trailing_artist.group(2), "artist", fuzzy=False):
+                    performer_target, explicit_artist = trailing_artist.groups()
+                # Split a track's album constraint only after checking the
+                # complete catalog name. Prefer a split whose album is known,
+                # so 'Carry On on Issa Album' retains the complete track name.
+                album_clauses = list(re.finditer(r"(?<=\s)(?:on|from|in)\s+", performer_target, re.I))
+                for clause in album_clauses:
+                    album_text = performer_target[clause.end():]
+                    matches = self._match_performer_album(entities, album_text, fuzzy=False)
+                    if matches:
+                        explicit_album = album_text
+                        album_constraint_mentions = matches
+                        performer_target = performer_target[:clause.start()].strip()
+                        break
+                else:
+                    if album_clauses:
+                        clause = album_clauses[-1]
+                        explicit_album = performer_target[clause.end():]
+                        album_constraint_mentions = self._match_performer_album(entities, explicit_album)
+                        performer_target = performer_target[:clause.start()].strip()
             by_clause = re.fullmatch(r"(.+)\s+by\s+(.+)", performer_target, re.I)
-            if not title_mentions and not album_mentions and by_clause:
+            if not title_mentions and not album_mentions and by_clause and not explicit_artist:
                 performer_target, explicit_artist = by_clause.groups()
             if explicit_kind == "album":
                 title_mentions = []
-                album_mentions = album_mentions or entities.match_name(performer_target, "album")
+                album_mentions = album_mentions or self._match_performer_album(entities, performer_target)
             elif explicit_kind in {"song", "track"}:
                 album_mentions = []
                 title_mentions = title_mentions or entities.match_name(performer_target, "title")
             elif not title_mentions and not album_mentions:
                 title_mentions = entities.match_name(performer_target, "title")
-                album_mentions = entities.match_name(performer_target, "album")
+                if not explicit_album:
+                    album_mentions = self._match_performer_album(entities, performer_target)
             artist_mentions = entities.match_name(explicit_artist, "artist") if explicit_artist else []
             entity_kind = "album" if album_mentions and not title_mentions else "song"
             masked_message = f"{subject.group(1)} this {entity_kind}"
@@ -718,6 +767,8 @@ class MusicIntelligence:
             state.pending_disambiguation_action = None
             if explicit_artist and not artist_mentions:
                 return f"I couldn't find the artist ‘{explicit_artist}’ in the catalog. Please check the name."
+            if explicit_album and not album_constraint_mentions:
+                return f"I couldn't find the album ‘{explicit_album}’ in the catalog. Please check the name."
             if not title_mentions and album_mentions:
                 album_ids = set().union(*(m.ids for m in album_mentions))
                 if artist_mentions:
@@ -873,13 +924,18 @@ class MusicIntelligence:
         if artist:
             artist_ids = set().union(*(m.ids for m in artist_mentions))
             candidates = [track for track in candidates if track["track_id"] in artist_ids]
-        elif state.last_question_track_id in title.ids:
+        if explicit_album:
+            album_ids = set().union(*(m.ids for m in album_constraint_mentions))
+            candidates = [track for track in candidates if track["track_id"] in album_ids]
+        elif not artist and state.last_question_track_id in title.ids:
             # A repeated title inherits its artist only when the immediately
             # preceding R5 lookup identified that exact same catalog title.
             previous = self.service.get_track(state.last_question_track_id)
             if previous and normalize(self.service.display_value(previous.get("track_name"))) == normalize(title.name):
                 candidates = [previous]
         if not candidates:
+            if explicit_album:
+                return f"I couldn't find a catalog track matching ‘{performer_target}’ on the album ‘{explicit_album}’."
             return f"I couldn't find a catalog track matching {title.name}."
         # Popularity orders ambiguous catalog versions; the ID only breaks ties.
         def candidate_rank(track):

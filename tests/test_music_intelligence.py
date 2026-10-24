@@ -226,6 +226,72 @@ class MusicIntelligenceTests(unittest.TestCase):
         self.assertIn("related to your playlist", response)
         self.assertFalse(changed)
 
+    def test_recommendation_selection_combines_ordinal_and_numeric_positions(self):
+        for message, expected in [
+            ("Add first, second and fourth", ["2", "3", "5"]),
+            ("Add the first, the second, and the fourth songs", ["2", "3", "5"]),
+            ("Could you add 1st, second and 4 to my playlist?", ["2", "3", "5"]),
+            ("Add 1, 2 and 4", ["2", "3", "5"]),
+            ("Add fourth, 2nd and first", ["5", "3", "2"]),
+            ("Add first, last and first", ["2", "6"]),
+            ("Add the first two", ["2", "3"]),
+            ("Add the first four", ["2", "3", "4", "5"]),
+            ("the second one", ["3"]),
+        ]:
+            with self.subTest(message=message):
+                state = ConversationState(
+                    playlist_ids=["1"], pending_recommendation_ids=["2", "3", "4", "5", "6"],
+                )
+                response, changed = self.handler.handle(message, state)
+                self.assertTrue(changed)
+                self.assertEqual(state.playlist_ids, ["1", *expected])
+                self.assertIn(f"Added {len(expected)} song(s)", response)
+                self.assertFalse(state.pending_recommendation_ids)
+
+    def test_invalid_recommendation_position_preserves_playlist_and_all_suggestions(self):
+        for message in [
+            "Add first, second and ninth", "Add 1, 2 and 9", "Add first and 0",
+            "Add the ninth", "Add the first nine", "Add 0", "Add 2 and 99th",
+        ]:
+            with self.subTest(message=message):
+                pending = ["2", "3", "4", "5", "6"]
+                state = ConversationState(playlist_ids=["1"], pending_recommendation_ids=pending[:])
+                response, changed = self.handler.handle(message, state)
+                self.assertFalse(changed)
+                self.assertIn("1 to 5", response)
+                self.assertEqual(state.playlist_ids, ["1"])
+                self.assertEqual(state.pending_recommendation_ids, pending)
+                response, changed = self.handler.handle("Add first, second and fourth", state)
+                self.assertTrue(changed)
+                self.assertEqual(state.playlist_ids, ["1", "2", "3", "5"])
+
+    def test_disambiguation_requires_one_valid_position_and_preserves_question(self):
+        state = ConversationState(
+            pending_disambiguation_ids=["1", "2"], pending_disambiguation_action="artist",
+        )
+        for message, expected in [
+            ("first and ninth", "1 to 2"), ("first and second", "choose one"),
+        ]:
+            response, changed = self.handler.handle(message, state)
+            self.assertFalse(changed)
+            self.assertIn(expected, response)
+            self.assertEqual(state.pending_disambiguation_ids, ["1", "2"])
+            self.assertEqual(state.pending_disambiguation_action, "artist")
+        response, changed = self.handler.handle("the second one", state)
+        self.assertEqual(response, "Love is by Metallica.")
+        self.assertFalse(changed)
+
+    def test_pending_selection_does_not_consume_numbers_in_a_song_title(self):
+        self.service.catalog.metadata_dict["9"] = {
+            "track_id": "9", "track_name": ["The Second Coming"],
+            "artist_name": ["Artist Nine"], "tag_list": [],
+        }
+        state = ConversationState(playlist_ids=["1"], pending_recommendation_ids=["2", "3"])
+        response, changed = self.handler.handle("Add The Second Coming", state)
+        self.assertTrue(changed)
+        self.assertEqual(state.playlist_ids, ["1", "9"])
+        self.assertIn("The Second Coming", response)
+
     def test_natural_language_exclusion_and_rejection(self):
         state = ConversationState(playlist_ids=["1"])
         self.handler.handle("/recommend", state)
@@ -317,6 +383,11 @@ class PerformerLookupTests(unittest.TestCase):
             ("savage", "No Heart", ["21 Savage", "Metro Boomin"], "Savage Mode"),
             ("sequel-collision", "Unrelated", ["Other Artist"], "II"),
             ("stand", "Stand By Me", ["Ben E. King"], "Don't Play That Song"),
+            ("bank", "Bank Account", ["21 Savage"], "Issa Album"),
+            ("bank-cover", "Bank Account", ["Other Artist"], "Cover Album"),
+            ("carry", "Carry On", ["21 Savage"], "Issa Album"),
+            ("on-title", "Love On Top", ["Beyonce"], "4"),
+            ("album-label", "Track With Album Label", ["Album Artist"], "The Album"),
         ]
         catalog.metadata_dict = {
             track_id: {
@@ -391,6 +462,74 @@ class PerformerLookupTests(unittest.TestCase):
         )
         self.assertIn("couldn't find the artist", response)
         self.assertFalse(changed)
+
+    def test_performer_question_uses_album_to_resolve_track_versions(self):
+        for question in [
+            "Who sang Bank Account on Issa Album?",
+            "Who sang Bank Account on the album Issa Album?",
+            "Who sang Bank Account on the Issa Album?",
+            "Who sang Bank Account from Issa Album?",
+            "Who sang Bank Account in Issa Album?",
+            "Who sang Bank Account by 21 Savage on Issa Album?",
+            "Who sang Bank Account on Issa Album by 21 Savage?",
+            "Who sang Carry On on Issa Album?",
+        ]:
+            with self.subTest(question=question):
+                state = ConversationState(playlist_ids=["stand"], last_question_track_id="bank-cover")
+                response, changed = self.handler.handle(question, state)
+                title = "Carry On" if "Carry On" in question else "Bank Account"
+                self.assertEqual(response, f"{title} is by 21 Savage.")
+                self.assertFalse(changed)
+                self.assertEqual(state.playlist_ids, ["stand"])
+
+    def test_album_performer_question_allows_descriptive_album_word(self):
+        for question in [
+            "Who sang Issa Album album?", "Who sang the album Issa Album?",
+            "Who sang the Issa Album?",
+        ]:
+            with self.subTest(question=question):
+                response, changed = self.handler.handle(question, ConversationState())
+                self.assertIn("‘Issa Album’ is an album", response)
+                self.assertIn("21 Savage", response)
+                self.assertFalse(changed)
+
+    def test_album_constraint_does_not_fall_back_to_album_performers_or_previous_track(self):
+        for question, expected in [
+            ("Who sang X on Issa Album?", "couldn't find a track or album matching ‘X’"),
+            ("Who sang Bank Account on Savage Mode?", "couldn't find a catalog track"),
+            ("Who sang Bank Account on Zzzzz Qqqqq?", "couldn't find the album"),
+            ("Who sang Bank Account on Issa Album II?", "couldn't find the album"),
+            ("Who sang Bank Account by Other Artist on Issa Album?", "couldn't find a catalog track"),
+        ]:
+            with self.subTest(question=question):
+                state = ConversationState(last_question_track_id="bank")
+                response, changed = self.handler.handle(question, state)
+                self.assertIn(expected, response)
+                self.assertFalse(changed)
+
+    def test_album_constraint_still_disambiguates_multiple_catalog_versions(self):
+        catalog = self.handler.service.catalog
+        catalog.metadata_dict["another-bank"] = {
+            **catalog.metadata_dict["bank"], "track_id": "another-bank",
+            "artist_name": ["Another Performer"],
+        }
+        state = ConversationState()
+        response, changed = self.handler.handle("Who sang Bank Account on Issa Album?", state)
+        self.assertIn("Which track", response)
+        self.assertEqual(set(state.pending_disambiguation_ids), {"bank", "another-bank"})
+        self.assertNotIn("bank-cover", state.pending_disambiguation_ids)
+        self.assertFalse(changed)
+
+    def test_performer_album_parsing_preserves_exact_catalog_names(self):
+        for question, expected in [
+            ("Who sang Love On Top?", "Love On Top is by Beyonce."),
+            ("Who sang Stand By Me?", "Stand By Me is by Ben E. King."),
+            ("Who sang the album The Album?", "‘The Album’ is an album"),
+        ]:
+            with self.subTest(question=question):
+                response, changed = self.handler.handle(question, ConversationState())
+                self.assertIn(expected, response)
+                self.assertFalse(changed)
 
 
 if __name__ == "__main__":
