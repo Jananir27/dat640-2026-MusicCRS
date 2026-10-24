@@ -103,9 +103,11 @@ def _reasonable_title_matches(
 class MusicIntelligence:
     """Route MusicCRS natural-language requests for R2–R8."""
 
-    def __init__(self, service: MusicService, r5_router=None) -> None:
+    def __init__(self, service: MusicService, r5_router=None, *, advanced_recommender=None) -> None:
         self.service = service
         self._r5_router = r5_router
+        # Optional Part 4 callback. When disabled, original R2–R8 routing is unchanged.
+        self._advanced_recommender = advanced_recommender
 
     def handle(self, text: str, state: ConversationState) -> tuple[str, bool] | None:
         """Return response and whether the playlist changed; None if unhandled."""
@@ -113,10 +115,12 @@ class MusicIntelligence:
         if not message:
             return None
 
-        # Existing pending disambiguation / recommendation selection.
-        selection = self._handle_pending_selection(message, state)
-        if selection is not None:
-            return selection
+        # A new recommendation request supersedes earlier suggestions. Do not
+        # mistake e.g. "recommend rock, no Linkin Park" for rejecting the old list.
+        if not self._is_recommendation_request(message):
+            selection = self._handle_pending_selection(message, state)
+            if selection is not None:
+                return selection
 
         # R3: explain the available functionality in natural language.
         help_response = self._handle_help(message)
@@ -972,6 +976,47 @@ class MusicIntelligence:
     def _recommend(self, message: str, state: ConversationState) -> tuple[str, bool]:
         if not state.playlist_ids:
             return "Add at least one song to your playlist first, and I can suggest related tracks.", False
+
+        # Part 4 is opt-in. Keep the original R6 algorithm for bare /recommend.
+        if self._advanced_recommender is not None and message.strip() != "/recommend":
+            # Old pending choices must not survive a new recommendation request.
+            state.pending_recommendation_ids.clear()
+            try:
+                result = self._advanced_recommender(message, state)
+            except Exception:
+                # Never let an LLM/network failure produce unfiltered suggestions.
+                import logging
+                logging.getLogger(__name__).exception("Part 4 recommendation failed")
+                return (
+                    "I couldn't process that recommendation request right now. "
+                    "Please try again; I haven't changed your playlist.", False
+                )
+
+            recommendations = result.get("recommendations", [])
+            if not recommendations:
+                return (
+                    "I couldn't find catalog tracks satisfying those preferences "
+                    "and exclusions. Please try a broader request.", False
+                )
+            state.pending_recommendation_ids = [track["track_id"] for track in recommendations]
+            state.pending_disambiguation_ids.clear()
+            state.pending_disambiguation_action = None
+            lines = [
+                f"{index}. {self.service.display_track(track)}"
+                for index, track in enumerate(recommendations, start=1)
+            ]
+            count_note = (
+                " I found fewer than three eligible matches."
+                if len(recommendations) < 3 else ""
+            )
+            return (
+                "Here are recommendations matching your request:\n"
+                + "\n".join(lines) + count_note
+                + "\nYou can say 'add all', 'add the first two', "
+                  "or 'add them except the one by [artist]'.",
+                False,
+            )
+
         requested_genres, requested_moods = extract_preferences(message)
         retrieval_request = "Recommend songs based on my playlist"
         if requested_genres or requested_moods:

@@ -92,7 +92,27 @@ class MusicCRS(Agent):
         # playlist and pending-choice state belongs to this connected user.
         self._music_service = get_shared_music_service()
         self._conversation_state = ConversationState()
-        self._music_intelligence = MusicIntelligence(self._music_service)
+
+        # Optional Part 4 LLM routing. No frontend changes or extra LLM calls
+        # for playlist management, R5 questions, or pending song selections.
+        advanced_enabled = os.environ.get("MUSICCRS_ADVANCED_LLM", "false").casefold() in {
+            "1", "true", "yes", "on",
+        }
+        advanced_recommender = None
+        if advanced_enabled:
+            from .llm_preference_parser import LLMPreferenceParser
+            from .llm_recommendations import recommend_with_llm
+
+            preference_parser = LLMPreferenceParser()
+            def advanced_recommender(request, state):
+                return recommend_with_llm(
+                    request, preference_parser, self._music_service, state,
+                    limit=5, candidate_limit=20,
+                )
+
+        self._music_intelligence = MusicIntelligence(
+            self._music_service, advanced_recommender=advanced_recommender
+        )
         self._playlist_store = None
         self._device_id = None
         self._active_playlist_id = None

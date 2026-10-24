@@ -102,6 +102,67 @@ class HybridRetriever(RetrievalModule):
             for track_id, _ in ranked[:topk]
         ]
 
+
+    def retrieve_with_evidence(self, query: str, topk: int) -> list[dict]:
+        """Return hybrid rankings with BM25 and dense ranking evidence."""
+
+        if topk <= 0:
+            return []
+
+        candidate_k = max(self.candidate_k, topk)
+
+        # Retrieve lexical and semantic candidates
+        bm25_results = self.bm25.text_to_item_retrieval(
+            query, candidate_k
+        )
+        dense_results = self.dense.text_to_item_retrieval(
+            query, candidate_k
+        )
+
+        # Record the original positions
+        bm25_ranks = {
+            track_id: rank
+            for rank, track_id in enumerate(bm25_results, 1)
+        }
+        dense_ranks = {
+            track_id: rank
+            for rank, track_id in enumerate(dense_results, 1)
+        }
+
+        evidence = []
+
+        # Preserve the existing weighted RRF ranking
+        ranked_ids = self._fuse(
+            bm25_results, dense_results, topk
+        )
+
+        for track_id in ranked_ids:
+            bm25_rank = bm25_ranks.get(track_id)
+            dense_rank = dense_ranks.get(track_id)
+
+            bm25_contribution = (
+                1.0 / (self.rrf_k + bm25_rank)
+                if bm25_rank is not None else 0.0
+            )
+
+            dense_contribution = (
+                self.dense_weight / (self.rrf_k + dense_rank)
+                if dense_rank is not None else 0.0
+            )
+
+            evidence.append({
+                "track_id": track_id,
+                "bm25_rank": bm25_rank,
+                "dense_rank": dense_rank,
+                "bm25_rrf_contribution": bm25_contribution,
+                "dense_rrf_contribution": dense_contribution,
+                "hybrid_score": (
+                    bm25_contribution + dense_contribution
+                ),
+            })
+
+        return evidence
+
     def text_to_item_retrieval(
         self,
         query: str,
