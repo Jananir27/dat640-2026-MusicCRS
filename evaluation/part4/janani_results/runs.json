@@ -1,0 +1,2137 @@
+{
+  "schema_version": 1,
+  "queries": [
+    {
+      "id": "janani-g01",
+      "category": "genre",
+      "query": "Recommend energetic rock songs",
+      "genres": [
+        "rock"
+      ],
+      "playlist_ids": [],
+      "liked_ids": [],
+      "disliked_ids": [],
+      "excluded_ids": [],
+      "search_text": "Recommend energetic rock songs"
+    },
+    {
+      "id": "janani-g02",
+      "category": "genre",
+      "query": "Recommend relaxing jazz music",
+      "genres": [
+        "jazz"
+      ],
+      "playlist_ids": [],
+      "liked_ids": [],
+      "disliked_ids": [],
+      "excluded_ids": [],
+      "search_text": "Recommend relaxing jazz music"
+    },
+    {
+      "id": "janani-g03",
+      "category": "genre",
+      "query": "Suggest classic hip hop tracks",
+      "genres": [
+        "hip hop"
+      ],
+      "playlist_ids": [],
+      "liked_ids": [],
+      "disliked_ids": [],
+      "excluded_ids": [],
+      "search_text": "Suggest classic hip hop tracks"
+    },
+    {
+      "id": "janani-g04",
+      "category": "genre",
+      "query": "Find upbeat pop music",
+      "genres": [
+        "pop"
+      ],
+      "playlist_ids": [],
+      "liked_ids": [],
+      "disliked_ids": [],
+      "excluded_ids": [],
+      "search_text": "Find upbeat pop music"
+    },
+    {
+      "id": "janani-g05",
+      "category": "genre",
+      "query": "Recommend acoustic folk songs",
+      "genres": [
+        "folk"
+      ],
+      "playlist_ids": [],
+      "liked_ids": [],
+      "disliked_ids": [],
+      "excluded_ids": [],
+      "search_text": "Recommend acoustic folk songs"
+    },
+    {
+      "id": "janani-m01",
+      "category": "mood",
+      "query": "Recommend cheerful uplifting songs",
+      "moods": [
+        "happy",
+        "uplifting"
+      ],
+      "playlist_ids": [],
+      "liked_ids": [],
+      "disliked_ids": [],
+      "excluded_ids": [],
+      "search_text": "Recommend cheerful uplifting songs"
+    },
+    {
+      "id": "janani-m02",
+      "category": "mood",
+      "query": "Find emotional sad songs",
+      "moods": [
+        "sad"
+      ],
+      "playlist_ids": [],
+      "liked_ids": [],
+      "disliked_ids": [],
+      "excluded_ids": [],
+      "search_text": "Find emotional sad songs"
+    },
+    {
+      "id": "janani-m03",
+      "category": "mood",
+      "query": "Recommend calm peaceful music",
+      "moods": [
+        "calm"
+      ],
+      "playlist_ids": [],
+      "liked_ids": [],
+      "disliked_ids": [],
+      "excluded_ids": [],
+      "search_text": "Recommend calm peaceful music"
+    },
+    {
+      "id": "janani-m04",
+      "category": "mood",
+      "query": "Suggest dark intense music",
+      "moods": [
+        "dark",
+        "intense"
+      ],
+      "playlist_ids": [],
+      "liked_ids": [],
+      "disliked_ids": [],
+      "excluded_ids": [],
+      "search_text": "Suggest dark intense music"
+    },
+    {
+      "id": "janani-m05",
+      "category": "mood",
+      "query": "Find romantic relaxing songs",
+      "moods": [
+        "romantic"
+      ],
+      "playlist_ids": [],
+      "liked_ids": [],
+      "disliked_ids": [],
+      "excluded_ids": [],
+      "search_text": "Find romantic relaxing songs"
+    },
+    {
+      "id": "janani-a01",
+      "category": "activity",
+      "query": "Recommend energetic rock for a gym workout",
+      "genres": [
+        "rock"
+      ],
+      "moods": [
+        "energetic"
+      ],
+      "playlist_ids": [],
+      "liked_ids": [],
+      "disliked_ids": [],
+      "excluded_ids": [],
+      "search_text": "Recommend energetic rock for a gym workout"
+    },
+    {
+      "id": "janani-a02",
+      "category": "activity",
+      "query": "Suggest peaceful instrumental music for studying",
+      "moods": [
+        "calm"
+      ],
+      "playlist_ids": [],
+      "liked_ids": [],
+      "disliked_ids": [],
+      "excluded_ids": [],
+      "search_text": "Suggest peaceful instrumental music for studying"
+    },
+    {
+      "id": "janani-a03",
+      "category": "activity",
+      "query": "Recommend upbeat songs for a road trip",
+      "moods": [
+        "upbeat"
+      ],
+      "playlist_ids": [],
+      "liked_ids": [],
+      "disliked_ids": [],
+      "excluded_ids": [],
+      "search_text": "Recommend upbeat songs for a road trip"
+    },
+    {
+      "id": "janani-a04",
+      "category": "activity",
+      "query": "Find energetic dance music for a party",
+      "genres": [
+        "dance"
+      ],
+      "playlist_ids": [],
+      "liked_ids": [],
+      "disliked_ids": [],
+      "excluded_ids": [],
+      "search_text": "Find energetic dance music for a party"
+    },
+    {
+      "id": "janani-a05",
+      "category": "activity",
+      "query": "Recommend relaxing music for bedtime",
+      "moods": [
+        "relaxing"
+      ],
+      "playlist_ids": [],
+      "liked_ids": [],
+      "disliked_ids": [],
+      "excluded_ids": [],
+      "search_text": "Recommend relaxing music for bedtime"
+    },
+    {
+      "id": "janani-e01",
+      "category": "exclusion",
+      "query": "Recommend rock songs excluding Linkin Park",
+      "genres": [
+        "rock"
+      ],
+      "excluded_artists": [
+        "Linkin Park"
+      ],
+      "playlist_ids": [],
+      "liked_ids": [],
+      "disliked_ids": [],
+      "excluded_ids": [],
+      "search_text": "Recommend rock songs"
+    },
+    {
+      "id": "janani-e02",
+      "category": "exclusion",
+      "query": "Suggest pop music without Adele",
+      "genres": [
+        "pop"
+      ],
+      "excluded_artists": [
+        "Adele"
+      ],
+      "playlist_ids": [],
+      "liked_ids": [],
+      "disliked_ids": [],
+      "excluded_ids": [],
+      "search_text": "Suggest pop music"
+    },
+    {
+      "id": "janani-e03",
+      "category": "exclusion",
+      "query": "Recommend electronic music excluding Daft Punk",
+      "genres": [
+        "electronic"
+      ],
+      "excluded_artists": [
+        "Daft Punk"
+      ],
+      "playlist_ids": [],
+      "liked_ids": [],
+      "disliked_ids": [],
+      "excluded_ids": [],
+      "search_text": "Recommend electronic music"
+    },
+    {
+      "id": "janani-e04",
+      "category": "exclusion",
+      "query": "Find metal songs without Metallica",
+      "genres": [
+        "metal"
+      ],
+      "excluded_artists": [
+        "Metallica"
+      ],
+      "playlist_ids": [],
+      "liked_ids": [],
+      "disliked_ids": [],
+      "excluded_ids": [],
+      "search_text": "Find metal songs"
+    },
+    {
+      "id": "janani-e05",
+      "category": "exclusion",
+      "query": "Recommend hip hop excluding 21 Savage",
+      "genres": [
+        "hip hop"
+      ],
+      "excluded_artists": [
+        "21 Savage"
+      ],
+      "playlist_ids": [],
+      "liked_ids": [],
+      "disliked_ids": [],
+      "excluded_ids": [],
+      "search_text": "Recommend hip hop"
+    },
+    {
+      "id": "janani-f01",
+      "category": "mixed_feedback",
+      "query": "Recommend uplifting rock songs similar to Numb by Linkin Park",
+      "genres": [
+        "rock"
+      ],
+      "moods": [
+        "uplifting"
+      ],
+      "likes": [
+        {
+          "title": "Numb",
+          "artist": "Linkin Park"
+        }
+      ],
+      "retrieval_query": "Recommend uplifting rock music",
+      "playlist_ids": [],
+      "liked_ids": [
+        "ffc14c3d-21b1-4938-b58e-28c21c4d39a3"
+      ],
+      "disliked_ids": [],
+      "excluded_ids": [],
+      "search_text": "Recommend uplifting rock music"
+    },
+    {
+      "id": "janani-f02",
+      "category": "mixed_feedback",
+      "query": "Recommend emotional pop music similar to Skyfall by Adele",
+      "genres": [
+        "pop"
+      ],
+      "moods": [
+        "emotional"
+      ],
+      "likes": [
+        {
+          "title": "Skyfall - Full Length",
+          "artist": "Adele"
+        }
+      ],
+      "retrieval_query": "Recommend emotional pop music",
+      "playlist_ids": [],
+      "liked_ids": [
+        "14fa3c41-c129-44a5-8bc7-0e23f9aca3f4"
+      ],
+      "disliked_ids": [],
+      "excluded_ids": [],
+      "search_text": "Recommend emotional pop music"
+    },
+    {
+      "id": "janani-f03",
+      "category": "mixed_feedback",
+      "query": "Recommend hip hop music, but avoid the style of Numb by 21 Savage",
+      "genres": [
+        "hip hop"
+      ],
+      "dislikes": [
+        {
+          "title": "Numb",
+          "artist": "21 Savage"
+        }
+      ],
+      "retrieval_query": "Recommend hip hop music",
+      "playlist_ids": [],
+      "liked_ids": [],
+      "disliked_ids": [
+        "625d9682-8214-4391-8689-fd14b87d01e8"
+      ],
+      "excluded_ids": [],
+      "search_text": "Recommend hip hop music"
+    },
+    {
+      "id": "janani-f04",
+      "category": "mixed_feedback",
+      "query": "Recommend songs fitting my Linkin Park playlist",
+      "genres": [
+        "rock"
+      ],
+      "playlist": [
+        {
+          "title": "Numb",
+          "artist": "Linkin Park"
+        },
+        {
+          "title": "In the End",
+          "artist": "Linkin Park"
+        }
+      ],
+      "likes": [
+        {
+          "title": "Numb",
+          "artist": "Linkin Park"
+        }
+      ],
+      "retrieval_query": "Recommend alternative rock music",
+      "playlist_ids": [
+        "ffc14c3d-21b1-4938-b58e-28c21c4d39a3",
+        "407bbe04-ff88-4dfe-8114-10a95b523592"
+      ],
+      "liked_ids": [
+        "ffc14c3d-21b1-4938-b58e-28c21c4d39a3"
+      ],
+      "disliked_ids": [],
+      "excluded_ids": [],
+      "search_text": "Recommend alternative rock music; playlist seed: Numb; Linkin Park; punk, 2003, hard rock, emotional, hybrid, great song, favorite, energetic, fucking awesome, new metal, alternative rock, 00s, amazing, metal, favourites, sad, favourite, american, rap metal, crossover, awesome, alternative metal, rock, nu metal, english, punk rock, sad but true, favourite songs, meteora, the best, 2000s, male vocalist, Alternative, favorites, Rock, best, lyrics, legend, pop, Alternative Rock, seen live, memories, party, soundtrack of my life, grunge, good, linkin park, alternative, favorite songs, rapcore, love, linkin park - numb, electronic, nu-metal, emo, all time favourites, hip-hop, numb, male vocalists, angry, rap, love it; playlist seed: In the End, In The End; Linkin Park; punk, hard rock, great lyrics, in the end, usa, favorite, fucking awesome, new metal, angry, linkin park - in the end, alternative rock, songs that mean a lot to me personally, 00s, amazing, piano, good music, metal, favourites, sad, favourite, great, american, rap metal, crossover, awesome, alternative metal, rock, nu metal, cool, english, Metal, favourite songs, rap-metal, 2000s, 2000, Alternative, favorites, melancholy, linkin, rap rock, Rock, best, end, pop, 2001, seen live, memories, in the end linkin park, good, classic, linkin park, alternative, favorite songs, rapcore, love, electronic, nu-metal, emo, pop rock, chester bennington, progressive rock, hip-hop, male vocalists, hybrid theory, post-grunge, 10 of 10 stars, rap, powerful, love it, mike shinoda"
+    },
+    {
+      "id": "janani-f05",
+      "category": "mixed_feedback",
+      "query": "Recommend energetic alternative rock like Linkin Park, but not Metallica",
+      "genres": [
+        "alternative rock"
+      ],
+      "moods": [
+        "energetic"
+      ],
+      "likes": [
+        {
+          "title": "In the End",
+          "artist": "Linkin Park"
+        }
+      ],
+      "excluded_artists": [
+        "Metallica"
+      ],
+      "retrieval_query": "Recommend energetic alternative rock music",
+      "playlist_ids": [],
+      "liked_ids": [
+        "407bbe04-ff88-4dfe-8114-10a95b523592"
+      ],
+      "disliked_ids": [],
+      "excluded_ids": [],
+      "search_text": "Recommend energetic alternative rock music"
+    }
+  ],
+  "runs": [
+    {
+      "query_id": "janani-g01",
+      "category": "genre",
+      "method": "bm25",
+      "predicted_track_ids": [
+        "8078f71d-0494-41bb-95bd-942626b4bee7",
+        "58a4a1f2-a111-4608-ac31-68f35871ce80",
+        "758e2810-aed8-4383-a455-7f46ed12414c",
+        "7c60f67c-5de3-44a7-9b03-f0b833a88f72",
+        "94ff0036-6bf5-4b89-9db0-7a013f108e62"
+      ],
+      "latency_ms": [
+        3.2629109919071198
+      ],
+      "raw_excluded_count": 0,
+      "final_excluded_count": 0
+    },
+    {
+      "query_id": "janani-g01",
+      "category": "genre",
+      "method": "semantic",
+      "predicted_track_ids": [
+        "e1da64a9-3561-4e50-84a2-078aa7108ab4",
+        "fa5008dc-260b-4f41-a087-03ce97df0db1",
+        "e6e8416c-db8f-4be5-910f-cdd26e2b33ae",
+        "32bb6f88-0d69-4f09-a020-492116cffb55",
+        "c7b0f577-4f6c-45cc-b2d5-a75bad344db5"
+      ],
+      "latency_ms": [
+        85.81911958754063
+      ],
+      "raw_excluded_count": 0,
+      "final_excluded_count": 0
+    },
+    {
+      "query_id": "janani-g01",
+      "category": "genre",
+      "method": "hybrid",
+      "predicted_track_ids": [
+        "8078f71d-0494-41bb-95bd-942626b4bee7",
+        "58a4a1f2-a111-4608-ac31-68f35871ce80",
+        "758e2810-aed8-4383-a455-7f46ed12414c",
+        "7c60f67c-5de3-44a7-9b03-f0b833a88f72",
+        "94ff0036-6bf5-4b89-9db0-7a013f108e62"
+      ],
+      "latency_ms": [
+        90.84474202245474
+      ],
+      "raw_excluded_count": 0,
+      "final_excluded_count": 0
+    },
+    {
+      "query_id": "janani-g01",
+      "category": "genre",
+      "method": "hybrid_feedback",
+      "predicted_track_ids": [
+        "8078f71d-0494-41bb-95bd-942626b4bee7",
+        "58a4a1f2-a111-4608-ac31-68f35871ce80",
+        "758e2810-aed8-4383-a455-7f46ed12414c",
+        "7c60f67c-5de3-44a7-9b03-f0b833a88f72",
+        "94ff0036-6bf5-4b89-9db0-7a013f108e62"
+      ],
+      "latency_ms": [
+        90.77242808416486
+      ],
+      "raw_excluded_count": 0,
+      "final_excluded_count": 0
+    },
+    {
+      "query_id": "janani-g02",
+      "category": "genre",
+      "method": "bm25",
+      "predicted_track_ids": [
+        "d7a8828a-dedc-4670-9ad7-a5e4efc504fa",
+        "142d3eba-bcc0-4c2b-85e6-e29653c0c05e",
+        "a4cd42d3-3db9-4e6e-9bb3-8e8e1003efa6",
+        "24f19145-bff9-4f2f-a60c-cc00754154d9",
+        "dccab7a5-eb5c-4eac-9790-3923b5b25273"
+      ],
+      "latency_ms": [
+        4.720564000308514
+      ],
+      "raw_excluded_count": 0,
+      "final_excluded_count": 0
+    },
+    {
+      "query_id": "janani-g02",
+      "category": "genre",
+      "method": "semantic",
+      "predicted_track_ids": [
+        "cb2413eb-d787-4064-ab2e-1debe8ff9d9c",
+        "13d57897-ccfd-4eb0-97af-71ab1499841b",
+        "dfe185ce-b59e-4e6d-b65c-7b955873dc4a",
+        "3f87c549-e501-4b6f-a14a-cd145690d545",
+        "32bb6f88-0d69-4f09-a020-492116cffb55"
+      ],
+      "latency_ms": [
+        88.4855673648417
+      ],
+      "raw_excluded_count": 0,
+      "final_excluded_count": 0
+    },
+    {
+      "query_id": "janani-g02",
+      "category": "genre",
+      "method": "hybrid",
+      "predicted_track_ids": [
+        "d7a8828a-dedc-4670-9ad7-a5e4efc504fa",
+        "142d3eba-bcc0-4c2b-85e6-e29653c0c05e",
+        "a4cd42d3-3db9-4e6e-9bb3-8e8e1003efa6",
+        "24f19145-bff9-4f2f-a60c-cc00754154d9",
+        "dccab7a5-eb5c-4eac-9790-3923b5b25273"
+      ],
+      "latency_ms": [
+        91.39941493049264
+      ],
+      "raw_excluded_count": 0,
+      "final_excluded_count": 0
+    },
+    {
+      "query_id": "janani-g02",
+      "category": "genre",
+      "method": "hybrid_feedback",
+      "predicted_track_ids": [
+        "d7a8828a-dedc-4670-9ad7-a5e4efc504fa",
+        "142d3eba-bcc0-4c2b-85e6-e29653c0c05e",
+        "a4cd42d3-3db9-4e6e-9bb3-8e8e1003efa6",
+        "24f19145-bff9-4f2f-a60c-cc00754154d9",
+        "dccab7a5-eb5c-4eac-9790-3923b5b25273"
+      ],
+      "latency_ms": [
+        91.6472589597106
+      ],
+      "raw_excluded_count": 0,
+      "final_excluded_count": 0
+    },
+    {
+      "query_id": "janani-g03",
+      "category": "genre",
+      "method": "bm25",
+      "predicted_track_ids": [
+        "b1f8ee1b-e714-44e6-ae91-128ea90b593c",
+        "50764a33-07f9-411b-9f02-8ee494c1d839",
+        "f0ea25f2-a723-484b-aaa8-047d8ddf715c",
+        "9258566b-2a72-4044-be4b-e7a168962558",
+        "73ebe68d-5fdb-4fc7-9808-8446f31b0fb1"
+      ],
+      "latency_ms": [
+        5.583434831351042
+      ],
+      "raw_excluded_count": 0,
+      "final_excluded_count": 0
+    },
+    {
+      "query_id": "janani-g03",
+      "category": "genre",
+      "method": "semantic",
+      "predicted_track_ids": [
+        "a6986d17-5cbd-4b35-882e-47917b1260b7",
+        "2e8a335e-98cb-4d3b-bc40-0dd1765864e3",
+        "e6ca5739-0578-456b-8e57-f61a778b537e",
+        "c6dc4625-cef5-4c7b-9463-39fab1ea41a9",
+        "3f87c549-e501-4b6f-a14a-cd145690d545"
+      ],
+      "latency_ms": [
+        90.09253699332476
+      ],
+      "raw_excluded_count": 0,
+      "final_excluded_count": 0
+    },
+    {
+      "query_id": "janani-g03",
+      "category": "genre",
+      "method": "hybrid",
+      "predicted_track_ids": [
+        "b1f8ee1b-e714-44e6-ae91-128ea90b593c",
+        "50764a33-07f9-411b-9f02-8ee494c1d839",
+        "f0ea25f2-a723-484b-aaa8-047d8ddf715c",
+        "9258566b-2a72-4044-be4b-e7a168962558",
+        "73ebe68d-5fdb-4fc7-9808-8446f31b0fb1"
+      ],
+      "latency_ms": [
+        92.69766323268414
+      ],
+      "raw_excluded_count": 0,
+      "final_excluded_count": 0
+    },
+    {
+      "query_id": "janani-g03",
+      "category": "genre",
+      "method": "hybrid_feedback",
+      "predicted_track_ids": [
+        "b1f8ee1b-e714-44e6-ae91-128ea90b593c",
+        "50764a33-07f9-411b-9f02-8ee494c1d839",
+        "f0ea25f2-a723-484b-aaa8-047d8ddf715c",
+        "9258566b-2a72-4044-be4b-e7a168962558",
+        "73ebe68d-5fdb-4fc7-9808-8446f31b0fb1"
+      ],
+      "latency_ms": [
+        92.83689595758915
+      ],
+      "raw_excluded_count": 0,
+      "final_excluded_count": 0
+    },
+    {
+      "query_id": "janani-g04",
+      "category": "genre",
+      "method": "bm25",
+      "predicted_track_ids": [
+        "85844b55-9776-4b14-bf4e-b8a18f992c96",
+        "d7394c90-65ea-435e-8076-df0e61388292",
+        "03584851-5e51-491b-bea3-ac113a4eeccc",
+        "f3f2b3d5-d1d0-42fd-855c-09912c9a428c",
+        "865bb3d4-9bc1-4488-9ba4-d95db30be200"
+      ],
+      "latency_ms": [
+        4.2441063560545444
+      ],
+      "raw_excluded_count": 0,
+      "final_excluded_count": 0
+    },
+    {
+      "query_id": "janani-g04",
+      "category": "genre",
+      "method": "semantic",
+      "predicted_track_ids": [
+        "f4925496-44ec-464d-9f38-ee74252ca3b0",
+        "e6ca5739-0578-456b-8e57-f61a778b537e",
+        "9085e497-721f-4523-80ca-7a86521d001d",
+        "26c6a833-2176-4b88-a01b-45f37c762fe0",
+        "3f87c549-e501-4b6f-a14a-cd145690d545"
+      ],
+      "latency_ms": [
+        88.90678407624364
+      ],
+      "raw_excluded_count": 0,
+      "final_excluded_count": 0
+    },
+    {
+      "query_id": "janani-g04",
+      "category": "genre",
+      "method": "hybrid",
+      "predicted_track_ids": [
+        "85844b55-9776-4b14-bf4e-b8a18f992c96",
+        "d7394c90-65ea-435e-8076-df0e61388292",
+        "03584851-5e51-491b-bea3-ac113a4eeccc",
+        "f3f2b3d5-d1d0-42fd-855c-09912c9a428c",
+        "865bb3d4-9bc1-4488-9ba4-d95db30be200"
+      ],
+      "latency_ms": [
+        91.16998082026839
+      ],
+      "raw_excluded_count": 0,
+      "final_excluded_count": 0
+    },
+    {
+      "query_id": "janani-g04",
+      "category": "genre",
+      "method": "hybrid_feedback",
+      "predicted_track_ids": [
+        "85844b55-9776-4b14-bf4e-b8a18f992c96",
+        "d7394c90-65ea-435e-8076-df0e61388292",
+        "03584851-5e51-491b-bea3-ac113a4eeccc",
+        "f3f2b3d5-d1d0-42fd-855c-09912c9a428c",
+        "865bb3d4-9bc1-4488-9ba4-d95db30be200"
+      ],
+      "latency_ms": [
+        91.13112976774573
+      ],
+      "raw_excluded_count": 0,
+      "final_excluded_count": 0
+    },
+    {
+      "query_id": "janani-g05",
+      "category": "genre",
+      "method": "bm25",
+      "predicted_track_ids": [
+        "cd570046-7516-4c90-930b-b7f077643a43",
+        "946c0d99-14bf-4817-af1c-51e56ff4c69c",
+        "745bdbcd-c67a-4f14-b809-7c838cb1193b",
+        "dba63365-e5a5-4194-ac38-5f9e0168b156",
+        "4f55e283-e192-4a29-81b5-a0646eab31a3"
+      ],
+      "latency_ms": [
+        6.012595724314451
+      ],
+      "raw_excluded_count": 0,
+      "final_excluded_count": 0
+    },
+    {
+      "query_id": "janani-g05",
+      "category": "genre",
+      "method": "semantic",
+      "predicted_track_ids": [
+        "32bb6f88-0d69-4f09-a020-492116cffb55",
+        "e1da64a9-3561-4e50-84a2-078aa7108ab4",
+        "e8d89fcb-819e-4d84-8190-23f973d82649",
+        "b4060d5e-a59b-4672-b03c-9057e2dae404",
+        "5f12a78f-6880-48f4-a3f6-dbbdc0f46738"
+      ],
+      "latency_ms": [
+        87.96222414821386
+      ],
+      "raw_excluded_count": 0,
+      "final_excluded_count": 0
+    },
+    {
+      "query_id": "janani-g05",
+      "category": "genre",
+      "method": "hybrid",
+      "predicted_track_ids": [
+        "cd570046-7516-4c90-930b-b7f077643a43",
+        "946c0d99-14bf-4817-af1c-51e56ff4c69c",
+        "745bdbcd-c67a-4f14-b809-7c838cb1193b",
+        "dba63365-e5a5-4194-ac38-5f9e0168b156",
+        "4f55e283-e192-4a29-81b5-a0646eab31a3"
+      ],
+      "latency_ms": [
+        92.72566111758351
+      ],
+      "raw_excluded_count": 0,
+      "final_excluded_count": 0
+    },
+    {
+      "query_id": "janani-g05",
+      "category": "genre",
+      "method": "hybrid_feedback",
+      "predicted_track_ids": [
+        "cd570046-7516-4c90-930b-b7f077643a43",
+        "946c0d99-14bf-4817-af1c-51e56ff4c69c",
+        "745bdbcd-c67a-4f14-b809-7c838cb1193b",
+        "dba63365-e5a5-4194-ac38-5f9e0168b156",
+        "4f55e283-e192-4a29-81b5-a0646eab31a3"
+      ],
+      "latency_ms": [
+        92.83930994570255
+      ],
+      "raw_excluded_count": 0,
+      "final_excluded_count": 0
+    },
+    {
+      "query_id": "janani-m01",
+      "category": "mood",
+      "method": "bm25",
+      "predicted_track_ids": [
+        "39cbf51b-e3e7-427b-b0fc-7fecbc811917",
+        "8078f71d-0494-41bb-95bd-942626b4bee7",
+        "080b9bcb-7fa0-4a5d-8288-a26e0f30d030",
+        "58a4a1f2-a111-4608-ac31-68f35871ce80",
+        "7c60f67c-5de3-44a7-9b03-f0b833a88f72"
+      ],
+      "latency_ms": [
+        4.605050198733807
+      ],
+      "raw_excluded_count": 0,
+      "final_excluded_count": 0
+    },
+    {
+      "query_id": "janani-m01",
+      "category": "mood",
+      "method": "semantic",
+      "predicted_track_ids": [
+        "f4925496-44ec-464d-9f38-ee74252ca3b0",
+        "9085e497-721f-4523-80ca-7a86521d001d",
+        "615149e6-2945-4225-aee9-1d4e2380803f",
+        "e6ca5739-0578-456b-8e57-f61a778b537e",
+        "db5b12f8-c1bc-4d25-88dc-903301405f08"
+      ],
+      "latency_ms": [
+        89.94980389252305
+      ],
+      "raw_excluded_count": 0,
+      "final_excluded_count": 0
+    },
+    {
+      "query_id": "janani-m01",
+      "category": "mood",
+      "method": "hybrid",
+      "predicted_track_ids": [
+        "39cbf51b-e3e7-427b-b0fc-7fecbc811917",
+        "8078f71d-0494-41bb-95bd-942626b4bee7",
+        "080b9bcb-7fa0-4a5d-8288-a26e0f30d030",
+        "58a4a1f2-a111-4608-ac31-68f35871ce80",
+        "7c60f67c-5de3-44a7-9b03-f0b833a88f72"
+      ],
+      "latency_ms": [
+        91.42420114949346
+      ],
+      "raw_excluded_count": 0,
+      "final_excluded_count": 0
+    },
+    {
+      "query_id": "janani-m01",
+      "category": "mood",
+      "method": "hybrid_feedback",
+      "predicted_track_ids": [
+        "39cbf51b-e3e7-427b-b0fc-7fecbc811917",
+        "8078f71d-0494-41bb-95bd-942626b4bee7",
+        "080b9bcb-7fa0-4a5d-8288-a26e0f30d030",
+        "58a4a1f2-a111-4608-ac31-68f35871ce80",
+        "7c60f67c-5de3-44a7-9b03-f0b833a88f72"
+      ],
+      "latency_ms": [
+        91.6189537383616
+      ],
+      "raw_excluded_count": 0,
+      "final_excluded_count": 0
+    },
+    {
+      "query_id": "janani-m02",
+      "category": "mood",
+      "method": "bm25",
+      "predicted_track_ids": [
+        "d9dc8d68-9834-4ac3-9a06-cb6084fa037e",
+        "aef4bb89-a6f7-4ecc-b4ba-1a3b54ecfbf6",
+        "fb16accc-f352-4660-9c05-4e484489476f",
+        "f7e66156-6556-4981-ad66-3946947135b1",
+        "93940a7b-8887-4fb9-a0d1-35d3b1f0e4b5"
+      ],
+      "latency_ms": [
+        4.418796394020319
+      ],
+      "raw_excluded_count": 0,
+      "final_excluded_count": 0
+    },
+    {
+      "query_id": "janani-m02",
+      "category": "mood",
+      "method": "semantic",
+      "predicted_track_ids": [
+        "fea067cc-6dd5-4fd9-8d8d-8e2eee269609",
+        "0a731c23-e61f-4402-b8ac-851181f24f61",
+        "e1da64a9-3561-4e50-84a2-078aa7108ab4",
+        "f93c2f3d-a550-44b2-a16d-4bf678edc460",
+        "a130144b-8916-4625-9636-1f461ab6cb3f"
+      ],
+      "latency_ms": [
+        90.24571301415563
+      ],
+      "raw_excluded_count": 0,
+      "final_excluded_count": 0
+    },
+    {
+      "query_id": "janani-m02",
+      "category": "mood",
+      "method": "hybrid",
+      "predicted_track_ids": [
+        "d9dc8d68-9834-4ac3-9a06-cb6084fa037e",
+        "aef4bb89-a6f7-4ecc-b4ba-1a3b54ecfbf6",
+        "fb16accc-f352-4660-9c05-4e484489476f",
+        "f7e66156-6556-4981-ad66-3946947135b1",
+        "93940a7b-8887-4fb9-a0d1-35d3b1f0e4b5"
+      ],
+      "latency_ms": [
+        91.27025213092566
+      ],
+      "raw_excluded_count": 0,
+      "final_excluded_count": 0
+    },
+    {
+      "query_id": "janani-m02",
+      "category": "mood",
+      "method": "hybrid_feedback",
+      "predicted_track_ids": [
+        "d9dc8d68-9834-4ac3-9a06-cb6084fa037e",
+        "aef4bb89-a6f7-4ecc-b4ba-1a3b54ecfbf6",
+        "fb16accc-f352-4660-9c05-4e484489476f",
+        "f7e66156-6556-4981-ad66-3946947135b1",
+        "93940a7b-8887-4fb9-a0d1-35d3b1f0e4b5"
+      ],
+      "latency_ms": [
+        91.1923199892044
+      ],
+      "raw_excluded_count": 0,
+      "final_excluded_count": 0
+    },
+    {
+      "query_id": "janani-m03",
+      "category": "mood",
+      "method": "bm25",
+      "predicted_track_ids": [
+        "59c06349-cf03-4c9c-ada1-6d16169d1ea6",
+        "094b1d3a-3a4b-44d8-be53-41492f92cae1",
+        "effc60ec-d756-45c1-9c2c-9210eb8d56dc",
+        "12d3dc27-bf21-4187-b5c3-b089e15b1b72",
+        "41efe779-2beb-47f6-a0d4-49bb61f2d232"
+      ],
+      "latency_ms": [
+        5.200813990086317
+      ],
+      "raw_excluded_count": 0,
+      "final_excluded_count": 0
+    },
+    {
+      "query_id": "janani-m03",
+      "category": "mood",
+      "method": "semantic",
+      "predicted_track_ids": [
+        "21762537-afb0-487c-8fca-e4f84d057545",
+        "1a1c2ef4-b1da-4318-aac9-b150591839b5",
+        "32bb6f88-0d69-4f09-a020-492116cffb55",
+        "cb2413eb-d787-4064-ab2e-1debe8ff9d9c",
+        "13d57897-ccfd-4eb0-97af-71ab1499841b"
+      ],
+      "latency_ms": [
+        88.49348267540336
+      ],
+      "raw_excluded_count": 0,
+      "final_excluded_count": 0
+    },
+    {
+      "query_id": "janani-m03",
+      "category": "mood",
+      "method": "hybrid",
+      "predicted_track_ids": [
+        "59c06349-cf03-4c9c-ada1-6d16169d1ea6",
+        "094b1d3a-3a4b-44d8-be53-41492f92cae1",
+        "effc60ec-d756-45c1-9c2c-9210eb8d56dc",
+        "12d3dc27-bf21-4187-b5c3-b089e15b1b72",
+        "41efe779-2beb-47f6-a0d4-49bb61f2d232"
+      ],
+      "latency_ms": [
+        92.29646809399128
+      ],
+      "raw_excluded_count": 0,
+      "final_excluded_count": 0
+    },
+    {
+      "query_id": "janani-m03",
+      "category": "mood",
+      "method": "hybrid_feedback",
+      "predicted_track_ids": [
+        "59c06349-cf03-4c9c-ada1-6d16169d1ea6",
+        "094b1d3a-3a4b-44d8-be53-41492f92cae1",
+        "effc60ec-d756-45c1-9c2c-9210eb8d56dc",
+        "12d3dc27-bf21-4187-b5c3-b089e15b1b72",
+        "41efe779-2beb-47f6-a0d4-49bb61f2d232"
+      ],
+      "latency_ms": [
+        92.23403502255678
+      ],
+      "raw_excluded_count": 0,
+      "final_excluded_count": 0
+    },
+    {
+      "query_id": "janani-m04",
+      "category": "mood",
+      "method": "bm25",
+      "predicted_track_ids": [
+        "787df5a9-d3c9-4d45-85e2-31a04c1b72c7",
+        "1be1fcd4-3ec7-4169-98b0-41aef911c29d",
+        "d94047bc-5775-4a00-acd4-606ce564d2ca",
+        "b76d703c-5b3f-4dbd-8bcf-5eff15fb4e6d",
+        "7477abf8-4c46-44f6-beb9-8ebd0e97f53f"
+      ],
+      "latency_ms": [
+        4.984757862985134
+      ],
+      "raw_excluded_count": 0,
+      "final_excluded_count": 0
+    },
+    {
+      "query_id": "janani-m04",
+      "category": "mood",
+      "method": "semantic",
+      "predicted_track_ids": [
+        "6ec0f860-1441-47f3-b68b-1ce6ec452f66",
+        "4280d6ad-ebbe-44d6-bc5f-af61f3320e4b",
+        "df76fdd3-985b-4a52-947d-d56e8c3ad5e7",
+        "edcbe7ed-83a8-40d0-af64-a456b43ff6c1",
+        "32bac6db-d930-4554-8428-47505785773a"
+      ],
+      "latency_ms": [
+        88.8034631498158
+      ],
+      "raw_excluded_count": 0,
+      "final_excluded_count": 0
+    },
+    {
+      "query_id": "janani-m04",
+      "category": "mood",
+      "method": "hybrid",
+      "predicted_track_ids": [
+        "787df5a9-d3c9-4d45-85e2-31a04c1b72c7",
+        "1be1fcd4-3ec7-4169-98b0-41aef911c29d",
+        "d94047bc-5775-4a00-acd4-606ce564d2ca",
+        "b76d703c-5b3f-4dbd-8bcf-5eff15fb4e6d",
+        "7477abf8-4c46-44f6-beb9-8ebd0e97f53f"
+      ],
+      "latency_ms": [
+        91.99145110324025
+      ],
+      "raw_excluded_count": 0,
+      "final_excluded_count": 0
+    },
+    {
+      "query_id": "janani-m04",
+      "category": "mood",
+      "method": "hybrid_feedback",
+      "predicted_track_ids": [
+        "787df5a9-d3c9-4d45-85e2-31a04c1b72c7",
+        "1be1fcd4-3ec7-4169-98b0-41aef911c29d",
+        "d94047bc-5775-4a00-acd4-606ce564d2ca",
+        "b76d703c-5b3f-4dbd-8bcf-5eff15fb4e6d",
+        "7477abf8-4c46-44f6-beb9-8ebd0e97f53f"
+      ],
+      "latency_ms": [
+        91.9818882830441
+      ],
+      "raw_excluded_count": 0,
+      "final_excluded_count": 0
+    },
+    {
+      "query_id": "janani-m05",
+      "category": "mood",
+      "method": "bm25",
+      "predicted_track_ids": [
+        "93940a7b-8887-4fb9-a0d1-35d3b1f0e4b5",
+        "d7394c90-65ea-435e-8076-df0e61388292",
+        "8010fe25-5e4a-488a-a427-d03a0dcf0cd6",
+        "1e0ce883-d0cd-4c98-9a43-cae66c288d2f",
+        "05c2fe9b-b7bd-4e69-896a-d47f9b1e53fc"
+      ],
+      "latency_ms": [
+        3.7472927942872047
+      ],
+      "raw_excluded_count": 0,
+      "final_excluded_count": 0
+    },
+    {
+      "query_id": "janani-m05",
+      "category": "mood",
+      "method": "semantic",
+      "predicted_track_ids": [
+        "cb2413eb-d787-4064-ab2e-1debe8ff9d9c",
+        "1a1c2ef4-b1da-4318-aac9-b150591839b5",
+        "ab64bafe-53bc-4465-b37d-0275afbb355b",
+        "125f572a-752e-4d2e-af1d-c72e71915e2b",
+        "dfe185ce-b59e-4e6d-b65c-7b955873dc4a"
+      ],
+      "latency_ms": [
+        88.47356168553233
+      ],
+      "raw_excluded_count": 0,
+      "final_excluded_count": 0
+    },
+    {
+      "query_id": "janani-m05",
+      "category": "mood",
+      "method": "hybrid",
+      "predicted_track_ids": [
+        "93940a7b-8887-4fb9-a0d1-35d3b1f0e4b5",
+        "d7394c90-65ea-435e-8076-df0e61388292",
+        "8010fe25-5e4a-488a-a427-d03a0dcf0cd6",
+        "1e0ce883-d0cd-4c98-9a43-cae66c288d2f",
+        "05c2fe9b-b7bd-4e69-896a-d47f9b1e53fc"
+      ],
+      "latency_ms": [
+        90.77857807278633
+      ],
+      "raw_excluded_count": 0,
+      "final_excluded_count": 0
+    },
+    {
+      "query_id": "janani-m05",
+      "category": "mood",
+      "method": "hybrid_feedback",
+      "predicted_track_ids": [
+        "93940a7b-8887-4fb9-a0d1-35d3b1f0e4b5",
+        "d7394c90-65ea-435e-8076-df0e61388292",
+        "8010fe25-5e4a-488a-a427-d03a0dcf0cd6",
+        "1e0ce883-d0cd-4c98-9a43-cae66c288d2f",
+        "05c2fe9b-b7bd-4e69-896a-d47f9b1e53fc"
+      ],
+      "latency_ms": [
+        91.54183510690928
+      ],
+      "raw_excluded_count": 0,
+      "final_excluded_count": 0
+    },
+    {
+      "query_id": "janani-a01",
+      "category": "activity",
+      "method": "bm25",
+      "predicted_track_ids": [
+        "d3c1b6b9-ee0b-4800-9182-c320f2a16154",
+        "dc59eefd-bf8e-4061-b8ec-a515150e1f94",
+        "63760e43-c520-439b-96ce-75495bb1a706",
+        "6239447e-cc03-4a40-a864-8ca81ed3c19c",
+        "9fb13c04-7533-46b3-b5fe-2d158d55f823"
+      ],
+      "latency_ms": [
+        4.845238756388426
+      ],
+      "raw_excluded_count": 0,
+      "final_excluded_count": 0
+    },
+    {
+      "query_id": "janani-a01",
+      "category": "activity",
+      "method": "semantic",
+      "predicted_track_ids": [
+        "e6e8416c-db8f-4be5-910f-cdd26e2b33ae",
+        "f14a0a5e-459e-4d28-800a-3df0ef927f34",
+        "fa5008dc-260b-4f41-a087-03ce97df0db1",
+        "a20ca690-be52-4f37-a1bf-452b7df1ab0d",
+        "57d0def3-1195-4d4b-af69-4d4aead79e50"
+      ],
+      "latency_ms": [
+        90.44892294332385
+      ],
+      "raw_excluded_count": 0,
+      "final_excluded_count": 0
+    },
+    {
+      "query_id": "janani-a01",
+      "category": "activity",
+      "method": "hybrid",
+      "predicted_track_ids": [
+        "d3c1b6b9-ee0b-4800-9182-c320f2a16154",
+        "dc59eefd-bf8e-4061-b8ec-a515150e1f94",
+        "63760e43-c520-439b-96ce-75495bb1a706",
+        "6239447e-cc03-4a40-a864-8ca81ed3c19c",
+        "9fb13c04-7533-46b3-b5fe-2d158d55f823"
+      ],
+      "latency_ms": [
+        96.85881529003382
+      ],
+      "raw_excluded_count": 0,
+      "final_excluded_count": 0
+    },
+    {
+      "query_id": "janani-a01",
+      "category": "activity",
+      "method": "hybrid_feedback",
+      "predicted_track_ids": [
+        "d3c1b6b9-ee0b-4800-9182-c320f2a16154",
+        "dc59eefd-bf8e-4061-b8ec-a515150e1f94",
+        "63760e43-c520-439b-96ce-75495bb1a706",
+        "6239447e-cc03-4a40-a864-8ca81ed3c19c",
+        "9fb13c04-7533-46b3-b5fe-2d158d55f823"
+      ],
+      "latency_ms": [
+        92.17695100232959
+      ],
+      "raw_excluded_count": 0,
+      "final_excluded_count": 0
+    },
+    {
+      "query_id": "janani-a02",
+      "category": "activity",
+      "method": "bm25",
+      "predicted_track_ids": [
+        "9dfba50f-08d3-4aaa-b91f-63d8404e7515",
+        "f551e260-0a58-480e-89fc-6f38ec172f49",
+        "21cffc18-8dd0-4333-8cf6-9bd6f77d9146",
+        "75b07936-4792-4bb5-bfd1-c0413ac0bcd3",
+        "62479652-4a4c-44fe-9aee-3a763c39177e"
+      ],
+      "latency_ms": [
+        5.257991142570972
+      ],
+      "raw_excluded_count": 0,
+      "final_excluded_count": 0
+    },
+    {
+      "query_id": "janani-a02",
+      "category": "activity",
+      "method": "semantic",
+      "predicted_track_ids": [
+        "21762537-afb0-487c-8fca-e4f84d057545",
+        "6cbfa312-8692-4e4a-ad93-3a6ae5ddd3a0",
+        "9b50f03e-f73c-4b33-aff5-62e8e350d4ab",
+        "5771a984-ba49-431a-af98-46eb7e7f3b5a",
+        "83bcacbb-fd70-4fb3-85c6-f516152f13ed"
+      ],
+      "latency_ms": [
+        88.37154787033796
+      ],
+      "raw_excluded_count": 0,
+      "final_excluded_count": 0
+    },
+    {
+      "query_id": "janani-a02",
+      "category": "activity",
+      "method": "hybrid",
+      "predicted_track_ids": [
+        "59c06349-cf03-4c9c-ada1-6d16169d1ea6",
+        "9dfba50f-08d3-4aaa-b91f-63d8404e7515",
+        "f551e260-0a58-480e-89fc-6f38ec172f49",
+        "21cffc18-8dd0-4333-8cf6-9bd6f77d9146",
+        "75b07936-4792-4bb5-bfd1-c0413ac0bcd3"
+      ],
+      "latency_ms": [
+        92.39469096064568
+      ],
+      "raw_excluded_count": 0,
+      "final_excluded_count": 0
+    },
+    {
+      "query_id": "janani-a02",
+      "category": "activity",
+      "method": "hybrid_feedback",
+      "predicted_track_ids": [
+        "59c06349-cf03-4c9c-ada1-6d16169d1ea6",
+        "9dfba50f-08d3-4aaa-b91f-63d8404e7515",
+        "f551e260-0a58-480e-89fc-6f38ec172f49",
+        "21cffc18-8dd0-4333-8cf6-9bd6f77d9146",
+        "75b07936-4792-4bb5-bfd1-c0413ac0bcd3"
+      ],
+      "latency_ms": [
+        92.4443481490016
+      ],
+      "raw_excluded_count": 0,
+      "final_excluded_count": 0
+    },
+    {
+      "query_id": "janani-a03",
+      "category": "activity",
+      "method": "bm25",
+      "predicted_track_ids": [
+        "58a4a1f2-a111-4608-ac31-68f35871ce80",
+        "cc9bfc55-30d5-497b-ba9b-5958079a010b",
+        "36482810-3c39-4d3b-a149-520fe63110ec",
+        "cbf995c1-0e03-4261-91dc-6b14306e83a1",
+        "94ff0036-6bf5-4b89-9db0-7a013f108e62"
+      ],
+      "latency_ms": [
+        4.191791173070669
+      ],
+      "raw_excluded_count": 0,
+      "final_excluded_count": 0
+    },
+    {
+      "query_id": "janani-a03",
+      "category": "activity",
+      "method": "semantic",
+      "predicted_track_ids": [
+        "ffe0b1a7-6e5d-480c-b77f-9e22ea7bc7c6",
+        "9085e497-721f-4523-80ca-7a86521d001d",
+        "e6ca5739-0578-456b-8e57-f61a778b537e",
+        "5707b6a4-b987-4568-9c14-1ae884c3b2e7",
+        "f4925496-44ec-464d-9f38-ee74252ca3b0"
+      ],
+      "latency_ms": [
+        90.72989877313375
+      ],
+      "raw_excluded_count": 0,
+      "final_excluded_count": 0
+    },
+    {
+      "query_id": "janani-a03",
+      "category": "activity",
+      "method": "hybrid",
+      "predicted_track_ids": [
+        "36482810-3c39-4d3b-a149-520fe63110ec",
+        "58a4a1f2-a111-4608-ac31-68f35871ce80",
+        "cc9bfc55-30d5-497b-ba9b-5958079a010b",
+        "cbf995c1-0e03-4261-91dc-6b14306e83a1",
+        "94ff0036-6bf5-4b89-9db0-7a013f108e62"
+      ],
+      "latency_ms": [
+        92.52445213496685
+      ],
+      "raw_excluded_count": 0,
+      "final_excluded_count": 0
+    },
+    {
+      "query_id": "janani-a03",
+      "category": "activity",
+      "method": "hybrid_feedback",
+      "predicted_track_ids": [
+        "36482810-3c39-4d3b-a149-520fe63110ec",
+        "58a4a1f2-a111-4608-ac31-68f35871ce80",
+        "cc9bfc55-30d5-497b-ba9b-5958079a010b",
+        "cbf995c1-0e03-4261-91dc-6b14306e83a1",
+        "94ff0036-6bf5-4b89-9db0-7a013f108e62"
+      ],
+      "latency_ms": [
+        91.3220252841711
+      ],
+      "raw_excluded_count": 0,
+      "final_excluded_count": 0
+    },
+    {
+      "query_id": "janani-a04",
+      "category": "activity",
+      "method": "bm25",
+      "predicted_track_ids": [
+        "f3f2b3d5-d1d0-42fd-855c-09912c9a428c",
+        "912677aa-00e4-4a05-ad02-b2e3b4ce1c68",
+        "da4953fd-59e8-4dae-9a33-d240728a4ae0",
+        "93940a7b-8887-4fb9-a0d1-35d3b1f0e4b5",
+        "38809d0e-a499-4834-a15a-b986c9a83924"
+      ],
+      "latency_ms": [
+        4.680831450968981
+      ],
+      "raw_excluded_count": 0,
+      "final_excluded_count": 0
+    },
+    {
+      "query_id": "janani-a04",
+      "category": "activity",
+      "method": "semantic",
+      "predicted_track_ids": [
+        "16c2253d-94d0-4627-8175-c778bae853e5",
+        "90a68a44-33a6-49a4-867e-723e03bfb16f",
+        "f14a0a5e-459e-4d28-800a-3df0ef927f34",
+        "71b2b707-8233-4802-8135-e0b0a5da0001",
+        "a2073c63-94b4-4d6b-9001-0b4b5f649148"
+      ],
+      "latency_ms": [
+        89.66590790078044
+      ],
+      "raw_excluded_count": 0,
+      "final_excluded_count": 0
+    },
+    {
+      "query_id": "janani-a04",
+      "category": "activity",
+      "method": "hybrid",
+      "predicted_track_ids": [
+        "f3f2b3d5-d1d0-42fd-855c-09912c9a428c",
+        "912677aa-00e4-4a05-ad02-b2e3b4ce1c68",
+        "da4953fd-59e8-4dae-9a33-d240728a4ae0",
+        "93940a7b-8887-4fb9-a0d1-35d3b1f0e4b5",
+        "38809d0e-a499-4834-a15a-b986c9a83924"
+      ],
+      "latency_ms": [
+        92.41666737943888
+      ],
+      "raw_excluded_count": 0,
+      "final_excluded_count": 0
+    },
+    {
+      "query_id": "janani-a04",
+      "category": "activity",
+      "method": "hybrid_feedback",
+      "predicted_track_ids": [
+        "f3f2b3d5-d1d0-42fd-855c-09912c9a428c",
+        "912677aa-00e4-4a05-ad02-b2e3b4ce1c68",
+        "da4953fd-59e8-4dae-9a33-d240728a4ae0",
+        "93940a7b-8887-4fb9-a0d1-35d3b1f0e4b5",
+        "38809d0e-a499-4834-a15a-b986c9a83924"
+      ],
+      "latency_ms": [
+        92.3402477055788
+      ],
+      "raw_excluded_count": 0,
+      "final_excluded_count": 0
+    },
+    {
+      "query_id": "janani-a05",
+      "category": "activity",
+      "method": "bm25",
+      "predicted_track_ids": [
+        "a074e33c-330c-4559-8693-55afc18c2847",
+        "9decdad2-ec50-4bea-bd6d-6554732d1c33",
+        "d7a8828a-dedc-4670-9ad7-a5e4efc504fa",
+        "6e583cc5-3281-418b-a599-22283e59eab3",
+        "4819db27-2162-4208-aa46-077bc4f7874f"
+      ],
+      "latency_ms": [
+        5.6777819991111755
+      ],
+      "raw_excluded_count": 0,
+      "final_excluded_count": 0
+    },
+    {
+      "query_id": "janani-a05",
+      "category": "activity",
+      "method": "semantic",
+      "predicted_track_ids": [
+        "1a1c2ef4-b1da-4318-aac9-b150591839b5",
+        "32bb6f88-0d69-4f09-a020-492116cffb55",
+        "1ef0ecf3-6f11-4597-be29-32b848deee37",
+        "cb2413eb-d787-4064-ab2e-1debe8ff9d9c",
+        "7c8a69e1-1eda-4f57-97ff-faf567ea77ef"
+      ],
+      "latency_ms": [
+        89.94838921353221
+      ],
+      "raw_excluded_count": 0,
+      "final_excluded_count": 0
+    },
+    {
+      "query_id": "janani-a05",
+      "category": "activity",
+      "method": "hybrid",
+      "predicted_track_ids": [
+        "a074e33c-330c-4559-8693-55afc18c2847",
+        "9decdad2-ec50-4bea-bd6d-6554732d1c33",
+        "d7a8828a-dedc-4670-9ad7-a5e4efc504fa",
+        "6e583cc5-3281-418b-a599-22283e59eab3",
+        "4819db27-2162-4208-aa46-077bc4f7874f"
+      ],
+      "latency_ms": [
+        93.35241420194507
+      ],
+      "raw_excluded_count": 0,
+      "final_excluded_count": 0
+    },
+    {
+      "query_id": "janani-a05",
+      "category": "activity",
+      "method": "hybrid_feedback",
+      "predicted_track_ids": [
+        "a074e33c-330c-4559-8693-55afc18c2847",
+        "9decdad2-ec50-4bea-bd6d-6554732d1c33",
+        "d7a8828a-dedc-4670-9ad7-a5e4efc504fa",
+        "6e583cc5-3281-418b-a599-22283e59eab3",
+        "4819db27-2162-4208-aa46-077bc4f7874f"
+      ],
+      "latency_ms": [
+        92.86984987556934
+      ],
+      "raw_excluded_count": 0,
+      "final_excluded_count": 0
+    },
+    {
+      "query_id": "janani-e01",
+      "category": "exclusion",
+      "method": "bm25",
+      "predicted_track_ids": [
+        "8078f71d-0494-41bb-95bd-942626b4bee7",
+        "58a4a1f2-a111-4608-ac31-68f35871ce80",
+        "758e2810-aed8-4383-a455-7f46ed12414c",
+        "7c60f67c-5de3-44a7-9b03-f0b833a88f72",
+        "94ff0036-6bf5-4b89-9db0-7a013f108e62"
+      ],
+      "latency_ms": [
+        4.2585888877511024
+      ],
+      "raw_excluded_count": 0,
+      "final_excluded_count": 0
+    },
+    {
+      "query_id": "janani-e01",
+      "category": "exclusion",
+      "method": "semantic",
+      "predicted_track_ids": [
+        "b4060d5e-a59b-4672-b03c-9057e2dae404",
+        "c67a5a20-5fe7-4eae-8610-067efe6bec07",
+        "c7b0f577-4f6c-45cc-b2d5-a75bad344db5",
+        "e1da64a9-3561-4e50-84a2-078aa7108ab4",
+        "a71402b9-e71b-4e0b-9ed5-a4782762e938"
+      ],
+      "latency_ms": [
+        89.71916697919369
+      ],
+      "raw_excluded_count": 0,
+      "final_excluded_count": 0
+    },
+    {
+      "query_id": "janani-e01",
+      "category": "exclusion",
+      "method": "hybrid",
+      "predicted_track_ids": [
+        "8078f71d-0494-41bb-95bd-942626b4bee7",
+        "58a4a1f2-a111-4608-ac31-68f35871ce80",
+        "758e2810-aed8-4383-a455-7f46ed12414c",
+        "7c60f67c-5de3-44a7-9b03-f0b833a88f72",
+        "94ff0036-6bf5-4b89-9db0-7a013f108e62"
+      ],
+      "latency_ms": [
+        91.41473285853863
+      ],
+      "raw_excluded_count": 0,
+      "final_excluded_count": 0
+    },
+    {
+      "query_id": "janani-e01",
+      "category": "exclusion",
+      "method": "hybrid_feedback",
+      "predicted_track_ids": [
+        "8078f71d-0494-41bb-95bd-942626b4bee7",
+        "58a4a1f2-a111-4608-ac31-68f35871ce80",
+        "758e2810-aed8-4383-a455-7f46ed12414c",
+        "7c60f67c-5de3-44a7-9b03-f0b833a88f72",
+        "94ff0036-6bf5-4b89-9db0-7a013f108e62"
+      ],
+      "latency_ms": [
+        91.36953810229897
+      ],
+      "raw_excluded_count": 0,
+      "final_excluded_count": 0
+    },
+    {
+      "query_id": "janani-e02",
+      "category": "exclusion",
+      "method": "bm25",
+      "predicted_track_ids": [
+        "1be1fcd4-3ec7-4169-98b0-41aef911c29d",
+        "da45de1f-2662-4240-99a3-e41488a8566a",
+        "0d887f63-8ce3-45dc-a264-40e54e521a33",
+        "a50449ff-6d19-439b-a751-8f809bf47677",
+        "7023ef06-7b5f-4c07-a550-89305a9b2618"
+      ],
+      "latency_ms": [
+        4.823531955480576
+      ],
+      "raw_excluded_count": 0,
+      "final_excluded_count": 0
+    },
+    {
+      "query_id": "janani-e02",
+      "category": "exclusion",
+      "method": "semantic",
+      "predicted_track_ids": [
+        "940b023f-de26-4c5d-a836-1adb69517f36",
+        "26c6a833-2176-4b88-a01b-45f37c762fe0",
+        "ad103500-f357-45e4-9751-ee93626594a0",
+        "32bb6f88-0d69-4f09-a020-492116cffb55",
+        "5dacf636-d96f-4ecb-ae9b-b48682b07b37"
+      ],
+      "latency_ms": [
+        89.28017923608422
+      ],
+      "raw_excluded_count": 0,
+      "final_excluded_count": 0
+    },
+    {
+      "query_id": "janani-e02",
+      "category": "exclusion",
+      "method": "hybrid",
+      "predicted_track_ids": [
+        "1be1fcd4-3ec7-4169-98b0-41aef911c29d",
+        "da45de1f-2662-4240-99a3-e41488a8566a",
+        "0d887f63-8ce3-45dc-a264-40e54e521a33",
+        "a50449ff-6d19-439b-a751-8f809bf47677",
+        "7023ef06-7b5f-4c07-a550-89305a9b2618"
+      ],
+      "latency_ms": [
+        91.80644387379289
+      ],
+      "raw_excluded_count": 0,
+      "final_excluded_count": 0
+    },
+    {
+      "query_id": "janani-e02",
+      "category": "exclusion",
+      "method": "hybrid_feedback",
+      "predicted_track_ids": [
+        "1be1fcd4-3ec7-4169-98b0-41aef911c29d",
+        "da45de1f-2662-4240-99a3-e41488a8566a",
+        "0d887f63-8ce3-45dc-a264-40e54e521a33",
+        "a50449ff-6d19-439b-a751-8f809bf47677",
+        "7023ef06-7b5f-4c07-a550-89305a9b2618"
+      ],
+      "latency_ms": [
+        92.959466855973
+      ],
+      "raw_excluded_count": 0,
+      "final_excluded_count": 0
+    },
+    {
+      "query_id": "janani-e03",
+      "category": "exclusion",
+      "method": "bm25",
+      "predicted_track_ids": [
+        "1451f6f9-8c71-450b-aadf-a0b59230bf2b",
+        "758e2810-aed8-4383-a455-7f46ed12414c",
+        "d7a8828a-dedc-4670-9ad7-a5e4efc504fa",
+        "7c60f67c-5de3-44a7-9b03-f0b833a88f72",
+        "58a4a1f2-a111-4608-ac31-68f35871ce80"
+      ],
+      "latency_ms": [
+        4.466175101697445
+      ],
+      "raw_excluded_count": 0,
+      "final_excluded_count": 0
+    },
+    {
+      "query_id": "janani-e03",
+      "category": "exclusion",
+      "method": "semantic",
+      "predicted_track_ids": [
+        "32bb6f88-0d69-4f09-a020-492116cffb55",
+        "71b2b707-8233-4802-8135-e0b0a5da0001",
+        "dfe185ce-b59e-4e6d-b65c-7b955873dc4a",
+        "1ef0ecf3-6f11-4597-be29-32b848deee37",
+        "a951dea0-f93e-4304-bf70-ffcf439cb74f"
+      ],
+      "latency_ms": [
+        88.62692909315228
+      ],
+      "raw_excluded_count": 0,
+      "final_excluded_count": 0
+    },
+    {
+      "query_id": "janani-e03",
+      "category": "exclusion",
+      "method": "hybrid",
+      "predicted_track_ids": [
+        "1451f6f9-8c71-450b-aadf-a0b59230bf2b",
+        "758e2810-aed8-4383-a455-7f46ed12414c",
+        "d7a8828a-dedc-4670-9ad7-a5e4efc504fa",
+        "7c60f67c-5de3-44a7-9b03-f0b833a88f72",
+        "58a4a1f2-a111-4608-ac31-68f35871ce80"
+      ],
+      "latency_ms": [
+        91.4663621224463
+      ],
+      "raw_excluded_count": 0,
+      "final_excluded_count": 0
+    },
+    {
+      "query_id": "janani-e03",
+      "category": "exclusion",
+      "method": "hybrid_feedback",
+      "predicted_track_ids": [
+        "1451f6f9-8c71-450b-aadf-a0b59230bf2b",
+        "758e2810-aed8-4383-a455-7f46ed12414c",
+        "d7a8828a-dedc-4670-9ad7-a5e4efc504fa",
+        "7c60f67c-5de3-44a7-9b03-f0b833a88f72",
+        "58a4a1f2-a111-4608-ac31-68f35871ce80"
+      ],
+      "latency_ms": [
+        92.28992275893688
+      ],
+      "raw_excluded_count": 0,
+      "final_excluded_count": 0
+    },
+    {
+      "query_id": "janani-e04",
+      "category": "exclusion",
+      "method": "bm25",
+      "predicted_track_ids": [
+        "e5d4a205-7b47-4580-865f-e37083e592f3",
+        "91f33010-4d70-49b1-a1a2-072b55760058",
+        "928ffb97-df5b-47a5-805d-a92e9b74103c",
+        "93940a7b-8887-4fb9-a0d1-35d3b1f0e4b5",
+        "d7394c90-65ea-435e-8076-df0e61388292"
+      ],
+      "latency_ms": [
+        3.189914394170046
+      ],
+      "raw_excluded_count": 0,
+      "final_excluded_count": 0
+    },
+    {
+      "query_id": "janani-e04",
+      "category": "exclusion",
+      "method": "semantic",
+      "predicted_track_ids": [
+        "261f08e0-fb9d-4c2b-9883-2031c3f5a287",
+        "0ecaa70f-2f84-4f78-b00d-1ecd1809d422",
+        "7206e740-31e2-46d1-ae01-d8f24d31db34",
+        "e1da64a9-3561-4e50-84a2-078aa7108ab4",
+        "17b6230e-c214-4691-b211-c1f38b6995a2"
+      ],
+      "latency_ms": [
+        89.71357671543956
+      ],
+      "raw_excluded_count": 0,
+      "final_excluded_count": 0
+    },
+    {
+      "query_id": "janani-e04",
+      "category": "exclusion",
+      "method": "hybrid",
+      "predicted_track_ids": [
+        "e5d4a205-7b47-4580-865f-e37083e592f3",
+        "91f33010-4d70-49b1-a1a2-072b55760058",
+        "928ffb97-df5b-47a5-805d-a92e9b74103c",
+        "93940a7b-8887-4fb9-a0d1-35d3b1f0e4b5",
+        "d7394c90-65ea-435e-8076-df0e61388292"
+      ],
+      "latency_ms": [
+        89.77632038295269
+      ],
+      "raw_excluded_count": 0,
+      "final_excluded_count": 0
+    },
+    {
+      "query_id": "janani-e04",
+      "category": "exclusion",
+      "method": "hybrid_feedback",
+      "predicted_track_ids": [
+        "e5d4a205-7b47-4580-865f-e37083e592f3",
+        "91f33010-4d70-49b1-a1a2-072b55760058",
+        "928ffb97-df5b-47a5-805d-a92e9b74103c",
+        "93940a7b-8887-4fb9-a0d1-35d3b1f0e4b5",
+        "d7394c90-65ea-435e-8076-df0e61388292"
+      ],
+      "latency_ms": [
+        105.05113704130054
+      ],
+      "raw_excluded_count": 0,
+      "final_excluded_count": 0
+    },
+    {
+      "query_id": "janani-e05",
+      "category": "exclusion",
+      "method": "bm25",
+      "predicted_track_ids": [
+        "1451f6f9-8c71-450b-aadf-a0b59230bf2b",
+        "58a4a1f2-a111-4608-ac31-68f35871ce80",
+        "7c60f67c-5de3-44a7-9b03-f0b833a88f72",
+        "0c43c3ec-e1f6-45a4-86b1-cbfc4387e541",
+        "42d9a8d7-4e02-4036-bc38-fb52eb75e815"
+      ],
+      "latency_ms": [
+        4.136099945753813
+      ],
+      "raw_excluded_count": 0,
+      "final_excluded_count": 0
+    },
+    {
+      "query_id": "janani-e05",
+      "category": "exclusion",
+      "method": "semantic",
+      "predicted_track_ids": [
+        "2e8a335e-98cb-4d3b-bc40-0dd1765864e3",
+        "de8225b5-1e9b-4583-90b4-4ba134590d78",
+        "a6986d17-5cbd-4b35-882e-47917b1260b7",
+        "3f87c549-e501-4b6f-a14a-cd145690d545",
+        "4109b3aa-4123-407c-8ea7-c905136d573a"
+      ],
+      "latency_ms": [
+        88.05520087480545
+      ],
+      "raw_excluded_count": 0,
+      "final_excluded_count": 0
+    },
+    {
+      "query_id": "janani-e05",
+      "category": "exclusion",
+      "method": "hybrid",
+      "predicted_track_ids": [
+        "1451f6f9-8c71-450b-aadf-a0b59230bf2b",
+        "58a4a1f2-a111-4608-ac31-68f35871ce80",
+        "7c60f67c-5de3-44a7-9b03-f0b833a88f72",
+        "0c43c3ec-e1f6-45a4-86b1-cbfc4387e541",
+        "42d9a8d7-4e02-4036-bc38-fb52eb75e815"
+      ],
+      "latency_ms": [
+        88.90600595623255
+      ],
+      "raw_excluded_count": 0,
+      "final_excluded_count": 0
+    },
+    {
+      "query_id": "janani-e05",
+      "category": "exclusion",
+      "method": "hybrid_feedback",
+      "predicted_track_ids": [
+        "1451f6f9-8c71-450b-aadf-a0b59230bf2b",
+        "58a4a1f2-a111-4608-ac31-68f35871ce80",
+        "7c60f67c-5de3-44a7-9b03-f0b833a88f72",
+        "0c43c3ec-e1f6-45a4-86b1-cbfc4387e541",
+        "42d9a8d7-4e02-4036-bc38-fb52eb75e815"
+      ],
+      "latency_ms": [
+        89.15931917726994
+      ],
+      "raw_excluded_count": 0,
+      "final_excluded_count": 0
+    },
+    {
+      "query_id": "janani-f01",
+      "category": "mixed_feedback",
+      "method": "bm25",
+      "predicted_track_ids": [
+        "58a4a1f2-a111-4608-ac31-68f35871ce80",
+        "3b8c5678-a0ed-46cb-ba47-99547308138f",
+        "758e2810-aed8-4383-a455-7f46ed12414c",
+        "7c60f67c-5de3-44a7-9b03-f0b833a88f72",
+        "8078f71d-0494-41bb-95bd-942626b4bee7"
+      ],
+      "latency_ms": [
+        4.48970403522253
+      ],
+      "raw_excluded_count": 0,
+      "final_excluded_count": 0
+    },
+    {
+      "query_id": "janani-f01",
+      "category": "mixed_feedback",
+      "method": "semantic",
+      "predicted_track_ids": [
+        "407b4797-d2e7-4123-91d4-dc85953629dd",
+        "5607752d-c5fe-40a3-8d39-097df7eb7b04",
+        "41bf3ed4-7b8d-486c-ae50-1f3517e5c9a3",
+        "1d3c3e4b-5313-4a5b-9602-49ceedddc2f6",
+        "da666a24-efac-4c9c-a628-319554cf7083"
+      ],
+      "latency_ms": [
+        87.72643515840173
+      ],
+      "raw_excluded_count": 0,
+      "final_excluded_count": 0
+    },
+    {
+      "query_id": "janani-f01",
+      "category": "mixed_feedback",
+      "method": "hybrid",
+      "predicted_track_ids": [
+        "58a4a1f2-a111-4608-ac31-68f35871ce80",
+        "3b8c5678-a0ed-46cb-ba47-99547308138f",
+        "758e2810-aed8-4383-a455-7f46ed12414c",
+        "7c60f67c-5de3-44a7-9b03-f0b833a88f72",
+        "8078f71d-0494-41bb-95bd-942626b4bee7"
+      ],
+      "latency_ms": [
+        89.46669707074761
+      ],
+      "raw_excluded_count": 0,
+      "final_excluded_count": 0
+    },
+    {
+      "query_id": "janani-f01",
+      "category": "mixed_feedback",
+      "method": "hybrid_feedback",
+      "predicted_track_ids": [
+        "58a4a1f2-a111-4608-ac31-68f35871ce80",
+        "3b8c5678-a0ed-46cb-ba47-99547308138f",
+        "7c60f67c-5de3-44a7-9b03-f0b833a88f72",
+        "758e2810-aed8-4383-a455-7f46ed12414c",
+        "8078f71d-0494-41bb-95bd-942626b4bee7"
+      ],
+      "latency_ms": [
+        176.50345712900162
+      ],
+      "raw_excluded_count": 0,
+      "final_excluded_count": 0
+    },
+    {
+      "query_id": "janani-f02",
+      "category": "mixed_feedback",
+      "method": "bm25",
+      "predicted_track_ids": [
+        "e49253b5-5811-4438-ac4e-8e23bccdbb59",
+        "7c60f67c-5de3-44a7-9b03-f0b833a88f72",
+        "eebd9b49-2da7-4978-a134-39cd9386c4c6",
+        "58a4a1f2-a111-4608-ac31-68f35871ce80",
+        "758e2810-aed8-4383-a455-7f46ed12414c"
+      ],
+      "latency_ms": [
+        4.842771217226982
+      ],
+      "raw_excluded_count": 0,
+      "final_excluded_count": 0
+    },
+    {
+      "query_id": "janani-f02",
+      "category": "mixed_feedback",
+      "method": "semantic",
+      "predicted_track_ids": [
+        "c7b0f577-4f6c-45cc-b2d5-a75bad344db5",
+        "1a1c2ef4-b1da-4318-aac9-b150591839b5",
+        "1ef0ecf3-6f11-4597-be29-32b848deee37",
+        "32bb6f88-0d69-4f09-a020-492116cffb55",
+        "dced9c7c-de86-4753-8e33-f5bff722c2de"
+      ],
+      "latency_ms": [
+        83.73057330027223
+      ],
+      "raw_excluded_count": 0,
+      "final_excluded_count": 0
+    },
+    {
+      "query_id": "janani-f02",
+      "category": "mixed_feedback",
+      "method": "hybrid",
+      "predicted_track_ids": [
+        "e49253b5-5811-4438-ac4e-8e23bccdbb59",
+        "7c60f67c-5de3-44a7-9b03-f0b833a88f72",
+        "eebd9b49-2da7-4978-a134-39cd9386c4c6",
+        "58a4a1f2-a111-4608-ac31-68f35871ce80",
+        "758e2810-aed8-4383-a455-7f46ed12414c"
+      ],
+      "latency_ms": [
+        90.52788000553846
+      ],
+      "raw_excluded_count": 0,
+      "final_excluded_count": 0
+    },
+    {
+      "query_id": "janani-f02",
+      "category": "mixed_feedback",
+      "method": "hybrid_feedback",
+      "predicted_track_ids": [
+        "7c60f67c-5de3-44a7-9b03-f0b833a88f72",
+        "e49253b5-5811-4438-ac4e-8e23bccdbb59",
+        "eebd9b49-2da7-4978-a134-39cd9386c4c6",
+        "758e2810-aed8-4383-a455-7f46ed12414c",
+        "58a4a1f2-a111-4608-ac31-68f35871ce80"
+      ],
+      "latency_ms": [
+        176.90819781273603
+      ],
+      "raw_excluded_count": 0,
+      "final_excluded_count": 0
+    },
+    {
+      "query_id": "janani-f03",
+      "category": "mixed_feedback",
+      "method": "bm25",
+      "predicted_track_ids": [
+        "1451f6f9-8c71-450b-aadf-a0b59230bf2b",
+        "0374f211-f3c7-407a-812b-e64040b2b9fd",
+        "71a793c7-8d9a-4271-95d5-254ae9c8f37b",
+        "2a834f07-2ffc-4ff3-8fe3-f552baebbbd8",
+        "9a6ccaab-ddaa-432a-8b44-91a5b0538dd8"
+      ],
+      "latency_ms": [
+        4.1621471755206585
+      ],
+      "raw_excluded_count": 0,
+      "final_excluded_count": 0
+    },
+    {
+      "query_id": "janani-f03",
+      "category": "mixed_feedback",
+      "method": "semantic",
+      "predicted_track_ids": [
+        "3f87c549-e501-4b6f-a14a-cd145690d545",
+        "a6986d17-5cbd-4b35-882e-47917b1260b7",
+        "de8225b5-1e9b-4583-90b4-4ba134590d78",
+        "485bbf11-a9a0-424b-ac50-f7e6f7a56365",
+        "1b5b6cf3-2327-447c-8d82-f17949c7fdfe"
+      ],
+      "latency_ms": [
+        84.66693107038736
+      ],
+      "raw_excluded_count": 0,
+      "final_excluded_count": 0
+    },
+    {
+      "query_id": "janani-f03",
+      "category": "mixed_feedback",
+      "method": "hybrid",
+      "predicted_track_ids": [
+        "1451f6f9-8c71-450b-aadf-a0b59230bf2b",
+        "0374f211-f3c7-407a-812b-e64040b2b9fd",
+        "71a793c7-8d9a-4271-95d5-254ae9c8f37b",
+        "2a834f07-2ffc-4ff3-8fe3-f552baebbbd8",
+        "9a6ccaab-ddaa-432a-8b44-91a5b0538dd8"
+      ],
+      "latency_ms": [
+        89.38530087471008
+      ],
+      "raw_excluded_count": 0,
+      "final_excluded_count": 0
+    },
+    {
+      "query_id": "janani-f03",
+      "category": "mixed_feedback",
+      "method": "hybrid_feedback",
+      "predicted_track_ids": [
+        "1451f6f9-8c71-450b-aadf-a0b59230bf2b",
+        "0374f211-f3c7-407a-812b-e64040b2b9fd",
+        "71a793c7-8d9a-4271-95d5-254ae9c8f37b",
+        "2a834f07-2ffc-4ff3-8fe3-f552baebbbd8",
+        "9a6ccaab-ddaa-432a-8b44-91a5b0538dd8"
+      ],
+      "latency_ms": [
+        176.35193280875683
+      ],
+      "raw_excluded_count": 0,
+      "final_excluded_count": 0
+    },
+    {
+      "query_id": "janani-f04",
+      "category": "mixed_feedback",
+      "method": "bm25",
+      "predicted_track_ids": [
+        "b49f1ad9-d4fe-4b91-a66e-f93c68d99416",
+        "5583de40-9e05-4f27-b172-7a4e7d10ad5f",
+        "9571eead-47df-4f38-afbf-056848907725",
+        "b8891115-5b45-4074-aec0-858ef3752a11",
+        "fd777591-2c63-40af-bb62-ee2c9899baaa"
+      ],
+      "latency_ms": [
+        22.48503314331174
+      ],
+      "raw_excluded_count": 2,
+      "final_excluded_count": 0
+    },
+    {
+      "query_id": "janani-f04",
+      "category": "mixed_feedback",
+      "method": "semantic",
+      "predicted_track_ids": [
+        "ad103500-f357-45e4-9751-ee93626594a0",
+        "f311c0f2-f944-462c-b46a-b435d6a3cbcf",
+        "64f3f7ba-1181-4c44-922d-203f94245be6",
+        "0840a5f3-2837-46df-a0f9-391448b8af8a",
+        "c7b0f577-4f6c-45cc-b2d5-a75bad344db5"
+      ],
+      "latency_ms": [
+        153.2081812620163
+      ],
+      "raw_excluded_count": 0,
+      "final_excluded_count": 0
+    },
+    {
+      "query_id": "janani-f04",
+      "category": "mixed_feedback",
+      "method": "hybrid",
+      "predicted_track_ids": [
+        "b49f1ad9-d4fe-4b91-a66e-f93c68d99416",
+        "5583de40-9e05-4f27-b172-7a4e7d10ad5f",
+        "9571eead-47df-4f38-afbf-056848907725",
+        "b8891115-5b45-4074-aec0-858ef3752a11",
+        "fd777591-2c63-40af-bb62-ee2c9899baaa"
+      ],
+      "latency_ms": [
+        167.98652010038495
+      ],
+      "raw_excluded_count": 2,
+      "final_excluded_count": 0
+    },
+    {
+      "query_id": "janani-f04",
+      "category": "mixed_feedback",
+      "method": "hybrid_feedback",
+      "predicted_track_ids": [
+        "b49f1ad9-d4fe-4b91-a66e-f93c68d99416",
+        "9571eead-47df-4f38-afbf-056848907725",
+        "5583de40-9e05-4f27-b172-7a4e7d10ad5f",
+        "fd777591-2c63-40af-bb62-ee2c9899baaa",
+        "b8891115-5b45-4074-aec0-858ef3752a11"
+      ],
+      "latency_ms": [
+        297.0508122816682
+      ],
+      "raw_excluded_count": 2,
+      "final_excluded_count": 0
+    },
+    {
+      "query_id": "janani-f05",
+      "category": "mixed_feedback",
+      "method": "bm25",
+      "predicted_track_ids": [
+        "58a4a1f2-a111-4608-ac31-68f35871ce80",
+        "758e2810-aed8-4383-a455-7f46ed12414c",
+        "6ecb1db4-c77c-46b0-b671-1ee4c57850fa",
+        "7c60f67c-5de3-44a7-9b03-f0b833a88f72",
+        "dcb60e94-2589-4e27-a373-59601748cdba"
+      ],
+      "latency_ms": [
+        3.3513284288346767
+      ],
+      "raw_excluded_count": 0,
+      "final_excluded_count": 0
+    },
+    {
+      "query_id": "janani-f05",
+      "category": "mixed_feedback",
+      "method": "semantic",
+      "predicted_track_ids": [
+        "193290f2-70f0-478b-950b-1e78be00dad0",
+        "0ecaa70f-2f84-4f78-b00d-1ecd1809d422",
+        "e6e8416c-db8f-4be5-910f-cdd26e2b33ae",
+        "407b4797-d2e7-4123-91d4-dc85953629dd",
+        "fa5008dc-260b-4f41-a087-03ce97df0db1"
+      ],
+      "latency_ms": [
+        81.87719667330384
+      ],
+      "raw_excluded_count": 0,
+      "final_excluded_count": 0
+    },
+    {
+      "query_id": "janani-f05",
+      "category": "mixed_feedback",
+      "method": "hybrid",
+      "predicted_track_ids": [
+        "58a4a1f2-a111-4608-ac31-68f35871ce80",
+        "758e2810-aed8-4383-a455-7f46ed12414c",
+        "6ecb1db4-c77c-46b0-b671-1ee4c57850fa",
+        "7c60f67c-5de3-44a7-9b03-f0b833a88f72",
+        "dcb60e94-2589-4e27-a373-59601748cdba"
+      ],
+      "latency_ms": [
+        91.2724039517343
+      ],
+      "raw_excluded_count": 0,
+      "final_excluded_count": 0
+    },
+    {
+      "query_id": "janani-f05",
+      "category": "mixed_feedback",
+      "method": "hybrid_feedback",
+      "predicted_track_ids": [
+        "58a4a1f2-a111-4608-ac31-68f35871ce80",
+        "6ecb1db4-c77c-46b0-b671-1ee4c57850fa",
+        "758e2810-aed8-4383-a455-7f46ed12414c",
+        "dcb60e94-2589-4e27-a373-59601748cdba",
+        "7c60f67c-5de3-44a7-9b03-f0b833a88f72"
+      ],
+      "latency_ms": [
+        185.68100919947028
+      ],
+      "raw_excluded_count": 0,
+      "final_excluded_count": 0
+    }
+  ],
+  "catalog_size": 47071,
+  "retrievers": {
+    "bm25": "BM25Retriever",
+    "semantic": "DenseRetriever",
+    "hybrid": "HybridRetriever"
+  },
+  "feedback_parameters": {
+    "alpha": 1.0,
+    "beta": 0.75,
+    "gamma": 0.25,
+    "weight": 0.75
+  },
+  "latency_scope": "Warm retrieval, filtering, feedback and explanations; model initialization and transport excluded",
+  "repeats": 1,
+  "setup_and_warmup_ms": 25521.68753789738
+}

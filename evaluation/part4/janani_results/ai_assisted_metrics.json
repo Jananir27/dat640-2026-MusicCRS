@@ -1,0 +1,139 @@
+{
+  "judgment_status": "assessor-labeled",
+  "judgment_provenance": {
+    "named_assessor": 251
+  },
+  "query_count": 25,
+  "feedback_query_count": 5,
+  "methods": {
+    "bm25": {
+      "ndcg@5": 0.7729969663732963,
+      "precision@5": 0.8480000000000001,
+      "mean_ms": 5.26557007804513,
+      "p50_ms": 4.605050198733807,
+      "p95_ms": 5.945632979273795,
+      "excluded_tracks_returned": 0
+    },
+    "semantic": {
+      "ndcg@5": 0.42621628684251733,
+      "precision@5": 0.6080000000000001,
+      "mean_ms": 90.92005174607038,
+      "p50_ms": 88.8034631498158,
+      "p95_ms": 90.67370360717177,
+      "excluded_tracks_returned": 0
+    },
+    "hybrid": {
+      "ndcg@5": 0.7726363801262666,
+      "precision@5": 0.8480000000000001,
+      "mean_ms": 94.64616479352117,
+      "p50_ms": 91.42420114949346,
+      "p95_ms": 96.15753507241605,
+      "excluded_tracks_returned": 0
+    },
+    "hybrid_feedback": {
+      "ndcg@5": 0.7735737432470686,
+      "precision@5": 0.8480000000000001,
+      "mean_ms": 114.49097080156207,
+      "p50_ms": 92.28992275893688,
+      "p95_ms": 183.9264469221234,
+      "excluded_tracks_returned": 0
+    }
+  },
+  "by_category": {
+    "activity": {
+      "bm25": {
+        "ndcg@5": 0.6913219575640311,
+        "precision@5": 0.8800000000000001
+      },
+      "semantic": {
+        "ndcg@5": 0.4649323213989362,
+        "precision@5": 0.72
+      },
+      "hybrid": {
+        "ndcg@5": 0.6895190263288817,
+        "precision@5": 0.8800000000000001
+      },
+      "hybrid_feedback": {
+        "ndcg@5": 0.6895190263288817,
+        "precision@5": 0.8800000000000001
+      }
+    },
+    "exclusion": {
+      "bm25": {
+        "ndcg@5": 0.7532674549667588,
+        "precision@5": 0.72
+      },
+      "semantic": {
+        "ndcg@5": 0.3391275664730178,
+        "precision@5": 0.44000000000000006
+      },
+      "hybrid": {
+        "ndcg@5": 0.7532674549667588,
+        "precision@5": 0.72
+      },
+      "hybrid_feedback": {
+        "ndcg@5": 0.7532674549667588,
+        "precision@5": 0.72
+      }
+    },
+    "genre": {
+      "bm25": {
+        "ndcg@5": 0.9021501373803018,
+        "precision@5": 0.96
+      },
+      "semantic": {
+        "ndcg@5": 0.3261537783521173,
+        "precision@5": 0.48
+      },
+      "hybrid": {
+        "ndcg@5": 0.9021501373803018,
+        "precision@5": 0.96
+      },
+      "hybrid_feedback": {
+        "ndcg@5": 0.9021501373803018,
+        "precision@5": 0.96
+      }
+    },
+    "mixed_feedback": {
+      "bm25": {
+        "ndcg@5": 0.7755763117760532,
+        "precision@5": 0.8800000000000001
+      },
+      "semantic": {
+        "ndcg@5": 0.504221334857007,
+        "precision@5": 0.68
+      },
+      "hybrid": {
+        "ndcg@5": 0.7755763117760532,
+        "precision@5": 0.8800000000000001
+      },
+      "hybrid_feedback": {
+        "ndcg@5": 0.7802631273800641,
+        "precision@5": 0.8800000000000001
+      }
+    },
+    "mood": {
+      "bm25": {
+        "ndcg@5": 0.7426689701793362,
+        "precision@5": 0.8
+      },
+      "semantic": {
+        "ndcg@5": 0.496646433131508,
+        "precision@5": 0.72
+      },
+      "hybrid": {
+        "ndcg@5": 0.7426689701793362,
+        "precision@5": 0.8
+      },
+      "hybrid_feedback": {
+        "ndcg@5": 0.7426689701793362,
+        "precision@5": 0.8
+      }
+    }
+  },
+  "paired_feedback_delta": {
+    "ndcg@5": 0.004686815604010819,
+    "precision@5": 0.0
+  },
+  "latency_scope": "Warm retrieval, filtering, feedback and explanations; model initialization and transport excluded"
+}

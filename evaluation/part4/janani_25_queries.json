@@ -1,0 +1,279 @@
+[
+  {
+    "id": "janani-g01",
+    "category": "genre",
+    "query": "Recommend energetic rock songs",
+    "genres": [
+      "rock"
+    ]
+  },
+  {
+    "id": "janani-g02",
+    "category": "genre",
+    "query": "Recommend relaxing jazz music",
+    "genres": [
+      "jazz"
+    ]
+  },
+  {
+    "id": "janani-g03",
+    "category": "genre",
+    "query": "Suggest classic hip hop tracks",
+    "genres": [
+      "hip hop"
+    ]
+  },
+  {
+    "id": "janani-g04",
+    "category": "genre",
+    "query": "Find upbeat pop music",
+    "genres": [
+      "pop"
+    ]
+  },
+  {
+    "id": "janani-g05",
+    "category": "genre",
+    "query": "Recommend acoustic folk songs",
+    "genres": [
+      "folk"
+    ]
+  },
+  {
+    "id": "janani-m01",
+    "category": "mood",
+    "query": "Recommend cheerful uplifting songs",
+    "moods": [
+      "happy",
+      "uplifting"
+    ]
+  },
+  {
+    "id": "janani-m02",
+    "category": "mood",
+    "query": "Find emotional sad songs",
+    "moods": [
+      "sad"
+    ]
+  },
+  {
+    "id": "janani-m03",
+    "category": "mood",
+    "query": "Recommend calm peaceful music",
+    "moods": [
+      "calm"
+    ]
+  },
+  {
+    "id": "janani-m04",
+    "category": "mood",
+    "query": "Suggest dark intense music",
+    "moods": [
+      "dark",
+      "intense"
+    ]
+  },
+  {
+    "id": "janani-m05",
+    "category": "mood",
+    "query": "Find romantic relaxing songs",
+    "moods": [
+      "romantic"
+    ]
+  },
+  {
+    "id": "janani-a01",
+    "category": "activity",
+    "query": "Recommend energetic rock for a gym workout",
+    "genres": [
+      "rock"
+    ],
+    "moods": [
+      "energetic"
+    ]
+  },
+  {
+    "id": "janani-a02",
+    "category": "activity",
+    "query": "Suggest peaceful instrumental music for studying",
+    "moods": [
+      "calm"
+    ]
+  },
+  {
+    "id": "janani-a03",
+    "category": "activity",
+    "query": "Recommend upbeat songs for a road trip",
+    "moods": [
+      "upbeat"
+    ]
+  },
+  {
+    "id": "janani-a04",
+    "category": "activity",
+    "query": "Find energetic dance music for a party",
+    "genres": [
+      "dance"
+    ]
+  },
+  {
+    "id": "janani-a05",
+    "category": "activity",
+    "query": "Recommend relaxing music for bedtime",
+    "moods": [
+      "relaxing"
+    ]
+  },
+  {
+    "id": "janani-e01",
+    "category": "exclusion",
+    "query": "Recommend rock songs excluding Linkin Park",
+    "genres": [
+      "rock"
+    ],
+    "excluded_artists": [
+      "Linkin Park"
+    ]
+  },
+  {
+    "id": "janani-e02",
+    "category": "exclusion",
+    "query": "Suggest pop music without Adele",
+    "genres": [
+      "pop"
+    ],
+    "excluded_artists": [
+      "Adele"
+    ]
+  },
+  {
+    "id": "janani-e03",
+    "category": "exclusion",
+    "query": "Recommend electronic music excluding Daft Punk",
+    "genres": [
+      "electronic"
+    ],
+    "excluded_artists": [
+      "Daft Punk"
+    ]
+  },
+  {
+    "id": "janani-e04",
+    "category": "exclusion",
+    "query": "Find metal songs without Metallica",
+    "genres": [
+      "metal"
+    ],
+    "excluded_artists": [
+      "Metallica"
+    ]
+  },
+  {
+    "id": "janani-e05",
+    "category": "exclusion",
+    "query": "Recommend hip hop excluding 21 Savage",
+    "genres": [
+      "hip hop"
+    ],
+    "excluded_artists": [
+      "21 Savage"
+    ]
+  },
+  {
+    "id": "janani-f01",
+    "category": "mixed_feedback",
+    "query": "Recommend uplifting rock songs similar to Numb by Linkin Park",
+    "genres": [
+      "rock"
+    ],
+    "moods": [
+      "uplifting"
+    ],
+    "likes": [
+      {
+        "title": "Numb",
+        "artist": "Linkin Park"
+      }
+    ],
+    "retrieval_query": "Recommend uplifting rock music"
+  },
+  {
+    "id": "janani-f02",
+    "category": "mixed_feedback",
+    "query": "Recommend emotional pop music similar to Skyfall by Adele",
+    "genres": [
+      "pop"
+    ],
+    "moods": [
+      "emotional"
+    ],
+    "likes": [
+      {
+        "title": "Skyfall - Full Length",
+        "artist": "Adele"
+      }
+    ],
+    "retrieval_query": "Recommend emotional pop music"
+  },
+  {
+    "id": "janani-f03",
+    "category": "mixed_feedback",
+    "query": "Recommend hip hop music, but avoid the style of Numb by 21 Savage",
+    "genres": [
+      "hip hop"
+    ],
+    "dislikes": [
+      {
+        "title": "Numb",
+        "artist": "21 Savage"
+      }
+    ],
+    "retrieval_query": "Recommend hip hop music"
+  },
+  {
+    "id": "janani-f04",
+    "category": "mixed_feedback",
+    "query": "Recommend songs fitting my Linkin Park playlist",
+    "genres": [
+      "rock"
+    ],
+    "playlist": [
+      {
+        "title": "Numb",
+        "artist": "Linkin Park"
+      },
+      {
+        "title": "In the End",
+        "artist": "Linkin Park"
+      }
+    ],
+    "likes": [
+      {
+        "title": "Numb",
+        "artist": "Linkin Park"
+      }
+    ],
+    "retrieval_query": "Recommend alternative rock music"
+  },
+  {
+    "id": "janani-f05",
+    "category": "mixed_feedback",
+    "query": "Recommend energetic alternative rock like Linkin Park, but not Metallica",
+    "genres": [
+      "alternative rock"
+    ],
+    "moods": [
+      "energetic"
+    ],
+    "likes": [
+      {
+        "title": "In the End",
+        "artist": "Linkin Park"
+      }
+    ],
+    "excluded_artists": [
+      "Metallica"
+    ],
+    "retrieval_query": "Recommend energetic alternative rock music"
+  }
+]
