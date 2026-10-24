@@ -50,12 +50,7 @@ function AgentChatMessage({
             />
           </div>
         )}
-        <p
-          className="small mb-0"
-          dangerouslySetInnerHTML={{
-            __html: message,
-          }}
-        ></p>
+        <p className="small mb-0" style={{ whiteSpace: "pre-wrap" }}>{message}</p>
       </div>
     </div>
   );

@@ -1,0 +1,16 @@
+{
+  "independent_stdlib_scoring_verified": true,
+  "rankings_checked": 175,
+  "feedback_queries_improved": 3,
+  "feedback_queries_unchanged": 2,
+  "feedback_queries_regressed": 0,
+  "new_top5_positions_outside_original_pools": 16,
+  "no_feedback_queries_identical_between_modes": 20,
+  "legacy_files_unchanged": 133,
+  "current_default_matches_frozen_configuration": true,
+  "current_implementation_sha256": "243cd56c3db74dc011d035a4739ab787a02908726d078602549912d54771335e",
+  "replay_rankings": 75,
+  "post_replay_source_note": "Only default influence synchronized from 0.6 to 0.8; explicit configuration during evaluation/replay was already 0.8. Source equivalence apart from this default checked by SHA256.",
+  "metrics_sha256": "02e62079810e2bb70e6a7347da324cb56ab8acdcd2adf4741cf59d2f880badcc",
+  "reviewed_labels_sha256": "e053ed19518694a22b5039119b712127ffc9e6967cc939a27f53f23c318cdcd1"
+}

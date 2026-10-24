@@ -1,0 +1,26 @@
+{
+  "development_queries_sha256": "1504741b918f454512e9cddd113f4f2abfe4eae4587792c370f35de5d0daf5a6",
+  "profiles": {
+    "conservative": {
+      "influence": 0.35,
+      "negative_weight": 0.25,
+      "mood_weight": 0.15,
+      "diversity_penalty": 0.04
+    },
+    "balanced": {
+      "influence": 0.6,
+      "negative_weight": 0.25,
+      "mood_weight": 0.15,
+      "diversity_penalty": 0.04
+    },
+    "responsive": {
+      "influence": 0.8,
+      "negative_weight": 0.25,
+      "mood_weight": 0.15,
+      "diversity_penalty": 0.04
+    }
+  },
+  "selection": "Highest development macro nDCG@5, then Precision@5; tie prefers earlier, weaker profile",
+  "evaluation_labels_read": false,
+  "caveat": "Development labels are metadata proxies; existing evaluation has previously been inspected, so it is not an unseen holdout."
+}

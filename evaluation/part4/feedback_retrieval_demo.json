@@ -1,0 +1,2139 @@
+{
+  "query": "rock music",
+  "likes": [
+    "ffc14c3d-21b1-4938-b58e-28c21c4d39a3"
+  ],
+  "dislikes": [
+    "625d9682-8214-4391-8689-fd14b87d01e8"
+  ],
+  "excluded_tracks": [],
+  "excluded_artists": [
+    "21 Savage"
+  ],
+  "candidate_k_per_branch": 50,
+  "catalog_size": 47071,
+  "searchable_embedding_count": 46579,
+  "weights": {
+    "lexical": 1.0,
+    "semantic": 0.25,
+    "rrf_k": 60,
+    "alpha": 1.0,
+    "beta": 0.75,
+    "gamma": 0.25,
+    "feedback": 0.75
+  },
+  "note": "Single warm requests; candidate-expansion demonstration, not a judged quality evaluation.",
+  "comparisons": {
+    "baseline": {
+      "request_ms": 245.93412499962142,
+      "query_changed": false,
+      "original_candidate_ids": [
+        "a50449ff-6d19-439b-a751-8f809bf47677",
+        "0d887f63-8ce3-45dc-a264-40e54e521a33",
+        "ebfa13cd-ad61-475c-bbb1-2b2d01eee0c9",
+        "835e0dfc-e523-4d34-bac6-ae86ffed3e33",
+        "80a29d2b-00b5-4538-9fc7-6c46c0325db9",
+        "7023ef06-7b5f-4c07-a550-89305a9b2618",
+        "0a6f19ae-c28b-4fa2-bc3f-ea73ba350db0",
+        "f21542ea-9d4c-4154-9f48-bda903acaf32",
+        "05dd55d2-bd04-4a9f-b27a-726a69395704",
+        "cbf91890-6621-4fb7-8689-7f4ff3917094",
+        "2edd2f4a-bcbd-4763-a381-d3a614e1e50c",
+        "d6f5715d-c416-4ea2-9ea4-bfc43f0766b1",
+        "8ae9a982-9936-4ce5-9094-48474fa34865",
+        "badb3459-9b01-4c13-a3ce-22faf320d9dd",
+        "e3ebc837-f95f-4cfe-9f5e-ceb048c3ceac",
+        "b1f04b8c-6869-44a1-bcb9-866310dd36c7",
+        "fb6b39df-e223-458a-822d-69781b6efa54",
+        "df9712b3-6c3c-456f-913f-cfd80be25abc",
+        "15e5f1ed-afb4-479c-bd10-aefdc8528e42",
+        "9f6e608c-4066-4b77-a9a4-2fbba7f9aa49",
+        "0355fab4-5555-4fc5-b6c0-ccd63264bd93",
+        "72a56b08-5729-43d7-9179-eae80ab9391b",
+        "6947e461-d7aa-429e-b53c-cdb03289ea28",
+        "1c63c707-dd2f-4322-8487-6cb0c8630df8",
+        "5b0f0f56-cbfc-4406-9803-802e030c0a71",
+        "6374d695-d014-4559-b99a-428af88396d6",
+        "4bb9c6cc-7a1d-4bc3-9e19-a54bd6bf5e89",
+        "8ca7a8f0-b32c-4cf5-9e33-df67e43f8324",
+        "ef9a0a38-53a6-434b-97f1-4c20f79396e9",
+        "dae4ac92-4682-4892-b3cc-11ff54a0b379",
+        "a074e33c-330c-4559-8693-55afc18c2847",
+        "4c342ddd-b36e-4bea-82c6-252e470e254f",
+        "67c09cf0-424b-4fc4-8c94-f141e97d3ae0",
+        "fc3ae7ab-0c30-4ef3-94ef-7e9a8c1ecaeb",
+        "09762926-d71a-4a51-800e-57ebd1f6de3f",
+        "9aa89aa9-b971-4596-8be0-a656c2e6a71a",
+        "7d44e02e-83e9-4c81-80aa-5db06bac201d",
+        "97f1ea96-75f8-46a8-80d6-53955ced3b73",
+        "983c3134-ffeb-4556-9143-fd791e7e1f92",
+        "7f60098d-083e-4088-870a-8de2ebfda474",
+        "d950cf83-e10c-450f-bd4f-63ace0c714af",
+        "f0bc6654-aff2-4e3a-bab7-862657d7ce7d",
+        "fa77a440-fa7c-4e8c-9882-ccb00e17063a",
+        "0dc5cb7d-8b01-4191-8b62-c46987e3edbb",
+        "03fa7d04-1d0b-4063-a852-c49b6c5823c7",
+        "de1467db-e208-4de9-903e-19f98dbde337",
+        "9b946b5c-e22e-4fcd-b343-093192377b6a",
+        "c1b9b498-5df2-4a1d-9221-1312569ce6c3",
+        "a32a27ce-7273-4f3f-b8db-81e47726583f",
+        "56ca387f-a909-4f26-b2ad-ee29cf178b89",
+        "da666a24-efac-4c9c-a628-319554cf7083",
+        "a6743760-c3bb-4900-af34-2f3966fbb60f",
+        "c20d7266-4680-454d-9f27-9e76b6391032",
+        "dbf94769-0af7-4f8d-befa-44e9c377595e",
+        "02c4a124-285f-42a4-90b1-f0d47644a02b",
+        "407b4797-d2e7-4123-91d4-dc85953629dd",
+        "b96fba24-df47-453b-b620-e1a63bb81efd",
+        "815eeb00-4159-470f-b5f1-2c3c4c6aee3a",
+        "e6e8416c-db8f-4be5-910f-cdd26e2b33ae",
+        "e3566f7d-bb70-4f69-ba9b-10f162251601",
+        "9c0e22a3-a28f-4e47-a97c-800a475a033b",
+        "3b929d6c-3445-4564-a6aa-c44f52323b56",
+        "fa5008dc-260b-4f41-a087-03ce97df0db1",
+        "6aa93a24-9acf-4c9c-a150-15b88b2b7c93",
+        "46f458ad-ebad-486e-8217-4a20110bb20e",
+        "5607752d-c5fe-40a3-8d39-097df7eb7b04",
+        "f8cd69fb-bea8-4b2a-b2db-49249c6b340a",
+        "b3e277b9-d670-4b78-9a5a-f1423805326f",
+        "8ee86b39-970b-41bc-a170-085ac5868427",
+        "e1da64a9-3561-4e50-84a2-078aa7108ab4",
+        "80a8dec9-405e-4dd0-8dae-63a6e2b41d8e",
+        "b4060d5e-a59b-4672-b03c-9057e2dae404",
+        "4109b3aa-4123-407c-8ea7-c905136d573a",
+        "ce1fc32c-8110-43b5-bfb7-d743967fef51",
+        "fa9372ec-87ab-467e-a8f8-eac1eeb8bd4b",
+        "95bd351c-1fc7-4cff-bfae-c729212e760c",
+        "c3de7806-c279-47dc-b33a-65327a3410db",
+        "80234f0a-4963-49e8-826a-2db5837084f3",
+        "485bbf11-a9a0-424b-ac50-f7e6f7a56365",
+        "db1e9d55-6634-4581-94d1-bd719b4f3a56",
+        "e98a2af8-155f-4e95-91e7-eacfec34e5a3",
+        "ceea4c57-ca78-4062-9e76-8a653bd73335",
+        "dfe185ce-b59e-4e6d-b65c-7b955873dc4a",
+        "28b6bab9-3d4f-41c2-8507-e3869c18d1b1",
+        "73b59ebd-0bb9-4fd6-8b28-19c676f8d3c8",
+        "5848d019-02cc-4b2c-b69d-defc51ade5d2",
+        "a71402b9-e71b-4e0b-9ed5-a4782762e938",
+        "261f08e0-fb9d-4c2b-9883-2031c3f5a287",
+        "f10d3588-f19b-41e2-ba7a-180b89e91d92",
+        "6eecd29b-b08a-47a0-a90d-51816a808f88",
+        "c7b0f577-4f6c-45cc-b2d5-a75bad344db5",
+        "b1f2d671-3d57-45d5-abbf-f58e5f3ad223",
+        "d16b53a2-f9a6-47ea-98a9-82a3bf1f28cf",
+        "68d3d65a-b92f-4a90-bcd9-30e4275676bf",
+        "8d3f2350-5805-4703-b1df-d48ab91054f9",
+        "c320baa6-e1d0-41b7-a59b-c844f77f7e47",
+        "c67a5a20-5fe7-4eae-8610-067efe6bec07",
+        "ed4b1728-cd4e-4d3c-8317-d83e5ad48ff5",
+        "aa89dd27-6d0d-493f-afa3-aedca7a33e98",
+        "e6096d7e-bfbc-4c06-8aab-c11217a35506"
+      ],
+      "candidate_ids": [
+        "a50449ff-6d19-439b-a751-8f809bf47677",
+        "0d887f63-8ce3-45dc-a264-40e54e521a33",
+        "ebfa13cd-ad61-475c-bbb1-2b2d01eee0c9",
+        "835e0dfc-e523-4d34-bac6-ae86ffed3e33",
+        "80a29d2b-00b5-4538-9fc7-6c46c0325db9",
+        "7023ef06-7b5f-4c07-a550-89305a9b2618",
+        "0a6f19ae-c28b-4fa2-bc3f-ea73ba350db0",
+        "f21542ea-9d4c-4154-9f48-bda903acaf32",
+        "05dd55d2-bd04-4a9f-b27a-726a69395704",
+        "cbf91890-6621-4fb7-8689-7f4ff3917094",
+        "2edd2f4a-bcbd-4763-a381-d3a614e1e50c",
+        "d6f5715d-c416-4ea2-9ea4-bfc43f0766b1",
+        "8ae9a982-9936-4ce5-9094-48474fa34865",
+        "badb3459-9b01-4c13-a3ce-22faf320d9dd",
+        "e3ebc837-f95f-4cfe-9f5e-ceb048c3ceac",
+        "b1f04b8c-6869-44a1-bcb9-866310dd36c7",
+        "fb6b39df-e223-458a-822d-69781b6efa54",
+        "df9712b3-6c3c-456f-913f-cfd80be25abc",
+        "15e5f1ed-afb4-479c-bd10-aefdc8528e42",
+        "9f6e608c-4066-4b77-a9a4-2fbba7f9aa49",
+        "0355fab4-5555-4fc5-b6c0-ccd63264bd93",
+        "72a56b08-5729-43d7-9179-eae80ab9391b",
+        "6947e461-d7aa-429e-b53c-cdb03289ea28",
+        "1c63c707-dd2f-4322-8487-6cb0c8630df8",
+        "5b0f0f56-cbfc-4406-9803-802e030c0a71",
+        "6374d695-d014-4559-b99a-428af88396d6",
+        "4bb9c6cc-7a1d-4bc3-9e19-a54bd6bf5e89",
+        "8ca7a8f0-b32c-4cf5-9e33-df67e43f8324",
+        "ef9a0a38-53a6-434b-97f1-4c20f79396e9",
+        "dae4ac92-4682-4892-b3cc-11ff54a0b379",
+        "a074e33c-330c-4559-8693-55afc18c2847",
+        "4c342ddd-b36e-4bea-82c6-252e470e254f",
+        "67c09cf0-424b-4fc4-8c94-f141e97d3ae0",
+        "fc3ae7ab-0c30-4ef3-94ef-7e9a8c1ecaeb",
+        "09762926-d71a-4a51-800e-57ebd1f6de3f",
+        "9aa89aa9-b971-4596-8be0-a656c2e6a71a",
+        "7d44e02e-83e9-4c81-80aa-5db06bac201d",
+        "97f1ea96-75f8-46a8-80d6-53955ced3b73",
+        "983c3134-ffeb-4556-9143-fd791e7e1f92",
+        "7f60098d-083e-4088-870a-8de2ebfda474",
+        "d950cf83-e10c-450f-bd4f-63ace0c714af",
+        "f0bc6654-aff2-4e3a-bab7-862657d7ce7d",
+        "fa77a440-fa7c-4e8c-9882-ccb00e17063a",
+        "0dc5cb7d-8b01-4191-8b62-c46987e3edbb",
+        "03fa7d04-1d0b-4063-a852-c49b6c5823c7",
+        "de1467db-e208-4de9-903e-19f98dbde337",
+        "9b946b5c-e22e-4fcd-b343-093192377b6a",
+        "c1b9b498-5df2-4a1d-9221-1312569ce6c3",
+        "a32a27ce-7273-4f3f-b8db-81e47726583f",
+        "56ca387f-a909-4f26-b2ad-ee29cf178b89",
+        "da666a24-efac-4c9c-a628-319554cf7083",
+        "a6743760-c3bb-4900-af34-2f3966fbb60f",
+        "c20d7266-4680-454d-9f27-9e76b6391032",
+        "dbf94769-0af7-4f8d-befa-44e9c377595e",
+        "02c4a124-285f-42a4-90b1-f0d47644a02b",
+        "407b4797-d2e7-4123-91d4-dc85953629dd",
+        "b96fba24-df47-453b-b620-e1a63bb81efd",
+        "815eeb00-4159-470f-b5f1-2c3c4c6aee3a",
+        "e6e8416c-db8f-4be5-910f-cdd26e2b33ae",
+        "e3566f7d-bb70-4f69-ba9b-10f162251601",
+        "9c0e22a3-a28f-4e47-a97c-800a475a033b",
+        "3b929d6c-3445-4564-a6aa-c44f52323b56",
+        "fa5008dc-260b-4f41-a087-03ce97df0db1",
+        "6aa93a24-9acf-4c9c-a150-15b88b2b7c93",
+        "46f458ad-ebad-486e-8217-4a20110bb20e",
+        "5607752d-c5fe-40a3-8d39-097df7eb7b04",
+        "f8cd69fb-bea8-4b2a-b2db-49249c6b340a",
+        "b3e277b9-d670-4b78-9a5a-f1423805326f",
+        "8ee86b39-970b-41bc-a170-085ac5868427",
+        "e1da64a9-3561-4e50-84a2-078aa7108ab4",
+        "80a8dec9-405e-4dd0-8dae-63a6e2b41d8e",
+        "b4060d5e-a59b-4672-b03c-9057e2dae404",
+        "4109b3aa-4123-407c-8ea7-c905136d573a",
+        "ce1fc32c-8110-43b5-bfb7-d743967fef51",
+        "fa9372ec-87ab-467e-a8f8-eac1eeb8bd4b",
+        "95bd351c-1fc7-4cff-bfae-c729212e760c",
+        "c3de7806-c279-47dc-b33a-65327a3410db",
+        "80234f0a-4963-49e8-826a-2db5837084f3",
+        "485bbf11-a9a0-424b-ac50-f7e6f7a56365",
+        "db1e9d55-6634-4581-94d1-bd719b4f3a56",
+        "e98a2af8-155f-4e95-91e7-eacfec34e5a3",
+        "ceea4c57-ca78-4062-9e76-8a653bd73335",
+        "dfe185ce-b59e-4e6d-b65c-7b955873dc4a",
+        "28b6bab9-3d4f-41c2-8507-e3869c18d1b1",
+        "73b59ebd-0bb9-4fd6-8b28-19c676f8d3c8",
+        "5848d019-02cc-4b2c-b69d-defc51ade5d2",
+        "a71402b9-e71b-4e0b-9ed5-a4782762e938",
+        "261f08e0-fb9d-4c2b-9883-2031c3f5a287",
+        "f10d3588-f19b-41e2-ba7a-180b89e91d92",
+        "6eecd29b-b08a-47a0-a90d-51816a808f88",
+        "c7b0f577-4f6c-45cc-b2d5-a75bad344db5",
+        "b1f2d671-3d57-45d5-abbf-f58e5f3ad223",
+        "d16b53a2-f9a6-47ea-98a9-82a3bf1f28cf",
+        "68d3d65a-b92f-4a90-bcd9-30e4275676bf",
+        "8d3f2350-5805-4703-b1df-d48ab91054f9",
+        "c320baa6-e1d0-41b7-a59b-c844f77f7e47",
+        "c67a5a20-5fe7-4eae-8610-067efe6bec07",
+        "ed4b1728-cd4e-4d3c-8317-d83e5ad48ff5",
+        "aa89dd27-6d0d-493f-afa3-aedca7a33e98",
+        "e6096d7e-bfbc-4c06-8aab-c11217a35506"
+      ],
+      "new_candidate_ids": [],
+      "usable_feedback_ids": [
+        "ffc14c3d-21b1-4938-b58e-28c21c4d39a3",
+        "625d9682-8214-4391-8689-fd14b87d01e8"
+      ],
+      "unavailable_feedback_ids": [],
+      "tracks": [
+        {
+          "track_id": "a50449ff-6d19-439b-a751-8f809bf47677",
+          "metadata": {
+            "track_id": "a50449ff-6d19-439b-a751-8f809bf47677",
+            "ISRC": [
+              "PHBO10100338"
+            ],
+            "track_name": [
+              "Magasin"
+            ],
+            "artist_name": [
+              "Eraserheads"
+            ],
+            "album_name": [
+              "Circus"
+            ],
+            "tag_list": [
+              "asian music",
+              "pinoy",
+              "alternative rock",
+              "filipino music",
+              "pinoy music",
+              "asian rock",
+              "eheads- magasin",
+              "filipino rock",
+              "songs by bands with the suffix head",
+              "pinoy pop rock",
+              "alt rock",
+              "pilipino music",
+              "pop",
+              "magasin",
+              "eheads",
+              "eraserheads",
+              "songs i really like",
+              "opm",
+              "pinoy rock",
+              "Pop"
+            ],
+            "popularity": 63.0,
+            "release_date": "1994-11-01",
+            "duration": 248840,
+            "artist_id": [
+              "8abd4f20-b8cd-4e35-8c38-8944bd325a29"
+            ],
+            "album_id": [
+              "8ad1e42e-b6f5-422d-9364-b92faf8ee64e"
+            ]
+          },
+          "score": 0.8000000000000002,
+          "scores": {
+            "rrf": 0.01639344262295082,
+            "fusion_prior": 0.8000000000000002,
+            "original_semantic_cosine": 0.5484983921051025,
+            "retrieval_semantic_cosine": 0.5484983921051025
+          },
+          "evidence": {
+            "retrieval_sources": [
+              "bm25"
+            ],
+            "lexical_rank": 1,
+            "semantic_rank": null,
+            "original_semantic_rank": null,
+            "new_to_original_pool": false,
+            "feedback_query_used_for_retrieval": false,
+            "feedback_applied": false
+          },
+          "explanation": "selected by the catalog retrieval ranking",
+          "explanation_facts": {
+            "requested_genres": [],
+            "requested_moods": [],
+            "shared_styles": [],
+            "shared_genres": [],
+            "shared_playlist_artist": false,
+            "retrieval_fallback": true
+          }
+        },
+        {
+          "track_id": "0d887f63-8ce3-45dc-a264-40e54e521a33",
+          "metadata": {
+            "track_id": "0d887f63-8ce3-45dc-a264-40e54e521a33",
+            "ISRC": [
+              "USWB10502537"
+            ],
+            "track_name": [
+              "Mind - Alternate Version"
+            ],
+            "artist_name": [
+              "Talking Heads"
+            ],
+            "album_name": [
+              "Fear Of Music",
+              "Fear Of Music (Deluxe Version)"
+            ],
+            "tag_list": [
+              "rock",
+              "talking heads",
+              "my pop music",
+              "drug induced music",
+              "like",
+              "old favorites",
+              "Alternative",
+              "Pop",
+              "Rock"
+            ],
+            "popularity": 21.0,
+            "release_date": "1979-08-03",
+            "duration": 266373,
+            "artist_id": [
+              "f49a1335-5f0d-419d-9796-a0b35156a1b7",
+              "ee1f1689-46cd-44d0-8157-b3c73cba4983"
+            ],
+            "album_id": [
+              "644ea2d2-0b20-4b23-9999-2eab1409a8d8"
+            ]
+          },
+          "score": 0.7870967741935484,
+          "scores": {
+            "rrf": 0.016129032258064516,
+            "fusion_prior": 0.7870967741935484,
+            "original_semantic_cosine": 0.5238727331161499,
+            "retrieval_semantic_cosine": 0.5238727331161499
+          },
+          "evidence": {
+            "retrieval_sources": [
+              "bm25"
+            ],
+            "lexical_rank": 2,
+            "semantic_rank": null,
+            "original_semantic_rank": null,
+            "new_to_original_pool": false,
+            "feedback_query_used_for_retrieval": false,
+            "feedback_applied": false
+          },
+          "explanation": "matches your requested genres: rock",
+          "explanation_facts": {
+            "requested_genres": [
+              "rock"
+            ],
+            "requested_moods": [],
+            "shared_styles": [],
+            "shared_genres": [],
+            "shared_playlist_artist": false
+          }
+        },
+        {
+          "track_id": "ebfa13cd-ad61-475c-bbb1-2b2d01eee0c9",
+          "metadata": {
+            "track_id": "ebfa13cd-ad61-475c-bbb1-2b2d01eee0c9",
+            "ISRC": [
+              "USVR10100042"
+            ],
+            "track_name": [
+              "Hostile Apostle"
+            ],
+            "artist_name": [
+              "311"
+            ],
+            "album_name": [
+              "From Chaos"
+            ],
+            "tag_list": [
+              "punk",
+              "homework music",
+              "yeah",
+              "alternative rock",
+              "00s",
+              "my music",
+              "great",
+              "ska",
+              "awesome",
+              "rock",
+              "Metal",
+              "pot music",
+              "favs",
+              "punk rock",
+              "best music out there",
+              "chill out",
+              "music",
+              "chillout",
+              "Alternative",
+              "311",
+              "favorites",
+              "chill music",
+              "Rock",
+              "chill",
+              "chillbutter",
+              "california",
+              "good shit",
+              "favorite bands",
+              "seen live",
+              "everything i like",
+              "good stuff",
+              "indie",
+              "omaha",
+              "alternative",
+              "rapcore",
+              "stoner rock",
+              "funky",
+              "my favorites",
+              "bands seen live",
+              "original",
+              "stoner",
+              "hip-hop",
+              "my favs",
+              "favorite artists"
+            ],
+            "popularity": 31.0,
+            "release_date": "2001-06-19",
+            "duration": 222960,
+            "artist_id": [
+              "0ae9ba0d-9978-4243-8a76-9b2b5c227fc3"
+            ],
+            "album_id": [
+              "39853ff5-3320-4d36-925c-c21288804a23"
+            ]
+          },
+          "score": 0.7746031746031746,
+          "scores": {
+            "rrf": 0.015873015873015872,
+            "fusion_prior": 0.7746031746031746,
+            "original_semantic_cosine": 0.6109102964401245,
+            "retrieval_semantic_cosine": 0.6109102964401245
+          },
+          "evidence": {
+            "retrieval_sources": [
+              "bm25"
+            ],
+            "lexical_rank": 3,
+            "semantic_rank": null,
+            "original_semantic_rank": null,
+            "new_to_original_pool": false,
+            "feedback_query_used_for_retrieval": false,
+            "feedback_applied": false
+          },
+          "explanation": "matches your requested genres: rock",
+          "explanation_facts": {
+            "requested_genres": [
+              "rock"
+            ],
+            "requested_moods": [],
+            "shared_styles": [],
+            "shared_genres": [],
+            "shared_playlist_artist": false
+          }
+        },
+        {
+          "track_id": "835e0dfc-e523-4d34-bac6-ae86ffed3e33",
+          "metadata": {
+            "track_id": "835e0dfc-e523-4d34-bac6-ae86ffed3e33",
+            "ISRC": [],
+            "track_name": [
+              "Side 4, Pt. 2: Eyes To Pearls"
+            ],
+            "artist_name": [
+              "Pink Floyd"
+            ],
+            "album_name": [
+              "The Endless River"
+            ],
+            "tag_list": [
+              "tasty guitar licks and riffs",
+              "folk",
+              "night driving",
+              "psychedelic rock",
+              "instrumental rock",
+              "dark ambient",
+              "post-rock",
+              "acid rock",
+              "ambient",
+              "ambient-solitude",
+              "british",
+              "rock",
+              "2014",
+              "instrumental",
+              "americana",
+              "srm-inst",
+              "prog-rock",
+              "10s",
+              "melancholy",
+              "progressive",
+              "fip",
+              "night music",
+              "wbm",
+              "music for a sad road movie",
+              "ominous",
+              "album rock",
+              "late night driving",
+              "folk rock",
+              "driving music",
+              "suspenseful",
+              "late night music",
+              "ambient-melancholy",
+              "atmospheric",
+              "psychedelic",
+              "ambient-sad",
+              "9 of 10 stars",
+              "best of 2014",
+              "progressive rock",
+              "atmospheric rock",
+              "writing music",
+              "space rock"
+            ],
+            "popularity": 39.0,
+            "release_date": "2014-11-10",
+            "duration": 111173,
+            "artist_id": [
+              "bbc27df9-76f6-45a0-a2e5-812c2a901080"
+            ],
+            "album_id": [
+              "549dff53-64f8-4105-8732-d9f573b32a7a"
+            ]
+          },
+          "score": 0.7625000000000001,
+          "scores": {
+            "rrf": 0.015625,
+            "fusion_prior": 0.7625000000000001,
+            "original_semantic_cosine": 0.470151424407959,
+            "retrieval_semantic_cosine": 0.470151424407959
+          },
+          "evidence": {
+            "retrieval_sources": [
+              "bm25"
+            ],
+            "lexical_rank": 4,
+            "semantic_rank": null,
+            "original_semantic_rank": null,
+            "new_to_original_pool": false,
+            "feedback_query_used_for_retrieval": false,
+            "feedback_applied": false
+          },
+          "explanation": "matches your requested genres: rock",
+          "explanation_facts": {
+            "requested_genres": [
+              "rock"
+            ],
+            "requested_moods": [],
+            "shared_styles": [],
+            "shared_genres": [],
+            "shared_playlist_artist": false
+          }
+        },
+        {
+          "track_id": "80a29d2b-00b5-4538-9fc7-6c46c0325db9",
+          "metadata": {
+            "track_id": "80a29d2b-00b5-4538-9fc7-6c46c0325db9",
+            "ISRC": [
+              "GBAJE7700151"
+            ],
+            "track_name": [
+              "Creep (You Can't Fool Me) - Music For Pleasure"
+            ],
+            "artist_name": [
+              "The Damned"
+            ],
+            "album_name": [
+              "Music For Pleasure",
+              "Music for Pleasure"
+            ],
+            "tag_list": [
+              "punk",
+              "punk rock",
+              "old school punk",
+              "punk favorites",
+              "p4nk7",
+              "Rock"
+            ],
+            "popularity": 0.0,
+            "release_date": "1977-11-18",
+            "duration": 132866,
+            "artist_id": [
+              "27140e07-c17d-46f3-9d43-75cd4afb8ede"
+            ],
+            "album_id": [
+              "e675f22b-f136-41fc-b9a1-fbbb4394f5c7",
+              "65acac3b-c2d3-4785-9327-c5c67a9cda76"
+            ]
+          },
+          "score": 0.7507692307692309,
+          "scores": {
+            "rrf": 0.015384615384615385,
+            "fusion_prior": 0.7507692307692309,
+            "original_semantic_cosine": 0.5758371949195862,
+            "retrieval_semantic_cosine": 0.5758371949195862
+          },
+          "evidence": {
+            "retrieval_sources": [
+              "bm25"
+            ],
+            "lexical_rank": 5,
+            "semantic_rank": null,
+            "original_semantic_rank": null,
+            "new_to_original_pool": false,
+            "feedback_query_used_for_retrieval": false,
+            "feedback_applied": false
+          },
+          "explanation": "matches your requested genres: rock",
+          "explanation_facts": {
+            "requested_genres": [
+              "rock"
+            ],
+            "requested_moods": [],
+            "shared_styles": [],
+            "shared_genres": [],
+            "shared_playlist_artist": false
+          }
+        }
+      ]
+    },
+    "rerank_only": {
+      "request_ms": 249.08654199680313,
+      "query_changed": false,
+      "original_candidate_ids": [
+        "a50449ff-6d19-439b-a751-8f809bf47677",
+        "0d887f63-8ce3-45dc-a264-40e54e521a33",
+        "ebfa13cd-ad61-475c-bbb1-2b2d01eee0c9",
+        "835e0dfc-e523-4d34-bac6-ae86ffed3e33",
+        "80a29d2b-00b5-4538-9fc7-6c46c0325db9",
+        "7023ef06-7b5f-4c07-a550-89305a9b2618",
+        "0a6f19ae-c28b-4fa2-bc3f-ea73ba350db0",
+        "f21542ea-9d4c-4154-9f48-bda903acaf32",
+        "05dd55d2-bd04-4a9f-b27a-726a69395704",
+        "cbf91890-6621-4fb7-8689-7f4ff3917094",
+        "2edd2f4a-bcbd-4763-a381-d3a614e1e50c",
+        "d6f5715d-c416-4ea2-9ea4-bfc43f0766b1",
+        "8ae9a982-9936-4ce5-9094-48474fa34865",
+        "badb3459-9b01-4c13-a3ce-22faf320d9dd",
+        "e3ebc837-f95f-4cfe-9f5e-ceb048c3ceac",
+        "b1f04b8c-6869-44a1-bcb9-866310dd36c7",
+        "fb6b39df-e223-458a-822d-69781b6efa54",
+        "df9712b3-6c3c-456f-913f-cfd80be25abc",
+        "15e5f1ed-afb4-479c-bd10-aefdc8528e42",
+        "9f6e608c-4066-4b77-a9a4-2fbba7f9aa49",
+        "0355fab4-5555-4fc5-b6c0-ccd63264bd93",
+        "72a56b08-5729-43d7-9179-eae80ab9391b",
+        "6947e461-d7aa-429e-b53c-cdb03289ea28",
+        "1c63c707-dd2f-4322-8487-6cb0c8630df8",
+        "5b0f0f56-cbfc-4406-9803-802e030c0a71",
+        "6374d695-d014-4559-b99a-428af88396d6",
+        "4bb9c6cc-7a1d-4bc3-9e19-a54bd6bf5e89",
+        "8ca7a8f0-b32c-4cf5-9e33-df67e43f8324",
+        "ef9a0a38-53a6-434b-97f1-4c20f79396e9",
+        "dae4ac92-4682-4892-b3cc-11ff54a0b379",
+        "a074e33c-330c-4559-8693-55afc18c2847",
+        "4c342ddd-b36e-4bea-82c6-252e470e254f",
+        "67c09cf0-424b-4fc4-8c94-f141e97d3ae0",
+        "fc3ae7ab-0c30-4ef3-94ef-7e9a8c1ecaeb",
+        "09762926-d71a-4a51-800e-57ebd1f6de3f",
+        "9aa89aa9-b971-4596-8be0-a656c2e6a71a",
+        "7d44e02e-83e9-4c81-80aa-5db06bac201d",
+        "97f1ea96-75f8-46a8-80d6-53955ced3b73",
+        "983c3134-ffeb-4556-9143-fd791e7e1f92",
+        "7f60098d-083e-4088-870a-8de2ebfda474",
+        "d950cf83-e10c-450f-bd4f-63ace0c714af",
+        "f0bc6654-aff2-4e3a-bab7-862657d7ce7d",
+        "fa77a440-fa7c-4e8c-9882-ccb00e17063a",
+        "0dc5cb7d-8b01-4191-8b62-c46987e3edbb",
+        "03fa7d04-1d0b-4063-a852-c49b6c5823c7",
+        "de1467db-e208-4de9-903e-19f98dbde337",
+        "9b946b5c-e22e-4fcd-b343-093192377b6a",
+        "c1b9b498-5df2-4a1d-9221-1312569ce6c3",
+        "a32a27ce-7273-4f3f-b8db-81e47726583f",
+        "56ca387f-a909-4f26-b2ad-ee29cf178b89",
+        "da666a24-efac-4c9c-a628-319554cf7083",
+        "a6743760-c3bb-4900-af34-2f3966fbb60f",
+        "c20d7266-4680-454d-9f27-9e76b6391032",
+        "dbf94769-0af7-4f8d-befa-44e9c377595e",
+        "02c4a124-285f-42a4-90b1-f0d47644a02b",
+        "407b4797-d2e7-4123-91d4-dc85953629dd",
+        "b96fba24-df47-453b-b620-e1a63bb81efd",
+        "815eeb00-4159-470f-b5f1-2c3c4c6aee3a",
+        "e6e8416c-db8f-4be5-910f-cdd26e2b33ae",
+        "e3566f7d-bb70-4f69-ba9b-10f162251601",
+        "9c0e22a3-a28f-4e47-a97c-800a475a033b",
+        "3b929d6c-3445-4564-a6aa-c44f52323b56",
+        "fa5008dc-260b-4f41-a087-03ce97df0db1",
+        "6aa93a24-9acf-4c9c-a150-15b88b2b7c93",
+        "46f458ad-ebad-486e-8217-4a20110bb20e",
+        "5607752d-c5fe-40a3-8d39-097df7eb7b04",
+        "f8cd69fb-bea8-4b2a-b2db-49249c6b340a",
+        "b3e277b9-d670-4b78-9a5a-f1423805326f",
+        "8ee86b39-970b-41bc-a170-085ac5868427",
+        "e1da64a9-3561-4e50-84a2-078aa7108ab4",
+        "80a8dec9-405e-4dd0-8dae-63a6e2b41d8e",
+        "b4060d5e-a59b-4672-b03c-9057e2dae404",
+        "4109b3aa-4123-407c-8ea7-c905136d573a",
+        "ce1fc32c-8110-43b5-bfb7-d743967fef51",
+        "fa9372ec-87ab-467e-a8f8-eac1eeb8bd4b",
+        "95bd351c-1fc7-4cff-bfae-c729212e760c",
+        "c3de7806-c279-47dc-b33a-65327a3410db",
+        "80234f0a-4963-49e8-826a-2db5837084f3",
+        "485bbf11-a9a0-424b-ac50-f7e6f7a56365",
+        "db1e9d55-6634-4581-94d1-bd719b4f3a56",
+        "e98a2af8-155f-4e95-91e7-eacfec34e5a3",
+        "ceea4c57-ca78-4062-9e76-8a653bd73335",
+        "dfe185ce-b59e-4e6d-b65c-7b955873dc4a",
+        "28b6bab9-3d4f-41c2-8507-e3869c18d1b1",
+        "73b59ebd-0bb9-4fd6-8b28-19c676f8d3c8",
+        "5848d019-02cc-4b2c-b69d-defc51ade5d2",
+        "a71402b9-e71b-4e0b-9ed5-a4782762e938",
+        "261f08e0-fb9d-4c2b-9883-2031c3f5a287",
+        "f10d3588-f19b-41e2-ba7a-180b89e91d92",
+        "6eecd29b-b08a-47a0-a90d-51816a808f88",
+        "c7b0f577-4f6c-45cc-b2d5-a75bad344db5",
+        "b1f2d671-3d57-45d5-abbf-f58e5f3ad223",
+        "d16b53a2-f9a6-47ea-98a9-82a3bf1f28cf",
+        "68d3d65a-b92f-4a90-bcd9-30e4275676bf",
+        "8d3f2350-5805-4703-b1df-d48ab91054f9",
+        "c320baa6-e1d0-41b7-a59b-c844f77f7e47",
+        "c67a5a20-5fe7-4eae-8610-067efe6bec07",
+        "ed4b1728-cd4e-4d3c-8317-d83e5ad48ff5",
+        "aa89dd27-6d0d-493f-afa3-aedca7a33e98",
+        "e6096d7e-bfbc-4c06-8aab-c11217a35506"
+      ],
+      "candidate_ids": [
+        "a50449ff-6d19-439b-a751-8f809bf47677",
+        "0d887f63-8ce3-45dc-a264-40e54e521a33",
+        "ebfa13cd-ad61-475c-bbb1-2b2d01eee0c9",
+        "835e0dfc-e523-4d34-bac6-ae86ffed3e33",
+        "80a29d2b-00b5-4538-9fc7-6c46c0325db9",
+        "7023ef06-7b5f-4c07-a550-89305a9b2618",
+        "0a6f19ae-c28b-4fa2-bc3f-ea73ba350db0",
+        "f21542ea-9d4c-4154-9f48-bda903acaf32",
+        "05dd55d2-bd04-4a9f-b27a-726a69395704",
+        "cbf91890-6621-4fb7-8689-7f4ff3917094",
+        "2edd2f4a-bcbd-4763-a381-d3a614e1e50c",
+        "d6f5715d-c416-4ea2-9ea4-bfc43f0766b1",
+        "8ae9a982-9936-4ce5-9094-48474fa34865",
+        "badb3459-9b01-4c13-a3ce-22faf320d9dd",
+        "e3ebc837-f95f-4cfe-9f5e-ceb048c3ceac",
+        "b1f04b8c-6869-44a1-bcb9-866310dd36c7",
+        "fb6b39df-e223-458a-822d-69781b6efa54",
+        "df9712b3-6c3c-456f-913f-cfd80be25abc",
+        "15e5f1ed-afb4-479c-bd10-aefdc8528e42",
+        "9f6e608c-4066-4b77-a9a4-2fbba7f9aa49",
+        "0355fab4-5555-4fc5-b6c0-ccd63264bd93",
+        "72a56b08-5729-43d7-9179-eae80ab9391b",
+        "6947e461-d7aa-429e-b53c-cdb03289ea28",
+        "1c63c707-dd2f-4322-8487-6cb0c8630df8",
+        "5b0f0f56-cbfc-4406-9803-802e030c0a71",
+        "6374d695-d014-4559-b99a-428af88396d6",
+        "4bb9c6cc-7a1d-4bc3-9e19-a54bd6bf5e89",
+        "8ca7a8f0-b32c-4cf5-9e33-df67e43f8324",
+        "ef9a0a38-53a6-434b-97f1-4c20f79396e9",
+        "dae4ac92-4682-4892-b3cc-11ff54a0b379",
+        "a074e33c-330c-4559-8693-55afc18c2847",
+        "4c342ddd-b36e-4bea-82c6-252e470e254f",
+        "67c09cf0-424b-4fc4-8c94-f141e97d3ae0",
+        "fc3ae7ab-0c30-4ef3-94ef-7e9a8c1ecaeb",
+        "09762926-d71a-4a51-800e-57ebd1f6de3f",
+        "9aa89aa9-b971-4596-8be0-a656c2e6a71a",
+        "7d44e02e-83e9-4c81-80aa-5db06bac201d",
+        "97f1ea96-75f8-46a8-80d6-53955ced3b73",
+        "983c3134-ffeb-4556-9143-fd791e7e1f92",
+        "7f60098d-083e-4088-870a-8de2ebfda474",
+        "d950cf83-e10c-450f-bd4f-63ace0c714af",
+        "f0bc6654-aff2-4e3a-bab7-862657d7ce7d",
+        "fa77a440-fa7c-4e8c-9882-ccb00e17063a",
+        "0dc5cb7d-8b01-4191-8b62-c46987e3edbb",
+        "03fa7d04-1d0b-4063-a852-c49b6c5823c7",
+        "de1467db-e208-4de9-903e-19f98dbde337",
+        "9b946b5c-e22e-4fcd-b343-093192377b6a",
+        "c1b9b498-5df2-4a1d-9221-1312569ce6c3",
+        "a32a27ce-7273-4f3f-b8db-81e47726583f",
+        "56ca387f-a909-4f26-b2ad-ee29cf178b89",
+        "da666a24-efac-4c9c-a628-319554cf7083",
+        "a6743760-c3bb-4900-af34-2f3966fbb60f",
+        "c20d7266-4680-454d-9f27-9e76b6391032",
+        "dbf94769-0af7-4f8d-befa-44e9c377595e",
+        "02c4a124-285f-42a4-90b1-f0d47644a02b",
+        "407b4797-d2e7-4123-91d4-dc85953629dd",
+        "b96fba24-df47-453b-b620-e1a63bb81efd",
+        "815eeb00-4159-470f-b5f1-2c3c4c6aee3a",
+        "e6e8416c-db8f-4be5-910f-cdd26e2b33ae",
+        "e3566f7d-bb70-4f69-ba9b-10f162251601",
+        "9c0e22a3-a28f-4e47-a97c-800a475a033b",
+        "3b929d6c-3445-4564-a6aa-c44f52323b56",
+        "fa5008dc-260b-4f41-a087-03ce97df0db1",
+        "6aa93a24-9acf-4c9c-a150-15b88b2b7c93",
+        "46f458ad-ebad-486e-8217-4a20110bb20e",
+        "5607752d-c5fe-40a3-8d39-097df7eb7b04",
+        "f8cd69fb-bea8-4b2a-b2db-49249c6b340a",
+        "b3e277b9-d670-4b78-9a5a-f1423805326f",
+        "8ee86b39-970b-41bc-a170-085ac5868427",
+        "e1da64a9-3561-4e50-84a2-078aa7108ab4",
+        "80a8dec9-405e-4dd0-8dae-63a6e2b41d8e",
+        "b4060d5e-a59b-4672-b03c-9057e2dae404",
+        "4109b3aa-4123-407c-8ea7-c905136d573a",
+        "ce1fc32c-8110-43b5-bfb7-d743967fef51",
+        "fa9372ec-87ab-467e-a8f8-eac1eeb8bd4b",
+        "95bd351c-1fc7-4cff-bfae-c729212e760c",
+        "c3de7806-c279-47dc-b33a-65327a3410db",
+        "80234f0a-4963-49e8-826a-2db5837084f3",
+        "485bbf11-a9a0-424b-ac50-f7e6f7a56365",
+        "db1e9d55-6634-4581-94d1-bd719b4f3a56",
+        "e98a2af8-155f-4e95-91e7-eacfec34e5a3",
+        "ceea4c57-ca78-4062-9e76-8a653bd73335",
+        "dfe185ce-b59e-4e6d-b65c-7b955873dc4a",
+        "28b6bab9-3d4f-41c2-8507-e3869c18d1b1",
+        "73b59ebd-0bb9-4fd6-8b28-19c676f8d3c8",
+        "5848d019-02cc-4b2c-b69d-defc51ade5d2",
+        "a71402b9-e71b-4e0b-9ed5-a4782762e938",
+        "261f08e0-fb9d-4c2b-9883-2031c3f5a287",
+        "f10d3588-f19b-41e2-ba7a-180b89e91d92",
+        "6eecd29b-b08a-47a0-a90d-51816a808f88",
+        "c7b0f577-4f6c-45cc-b2d5-a75bad344db5",
+        "b1f2d671-3d57-45d5-abbf-f58e5f3ad223",
+        "d16b53a2-f9a6-47ea-98a9-82a3bf1f28cf",
+        "68d3d65a-b92f-4a90-bcd9-30e4275676bf",
+        "8d3f2350-5805-4703-b1df-d48ab91054f9",
+        "c320baa6-e1d0-41b7-a59b-c844f77f7e47",
+        "c67a5a20-5fe7-4eae-8610-067efe6bec07",
+        "ed4b1728-cd4e-4d3c-8317-d83e5ad48ff5",
+        "aa89dd27-6d0d-493f-afa3-aedca7a33e98",
+        "e6096d7e-bfbc-4c06-8aab-c11217a35506"
+      ],
+      "new_candidate_ids": [],
+      "usable_feedback_ids": [
+        "ffc14c3d-21b1-4938-b58e-28c21c4d39a3",
+        "625d9682-8214-4391-8689-fd14b87d01e8"
+      ],
+      "unavailable_feedback_ids": [],
+      "tracks": [
+        {
+          "track_id": "a50449ff-6d19-439b-a751-8f809bf47677",
+          "metadata": {
+            "track_id": "a50449ff-6d19-439b-a751-8f809bf47677",
+            "ISRC": [
+              "PHBO10100338"
+            ],
+            "track_name": [
+              "Magasin"
+            ],
+            "artist_name": [
+              "Eraserheads"
+            ],
+            "album_name": [
+              "Circus"
+            ],
+            "tag_list": [
+              "asian music",
+              "pinoy",
+              "alternative rock",
+              "filipino music",
+              "pinoy music",
+              "asian rock",
+              "eheads- magasin",
+              "filipino rock",
+              "songs by bands with the suffix head",
+              "pinoy pop rock",
+              "alt rock",
+              "pilipino music",
+              "pop",
+              "magasin",
+              "eheads",
+              "eraserheads",
+              "songs i really like",
+              "opm",
+              "pinoy rock",
+              "Pop"
+            ],
+            "popularity": 63.0,
+            "release_date": "1994-11-01",
+            "duration": 248840,
+            "artist_id": [
+              "8abd4f20-b8cd-4e35-8c38-8944bd325a29"
+            ],
+            "album_id": [
+              "8ad1e42e-b6f5-422d-9364-b92faf8ee64e"
+            ]
+          },
+          "score": 0.848400543357731,
+          "scores": {
+            "rrf": 0.01639344262295082,
+            "fusion_prior": 0.8000000000000002,
+            "original_semantic_cosine": 0.5484983921051025,
+            "retrieval_semantic_cosine": 0.5484983921051025,
+            "base": 0.8000000000000002,
+            "feedback_delta": 0.06453405781030774,
+            "final": 0.848400543357731
+          },
+          "evidence": {
+            "retrieval_sources": [
+              "bm25"
+            ],
+            "lexical_rank": 1,
+            "semantic_rank": null,
+            "original_semantic_rank": null,
+            "new_to_original_pool": false,
+            "feedback_query_used_for_retrieval": false,
+            "feedback_applied": true,
+            "original_cosine": 0.548498387776059,
+            "updated_cosine": 0.6130324455863667,
+            "liked_track_id": "ffc14c3d-21b1-4938-b58e-28c21c4d39a3",
+            "liked_similarity": 0.6056436349983574,
+            "liked_artist_match": false
+          },
+          "explanation": "has similar catalog metadata to a song you liked: Numb \u2014 Linkin Park",
+          "explanation_facts": {
+            "requested_genres": [],
+            "requested_moods": [],
+            "shared_styles": [],
+            "shared_genres": [],
+            "shared_playlist_artist": false,
+            "liked_track_id": "ffc14c3d-21b1-4938-b58e-28c21c4d39a3",
+            "liked_similarity": 0.6056436349983574,
+            "feedback_delta": 0.06453405781030774
+          }
+        },
+        {
+          "track_id": "0d887f63-8ce3-45dc-a264-40e54e521a33",
+          "metadata": {
+            "track_id": "0d887f63-8ce3-45dc-a264-40e54e521a33",
+            "ISRC": [
+              "USWB10502537"
+            ],
+            "track_name": [
+              "Mind - Alternate Version"
+            ],
+            "artist_name": [
+              "Talking Heads"
+            ],
+            "album_name": [
+              "Fear Of Music",
+              "Fear Of Music (Deluxe Version)"
+            ],
+            "tag_list": [
+              "rock",
+              "talking heads",
+              "my pop music",
+              "drug induced music",
+              "like",
+              "old favorites",
+              "Alternative",
+              "Pop",
+              "Rock"
+            ],
+            "popularity": 21.0,
+            "release_date": "1979-08-03",
+            "duration": 266373,
+            "artist_id": [
+              "f49a1335-5f0d-419d-9796-a0b35156a1b7",
+              "ee1f1689-46cd-44d0-8157-b3c73cba4983"
+            ],
+            "album_id": [
+              "644ea2d2-0b20-4b23-9999-2eab1409a8d8"
+            ]
+          },
+          "score": 0.8479159595081227,
+          "scores": {
+            "rrf": 0.016129032258064516,
+            "fusion_prior": 0.7870967741935484,
+            "original_semantic_cosine": 0.5238727331161499,
+            "retrieval_semantic_cosine": 0.5238727331161499,
+            "base": 0.7870967741935484,
+            "feedback_delta": 0.08109224708609908,
+            "final": 0.8479159595081227
+          },
+          "evidence": {
+            "retrieval_sources": [
+              "bm25"
+            ],
+            "lexical_rank": 2,
+            "semantic_rank": null,
+            "original_semantic_rank": null,
+            "new_to_original_pool": false,
+            "feedback_query_used_for_retrieval": false,
+            "feedback_applied": true,
+            "original_cosine": 0.5238727341997473,
+            "updated_cosine": 0.6049649812858464,
+            "liked_track_id": "ffc14c3d-21b1-4938-b58e-28c21c4d39a3",
+            "liked_similarity": 0.6111562517641147,
+            "liked_artist_match": false
+          },
+          "explanation": "matches your requested genres: rock; has similar catalog metadata to a song you liked: Numb \u2014 Linkin Park",
+          "explanation_facts": {
+            "requested_genres": [
+              "rock"
+            ],
+            "requested_moods": [],
+            "shared_styles": [],
+            "shared_genres": [],
+            "shared_playlist_artist": false,
+            "liked_track_id": "ffc14c3d-21b1-4938-b58e-28c21c4d39a3",
+            "liked_similarity": 0.6111562517641147,
+            "feedback_delta": 0.08109224708609908
+          }
+        },
+        {
+          "track_id": "0a6f19ae-c28b-4fa2-bc3f-ea73ba350db0",
+          "metadata": {
+            "track_id": "0a6f19ae-c28b-4fa2-bc3f-ea73ba350db0",
+            "ISRC": [
+              "USWB11401083"
+            ],
+            "track_name": [
+              "Final Masquerade"
+            ],
+            "artist_name": [
+              "Linkin Park"
+            ],
+            "album_name": [
+              "The Hunting Party",
+              "Final Masquerade"
+            ],
+            "tag_list": [
+              "hard rock",
+              "longroad",
+              "2014 single",
+              "worst single ever",
+              "hyped",
+              "worst song of 2014",
+              "the most frostbitten and grim music from the very very very very very very inverted mountains of kxziiiimfghhhblaghl",
+              "alternative rock",
+              "thoughts",
+              "whatami",
+              "music to listen while vomiting",
+              "metal",
+              "lp - the hunting party",
+              "deep",
+              "evening",
+              "male",
+              "american",
+              "video clip",
+              "los angeles kings",
+              "alternative metal",
+              "rock",
+              "nu metal",
+              "2014",
+              "the worst thing ever to happen to music",
+              "2010s",
+              "english",
+              "shit",
+              "music to listen while fucking dogs",
+              "chillout",
+              "officially shit",
+              "10s",
+              "my dance room",
+              "alt rock",
+              "sunflower",
+              "Alternative",
+              "music for tupaya pizda",
+              "music for dolboebus",
+              "no difference with rammstein",
+              "chill",
+              "world music",
+              "Alternative Rock",
+              "uitluisteren artist",
+              "music to listen while sucking big black cock and having anal sex",
+              "2010s rock",
+              "world",
+              "wonderful",
+              "music to listen while smoking plan putina",
+              "worst song",
+              "linkin park",
+              "alternative",
+              "music to listen while pederasting",
+              "nu-metal",
+              "skitz0rz",
+              "worst song ever",
+              "loneliness",
+              "9 of 10 stars",
+              "rammstein",
+              "holloween skitz0rz"
+            ],
+            "popularity": 68.0,
+            "release_date": "2014-06-09",
+            "duration": 217613,
+            "artist_id": [
+              "c240dadc-5602-41d8-aab3-7a714c218062"
+            ],
+            "album_id": [
+              "5e7bf6e5-3a79-4f5c-97bf-71aa74954073",
+              "64c09c52-4d2a-407b-bba4-8e88ec8a22d5"
+            ]
+          },
+          "score": 0.836631816775407,
+          "scores": {
+            "rrf": 0.014925373134328358,
+            "fusion_prior": 0.728358208955224,
+            "original_semantic_cosine": 0.5378001928329468,
+            "retrieval_semantic_cosine": 0.5378001928329468,
+            "base": 0.728358208955224,
+            "feedback_delta": 0.14436481042691063,
+            "final": 0.836631816775407
+          },
+          "evidence": {
+            "retrieval_sources": [
+              "bm25"
+            ],
+            "lexical_rank": 7,
+            "semantic_rank": null,
+            "original_semantic_rank": null,
+            "new_to_original_pool": false,
+            "feedback_query_used_for_retrieval": false,
+            "feedback_applied": true,
+            "original_cosine": 0.5378001367031624,
+            "updated_cosine": 0.682164947130073,
+            "liked_track_id": "ffc14c3d-21b1-4938-b58e-28c21c4d39a3",
+            "liked_similarity": 0.7410274268918541,
+            "liked_artist_match": false
+          },
+          "explanation": "matches your requested genres: rock; has similar catalog metadata to a song you liked: Numb \u2014 Linkin Park",
+          "explanation_facts": {
+            "requested_genres": [
+              "rock"
+            ],
+            "requested_moods": [],
+            "shared_styles": [],
+            "shared_genres": [],
+            "shared_playlist_artist": false,
+            "liked_track_id": "ffc14c3d-21b1-4938-b58e-28c21c4d39a3",
+            "liked_similarity": 0.7410274268918541,
+            "feedback_delta": 0.14436481042691063
+          }
+        },
+        {
+          "track_id": "ebfa13cd-ad61-475c-bbb1-2b2d01eee0c9",
+          "metadata": {
+            "track_id": "ebfa13cd-ad61-475c-bbb1-2b2d01eee0c9",
+            "ISRC": [
+              "USVR10100042"
+            ],
+            "track_name": [
+              "Hostile Apostle"
+            ],
+            "artist_name": [
+              "311"
+            ],
+            "album_name": [
+              "From Chaos"
+            ],
+            "tag_list": [
+              "punk",
+              "homework music",
+              "yeah",
+              "alternative rock",
+              "00s",
+              "my music",
+              "great",
+              "ska",
+              "awesome",
+              "rock",
+              "Metal",
+              "pot music",
+              "favs",
+              "punk rock",
+              "best music out there",
+              "chill out",
+              "music",
+              "chillout",
+              "Alternative",
+              "311",
+              "favorites",
+              "chill music",
+              "Rock",
+              "chill",
+              "chillbutter",
+              "california",
+              "good shit",
+              "favorite bands",
+              "seen live",
+              "everything i like",
+              "good stuff",
+              "indie",
+              "omaha",
+              "alternative",
+              "rapcore",
+              "stoner rock",
+              "funky",
+              "my favorites",
+              "bands seen live",
+              "original",
+              "stoner",
+              "hip-hop",
+              "my favs",
+              "favorite artists"
+            ],
+            "popularity": 31.0,
+            "release_date": "2001-06-19",
+            "duration": 222960,
+            "artist_id": [
+              "0ae9ba0d-9978-4243-8a76-9b2b5c227fc3"
+            ],
+            "album_id": [
+              "39853ff5-3320-4d36-925c-c21288804a23"
+            ]
+          },
+          "score": 0.8145824253257081,
+          "scores": {
+            "rrf": 0.015873015873015872,
+            "fusion_prior": 0.7746031746031746,
+            "original_semantic_cosine": 0.6109102964401245,
+            "retrieval_semantic_cosine": 0.6109102964401245,
+            "base": 0.7746031746031746,
+            "feedback_delta": 0.05330566763004474,
+            "final": 0.8145824253257081
+          },
+          "evidence": {
+            "retrieval_sources": [
+              "bm25"
+            ],
+            "lexical_rank": 3,
+            "semantic_rank": null,
+            "original_semantic_rank": null,
+            "new_to_original_pool": false,
+            "feedback_query_used_for_retrieval": false,
+            "feedback_applied": true,
+            "original_cosine": 0.610910264701221,
+            "updated_cosine": 0.6642159323312657,
+            "liked_track_id": "ffc14c3d-21b1-4938-b58e-28c21c4d39a3",
+            "liked_similarity": 0.6493455626159121,
+            "liked_artist_match": false
+          },
+          "explanation": "matches your requested genres: rock; has similar catalog metadata to a song you liked: Numb \u2014 Linkin Park",
+          "explanation_facts": {
+            "requested_genres": [
+              "rock"
+            ],
+            "requested_moods": [],
+            "shared_styles": [],
+            "shared_genres": [],
+            "shared_playlist_artist": false,
+            "liked_track_id": "ffc14c3d-21b1-4938-b58e-28c21c4d39a3",
+            "liked_similarity": 0.6493455626159121,
+            "feedback_delta": 0.05330566763004474
+          }
+        },
+        {
+          "track_id": "835e0dfc-e523-4d34-bac6-ae86ffed3e33",
+          "metadata": {
+            "track_id": "835e0dfc-e523-4d34-bac6-ae86ffed3e33",
+            "ISRC": [],
+            "track_name": [
+              "Side 4, Pt. 2: Eyes To Pearls"
+            ],
+            "artist_name": [
+              "Pink Floyd"
+            ],
+            "album_name": [
+              "The Endless River"
+            ],
+            "tag_list": [
+              "tasty guitar licks and riffs",
+              "folk",
+              "night driving",
+              "psychedelic rock",
+              "instrumental rock",
+              "dark ambient",
+              "post-rock",
+              "acid rock",
+              "ambient",
+              "ambient-solitude",
+              "british",
+              "rock",
+              "2014",
+              "instrumental",
+              "americana",
+              "srm-inst",
+              "prog-rock",
+              "10s",
+              "melancholy",
+              "progressive",
+              "fip",
+              "night music",
+              "wbm",
+              "music for a sad road movie",
+              "ominous",
+              "album rock",
+              "late night driving",
+              "folk rock",
+              "driving music",
+              "suspenseful",
+              "late night music",
+              "ambient-melancholy",
+              "atmospheric",
+              "psychedelic",
+              "ambient-sad",
+              "9 of 10 stars",
+              "best of 2014",
+              "progressive rock",
+              "atmospheric rock",
+              "writing music",
+              "space rock"
+            ],
+            "popularity": 39.0,
+            "release_date": "2014-11-10",
+            "duration": 111173,
+            "artist_id": [
+              "bbc27df9-76f6-45a0-a2e5-812c2a901080"
+            ],
+            "album_id": [
+              "549dff53-64f8-4105-8732-d9f573b32a7a"
+            ]
+          },
+          "score": 0.8091685674992969,
+          "scores": {
+            "rrf": 0.015625,
+            "fusion_prior": 0.7625000000000001,
+            "original_semantic_cosine": 0.470151424407959,
+            "retrieval_semantic_cosine": 0.470151424407959,
+            "base": 0.7625000000000001,
+            "feedback_delta": 0.06222475666572913,
+            "final": 0.8091685674992969
+          },
+          "evidence": {
+            "retrieval_sources": [
+              "bm25"
+            ],
+            "lexical_rank": 4,
+            "semantic_rank": null,
+            "original_semantic_rank": null,
+            "new_to_original_pool": false,
+            "feedback_query_used_for_retrieval": false,
+            "feedback_applied": true,
+            "original_cosine": 0.470151450519669,
+            "updated_cosine": 0.5323762071853981,
+            "liked_track_id": "ffc14c3d-21b1-4938-b58e-28c21c4d39a3",
+            "liked_similarity": 0.5210152283251308,
+            "liked_artist_match": false
+          },
+          "explanation": "matches your requested genres: rock; has similar catalog metadata to a song you liked: Numb \u2014 Linkin Park",
+          "explanation_facts": {
+            "requested_genres": [
+              "rock"
+            ],
+            "requested_moods": [],
+            "shared_styles": [],
+            "shared_genres": [],
+            "shared_playlist_artist": false,
+            "liked_track_id": "ffc14c3d-21b1-4938-b58e-28c21c4d39a3",
+            "liked_similarity": 0.5210152283251308,
+            "feedback_delta": 0.06222475666572913
+          }
+        }
+      ]
+    },
+    "feedback_retrieval": {
+      "request_ms": 237.90554099832661,
+      "query_changed": true,
+      "original_candidate_ids": [
+        "a50449ff-6d19-439b-a751-8f809bf47677",
+        "0d887f63-8ce3-45dc-a264-40e54e521a33",
+        "ebfa13cd-ad61-475c-bbb1-2b2d01eee0c9",
+        "835e0dfc-e523-4d34-bac6-ae86ffed3e33",
+        "80a29d2b-00b5-4538-9fc7-6c46c0325db9",
+        "7023ef06-7b5f-4c07-a550-89305a9b2618",
+        "0a6f19ae-c28b-4fa2-bc3f-ea73ba350db0",
+        "f21542ea-9d4c-4154-9f48-bda903acaf32",
+        "05dd55d2-bd04-4a9f-b27a-726a69395704",
+        "cbf91890-6621-4fb7-8689-7f4ff3917094",
+        "2edd2f4a-bcbd-4763-a381-d3a614e1e50c",
+        "d6f5715d-c416-4ea2-9ea4-bfc43f0766b1",
+        "8ae9a982-9936-4ce5-9094-48474fa34865",
+        "badb3459-9b01-4c13-a3ce-22faf320d9dd",
+        "e3ebc837-f95f-4cfe-9f5e-ceb048c3ceac",
+        "b1f04b8c-6869-44a1-bcb9-866310dd36c7",
+        "fb6b39df-e223-458a-822d-69781b6efa54",
+        "df9712b3-6c3c-456f-913f-cfd80be25abc",
+        "15e5f1ed-afb4-479c-bd10-aefdc8528e42",
+        "9f6e608c-4066-4b77-a9a4-2fbba7f9aa49",
+        "0355fab4-5555-4fc5-b6c0-ccd63264bd93",
+        "72a56b08-5729-43d7-9179-eae80ab9391b",
+        "6947e461-d7aa-429e-b53c-cdb03289ea28",
+        "1c63c707-dd2f-4322-8487-6cb0c8630df8",
+        "5b0f0f56-cbfc-4406-9803-802e030c0a71",
+        "6374d695-d014-4559-b99a-428af88396d6",
+        "4bb9c6cc-7a1d-4bc3-9e19-a54bd6bf5e89",
+        "8ca7a8f0-b32c-4cf5-9e33-df67e43f8324",
+        "ef9a0a38-53a6-434b-97f1-4c20f79396e9",
+        "dae4ac92-4682-4892-b3cc-11ff54a0b379",
+        "a074e33c-330c-4559-8693-55afc18c2847",
+        "4c342ddd-b36e-4bea-82c6-252e470e254f",
+        "67c09cf0-424b-4fc4-8c94-f141e97d3ae0",
+        "fc3ae7ab-0c30-4ef3-94ef-7e9a8c1ecaeb",
+        "09762926-d71a-4a51-800e-57ebd1f6de3f",
+        "9aa89aa9-b971-4596-8be0-a656c2e6a71a",
+        "7d44e02e-83e9-4c81-80aa-5db06bac201d",
+        "97f1ea96-75f8-46a8-80d6-53955ced3b73",
+        "983c3134-ffeb-4556-9143-fd791e7e1f92",
+        "7f60098d-083e-4088-870a-8de2ebfda474",
+        "d950cf83-e10c-450f-bd4f-63ace0c714af",
+        "f0bc6654-aff2-4e3a-bab7-862657d7ce7d",
+        "fa77a440-fa7c-4e8c-9882-ccb00e17063a",
+        "0dc5cb7d-8b01-4191-8b62-c46987e3edbb",
+        "03fa7d04-1d0b-4063-a852-c49b6c5823c7",
+        "de1467db-e208-4de9-903e-19f98dbde337",
+        "9b946b5c-e22e-4fcd-b343-093192377b6a",
+        "c1b9b498-5df2-4a1d-9221-1312569ce6c3",
+        "a32a27ce-7273-4f3f-b8db-81e47726583f",
+        "56ca387f-a909-4f26-b2ad-ee29cf178b89",
+        "da666a24-efac-4c9c-a628-319554cf7083",
+        "a6743760-c3bb-4900-af34-2f3966fbb60f",
+        "c20d7266-4680-454d-9f27-9e76b6391032",
+        "dbf94769-0af7-4f8d-befa-44e9c377595e",
+        "02c4a124-285f-42a4-90b1-f0d47644a02b",
+        "407b4797-d2e7-4123-91d4-dc85953629dd",
+        "b96fba24-df47-453b-b620-e1a63bb81efd",
+        "815eeb00-4159-470f-b5f1-2c3c4c6aee3a",
+        "e6e8416c-db8f-4be5-910f-cdd26e2b33ae",
+        "e3566f7d-bb70-4f69-ba9b-10f162251601",
+        "9c0e22a3-a28f-4e47-a97c-800a475a033b",
+        "3b929d6c-3445-4564-a6aa-c44f52323b56",
+        "fa5008dc-260b-4f41-a087-03ce97df0db1",
+        "6aa93a24-9acf-4c9c-a150-15b88b2b7c93",
+        "46f458ad-ebad-486e-8217-4a20110bb20e",
+        "5607752d-c5fe-40a3-8d39-097df7eb7b04",
+        "f8cd69fb-bea8-4b2a-b2db-49249c6b340a",
+        "b3e277b9-d670-4b78-9a5a-f1423805326f",
+        "8ee86b39-970b-41bc-a170-085ac5868427",
+        "e1da64a9-3561-4e50-84a2-078aa7108ab4",
+        "80a8dec9-405e-4dd0-8dae-63a6e2b41d8e",
+        "b4060d5e-a59b-4672-b03c-9057e2dae404",
+        "4109b3aa-4123-407c-8ea7-c905136d573a",
+        "ce1fc32c-8110-43b5-bfb7-d743967fef51",
+        "fa9372ec-87ab-467e-a8f8-eac1eeb8bd4b",
+        "95bd351c-1fc7-4cff-bfae-c729212e760c",
+        "c3de7806-c279-47dc-b33a-65327a3410db",
+        "80234f0a-4963-49e8-826a-2db5837084f3",
+        "485bbf11-a9a0-424b-ac50-f7e6f7a56365",
+        "db1e9d55-6634-4581-94d1-bd719b4f3a56",
+        "e98a2af8-155f-4e95-91e7-eacfec34e5a3",
+        "ceea4c57-ca78-4062-9e76-8a653bd73335",
+        "dfe185ce-b59e-4e6d-b65c-7b955873dc4a",
+        "28b6bab9-3d4f-41c2-8507-e3869c18d1b1",
+        "73b59ebd-0bb9-4fd6-8b28-19c676f8d3c8",
+        "5848d019-02cc-4b2c-b69d-defc51ade5d2",
+        "a71402b9-e71b-4e0b-9ed5-a4782762e938",
+        "261f08e0-fb9d-4c2b-9883-2031c3f5a287",
+        "f10d3588-f19b-41e2-ba7a-180b89e91d92",
+        "6eecd29b-b08a-47a0-a90d-51816a808f88",
+        "c7b0f577-4f6c-45cc-b2d5-a75bad344db5",
+        "b1f2d671-3d57-45d5-abbf-f58e5f3ad223",
+        "d16b53a2-f9a6-47ea-98a9-82a3bf1f28cf",
+        "68d3d65a-b92f-4a90-bcd9-30e4275676bf",
+        "8d3f2350-5805-4703-b1df-d48ab91054f9",
+        "c320baa6-e1d0-41b7-a59b-c844f77f7e47",
+        "c67a5a20-5fe7-4eae-8610-067efe6bec07",
+        "ed4b1728-cd4e-4d3c-8317-d83e5ad48ff5",
+        "aa89dd27-6d0d-493f-afa3-aedca7a33e98",
+        "e6096d7e-bfbc-4c06-8aab-c11217a35506"
+      ],
+      "candidate_ids": [
+        "a50449ff-6d19-439b-a751-8f809bf47677",
+        "0d887f63-8ce3-45dc-a264-40e54e521a33",
+        "ebfa13cd-ad61-475c-bbb1-2b2d01eee0c9",
+        "835e0dfc-e523-4d34-bac6-ae86ffed3e33",
+        "80a29d2b-00b5-4538-9fc7-6c46c0325db9",
+        "7023ef06-7b5f-4c07-a550-89305a9b2618",
+        "0a6f19ae-c28b-4fa2-bc3f-ea73ba350db0",
+        "f21542ea-9d4c-4154-9f48-bda903acaf32",
+        "05dd55d2-bd04-4a9f-b27a-726a69395704",
+        "cbf91890-6621-4fb7-8689-7f4ff3917094",
+        "2edd2f4a-bcbd-4763-a381-d3a614e1e50c",
+        "d6f5715d-c416-4ea2-9ea4-bfc43f0766b1",
+        "8ae9a982-9936-4ce5-9094-48474fa34865",
+        "badb3459-9b01-4c13-a3ce-22faf320d9dd",
+        "e3ebc837-f95f-4cfe-9f5e-ceb048c3ceac",
+        "b1f04b8c-6869-44a1-bcb9-866310dd36c7",
+        "fb6b39df-e223-458a-822d-69781b6efa54",
+        "df9712b3-6c3c-456f-913f-cfd80be25abc",
+        "15e5f1ed-afb4-479c-bd10-aefdc8528e42",
+        "9f6e608c-4066-4b77-a9a4-2fbba7f9aa49",
+        "0355fab4-5555-4fc5-b6c0-ccd63264bd93",
+        "72a56b08-5729-43d7-9179-eae80ab9391b",
+        "6947e461-d7aa-429e-b53c-cdb03289ea28",
+        "1c63c707-dd2f-4322-8487-6cb0c8630df8",
+        "5b0f0f56-cbfc-4406-9803-802e030c0a71",
+        "6374d695-d014-4559-b99a-428af88396d6",
+        "4bb9c6cc-7a1d-4bc3-9e19-a54bd6bf5e89",
+        "8ca7a8f0-b32c-4cf5-9e33-df67e43f8324",
+        "ef9a0a38-53a6-434b-97f1-4c20f79396e9",
+        "dae4ac92-4682-4892-b3cc-11ff54a0b379",
+        "a074e33c-330c-4559-8693-55afc18c2847",
+        "4c342ddd-b36e-4bea-82c6-252e470e254f",
+        "67c09cf0-424b-4fc4-8c94-f141e97d3ae0",
+        "fc3ae7ab-0c30-4ef3-94ef-7e9a8c1ecaeb",
+        "09762926-d71a-4a51-800e-57ebd1f6de3f",
+        "9aa89aa9-b971-4596-8be0-a656c2e6a71a",
+        "7d44e02e-83e9-4c81-80aa-5db06bac201d",
+        "97f1ea96-75f8-46a8-80d6-53955ced3b73",
+        "983c3134-ffeb-4556-9143-fd791e7e1f92",
+        "7f60098d-083e-4088-870a-8de2ebfda474",
+        "d950cf83-e10c-450f-bd4f-63ace0c714af",
+        "f0bc6654-aff2-4e3a-bab7-862657d7ce7d",
+        "fa77a440-fa7c-4e8c-9882-ccb00e17063a",
+        "0dc5cb7d-8b01-4191-8b62-c46987e3edbb",
+        "03fa7d04-1d0b-4063-a852-c49b6c5823c7",
+        "de1467db-e208-4de9-903e-19f98dbde337",
+        "9b946b5c-e22e-4fcd-b343-093192377b6a",
+        "c1b9b498-5df2-4a1d-9221-1312569ce6c3",
+        "a32a27ce-7273-4f3f-b8db-81e47726583f",
+        "56ca387f-a909-4f26-b2ad-ee29cf178b89",
+        "dbf94769-0af7-4f8d-befa-44e9c377595e",
+        "8ea699ec-46f4-4907-9049-2d811efe0035",
+        "6aa93a24-9acf-4c9c-a150-15b88b2b7c93",
+        "b1f2d671-3d57-45d5-abbf-f58e5f3ad223",
+        "815eeb00-4159-470f-b5f1-2c3c4c6aee3a",
+        "9c0e22a3-a28f-4e47-a97c-800a475a033b",
+        "fa9372ec-87ab-467e-a8f8-eac1eeb8bd4b",
+        "0fb327c6-372d-4138-b690-b013b2dfec94",
+        "847bec30-2d1a-4e3f-abf7-19e6e234572c",
+        "f66ebc3a-5f0b-405b-8a07-f84bf074c5b5",
+        "46f458ad-ebad-486e-8217-4a20110bb20e",
+        "9aeed52a-cdab-497f-a722-c481fbc3c149",
+        "babbadbe-1e6d-4a05-af3e-db6b39d7aad6",
+        "c20d7266-4680-454d-9f27-9e76b6391032",
+        "b96fba24-df47-453b-b620-e1a63bb81efd",
+        "02c4a124-285f-42a4-90b1-f0d47644a02b",
+        "01ef9971-a9c4-48e2-9d41-8be218b01ded",
+        "a6743760-c3bb-4900-af34-2f3966fbb60f",
+        "b677449c-f797-4017-9978-2eab883915bc",
+        "1d50638c-3cfb-461e-a458-09b971d926d8",
+        "45aedc54-8d0e-4219-bf13-6959c5b52e63",
+        "f5a67e98-9a9f-4690-81f5-7ed47234a086",
+        "af57009d-677a-4126-82d3-5534daa68367",
+        "2a054ac8-c98b-4997-b83e-8126d7a372d4",
+        "fd777591-2c63-40af-bb62-ee2c9899baaa",
+        "6d21b7a2-f402-4668-ae48-96fb277b0a21",
+        "31bad307-9e6b-4d9f-bef7-872db74e6608",
+        "4a6ff94b-914b-45c7-be6a-1ed3f5f8ec54",
+        "6eecd29b-b08a-47a0-a90d-51816a808f88",
+        "449150d4-997f-4ee1-9d8b-44717cfc4fec",
+        "da666a24-efac-4c9c-a628-319554cf7083",
+        "326dc7d3-3c14-4232-8b97-cbae72e4380d",
+        "decb2654-1600-4035-acdb-c53d14dc9ff9",
+        "dffd7bce-79f8-43f2-9f23-b02a46163303",
+        "e6e8416c-db8f-4be5-910f-cdd26e2b33ae",
+        "ae8ce3c0-8712-4533-8bb6-9e6fcafa7d01",
+        "2d2e8b4e-5695-4387-a399-62aa67229eb1",
+        "8aaa6030-3478-4e9a-ad61-733219a5de9b",
+        "b3e277b9-d670-4b78-9a5a-f1423805326f",
+        "6cfb3264-d344-4cb3-b70a-c686bd0bda16",
+        "1b838376-0248-4ed2-a319-3b27f7ebf93b",
+        "26562a56-7e85-45dc-8f08-47157aa9463f",
+        "ddd81748-a52b-4eee-ad8f-67957026cf54",
+        "c0eb2067-0b0a-492e-bcdb-d0eef41c9445",
+        "407b4797-d2e7-4123-91d4-dc85953629dd",
+        "1798886f-1aed-4d04-bf97-ec80bd6a6a14",
+        "68d3d65a-b92f-4a90-bcd9-30e4275676bf",
+        "17b903e5-703e-4243-8d95-7b869ed8de94",
+        "d16b53a2-f9a6-47ea-98a9-82a3bf1f28cf",
+        "0acad7c2-8b84-4403-a73c-7927b156c6f6"
+      ],
+      "new_candidate_ids": [
+        "8ea699ec-46f4-4907-9049-2d811efe0035",
+        "0fb327c6-372d-4138-b690-b013b2dfec94",
+        "847bec30-2d1a-4e3f-abf7-19e6e234572c",
+        "f66ebc3a-5f0b-405b-8a07-f84bf074c5b5",
+        "9aeed52a-cdab-497f-a722-c481fbc3c149",
+        "babbadbe-1e6d-4a05-af3e-db6b39d7aad6",
+        "01ef9971-a9c4-48e2-9d41-8be218b01ded",
+        "b677449c-f797-4017-9978-2eab883915bc",
+        "1d50638c-3cfb-461e-a458-09b971d926d8",
+        "45aedc54-8d0e-4219-bf13-6959c5b52e63",
+        "f5a67e98-9a9f-4690-81f5-7ed47234a086",
+        "af57009d-677a-4126-82d3-5534daa68367",
+        "2a054ac8-c98b-4997-b83e-8126d7a372d4",
+        "fd777591-2c63-40af-bb62-ee2c9899baaa",
+        "6d21b7a2-f402-4668-ae48-96fb277b0a21",
+        "31bad307-9e6b-4d9f-bef7-872db74e6608",
+        "4a6ff94b-914b-45c7-be6a-1ed3f5f8ec54",
+        "449150d4-997f-4ee1-9d8b-44717cfc4fec",
+        "326dc7d3-3c14-4232-8b97-cbae72e4380d",
+        "decb2654-1600-4035-acdb-c53d14dc9ff9",
+        "dffd7bce-79f8-43f2-9f23-b02a46163303",
+        "ae8ce3c0-8712-4533-8bb6-9e6fcafa7d01",
+        "2d2e8b4e-5695-4387-a399-62aa67229eb1",
+        "8aaa6030-3478-4e9a-ad61-733219a5de9b",
+        "6cfb3264-d344-4cb3-b70a-c686bd0bda16",
+        "1b838376-0248-4ed2-a319-3b27f7ebf93b",
+        "26562a56-7e85-45dc-8f08-47157aa9463f",
+        "ddd81748-a52b-4eee-ad8f-67957026cf54",
+        "c0eb2067-0b0a-492e-bcdb-d0eef41c9445",
+        "1798886f-1aed-4d04-bf97-ec80bd6a6a14",
+        "17b903e5-703e-4243-8d95-7b869ed8de94",
+        "0acad7c2-8b84-4403-a73c-7927b156c6f6"
+      ],
+      "usable_feedback_ids": [
+        "ffc14c3d-21b1-4938-b58e-28c21c4d39a3",
+        "625d9682-8214-4391-8689-fd14b87d01e8"
+      ],
+      "unavailable_feedback_ids": [],
+      "tracks": [
+        {
+          "track_id": "a50449ff-6d19-439b-a751-8f809bf47677",
+          "metadata": {
+            "track_id": "a50449ff-6d19-439b-a751-8f809bf47677",
+            "ISRC": [
+              "PHBO10100338"
+            ],
+            "track_name": [
+              "Magasin"
+            ],
+            "artist_name": [
+              "Eraserheads"
+            ],
+            "album_name": [
+              "Circus"
+            ],
+            "tag_list": [
+              "asian music",
+              "pinoy",
+              "alternative rock",
+              "filipino music",
+              "pinoy music",
+              "asian rock",
+              "eheads- magasin",
+              "filipino rock",
+              "songs by bands with the suffix head",
+              "pinoy pop rock",
+              "alt rock",
+              "pilipino music",
+              "pop",
+              "magasin",
+              "eheads",
+              "eraserheads",
+              "songs i really like",
+              "opm",
+              "pinoy rock",
+              "Pop"
+            ],
+            "popularity": 63.0,
+            "release_date": "1994-11-01",
+            "duration": 248840,
+            "artist_id": [
+              "8abd4f20-b8cd-4e35-8c38-8944bd325a29"
+            ],
+            "album_id": [
+              "8ad1e42e-b6f5-422d-9364-b92faf8ee64e"
+            ]
+          },
+          "score": 0.848400543357731,
+          "scores": {
+            "rrf": 0.01639344262295082,
+            "fusion_prior": 0.8000000000000002,
+            "original_semantic_cosine": 0.5484983921051025,
+            "retrieval_semantic_cosine": 0.6130325198173523,
+            "base": 0.8000000000000002,
+            "feedback_delta": 0.06453405781030774,
+            "final": 0.848400543357731
+          },
+          "evidence": {
+            "retrieval_sources": [
+              "bm25"
+            ],
+            "lexical_rank": 1,
+            "semantic_rank": null,
+            "original_semantic_rank": null,
+            "new_to_original_pool": false,
+            "feedback_query_used_for_retrieval": true,
+            "feedback_applied": true,
+            "original_cosine": 0.548498387776059,
+            "updated_cosine": 0.6130324455863667,
+            "liked_track_id": "ffc14c3d-21b1-4938-b58e-28c21c4d39a3",
+            "liked_similarity": 0.6056436349983574,
+            "liked_artist_match": false
+          },
+          "explanation": "has similar catalog metadata to a song you liked: Numb \u2014 Linkin Park",
+          "explanation_facts": {
+            "requested_genres": [],
+            "requested_moods": [],
+            "shared_styles": [],
+            "shared_genres": [],
+            "shared_playlist_artist": false,
+            "liked_track_id": "ffc14c3d-21b1-4938-b58e-28c21c4d39a3",
+            "liked_similarity": 0.6056436349983574,
+            "feedback_delta": 0.06453405781030774
+          }
+        },
+        {
+          "track_id": "0d887f63-8ce3-45dc-a264-40e54e521a33",
+          "metadata": {
+            "track_id": "0d887f63-8ce3-45dc-a264-40e54e521a33",
+            "ISRC": [
+              "USWB10502537"
+            ],
+            "track_name": [
+              "Mind - Alternate Version"
+            ],
+            "artist_name": [
+              "Talking Heads"
+            ],
+            "album_name": [
+              "Fear Of Music",
+              "Fear Of Music (Deluxe Version)"
+            ],
+            "tag_list": [
+              "rock",
+              "talking heads",
+              "my pop music",
+              "drug induced music",
+              "like",
+              "old favorites",
+              "Alternative",
+              "Pop",
+              "Rock"
+            ],
+            "popularity": 21.0,
+            "release_date": "1979-08-03",
+            "duration": 266373,
+            "artist_id": [
+              "f49a1335-5f0d-419d-9796-a0b35156a1b7",
+              "ee1f1689-46cd-44d0-8157-b3c73cba4983"
+            ],
+            "album_id": [
+              "644ea2d2-0b20-4b23-9999-2eab1409a8d8"
+            ]
+          },
+          "score": 0.8479159595081227,
+          "scores": {
+            "rrf": 0.016129032258064516,
+            "fusion_prior": 0.7870967741935484,
+            "original_semantic_cosine": 0.5238727331161499,
+            "retrieval_semantic_cosine": 0.6049649715423584,
+            "base": 0.7870967741935484,
+            "feedback_delta": 0.08109224708609908,
+            "final": 0.8479159595081227
+          },
+          "evidence": {
+            "retrieval_sources": [
+              "bm25"
+            ],
+            "lexical_rank": 2,
+            "semantic_rank": null,
+            "original_semantic_rank": null,
+            "new_to_original_pool": false,
+            "feedback_query_used_for_retrieval": true,
+            "feedback_applied": true,
+            "original_cosine": 0.5238727341997473,
+            "updated_cosine": 0.6049649812858464,
+            "liked_track_id": "ffc14c3d-21b1-4938-b58e-28c21c4d39a3",
+            "liked_similarity": 0.6111562517641147,
+            "liked_artist_match": false
+          },
+          "explanation": "matches your requested genres: rock; has similar catalog metadata to a song you liked: Numb \u2014 Linkin Park",
+          "explanation_facts": {
+            "requested_genres": [
+              "rock"
+            ],
+            "requested_moods": [],
+            "shared_styles": [],
+            "shared_genres": [],
+            "shared_playlist_artist": false,
+            "liked_track_id": "ffc14c3d-21b1-4938-b58e-28c21c4d39a3",
+            "liked_similarity": 0.6111562517641147,
+            "feedback_delta": 0.08109224708609908
+          }
+        },
+        {
+          "track_id": "0a6f19ae-c28b-4fa2-bc3f-ea73ba350db0",
+          "metadata": {
+            "track_id": "0a6f19ae-c28b-4fa2-bc3f-ea73ba350db0",
+            "ISRC": [
+              "USWB11401083"
+            ],
+            "track_name": [
+              "Final Masquerade"
+            ],
+            "artist_name": [
+              "Linkin Park"
+            ],
+            "album_name": [
+              "The Hunting Party",
+              "Final Masquerade"
+            ],
+            "tag_list": [
+              "hard rock",
+              "longroad",
+              "2014 single",
+              "worst single ever",
+              "hyped",
+              "worst song of 2014",
+              "the most frostbitten and grim music from the very very very very very very inverted mountains of kxziiiimfghhhblaghl",
+              "alternative rock",
+              "thoughts",
+              "whatami",
+              "music to listen while vomiting",
+              "metal",
+              "lp - the hunting party",
+              "deep",
+              "evening",
+              "male",
+              "american",
+              "video clip",
+              "los angeles kings",
+              "alternative metal",
+              "rock",
+              "nu metal",
+              "2014",
+              "the worst thing ever to happen to music",
+              "2010s",
+              "english",
+              "shit",
+              "music to listen while fucking dogs",
+              "chillout",
+              "officially shit",
+              "10s",
+              "my dance room",
+              "alt rock",
+              "sunflower",
+              "Alternative",
+              "music for tupaya pizda",
+              "music for dolboebus",
+              "no difference with rammstein",
+              "chill",
+              "world music",
+              "Alternative Rock",
+              "uitluisteren artist",
+              "music to listen while sucking big black cock and having anal sex",
+              "2010s rock",
+              "world",
+              "wonderful",
+              "music to listen while smoking plan putina",
+              "worst song",
+              "linkin park",
+              "alternative",
+              "music to listen while pederasting",
+              "nu-metal",
+              "skitz0rz",
+              "worst song ever",
+              "loneliness",
+              "9 of 10 stars",
+              "rammstein",
+              "holloween skitz0rz"
+            ],
+            "popularity": 68.0,
+            "release_date": "2014-06-09",
+            "duration": 217613,
+            "artist_id": [
+              "c240dadc-5602-41d8-aab3-7a714c218062"
+            ],
+            "album_id": [
+              "5e7bf6e5-3a79-4f5c-97bf-71aa74954073",
+              "64c09c52-4d2a-407b-bba4-8e88ec8a22d5"
+            ]
+          },
+          "score": 0.836631816775407,
+          "scores": {
+            "rrf": 0.014925373134328358,
+            "fusion_prior": 0.728358208955224,
+            "original_semantic_cosine": 0.5378001928329468,
+            "retrieval_semantic_cosine": 0.6821649670600891,
+            "base": 0.728358208955224,
+            "feedback_delta": 0.14436481042691063,
+            "final": 0.836631816775407
+          },
+          "evidence": {
+            "retrieval_sources": [
+              "bm25"
+            ],
+            "lexical_rank": 7,
+            "semantic_rank": null,
+            "original_semantic_rank": null,
+            "new_to_original_pool": false,
+            "feedback_query_used_for_retrieval": true,
+            "feedback_applied": true,
+            "original_cosine": 0.5378001367031624,
+            "updated_cosine": 0.682164947130073,
+            "liked_track_id": "ffc14c3d-21b1-4938-b58e-28c21c4d39a3",
+            "liked_similarity": 0.7410274268918541,
+            "liked_artist_match": false
+          },
+          "explanation": "matches your requested genres: rock; has similar catalog metadata to a song you liked: Numb \u2014 Linkin Park",
+          "explanation_facts": {
+            "requested_genres": [
+              "rock"
+            ],
+            "requested_moods": [],
+            "shared_styles": [],
+            "shared_genres": [],
+            "shared_playlist_artist": false,
+            "liked_track_id": "ffc14c3d-21b1-4938-b58e-28c21c4d39a3",
+            "liked_similarity": 0.7410274268918541,
+            "feedback_delta": 0.14436481042691063
+          }
+        },
+        {
+          "track_id": "ebfa13cd-ad61-475c-bbb1-2b2d01eee0c9",
+          "metadata": {
+            "track_id": "ebfa13cd-ad61-475c-bbb1-2b2d01eee0c9",
+            "ISRC": [
+              "USVR10100042"
+            ],
+            "track_name": [
+              "Hostile Apostle"
+            ],
+            "artist_name": [
+              "311"
+            ],
+            "album_name": [
+              "From Chaos"
+            ],
+            "tag_list": [
+              "punk",
+              "homework music",
+              "yeah",
+              "alternative rock",
+              "00s",
+              "my music",
+              "great",
+              "ska",
+              "awesome",
+              "rock",
+              "Metal",
+              "pot music",
+              "favs",
+              "punk rock",
+              "best music out there",
+              "chill out",
+              "music",
+              "chillout",
+              "Alternative",
+              "311",
+              "favorites",
+              "chill music",
+              "Rock",
+              "chill",
+              "chillbutter",
+              "california",
+              "good shit",
+              "favorite bands",
+              "seen live",
+              "everything i like",
+              "good stuff",
+              "indie",
+              "omaha",
+              "alternative",
+              "rapcore",
+              "stoner rock",
+              "funky",
+              "my favorites",
+              "bands seen live",
+              "original",
+              "stoner",
+              "hip-hop",
+              "my favs",
+              "favorite artists"
+            ],
+            "popularity": 31.0,
+            "release_date": "2001-06-19",
+            "duration": 222960,
+            "artist_id": [
+              "0ae9ba0d-9978-4243-8a76-9b2b5c227fc3"
+            ],
+            "album_id": [
+              "39853ff5-3320-4d36-925c-c21288804a23"
+            ]
+          },
+          "score": 0.8145824253257081,
+          "scores": {
+            "rrf": 0.015873015873015872,
+            "fusion_prior": 0.7746031746031746,
+            "original_semantic_cosine": 0.6109102964401245,
+            "retrieval_semantic_cosine": 0.6642159223556519,
+            "base": 0.7746031746031746,
+            "feedback_delta": 0.05330566763004474,
+            "final": 0.8145824253257081
+          },
+          "evidence": {
+            "retrieval_sources": [
+              "bm25"
+            ],
+            "lexical_rank": 3,
+            "semantic_rank": null,
+            "original_semantic_rank": null,
+            "new_to_original_pool": false,
+            "feedback_query_used_for_retrieval": true,
+            "feedback_applied": true,
+            "original_cosine": 0.610910264701221,
+            "updated_cosine": 0.6642159323312657,
+            "liked_track_id": "ffc14c3d-21b1-4938-b58e-28c21c4d39a3",
+            "liked_similarity": 0.6493455626159121,
+            "liked_artist_match": false
+          },
+          "explanation": "matches your requested genres: rock; has similar catalog metadata to a song you liked: Numb \u2014 Linkin Park",
+          "explanation_facts": {
+            "requested_genres": [
+              "rock"
+            ],
+            "requested_moods": [],
+            "shared_styles": [],
+            "shared_genres": [],
+            "shared_playlist_artist": false,
+            "liked_track_id": "ffc14c3d-21b1-4938-b58e-28c21c4d39a3",
+            "liked_similarity": 0.6493455626159121,
+            "feedback_delta": 0.05330566763004474
+          }
+        },
+        {
+          "track_id": "835e0dfc-e523-4d34-bac6-ae86ffed3e33",
+          "metadata": {
+            "track_id": "835e0dfc-e523-4d34-bac6-ae86ffed3e33",
+            "ISRC": [],
+            "track_name": [
+              "Side 4, Pt. 2: Eyes To Pearls"
+            ],
+            "artist_name": [
+              "Pink Floyd"
+            ],
+            "album_name": [
+              "The Endless River"
+            ],
+            "tag_list": [
+              "tasty guitar licks and riffs",
+              "folk",
+              "night driving",
+              "psychedelic rock",
+              "instrumental rock",
+              "dark ambient",
+              "post-rock",
+              "acid rock",
+              "ambient",
+              "ambient-solitude",
+              "british",
+              "rock",
+              "2014",
+              "instrumental",
+              "americana",
+              "srm-inst",
+              "prog-rock",
+              "10s",
+              "melancholy",
+              "progressive",
+              "fip",
+              "night music",
+              "wbm",
+              "music for a sad road movie",
+              "ominous",
+              "album rock",
+              "late night driving",
+              "folk rock",
+              "driving music",
+              "suspenseful",
+              "late night music",
+              "ambient-melancholy",
+              "atmospheric",
+              "psychedelic",
+              "ambient-sad",
+              "9 of 10 stars",
+              "best of 2014",
+              "progressive rock",
+              "atmospheric rock",
+              "writing music",
+              "space rock"
+            ],
+            "popularity": 39.0,
+            "release_date": "2014-11-10",
+            "duration": 111173,
+            "artist_id": [
+              "bbc27df9-76f6-45a0-a2e5-812c2a901080"
+            ],
+            "album_id": [
+              "549dff53-64f8-4105-8732-d9f573b32a7a"
+            ]
+          },
+          "score": 0.8091685674992969,
+          "scores": {
+            "rrf": 0.015625,
+            "fusion_prior": 0.7625000000000001,
+            "original_semantic_cosine": 0.470151424407959,
+            "retrieval_semantic_cosine": 0.532376229763031,
+            "base": 0.7625000000000001,
+            "feedback_delta": 0.06222475666572913,
+            "final": 0.8091685674992969
+          },
+          "evidence": {
+            "retrieval_sources": [
+              "bm25"
+            ],
+            "lexical_rank": 4,
+            "semantic_rank": null,
+            "original_semantic_rank": null,
+            "new_to_original_pool": false,
+            "feedback_query_used_for_retrieval": true,
+            "feedback_applied": true,
+            "original_cosine": 0.470151450519669,
+            "updated_cosine": 0.5323762071853981,
+            "liked_track_id": "ffc14c3d-21b1-4938-b58e-28c21c4d39a3",
+            "liked_similarity": 0.5210152283251308,
+            "liked_artist_match": false
+          },
+          "explanation": "matches your requested genres: rock; has similar catalog metadata to a song you liked: Numb \u2014 Linkin Park",
+          "explanation_facts": {
+            "requested_genres": [
+              "rock"
+            ],
+            "requested_moods": [],
+            "shared_styles": [],
+            "shared_genres": [],
+            "shared_playlist_artist": false,
+            "liked_track_id": "ffc14c3d-21b1-4938-b58e-28c21c4d39a3",
+            "liked_similarity": 0.5210152283251308,
+            "feedback_delta": 0.06222475666572913
+          }
+        }
+      ]
+    }
+  }
+}

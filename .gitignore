@@ -4,3 +4,9 @@ __pycache__/
 /frontend/node_modules/
 /frontend/build/
 /dialogue_export/
+
+
+task.md
+tests/R1_R8_TEST_REPORT.md
+tests/SAVED_PLAYLISTS_TEST_REPORT.md
+retrieval/FINAL_RETRIEVAL.md

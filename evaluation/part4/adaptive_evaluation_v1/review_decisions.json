@@ -1,0 +1,121 @@
+{
+  "schema_version": 1,
+  "input_sha256": {
+    "judgments.csv": "ce851c5339928b22c0f30f376bcbaabf233bf85cb16a2c0a478d0cb626a0cb32",
+    "runs.json": "b0bc69bad014b27f320d4022d33b24397a89861b26c94b13a526a71f7cb04ea6",
+    "new_runs.json": "4a7f72b679e3e97405c7cdfdd2fc3db5da878957c9e6d823c56a9a68aa4e2c8b",
+    "protocol.json": "a77815c298858865ffccdd81c65110303fbc44374a1514263c9009fc0dd60b2d"
+  },
+  "assessor": "codex-ai:adaptive-metadata-review:REVIEW-REQUIRED",
+  "rubric": "Use the unchanged 0–2 rubric in evaluation/part4/label_review_decisions.json. Preserve all 502 prior decisions. Same-artist music is allowed; genre alone does not prove seed similarity; explicit mood requirements matter. No listening or independent human assessment occurred.",
+  "method": "Explicit review of all 232 new pairs and their raw catalog tags, following frozen development-only parameter selection. Per-system ranks and scores do not determine labels. Two conflicting tag records were checked against Apple Music publisher metadata. Previously inspected evaluation queries are not an unseen holdout.",
+  "query_decisions": {
+    "tobi-a01": [
+      {"grade":2,"keys":"A085","reason":"Verified Linkin Park music with explicit nu-metal evidence supports similarity to the requested artist."},
+      {"grade":1,"keys":"A035 A163","reason":"Rock/post-hardcore with rap or an instrumental alternative-rock record supplies partial relatedness, but close Linkin Park style is not verified merely by a tag or title reference."}
+    ],
+    "tobi-a02": [
+      {"grade":2,"keys":"A006 A004 A002","reason":"21 Savage is a verified credited artist and Hip-Hop/Rap confirms music in the requested artist's catalog."},
+      {"grade":1,"keys":"A158 A073","reason":"Hip-hop/trap supplies broad relatedness, but neither a 21 savage user tag nor another artist named Savage establishes the requested artist identity or close track similarity."}
+    ],
+    "tobi-a03": [
+      {"grade":0,"keys":"A018 A053 A017","reason":"Trailer-score, punk/post-hardcore, or sparsely tagged ambient/acoustic alternative music does not substantiate Adele's documented pop/soul relationship. Similar-tracks text is not proof."}
+    ],
+    "tobi-a04": [
+      {"grade":0,"keys":"A153 A169 A113 A137","reason":"Alternative rock, electronic/industrial, or deathcore does not substantiate Miles Davis jazz similarity. A title or user tag naming Miles Davis is not an artist credit or a jazz genre fact."}
+    ],
+    "tobi-a05": [
+      {"grade":1,"keys":"A123 A103","reason":"A cappella/cover electronic material or electronic dance/synth-pop supplies partial musical relatedness; the name/tag Daft Punk alone does not establish a close house/electronic recording match."},
+      {"grade":0,"keys":"A069","reason":"Dominant punk/emo/indie-rock metadata does not establish Daft Punk similarity; the word punk is not an artist identity match."}
+    ],
+    "tobi-e01": [
+      {"grade":2,"keys":"A128 A114 A068 A026 A029 A148 A016 A140 A127 A122","reason":"Explicit alternative-rock or coherent alternative/rock evidence supports the requested style, and Linkin Park is not credited."}
+    ],
+    "tobi-e02": [
+      {"grade":2,"keys":"A135 A007 A130","reason":"Hip-hop/rap and documented subgenres directly meet the request; no credited collaborator is 21 Savage."}
+    ],
+    "tobi-e03": [
+      {"grade":2,"keys":"A161 A112 A104 A162 A042 A138 A041 A139 A115","reason":"Pop/indie-pop/K-pop/J-pop/Latin-pop is documented and Adele is not credited. No language restriction was requested."},
+      {"grade":0,"keys":"A024","reason":"The catalog's K-pop/female-singer tags conflict with publisher metadata identifying this Boards of Canada recording on an Electronic album; those tags cannot establish pop relevance."}
+    ],
+    "tobi-e04": [
+      {"grade":2,"keys":"A019 A125 A037 A038 A159 A105 A045 A030 A160","reason":"Metal and its specific subgenres are well documented; Metallica is not credited."},
+      {"grade":0,"keys":"A077","reason":"Publisher metadata places this Justin Bieber recording on a Pop release. The catalog's contradictory extreme-metal tags do not establish metal relevance."}
+    ],
+    "tobi-e05": [
+      {"grade":2,"keys":"A046 A079 A124 A011 A167 A149 A168 A150 A134","reason":"Rock/hard/classic/blues/progressive rock is well documented. The track is not Numb by Linkin Park; an instrumental rock recording is allowed by this broad request."}
+    ],
+    "tobi-f01": [
+      {"grade":2,"keys":"A092 A084 A100 A120 A089 A091 A088","reason":"Verified Linkin Park nu/alternative-metal music, or explicit matching nu/alternative/rap-metal style, supports the liked Numb seed rather than just broad rock."},
+      {"grade":1,"keys":"A046 A133 A079 A124 A011 A126 A167 A149 A060 A025 A168 A150 A151 A134","reason":"Broad/classic/hard/punk rock or an acoustic ballad is only partially related to the liked nu-metal/alternative-metal seed. Less like 21 Savage does not ban all hip-hop."}
+    ],
+    "tobi-f02": [
+      {"grade":2,"keys":"A004 A001 A003 A005 A002","reason":"Verified 21 Savage credits and Hip-Hop/Rap supply a concrete artist-and-genre relationship to the liked seed."},
+      {"grade":1,"keys":"A070 A010 A066 A031 A101 A028 A080 A109 A135 A054 A063 A136 A076 A143 A007 A044 A130 A078 A082","reason":"Hip-hop/rap is documented, but the liked Numb seed has only Hip-Hop/Rap and artist tags. Closer track-level similarity is unverified; a specific shared trap style must not be invented."}
+    ],
+    "tobi-f03": [
+      {"grade":2,"keys":"A033","reason":"Pop, female vocals, ballad, sad/romantic and soundtrack evidence provides a concrete style relationship to the liked Skyfall seed."},
+      {"grade":1,"keys":"A161 A108 A065 A043 A112 A104 A009 A141 A117 A142 A021 A071 A162 A042 A138 A014 A036 A041 A139 A115","reason":"Broad pop/soul/rock-ballad overlap supplies partial relevance, but close cinematic soul/pop-ballad similarity to Skyfall is not established. Theme/title associations alone do not suffice."},
+      {"grade":0,"keys":"A024","reason":"The catalog's apparent pop tags conflict with publisher Electronic metadata for this Boards of Canada recording and do not establish a Skyfall-like pop relationship."}
+    ],
+    "tobi-f04": [
+      {"grade":2,"keys":"A068 A098 A026 A097 A090 A127 A096 A013","reason":"Specific alternative-metal/nu-metal plus alternative-rock evidence supports the liked In the End seed; Metallica is not credited."},
+      {"grade":1,"keys":"A093 A133 A128 A114 A094 A029 A148 A016 A140 A086 A008 A057 A122","reason":"Alternative/soft/symphonic/progressive/funk rock, or a slower ballad, is partially related but lacks strong evidence of the seed's specific rap-rock/nu-metal style. Same artist alone does not prove close similarity to this particular song."}
+    ],
+    "tobi-f05": [
+      {"grade":2,"keys":"A118 A157 A131 A058 A119 A102 A132 A089 A091 A166 A088","reason":"Explicit energetic plus compatible alternative-rock/nu-metal/hard-rock evidence supports the requested mood and liked seed's rock style; 21 Savage is not credited."},
+      {"grade":1,"keys":"A012 A081 A152 A107 A020 A106 A111 A099 A059","reason":"Energy or broad adjacent rock is documented, but close Numb-like style is weaker. Instrumental electronic Linkin Park material, dominant jazz fusion, and punk/Latin/progressive crossover merit partial credit rather than an unqualified match."}
+    ],
+    "tobi-g01": [
+      {"grade":2,"keys":"A128 A114 A068 A026 A029 A148 A016 A140 A127 A122","reason":"Explicit alternative-rock or coherent alternative/rock evidence meets the requested style."}
+    ],
+    "tobi-g02": [
+      {"grade":2,"keys":"A032 A022 A051 A061 A055 A056 A023 A052 A034 A164","reason":"Multiple jazz, instrumental/vocal jazz, smooth/cool/modal/bop or jazz-fusion tags establish a strong match to the broad jazz request."}
+    ],
+    "tobi-g03": [
+      {"grade":2,"keys":"A070 A010 A066 A031 A101 A135 A076 A143 A007 A130","reason":"Hip-hop/rap and its documented regional or stylistic subgenres directly satisfy the broad hip-hop request."}
+    ],
+    "tobi-g04": [
+      {"grade":2,"keys":"A075 A064 A015 A062 A144 A110 A154 A040 A116 A121","reason":"Pop or a pop subgenre and explicit upbeat/uplifting tags support both requested aspects. A language restriction was not requested."}
+    ],
+    "tobi-g05": [
+      {"grade":2,"keys":"A074 A145 A067 A156 A146 A039 A147 A072 A155","reason":"R&B/Soul/neo-soul and explicit mellow/chill/laid-back/quiet-storm evidence support both genre and mood."},
+      {"grade":1,"keys":"A047","reason":"Mellow/chill is well supported, but dominant electronic/dance/house remix evidence makes its isolated R&B/Soul genre label uncertain; partial credit pending listening."}
+    ],
+    "tobi-p01": [
+      {"grade":2,"keys":"A095 A092 A048","reason":"Linkin Park rap/alternative/nu-metal or a specifically matching rap-rock/nu-metal crossover supports the Numb playlist seed."}
+    ],
+    "tobi-p02": [
+      {"grade":1,"keys":"A158 A027","reason":"Hip-hop/trap is relevant, but the actual Numb seed has no trap tag. A Savage surname, Numb title, or 21 savage user tag is not a verified 21 Savage credit or close track-style match."}
+    ],
+    "tobi-p03": [
+      {"grade":2,"keys":"A129 A165","reason":"Female-vocal piano/orchestral pop or soul/R&B ballad with soundtrack/romantic/melancholic evidence provides a concrete relationship to the Skyfall playlist seed."}
+    ],
+    "tobi-p04": [
+      {"grade":2,"keys":"A092 A087 A050 A091","reason":"Verified Linkin Park rock or specifically matching nu-metal/rap-rock crossover evidence fits the Numb and In the End playlist seeds."}
+    ],
+    "tobi-p05": [
+      {"grade":2,"keys":"A049 A048 A083","reason":"Rap-rock/nu-metal crossover and hip-hop evidence supports compatibility with at least the rock seed of the mixed playlist. Both genres need not be fused in every candidate."}
+    ]
+  },
+  "caveats": {
+    "A024":"Catalog tags mention Korean pop and BoA/female singers despite the Boards of Canada credit. Apple Music lists the recording on The Campfire Headphase, categorized Electronic. No source catalog record was edited.",
+    "A077":"Extensive extreme-metal user tags conflict with the recording's Pop publisher release. They are not accepted as musical relevance evidence. No source catalog record was edited.",
+    "A047":"R&B/Soul occurs amid much stronger electronic/house/dance-remix evidence. Audio review is needed to determine whether R&B is an appropriate genre label.",
+    "A073":"Dag Savage is not the credited artist 21 Savage; name substrings must not create an identity match.",
+    "A085":"By_Myslf is explicitly a nu-metal remix; no claim of identical sound to another recording is made.",
+    "A086":"The supplied metadata is symphonic alternative rock; close rap-rock similarity is unverified. Instrumental status is not invented from the title.",
+    "A093":"Piano/slow/quiet/ballad evidence makes My December a weaker match to the specific In the End seed despite the same artist and noisy nu-metal tags.",
+    "A094":"Nobody Can Save Me is tagged pop rock/synthpop/electronic rock; same artist alone is insufficient for full In the End similarity credit.",
+    "A099":"Session has explicit instrumental/electronic/breakbeat/wordless evidence. Energetic and nu-metal tags alone do not establish a close match to the vocal Numb seed.",
+    "A123":"An a cappella cover/medley can be related to Daft Punk without matching the original electronic/house arrangement closely.",
+    "A133":"Acoustic/unplugged/slow ballad evidence warrants partial specific-seed similarity despite alternative-metal/nu-metal tags.",
+    "A158":"21 savage appears in user tags, not this catalog record's credited artist list. No collaboration credit is invented from that tag.",
+    "A163":"An instrumental record named In The End is not assumed to be the Linkin Park recording; broad Rock/Alternative supports only partial relatedness.",
+    "A169":"A Miles Davis user tag and Bitches Brew title do not make this electronic/industrial/alternative record a verified jazz match."
+  },
+  "external_verification": {
+    "A024":["https://music.apple.com/us/album/the-campfire-headphase/81696254","https://music.apple.com/us/song/81696232"],
+    "A077":["https://www.shazam.com/song/1440661549/stuck-in-the-moment","https://music.apple.com/us/album/my-world-2-0/1472491692"]
+  }
+}

@@ -10,6 +10,7 @@ import React, {
 
 import QuickReplyButton from "../QuickReply";
 import PlaylistPanel from "../PlaylistPanel";
+import RecommendationFeedback from "../RecommendationFeedback";
 
 import { useSocket } from "../../contexts/SocketContext";
 import { UserContext } from "../../contexts/UserContext";
@@ -32,6 +33,7 @@ import {
   ChatMessage,
   PlaylistTrack,
   PlaylistLibrary,
+  RecommendationBatch,
 } from "../../types";
 
 
@@ -163,20 +165,28 @@ export default function ChatBox() {
         updateMessages(
           <AgentChatMessage
             key={chatMessagesRef.current.length}
-            feedback={
-              config.useFeedback
-                ? giveFeedback
-                : null
-            }
+            feedback={null}
             message={message.text}
             image_url={image_url}
           />
         );
       }
+      const annotation = message.dialogue_acts
+        ?.find((act) => act.intent === "RECOMMENDATIONS")
+        ?.annotations.find((item) => item.slot === "recommendations_json");
+      if (annotation) {
+        try {
+          const batch = JSON.parse(annotation.value) as RecommendationBatch;
+          if (typeof batch.batch_id === "string" && Array.isArray(batch.tracks)) {
+            updateMessages(<RecommendationFeedback key={`feedback-${batch.batch_id}`} batch={batch} onFeedback={giveFeedback} />);
+          }
+        } catch (error) {
+          console.error("Could not parse recommendations:", error);
+        }
+      }
     },
     [
       giveFeedback,
-      config,
       updateMessages,
     ]
   );

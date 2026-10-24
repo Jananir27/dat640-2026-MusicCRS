@@ -13,13 +13,16 @@ import math
 import re
 from threading import Lock
 from typing import Any
+from uuid import uuid4
 
 from retrieval.base import RetrievalModule
 from retrieval.data_loader import MusicCatalogLoader
 from retrieval.final import FinalRetriever
 from musiccrs.music_features import (
-    extract_preferences, profile_tracks, select_diverse, select_playlist_matches, track_style,
+    classify_tags, extract_preferences, profile_tracks, select_diverse, select_playlist_matches, track_style,
 )
+from musiccrs.relevance_feedback import FeedbackState, RankedTrack, RocchioFeedback
+from musiccrs.recommendation_explanations import explain_recommendation
 
 
 _TOKEN_RE = re.compile(r"[^a-z0-9]+")
@@ -37,6 +40,14 @@ class ConversationState:
     last_question_track_id: str | None = None
     last_question_artist: str | None = None
     created_playlist_name: str | None = None
+    feedback: FeedbackState = field(default_factory=FeedbackState)
+    last_recommendation_ids: list[str] = field(default_factory=list)
+    last_recommendation_query: str = ""
+    recommendation_batches: dict[str, list[str]] = field(default_factory=dict)
+    recommendation_payload: dict | None = None
+    emit_recommendations: bool = False
+    ranking_evidence: dict[str, dict] = field(default_factory=dict)
+    skip_recommendation_ids: set[str] = field(default_factory=set)
 
 
 def _values(value: Any) -> list[str]:
@@ -93,9 +104,11 @@ class MusicService:
         self,
         catalog: MusicCatalogLoader | None = None,
         retriever: RetrievalModule | None = None,
+        embedding_provider=None,
     ) -> None:
         self.catalog = catalog or MusicCatalogLoader()
         self._retriever = retriever
+        self._embedding_provider = embedding_provider
         self._retriever_lock = Lock()
         self._r5_entities = None
         self._r5_entities_lock = Lock()
@@ -240,6 +253,7 @@ class MusicService:
         request: str | None = None,
         new_playlist: bool = False,
         use_playlist_context: bool = True,
+        direct_query: bool = False,
     ) -> list[dict]:
         """Run final G1 retrieval and filter playlist exclusions after ranking.
 
@@ -251,7 +265,9 @@ class MusicService:
         excluded = exclude_ids or set()
         retriever = self._get_retriever()
         request = request or query
-        if isinstance(retriever, FinalRetriever):
+        if isinstance(retriever, FinalRetriever) and direct_query:
+            candidate_ids = retriever.retrieve_query(query, topk=20)
+        elif isinstance(retriever, FinalRetriever):
             history = [] if state is None or new_playlist else state.recent_retrieval_requests[-2:]
             playlist_ids = (
                 [] if state is None or new_playlist or not use_playlist_context
@@ -276,10 +292,14 @@ class MusicService:
 
         tracks = []
         for track_id in dict.fromkeys(candidate_ids):
-            if track_id in excluded:
+            if track_id in excluded or (state and track_id in state.skip_recommendation_ids):
                 continue
             metadata = self.get_track(track_id)
             if metadata is not None:
+                if state and state.feedback.excludes(metadata):
+                    continue
+                if state and state.feedback.votes.get(track_id) == 1:
+                    continue  # keep its vector as feedback, suggest additional tracks
                 tracks.append(metadata)
                 if len(tracks) == limit:
                     break
@@ -339,7 +359,8 @@ class MusicService:
             request=request,
             use_playlist_context=False,
         )
-        return select_playlist_matches(candidates, seeds, limit, request)
+        ranked = select_playlist_matches(candidates, seeds, len(candidates), request)
+        return self.rerank_feedback(ranked, state, "; ".join(query_parts), limit)
 
     def recommend_for_playlist_description(
         self,
@@ -357,7 +378,79 @@ class MusicService:
             request=request or query,
             new_playlist=True,
         )
-        return select_diverse(candidates, limit, genres, moods)
+        ranked = select_diverse(candidates, len(candidates), genres, moods)
+        return self.rerank_feedback(ranked, state, query, limit) if state else ranked[:limit]
+
+    def rerank_feedback(self, tracks: list[dict], state: ConversationState, query: str, limit: int = 5):
+        """Adapter for the existing ID-only G1 output; partners can use RankedTrack directly.
+
+        A rank prior is explicitly identified as such; it is not a fabricated
+        BM25 or semantic score. Only encode queries after actual vector feedback.
+        """
+        if not tracks:
+            state.ranking_evidence = {}
+            return []
+        embeddings, query_vector = {}, None
+        provider = self._embedding_provider or self._get_retriever()
+        if state.feedback.votes and hasattr(provider, "get_track_embeddings"):
+            ids = list(dict.fromkeys([track["track_id"] for track in tracks] + list(state.feedback.votes)))
+            embeddings = provider.get_track_embeddings(ids)
+            if hasattr(provider, "encode_query"):
+                query_vector = provider.encode_query(query)
+        candidates = [RankedTrack(track["track_id"], track, 1 - rank / len(tracks),
+                                  scores={"rank_prior": 1 - rank / len(tracks)})
+                      for rank, track in enumerate(tracks)]
+        ranked = RocchioFeedback().rerank(candidates, state.feedback, embeddings, query_vector,
+                                          excluded_ids=state.skip_recommendation_ids | {
+                                              track_id for track_id, vote in state.feedback.votes.items() if vote == 1})
+        state.ranking_evidence = {candidate.track_id: {**candidate.evidence, "scores": candidate.scores}
+                                  for candidate in ranked}
+        return [candidate.metadata for candidate in ranked[:limit]]
+
+    def recommend_from_description(self, state: ConversationState, query: str, limit: int = 5):
+        """Part 4 discovery can start without a seed playlist."""
+        # Command filler is not a musical preference: 'some' otherwise favors
+        # literal catalog titles such as 'Some' and 'Some Commas'.
+        search_query = re.sub(
+            r"^(?:(?:please|could you|can you|would you)\s+)*(?:recommend|suggest)"
+            r"(?:\s+me)?(?:\s+(?:some|a few|more))?\s+", "", query, flags=re.I,
+        )
+        search_query = re.sub(r"\b(?:songs?|tracks?|music)\b", " ", search_query, flags=re.I)
+        search_query = " ".join(search_query.split()).strip(" .!?;") or query
+        genres, moods = extract_preferences(search_query)
+        tracks = self.recommend_tracks(search_query, limit=20, state=state, request=search_query,
+                                       exclude_ids=set(state.playlist_ids), direct_query=True)
+        # An explicit genre request needs actual catalog genre evidence; do
+        # not fill its slots with unrelated tracks promoted by feedback.
+        if genres:
+            tracks = [track for track in tracks if set(genres) & classify_tags(
+                track.get("tag_list", "").split(",") if isinstance(track.get("tag_list"), str)
+                else (track.get("tag_list") or []))[0]]
+        ranked = select_diverse(tracks, len(tracks), genres, moods)
+        return self.rerank_feedback(ranked, state, search_query, limit)
+
+    def remember_recommendations(self, state: ConversationState, tracks: list[dict], query: str):
+        """Bind UI ratings to an immutable displayed batch, including older messages."""
+        batch_id = str(uuid4())
+        ids = [track["track_id"] for track in tracks]
+        state.last_recommendation_ids = ids
+        state.last_recommendation_query = query
+        state.recommendation_batches[batch_id] = ids[:]
+        while len(state.recommendation_batches) > 20:
+            del state.recommendation_batches[next(iter(state.recommendation_batches))]
+        playlist = [self.get_track(track_id) for track_id in state.playlist_ids]
+        playlist = [track for track in playlist if track]
+        records = []
+        for track in tracks:
+            reason, facts = explain_recommendation(
+                track, query, playlist, state.feedback, state.ranking_evidence.get(track["track_id"]),
+                self.catalog.metadata_dict,
+            )
+            records.append({**self.display_record(track["track_id"]), "explanation": reason,
+                            "evidence": facts, "scores": state.ranking_evidence.get(track["track_id"], {}).get("scores", {})})
+        state.recommendation_payload = {"batch_id": batch_id, "tracks": records}
+        state.emit_recommendations = True
+        return records
 
     def get_playlist(self, state: ConversationState) -> list[str]:
         return list(state.playlist_ids)

@@ -96,6 +96,13 @@ class FinalRetrievalTests(unittest.TestCase):
             self.assertIs(service._get_retriever(), self.retriever)
         factory.assert_called_once_with(catalog=self.catalog)
 
+    def test_direct_discovery_keeps_g1_stages_without_dialogue_header_words(self):
+        result = self.retriever.retrieve_query("rock", 5)
+        self.assertEqual(len(result), 5)
+        self.assertTrue(all(query == "rock" for query, _ in self.lexical.calls))
+        self.assertEqual([k for _, k in self.lexical.calls], [50, 100])
+        self.assertEqual([k for _, k in self.dense.calls], [50, 100])
+
     def test_missing_artifact_fails_without_fallback(self):
         with tempfile.TemporaryDirectory() as directory:
             with self.assertRaisesRegex(RuntimeError, "retrieval.export_final"):

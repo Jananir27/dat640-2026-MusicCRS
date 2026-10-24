@@ -3,10 +3,13 @@
 from __future__ import annotations
 
 from collections import Counter
+import json
 import re
 
-from musiccrs.music_features import classify_tags, extract_preferences, track_style
+from musiccrs.music_features import extract_preferences
 from musiccrs.music_service import ConversationState, MusicService
+from musiccrs.feedback_language import FeedbackUpdate, interpret_feedback, split_exclusion_request
+from musiccrs.relevance_feedback import FeedbackState, name_key
 
 
 _WORD_NUMBERS = {
@@ -125,9 +128,28 @@ class MusicIntelligence:
         if not message:
             return None
 
-        # A new recommendation request supersedes earlier suggestions. Do not
-        # mistake e.g. "recommend rock, no Linkin Park" for rejecting the old list.
+        # A request for more songs like a numbered track also expresses
+        # positive feedback about that track.
+        numbered_feedback_request = re.match(
+            r"^(?:recommend|suggest)\s+(?:me\s+)?more\s+"
+            r"(?:songs?|tracks?)\s+like\s+(?:track|song)\s+\d+\b",
+            message,
+            re.I,
+        )
+        if numbered_feedback_request and hasattr(self.service, "catalog"):
+            feedback = self._handle_feedback(message, state)
+            if feedback is not None:
+                return feedback
+
+        # Fresh recommendation requests must not select old suggestions.
         if not self._is_recommendation_request(message):
+            feedback = (
+                self._handle_feedback(message, state)
+                if hasattr(self.service, "catalog")
+                else None
+            )
+            if feedback is not None:
+                return feedback
             selection = self._handle_pending_selection(message, state)
             if selection is not None:
                 return selection
@@ -157,6 +179,71 @@ class MusicIntelligence:
 
         return None
 
+    def _apply_feedback(self, update: FeedbackUpdate, state: ConversationState):
+        for track_id in update.likes:
+            state.feedback.rate(track_id, True)
+        for track_id in update.dislikes:
+            state.feedback.rate(track_id, False)
+        for artist in update.liked_artists:
+            state.feedback.rate_artist(artist, True)
+        for artist in update.disliked_artists:
+            state.feedback.rate_artist(artist, False)
+        state.feedback.excluded_track_ids.update(update.excluded_ids)
+        state.feedback.excluded_artists.update(name_key(a) for a in update.excluded_artists)
+
+    def _handle_feedback(self, message: str, state: ConversationState):
+        if message.startswith("/feedback "):
+            try:
+                data = json.loads(message[len("/feedback "):])
+                if not isinstance(data, dict) or len(message) > 5000:
+                    raise ValueError
+                batch_id, track_id, event = data["batch_id"], data["track_id"], data["event"]
+                ids = state.recommendation_batches.get(batch_id, [])
+                if track_id not in ids or event not in {"thumbs_up", "thumbs_down"}:
+                    raise ValueError
+                if self.service.get_track(track_id) is None:
+                    raise ValueError
+                state.feedback.rate(track_id, event == "thumbs_up")
+                label = self.service.display_track(self.service.get_track(track_id))
+                return f"Noted: you {'liked' if event == 'thumbs_up' else 'disliked'} {label}. I'll use that in subsequent recommendations.", False
+            except (ValueError, TypeError, KeyError):
+                return "That rating does not match an available recommendation. Please request a fresh set of suggestions.", False
+        update = interpret_feedback(
+            message, state.last_recommendation_ids, self.service.catalog.metadata_dict,
+            self._selected_positions, state.last_question_track_id,
+        )
+        if update is None:
+            return None
+        if update.error:
+            return update.error, False
+        if update.reset:
+            state.feedback = FeedbackState()
+            state.skip_recommendation_ids.clear()
+            return "I've cleared your feedback and exclusions for this conversation.", False
+        self._apply_feedback(update, state)
+        if update.different:
+            state.skip_recommendation_ids.update(state.last_recommendation_ids)
+        if update.recommend:
+            query = state.last_recommendation_query
+            if not query and update.likes:
+                labels = [self.service.display_track(self.service.get_track(track_id)) for track_id in update.likes]
+                query = "Recommend songs similar to " + "; ".join(labels)
+            if not query:
+                return "What genre, artist, or mood should I use for the next recommendations?", False
+            return self._recommend(query, state)
+        parts = []
+        if update.likes:
+            parts.append("liked " + "; ".join(self.service.display_track(self.service.get_track(i)) for i in dict.fromkeys(update.likes)))
+        if update.dislikes:
+            parts.append("disliked " + "; ".join(self.service.display_track(self.service.get_track(i)) for i in dict.fromkeys(update.dislikes)))
+        if update.excluded_ids:
+            parts.append("excluded the selected tracks")
+        if update.liked_artists:
+            parts.append("liked artists: " + ", ".join(dict.fromkeys(update.liked_artists)))
+        if update.disliked_artists or update.excluded_artists:
+            parts.append("excluded artists: " + ", ".join(dict.fromkeys(update.disliked_artists + update.excluded_artists)))
+        return "Noted: " + "; ".join(parts) + ". I'll use this feedback in subsequent recommendations.", False
+
     def _handle_help(self, message: str) -> str | None:
         """R3: Explain MusicCRS functionality using natural language."""
         lowered = message.casefold().strip()
@@ -181,6 +268,11 @@ class MusicIntelligence:
             "• clear your playlist — “Clear my playlist”\n"
             "• answer questions about tracks and artists\n"
             "• recommend songs based on your current playlist\n"
+            "• discover music — “Recommend some jazz music”\n"
+            "• guide recommendations — “I like track 2 but I don't like track 4”\n"
+            "• exclude an artist — “Recommend rock but exclude Linkin Park”\n"
+            "• try another set — “Show me something different”\n"
+            "• reset your preferences — “Reset my feedback”\n"
             "• create a playlist from a description, such as "
             "“Create a workout playlist”."
         )
@@ -1012,6 +1104,8 @@ class MusicIntelligence:
     def _is_recommendation_request(message: str) -> bool:
         lowered = message.casefold()
         return message.strip() == "/recommend" or bool(
+            re.match(r"^(?:(?:please|could you|can you)\s+)*(?:recommend|suggest)\b", lowered)
+        ) or bool(
             re.search(r"\b(recommend(?:ation)?s?|suggest(?:ion)?s?)\b", lowered)
             and re.search(r"\b(song|songs|track|tracks|music|something|playlist|few more|more like|like these)\b", lowered)
         ) or bool(
@@ -1030,15 +1124,41 @@ class MusicIntelligence:
         )
 
     def _recommend(self, message: str, state: ConversationState) -> tuple[str, bool]:
-        if not state.playlist_ids:
+        original_message = message
+        exclusion = None
+
+        # Preserve compatibility with the existing lightweight Task 6 test service.
+        if not state.playlist_ids and not hasattr(self.service, "get_r5_entities"):
             return "Add at least one song to your playlist first, and I can suggest related tracks.", False
 
+        if hasattr(self.service, "catalog"):
+            message, exclusion = split_exclusion_request(message)
+            if exclusion:
+                update = interpret_feedback(
+                    exclusion,
+                    state.last_recommendation_ids,
+                    self.service.catalog.metadata_dict,
+                    self._selected_positions,
+                    state.last_question_track_id,
+                )
+                if update is None or update.error:
+                    return (
+                        update.error if update
+                        else "Which artist or track should I exclude?",
+                        False,
+                    )
+                self._apply_feedback(update, state)
         # Part 4 is opt-in. Keep the original R6 algorithm for bare /recommend.
-        if self._advanced_recommender is not None and message.strip() != "/recommend":
+        if (
+            self._advanced_recommender is not None
+            and state.playlist_ids
+            and message.strip() != "/recommend"
+            and (not state.feedback.has_preferences or bool(exclusion))
+        ):
             # Old pending choices must not survive a new recommendation request.
             state.pending_recommendation_ids.clear()
             try:
-                result = self._advanced_recommender(message, state)
+                result = self._advanced_recommender(original_message, state)
             except Exception:
                 # Never let an LLM/network failure produce unfiltered suggestions.
                 import logging
@@ -1049,10 +1169,19 @@ class MusicIntelligence:
                 )
 
             recommendations = result.get("recommendations", [])
+            if hasattr(self.service, "catalog"):
+                recommendations = [
+                    track for track in recommendations
+                    if not state.feedback.excludes(track)
+                ]
             if not recommendations:
                 return (
                     "I couldn't find catalog tracks satisfying those preferences "
                     "and exclusions. Please try a broader request.", False
+                )
+            if hasattr(self.service, "remember_recommendations"):
+                self.service.remember_recommendations(
+                    state, recommendations, original_message
                 )
             state.pending_recommendation_ids = [track["track_id"] for track in recommendations]
             state.pending_disambiguation_ids.clear()
@@ -1074,6 +1203,9 @@ class MusicIntelligence:
             )
 
         requested_genres, requested_moods = extract_preferences(message)
+        named_artists = self.service.get_r5_entities().mentions(message, "artist") if not state.playlist_ids else []
+        if not state.playlist_ids and not (requested_genres or requested_moods or named_artists or state.feedback.has_preferences):
+            return "Add at least one song to your playlist first, and I can suggest related tracks.", False
         retrieval_request = "Recommend songs based on my playlist"
         if requested_genres or requested_moods:
             details = []
@@ -1082,64 +1214,35 @@ class MusicIntelligence:
             if requested_moods:
                 details.append("moods: " + ", ".join(sorted(requested_moods)))
             retrieval_request += "; preferences: " + "; ".join(details)
-        recommendations = self.service.recommend_from_playlist(
-            state, limit=5, request=retrieval_request
-        )
+        if state.playlist_ids:
+            recommendations = self.service.recommend_from_playlist(state, limit=5, request=retrieval_request)
+        else:
+            recommendations = self.service.recommend_from_description(state, message, limit=5)
+        # 'Different' skips a displayed batch for this retrieval, not a lasting dislike.
+        state.skip_recommendation_ids.clear()
         if not recommendations:
+            state.pending_recommendation_ids.clear()
+            state.last_recommendation_ids.clear()
             return "I couldn't find enough related tracks in the catalog for your playlist.", False
         state.pending_recommendation_ids = [track["track_id"] for track in recommendations]
         state.pending_disambiguation_ids.clear()
         state.pending_disambiguation_action = None
-        rendered = []
-        seed_genres: set[str] = set()
-        seed_moods: set[str] = set()
-        seed_styles: set[str] = set()
-        seed_artists = {
-            artist.casefold()
-            for track_id in state.playlist_ids
-            if (seed := self.service.get_track(track_id)) is not None
-            for artist in self.service.display_value(seed.get("artist_name")).split(", ")
-            if artist
-        }
-        for track_id in state.playlist_ids:
-            seed = self.service.get_track(track_id)
-            if seed:
-                genres, moods = classify_tags(
-                    self.service.display_value(seed.get("tag_list")).split(", ")
-                )
-                seed_genres.update(genres)
-                seed_moods.update(moods)
-                seed_styles.update(style for style, weight in track_style(seed).items() if weight > 1)
-        for index, track in enumerate(recommendations, start=1):
-            genres, moods = classify_tags(
-                self.service.display_value(track.get("tag_list")).split(", ")
+        if hasattr(self.service, "remember_recommendations"):
+            records = self.service.remember_recommendations(
+                state, recommendations, original_message
             )
-            common_genres = sorted(seed_genres & genres)
-            common_moods = sorted(seed_moods & moods)
-            common_styles = sorted(seed_styles & set(track_style(track)))
-            candidate_artists = {
-                artist.casefold()
-                for artist in self.service.display_value(track.get("artist_name")).split(", ")
-                if artist
-            }
-            if seed_artists & candidate_artists:
-                reason = "; by an artist already in your playlist"
-                if common_styles:
-                    reason += f"; shares styles: {', '.join(common_styles[:3])}"
-            elif common_styles:
-                reason = f"; shares styles: {', '.join(common_styles[:3])}"
-            elif common_genres:
-                reason = f"; shares genres: {', '.join(common_genres[:3])}"
-            elif common_moods:
-                reason = f"; shares moods: {', '.join(common_moods[:3])}"
-            else:
-                reason = "; matched to your playlist's track and style metadata"
-            rendered.append(f"{index}. {self.service.display_track(track)}{reason}")
+        else:
+            records = [
+                {"explanation": "catalog recommendation"}
+                for _ in recommendations
+            ]
+        rendered = [f"{index}. {self.service.display_track(track)}; {record['explanation']}"
+                    for index, (track, record) in enumerate(zip(recommendations, records), 1)]
         count_note = ""
         if len(recommendations) < 3:
             count_note = " I found fewer than three eligible matches."
         return (
-            "Here are songs related to your playlist:\n"
+            ("Here are songs related to your playlist:\n" if state.playlist_ids else "Here are catalog recommendations for your request:\n")
             + "\n".join(rendered)
             + count_note
             + "\nYou can say ‘add all’, ‘add the first two’, or ‘add them except the one by [artist]’.",

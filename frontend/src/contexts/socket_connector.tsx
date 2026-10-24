@@ -69,8 +69,10 @@ export default function useSocketConnection(
     socket?.emit("message", message);
   };
 
-  const giveFeedback = (message: string, event: string) => {
-    socket?.emit("feedback", { message: message, event: event });
+  const giveFeedback = (message: string, event: string, trackId?: string, batchId?: string) => {
+    if (trackId && batchId) {
+      socket?.emit("feedback", { event, track_id: trackId, batch_id: batchId });
+    }
   };
 
   const onMessage = (callback: (response: ChatMessage) => void) => {
