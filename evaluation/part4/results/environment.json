@@ -1,0 +1,17 @@
+{
+  "python": "3.14.7",
+  "platform": "macOS-26.4.1-arm64-arm-64bit-Mach-O",
+  "packages": {
+    "numpy": "2.5.3",
+    "torch": "2.14.0",
+    "sentence-transformers": "6.0.1",
+    "datasets": "5.0.1",
+    "bm25s": "0.3.11",
+    "scikit-learn": "1.9.1"
+  },
+  "model": "Qwen/Qwen3-Embedding-0.6B",
+  "dataset": "talkpl-ai/TalkPlayData-Challenge-Track-Embeddings",
+  "embedding_field": "metadata-qwen3_embedding_0.6b",
+  "cpu_threads": 4,
+  "network_inference": false
+}

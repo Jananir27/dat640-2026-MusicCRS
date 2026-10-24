@@ -50,6 +50,11 @@ export type PlaylistTrack = {
   album_name?: string;
 };
 
+export type RecommendationBatch = {
+  batch_id: string;
+  tracks: (PlaylistTrack & { explanation: string })[];
+};
+
 export type SavedPlaylist = {
   id: string;
   name: string;

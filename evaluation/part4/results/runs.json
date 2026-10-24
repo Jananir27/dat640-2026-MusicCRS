@@ -1,0 +1,2935 @@
+{
+  "schema_version": 1,
+  "queries": [
+    {
+      "id": "tobi-g01",
+      "category": "genre",
+      "query": "Recommend alternative rock music",
+      "genres": [
+        "alternative",
+        "rock"
+      ],
+      "playlist_ids": [],
+      "liked_ids": [],
+      "disliked_ids": [],
+      "excluded_ids": [],
+      "search_text": "Recommend alternative rock music"
+    },
+    {
+      "id": "tobi-g02",
+      "category": "genre",
+      "query": "Recommend jazz music",
+      "genres": [
+        "jazz"
+      ],
+      "playlist_ids": [],
+      "liked_ids": [],
+      "disliked_ids": [],
+      "excluded_ids": [],
+      "search_text": "Recommend jazz music"
+    },
+    {
+      "id": "tobi-g03",
+      "category": "genre",
+      "query": "Recommend hip hop music",
+      "genres": [
+        "hip hop"
+      ],
+      "playlist_ids": [],
+      "liked_ids": [],
+      "disliked_ids": [],
+      "excluded_ids": [],
+      "search_text": "Recommend hip hop music"
+    },
+    {
+      "id": "tobi-g04",
+      "category": "genre",
+      "query": "Recommend upbeat pop music",
+      "genres": [
+        "pop"
+      ],
+      "moods": [
+        "upbeat"
+      ],
+      "playlist_ids": [],
+      "liked_ids": [],
+      "disliked_ids": [],
+      "excluded_ids": [],
+      "search_text": "Recommend upbeat pop music"
+    },
+    {
+      "id": "tobi-g05",
+      "category": "genre",
+      "query": "Recommend mellow R&B music",
+      "genres": [
+        "r&b"
+      ],
+      "moods": [
+        "chill"
+      ],
+      "playlist_ids": [],
+      "liked_ids": [],
+      "disliked_ids": [],
+      "excluded_ids": [],
+      "search_text": "Recommend mellow R&B music"
+    },
+    {
+      "id": "tobi-a01",
+      "category": "artist_similarity",
+      "query": "Recommend music similar to Linkin Park",
+      "artists": [
+        "Linkin Park"
+      ],
+      "genres": [
+        "rock",
+        "metal"
+      ],
+      "styles": [
+        "nu metal",
+        "alternative metal",
+        "alternative rock"
+      ],
+      "playlist_ids": [],
+      "liked_ids": [],
+      "disliked_ids": [],
+      "excluded_ids": [],
+      "search_text": "Recommend music similar to Linkin Park"
+    },
+    {
+      "id": "tobi-a02",
+      "category": "artist_similarity",
+      "query": "Recommend music similar to 21 Savage",
+      "artists": [
+        "21 Savage"
+      ],
+      "genres": [
+        "hip hop"
+      ],
+      "playlist_ids": [],
+      "liked_ids": [],
+      "disliked_ids": [],
+      "excluded_ids": [],
+      "search_text": "Recommend music similar to 21 Savage"
+    },
+    {
+      "id": "tobi-a03",
+      "category": "artist_similarity",
+      "query": "Recommend music similar to Adele",
+      "artists": [
+        "Adele"
+      ],
+      "genres": [
+        "pop",
+        "soul"
+      ],
+      "playlist_ids": [],
+      "liked_ids": [],
+      "disliked_ids": [],
+      "excluded_ids": [],
+      "search_text": "Recommend music similar to Adele"
+    },
+    {
+      "id": "tobi-a04",
+      "category": "artist_similarity",
+      "query": "Recommend music similar to Miles Davis",
+      "artists": [
+        "Miles Davis"
+      ],
+      "genres": [
+        "jazz"
+      ],
+      "playlist_ids": [],
+      "liked_ids": [],
+      "disliked_ids": [],
+      "excluded_ids": [],
+      "search_text": "Recommend music similar to Miles Davis"
+    },
+    {
+      "id": "tobi-a05",
+      "category": "artist_similarity",
+      "query": "Recommend music similar to Daft Punk",
+      "artists": [
+        "Daft Punk"
+      ],
+      "genres": [
+        "electronic",
+        "dance",
+        "house"
+      ],
+      "playlist_ids": [],
+      "liked_ids": [],
+      "disliked_ids": [],
+      "excluded_ids": [],
+      "search_text": "Recommend music similar to Daft Punk"
+    },
+    {
+      "id": "tobi-p01",
+      "category": "playlist_context",
+      "query": "Recommend more songs that fit this rock playlist",
+      "playlist": [
+        {
+          "title": "Numb",
+          "artist": "Linkin Park"
+        }
+      ],
+      "genres": [
+        "rock",
+        "metal"
+      ],
+      "styles": [
+        "nu metal",
+        "alternative metal",
+        "alternative rock"
+      ],
+      "playlist_ids": [
+        "ffc14c3d-21b1-4938-b58e-28c21c4d39a3"
+      ],
+      "liked_ids": [],
+      "disliked_ids": [],
+      "excluded_ids": [],
+      "search_text": "Recommend more songs that fit this rock playlist; playlist seed: Numb; Linkin Park; punk, 2003, hard rock, emotional, hybrid, great song, favorite, energetic, fucking awesome, new metal, alternative rock, 00s, amazing, metal, favourites, sad, favourite, american, rap metal, crossover, awesome, alternative metal, rock, nu metal, english, punk rock, sad but true, favourite songs, meteora, the best, 2000s, male vocalist, Alternative, favorites, Rock, best, lyrics, legend, pop, Alternative Rock, seen live, memories, party, soundtrack of my life, grunge, good, linkin park, alternative, favorite songs, rapcore, love, linkin park - numb, electronic, nu-metal, emo, all time favourites, hip-hop, numb, male vocalists, angry, rap, love it"
+    },
+    {
+      "id": "tobi-p02",
+      "category": "playlist_context",
+      "query": "Recommend more hip hop for my playlist",
+      "playlist": [
+        {
+          "title": "Numb",
+          "artist": "21 Savage"
+        }
+      ],
+      "genres": [
+        "hip hop"
+      ],
+      "playlist_ids": [
+        "625d9682-8214-4391-8689-fd14b87d01e8"
+      ],
+      "liked_ids": [],
+      "disliked_ids": [],
+      "excluded_ids": [],
+      "search_text": "Recommend more hip hop for my playlist; playlist seed: Numb; 21 Savage; 21 savage, Hip-Hop/Rap"
+    },
+    {
+      "id": "tobi-p03",
+      "category": "playlist_context",
+      "query": "Recommend more pop for this playlist",
+      "playlist": [
+        {
+          "title": "Skyfall - Full Length",
+          "artist": "Adele"
+        }
+      ],
+      "genres": [
+        "pop",
+        "soul"
+      ],
+      "playlist_ids": [
+        "14fa3c41-c129-44a5-8bc7-0e23f9aca3f4"
+      ],
+      "liked_ids": [],
+      "disliked_ids": [],
+      "excluded_ids": [],
+      "search_text": "Recommend more pop for this playlist; playlist seed: Skyfall - Full Length; Adele; loved, easy listening, soul, epic, adele, english, bond, strings, 2010s, sophisticated, youtube, 007, chamber pop, orchestral, best of 2012, singer-songwriter, 10s pop, indie, road, chills, overrated, james bond, love at first listen, adele adkins, soundtracks, 2012 pop, ost, contralto, classy, fucking awesome, 00s, piano, bond themes, haunting, sad, british, perfect, drums, chillout, 10s, bond songs, symphonic, world music, soundtrack, united kingdom, world, ballad, diva, relaxing, blues, vocal, adult alternative, slow, winter, 2013, dangerous, walking the streets at night with your headphones on, catchy, favourite, female vocals, orchestral pop, movie theme, female vocal, female vocalists, serenity, blue eyed soul, melancholic, 2012, songs that you wanna listen to over and over again, theme, electronic, film soundtrack, pop rock, bond title tracks, 10 of 10 stars, acoustic, best original song oscar winner, beautiful, kanal 65, skyfall, amazing, film, awesome, classic rock, female vocalist, dreamy, 5 stars, melancholy, movie, pop, chill, fip, oscar winner, intense, memories, driving, bond titles, alternative pop, masterpiece, Pop"
+    },
+    {
+      "id": "tobi-p04",
+      "category": "playlist_context",
+      "query": "Recommend rock that fits both songs in my playlist",
+      "playlist": [
+        {
+          "title": "Numb",
+          "artist": "Linkin Park"
+        },
+        {
+          "title": "In the End",
+          "artist": "Linkin Park"
+        }
+      ],
+      "genres": [
+        "rock",
+        "metal"
+      ],
+      "styles": [
+        "nu metal",
+        "alternative rock"
+      ],
+      "playlist_ids": [
+        "ffc14c3d-21b1-4938-b58e-28c21c4d39a3",
+        "407bbe04-ff88-4dfe-8114-10a95b523592"
+      ],
+      "liked_ids": [],
+      "disliked_ids": [],
+      "excluded_ids": [],
+      "search_text": "Recommend rock that fits both songs in my playlist; playlist seed: Numb; Linkin Park; punk, 2003, hard rock, emotional, hybrid, great song, favorite, energetic, fucking awesome, new metal, alternative rock, 00s, amazing, metal, favourites, sad, favourite, american, rap metal, crossover, awesome, alternative metal, rock, nu metal, english, punk rock, sad but true, favourite songs, meteora, the best, 2000s, male vocalist, Alternative, favorites, Rock, best, lyrics, legend, pop, Alternative Rock, seen live, memories, party, soundtrack of my life, grunge, good, linkin park, alternative, favorite songs, rapcore, love, linkin park - numb, electronic, nu-metal, emo, all time favourites, hip-hop, numb, male vocalists, angry, rap, love it; playlist seed: In the End, In The End; Linkin Park; punk, hard rock, great lyrics, in the end, usa, favorite, fucking awesome, new metal, angry, linkin park - in the end, alternative rock, songs that mean a lot to me personally, 00s, amazing, piano, good music, metal, favourites, sad, favourite, great, american, rap metal, crossover, awesome, alternative metal, rock, nu metal, cool, english, Metal, favourite songs, rap-metal, 2000s, 2000, Alternative, favorites, melancholy, linkin, rap rock, Rock, best, end, pop, 2001, seen live, memories, in the end linkin park, good, classic, linkin park, alternative, favorite songs, rapcore, love, electronic, nu-metal, emo, pop rock, chester bennington, progressive rock, hip-hop, male vocalists, hybrid theory, post-grunge, 10 of 10 stars, rap, powerful, love it, mike shinoda"
+    },
+    {
+      "id": "tobi-p05",
+      "category": "playlist_context",
+      "query": "Recommend music for my mixed rock and hip hop playlist",
+      "playlist": [
+        {
+          "title": "Numb",
+          "artist": "Linkin Park"
+        },
+        {
+          "title": "Numb",
+          "artist": "21 Savage"
+        }
+      ],
+      "genres": [
+        "rock",
+        "hip hop"
+      ],
+      "playlist_ids": [
+        "ffc14c3d-21b1-4938-b58e-28c21c4d39a3",
+        "625d9682-8214-4391-8689-fd14b87d01e8"
+      ],
+      "liked_ids": [],
+      "disliked_ids": [],
+      "excluded_ids": [],
+      "search_text": "Recommend music for my mixed rock and hip hop playlist; playlist seed: Numb; Linkin Park; punk, 2003, hard rock, emotional, hybrid, great song, favorite, energetic, fucking awesome, new metal, alternative rock, 00s, amazing, metal, favourites, sad, favourite, american, rap metal, crossover, awesome, alternative metal, rock, nu metal, english, punk rock, sad but true, favourite songs, meteora, the best, 2000s, male vocalist, Alternative, favorites, Rock, best, lyrics, legend, pop, Alternative Rock, seen live, memories, party, soundtrack of my life, grunge, good, linkin park, alternative, favorite songs, rapcore, love, linkin park - numb, electronic, nu-metal, emo, all time favourites, hip-hop, numb, male vocalists, angry, rap, love it; playlist seed: Numb; 21 Savage; 21 savage, Hip-Hop/Rap"
+    },
+    {
+      "id": "tobi-e01",
+      "category": "exclusion",
+      "query": "Recommend alternative rock but exclude Linkin Park",
+      "genres": [
+        "alternative",
+        "rock"
+      ],
+      "excluded_artists": [
+        "Linkin Park"
+      ],
+      "playlist_ids": [],
+      "liked_ids": [],
+      "disliked_ids": [],
+      "excluded_ids": [],
+      "search_text": "Recommend alternative rock"
+    },
+    {
+      "id": "tobi-e02",
+      "category": "exclusion",
+      "query": "Recommend hip hop without 21 Savage",
+      "genres": [
+        "hip hop"
+      ],
+      "excluded_artists": [
+        "21 Savage"
+      ],
+      "playlist_ids": [],
+      "liked_ids": [],
+      "disliked_ids": [],
+      "excluded_ids": [],
+      "search_text": "Recommend hip hop"
+    },
+    {
+      "id": "tobi-e03",
+      "category": "exclusion",
+      "query": "Recommend pop but exclude Adele",
+      "genres": [
+        "pop"
+      ],
+      "excluded_artists": [
+        "Adele"
+      ],
+      "playlist_ids": [],
+      "liked_ids": [],
+      "disliked_ids": [],
+      "excluded_ids": [],
+      "search_text": "Recommend pop"
+    },
+    {
+      "id": "tobi-e04",
+      "category": "exclusion",
+      "query": "Recommend metal without Metallica",
+      "genres": [
+        "metal"
+      ],
+      "excluded_artists": [
+        "Metallica"
+      ],
+      "playlist_ids": [],
+      "liked_ids": [],
+      "disliked_ids": [],
+      "excluded_ids": [],
+      "search_text": "Recommend metal"
+    },
+    {
+      "id": "tobi-e05",
+      "category": "exclusion",
+      "query": "Recommend rock music excluding Numb by Linkin Park",
+      "genres": [
+        "rock"
+      ],
+      "excluded_tracks": [
+        {
+          "title": "Numb",
+          "artist": "Linkin Park"
+        }
+      ],
+      "playlist_ids": [],
+      "liked_ids": [],
+      "disliked_ids": [],
+      "excluded_ids": [
+        "ffc14c3d-21b1-4938-b58e-28c21c4d39a3"
+      ],
+      "search_text": "Recommend rock music"
+    },
+    {
+      "id": "tobi-f01",
+      "category": "mixed_feedback",
+      "query": "Recommend rock; more like Numb by Linkin Park and less like Numb by 21 Savage",
+      "genres": [
+        "rock",
+        "metal"
+      ],
+      "likes": [
+        {
+          "title": "Numb",
+          "artist": "Linkin Park"
+        }
+      ],
+      "dislikes": [
+        {
+          "title": "Numb",
+          "artist": "21 Savage"
+        }
+      ],
+      "retrieval_query": "Recommend rock music",
+      "playlist_ids": [],
+      "liked_ids": [
+        "ffc14c3d-21b1-4938-b58e-28c21c4d39a3"
+      ],
+      "disliked_ids": [
+        "625d9682-8214-4391-8689-fd14b87d01e8"
+      ],
+      "excluded_ids": [],
+      "search_text": "Recommend rock music"
+    },
+    {
+      "id": "tobi-f02",
+      "category": "mixed_feedback",
+      "query": "Recommend hip hop; more like Numb by 21 Savage and less like Numb by Linkin Park",
+      "genres": [
+        "hip hop"
+      ],
+      "likes": [
+        {
+          "title": "Numb",
+          "artist": "21 Savage"
+        }
+      ],
+      "dislikes": [
+        {
+          "title": "Numb",
+          "artist": "Linkin Park"
+        }
+      ],
+      "retrieval_query": "Recommend hip hop music",
+      "playlist_ids": [],
+      "liked_ids": [
+        "625d9682-8214-4391-8689-fd14b87d01e8"
+      ],
+      "disliked_ids": [
+        "ffc14c3d-21b1-4938-b58e-28c21c4d39a3"
+      ],
+      "excluded_ids": [],
+      "search_text": "Recommend hip hop music"
+    },
+    {
+      "id": "tobi-f03",
+      "category": "mixed_feedback",
+      "query": "Recommend pop; I liked Skyfall by Adele",
+      "genres": [
+        "pop",
+        "soul"
+      ],
+      "likes": [
+        {
+          "title": "Skyfall - Full Length",
+          "artist": "Adele"
+        }
+      ],
+      "retrieval_query": "Recommend pop music",
+      "playlist_ids": [],
+      "liked_ids": [
+        "14fa3c41-c129-44a5-8bc7-0e23f9aca3f4"
+      ],
+      "disliked_ids": [],
+      "excluded_ids": [],
+      "search_text": "Recommend pop music"
+    },
+    {
+      "id": "tobi-f04",
+      "category": "mixed_feedback",
+      "query": "Recommend alternative rock like In the End but no Metallica",
+      "genres": [
+        "alternative",
+        "rock"
+      ],
+      "likes": [
+        {
+          "title": "In the End",
+          "artist": "Linkin Park"
+        }
+      ],
+      "excluded_artists": [
+        "Metallica"
+      ],
+      "retrieval_query": "Recommend alternative rock music",
+      "playlist_ids": [],
+      "liked_ids": [
+        "407bbe04-ff88-4dfe-8114-10a95b523592"
+      ],
+      "disliked_ids": [],
+      "excluded_ids": [],
+      "search_text": "Recommend alternative rock music"
+    },
+    {
+      "id": "tobi-f05",
+      "category": "mixed_feedback",
+      "query": "Recommend energetic rock, more like Numb by Linkin Park, excluding 21 Savage",
+      "genres": [
+        "rock"
+      ],
+      "moods": [
+        "energetic"
+      ],
+      "likes": [
+        {
+          "title": "Numb",
+          "artist": "Linkin Park"
+        }
+      ],
+      "excluded_artists": [
+        "21 Savage"
+      ],
+      "retrieval_query": "Recommend energetic rock music",
+      "playlist_ids": [],
+      "liked_ids": [
+        "ffc14c3d-21b1-4938-b58e-28c21c4d39a3"
+      ],
+      "disliked_ids": [],
+      "excluded_ids": [],
+      "search_text": "Recommend energetic rock music"
+    }
+  ],
+  "runs": [
+    {
+      "query_id": "tobi-g01",
+      "category": "genre",
+      "method": "bm25",
+      "predicted_track_ids": [
+        "58a4a1f2-a111-4608-ac31-68f35871ce80",
+        "758e2810-aed8-4383-a455-7f46ed12414c",
+        "7c60f67c-5de3-44a7-9b03-f0b833a88f72",
+        "e49253b5-5811-4438-ac4e-8e23bccdbb59",
+        "8078f71d-0494-41bb-95bd-942626b4bee7",
+        "94ff0036-6bf5-4b89-9db0-7a013f108e62",
+        "8aa0d75e-7372-4dcb-8b5d-f7a3aa0219f7",
+        "1451f6f9-8c71-450b-aadf-a0b59230bf2b",
+        "cd570046-7516-4c90-930b-b7f077643a43",
+        "6ecb1db4-c77c-46b0-b671-1ee4c57850fa"
+      ],
+      "latency_ms": [
+        2.918166996096261,
+        2.2372500025085174,
+        1.7859169965959154
+      ],
+      "raw_excluded_count": 0,
+      "final_excluded_count": 0
+    },
+    {
+      "query_id": "tobi-g01",
+      "category": "genre",
+      "method": "semantic",
+      "predicted_track_ids": [
+        "ad103500-f357-45e4-9751-ee93626594a0",
+        "407b4797-d2e7-4123-91d4-dc85953629dd",
+        "193290f2-70f0-478b-950b-1e78be00dad0",
+        "32bb6f88-0d69-4f09-a020-492116cffb55",
+        "f8cd69fb-bea8-4b2a-b2db-49249c6b340a",
+        "fa5008dc-260b-4f41-a087-03ce97df0db1",
+        "b96fba24-df47-453b-b620-e1a63bb81efd",
+        "e6e8416c-db8f-4be5-910f-cdd26e2b33ae",
+        "b4060d5e-a59b-4672-b03c-9057e2dae404",
+        "da666a24-efac-4c9c-a628-319554cf7083"
+      ],
+      "latency_ms": [
+        209.29708299809135,
+        252.65849999414058,
+        184.1799579997314
+      ],
+      "raw_excluded_count": 0,
+      "final_excluded_count": 0
+    },
+    {
+      "query_id": "tobi-g01",
+      "category": "genre",
+      "method": "hybrid",
+      "predicted_track_ids": [
+        "58a4a1f2-a111-4608-ac31-68f35871ce80",
+        "758e2810-aed8-4383-a455-7f46ed12414c",
+        "7c60f67c-5de3-44a7-9b03-f0b833a88f72",
+        "e49253b5-5811-4438-ac4e-8e23bccdbb59",
+        "8078f71d-0494-41bb-95bd-942626b4bee7",
+        "94ff0036-6bf5-4b89-9db0-7a013f108e62",
+        "8aa0d75e-7372-4dcb-8b5d-f7a3aa0219f7",
+        "1451f6f9-8c71-450b-aadf-a0b59230bf2b",
+        "cd570046-7516-4c90-930b-b7f077643a43",
+        "6ecb1db4-c77c-46b0-b671-1ee4c57850fa"
+      ],
+      "latency_ms": [
+        174.79800000000978,
+        169.11624999920605,
+        169.6818339987658
+      ],
+      "raw_excluded_count": 0,
+      "final_excluded_count": 0
+    },
+    {
+      "query_id": "tobi-g01",
+      "category": "genre",
+      "method": "hybrid_feedback",
+      "predicted_track_ids": [
+        "58a4a1f2-a111-4608-ac31-68f35871ce80",
+        "758e2810-aed8-4383-a455-7f46ed12414c",
+        "7c60f67c-5de3-44a7-9b03-f0b833a88f72",
+        "e49253b5-5811-4438-ac4e-8e23bccdbb59",
+        "8078f71d-0494-41bb-95bd-942626b4bee7",
+        "94ff0036-6bf5-4b89-9db0-7a013f108e62",
+        "8aa0d75e-7372-4dcb-8b5d-f7a3aa0219f7",
+        "1451f6f9-8c71-450b-aadf-a0b59230bf2b",
+        "cd570046-7516-4c90-930b-b7f077643a43",
+        "6ecb1db4-c77c-46b0-b671-1ee4c57850fa"
+      ],
+      "latency_ms": [
+        172.53645899472758,
+        167.39016700012144,
+        180.9245420008665
+      ],
+      "raw_excluded_count": 0,
+      "final_excluded_count": 0
+    },
+    {
+      "query_id": "tobi-g02",
+      "category": "genre",
+      "method": "bm25",
+      "predicted_track_ids": [
+        "d7a8828a-dedc-4670-9ad7-a5e4efc504fa",
+        "dccab7a5-eb5c-4eac-9790-3923b5b25273",
+        "3fc943c0-5357-49a4-823b-bf68022aff53",
+        "58a4a1f2-a111-4608-ac31-68f35871ce80",
+        "7c60f67c-5de3-44a7-9b03-f0b833a88f72",
+        "758e2810-aed8-4383-a455-7f46ed12414c",
+        "8078f71d-0494-41bb-95bd-942626b4bee7",
+        "94ff0036-6bf5-4b89-9db0-7a013f108e62",
+        "1451f6f9-8c71-450b-aadf-a0b59230bf2b",
+        "591fbca5-57a2-41a3-af1a-bea5c14831e4"
+      ],
+      "latency_ms": [
+        2.456084002915304,
+        1.8438749975757673,
+        1.6367079952033237
+      ],
+      "raw_excluded_count": 0,
+      "final_excluded_count": 0
+    },
+    {
+      "query_id": "tobi-g02",
+      "category": "genre",
+      "method": "semantic",
+      "predicted_track_ids": [
+        "e6e8416c-db8f-4be5-910f-cdd26e2b33ae",
+        "b4060d5e-a59b-4672-b03c-9057e2dae404",
+        "dfe185ce-b59e-4e6d-b65c-7b955873dc4a",
+        "32bb6f88-0d69-4f09-a020-492116cffb55",
+        "0bdc2a29-b078-4ad0-b54b-054fa75597a6",
+        "485bbf11-a9a0-424b-ac50-f7e6f7a56365",
+        "90a68a44-33a6-49a4-867e-723e03bfb16f",
+        "b88dfb15-1dcd-4ecf-869f-5939dad688ce",
+        "2d0d462c-b98a-48aa-98a6-734268b6b669",
+        "95bd351c-1fc7-4cff-bfae-c729212e760c"
+      ],
+      "latency_ms": [
+        167.07620899978792,
+        166.33970899420092,
+        164.50466599781066
+      ],
+      "raw_excluded_count": 0,
+      "final_excluded_count": 0
+    },
+    {
+      "query_id": "tobi-g02",
+      "category": "genre",
+      "method": "hybrid",
+      "predicted_track_ids": [
+        "d7a8828a-dedc-4670-9ad7-a5e4efc504fa",
+        "dccab7a5-eb5c-4eac-9790-3923b5b25273",
+        "3fc943c0-5357-49a4-823b-bf68022aff53",
+        "58a4a1f2-a111-4608-ac31-68f35871ce80",
+        "7c60f67c-5de3-44a7-9b03-f0b833a88f72",
+        "758e2810-aed8-4383-a455-7f46ed12414c",
+        "8078f71d-0494-41bb-95bd-942626b4bee7",
+        "94ff0036-6bf5-4b89-9db0-7a013f108e62",
+        "1451f6f9-8c71-450b-aadf-a0b59230bf2b",
+        "591fbca5-57a2-41a3-af1a-bea5c14831e4"
+      ],
+      "latency_ms": [
+        168.75158400216606,
+        169.92875000141794,
+        161.27904199674958
+      ],
+      "raw_excluded_count": 0,
+      "final_excluded_count": 0
+    },
+    {
+      "query_id": "tobi-g02",
+      "category": "genre",
+      "method": "hybrid_feedback",
+      "predicted_track_ids": [
+        "d7a8828a-dedc-4670-9ad7-a5e4efc504fa",
+        "dccab7a5-eb5c-4eac-9790-3923b5b25273",
+        "3fc943c0-5357-49a4-823b-bf68022aff53",
+        "58a4a1f2-a111-4608-ac31-68f35871ce80",
+        "7c60f67c-5de3-44a7-9b03-f0b833a88f72",
+        "758e2810-aed8-4383-a455-7f46ed12414c",
+        "8078f71d-0494-41bb-95bd-942626b4bee7",
+        "94ff0036-6bf5-4b89-9db0-7a013f108e62",
+        "1451f6f9-8c71-450b-aadf-a0b59230bf2b",
+        "591fbca5-57a2-41a3-af1a-bea5c14831e4"
+      ],
+      "latency_ms": [
+        161.85029200278223,
+        163.7107919959817,
+        165.27612500067335
+      ],
+      "raw_excluded_count": 0,
+      "final_excluded_count": 0
+    },
+    {
+      "query_id": "tobi-g03",
+      "category": "genre",
+      "method": "bm25",
+      "predicted_track_ids": [
+        "1451f6f9-8c71-450b-aadf-a0b59230bf2b",
+        "0374f211-f3c7-407a-812b-e64040b2b9fd",
+        "71a793c7-8d9a-4271-95d5-254ae9c8f37b",
+        "2a834f07-2ffc-4ff3-8fe3-f552baebbbd8",
+        "9a6ccaab-ddaa-432a-8b44-91a5b0538dd8",
+        "a6a984c8-03a5-4a82-8195-78fdeee16e90",
+        "42cebbd5-0428-4500-afb0-eb079f13c16d",
+        "0e5d97df-1400-4bf0-902b-a2cf5db11c1e",
+        "c8fc044a-d42e-426b-b63f-9ef82d6439df",
+        "1a51638c-f566-42ee-a598-3a649bb1057a"
+      ],
+      "latency_ms": [
+        1.9627090005087666,
+        1.476207995438017,
+        1.4384999958565459
+      ],
+      "raw_excluded_count": 0,
+      "final_excluded_count": 0
+    },
+    {
+      "query_id": "tobi-g03",
+      "category": "genre",
+      "method": "semantic",
+      "predicted_track_ids": [
+        "3f87c549-e501-4b6f-a14a-cd145690d545",
+        "a6986d17-5cbd-4b35-882e-47917b1260b7",
+        "de8225b5-1e9b-4583-90b4-4ba134590d78",
+        "485bbf11-a9a0-424b-ac50-f7e6f7a56365",
+        "1b5b6cf3-2327-447c-8d82-f17949c7fdfe",
+        "2e8a335e-98cb-4d3b-bc40-0dd1765864e3",
+        "4109b3aa-4123-407c-8ea7-c905136d573a",
+        "417dba51-5285-4906-916e-e1343679aef1",
+        "201526bd-29a2-4e65-8ab7-ef657abe7fce",
+        "5707b6a4-b987-4568-9c14-1ae884c3b2e7"
+      ],
+      "latency_ms": [
+        169.45083300379338,
+        171.62816700147232,
+        166.99995799717726
+      ],
+      "raw_excluded_count": 0,
+      "final_excluded_count": 0
+    },
+    {
+      "query_id": "tobi-g03",
+      "category": "genre",
+      "method": "hybrid",
+      "predicted_track_ids": [
+        "1451f6f9-8c71-450b-aadf-a0b59230bf2b",
+        "0374f211-f3c7-407a-812b-e64040b2b9fd",
+        "71a793c7-8d9a-4271-95d5-254ae9c8f37b",
+        "2a834f07-2ffc-4ff3-8fe3-f552baebbbd8",
+        "9a6ccaab-ddaa-432a-8b44-91a5b0538dd8",
+        "a6a984c8-03a5-4a82-8195-78fdeee16e90",
+        "42cebbd5-0428-4500-afb0-eb079f13c16d",
+        "0e5d97df-1400-4bf0-902b-a2cf5db11c1e",
+        "c8fc044a-d42e-426b-b63f-9ef82d6439df",
+        "1a51638c-f566-42ee-a598-3a649bb1057a"
+      ],
+      "latency_ms": [
+        168.25191600219114,
+        168.43991699715843,
+        166.62587499740766
+      ],
+      "raw_excluded_count": 0,
+      "final_excluded_count": 0
+    },
+    {
+      "query_id": "tobi-g03",
+      "category": "genre",
+      "method": "hybrid_feedback",
+      "predicted_track_ids": [
+        "1451f6f9-8c71-450b-aadf-a0b59230bf2b",
+        "0374f211-f3c7-407a-812b-e64040b2b9fd",
+        "71a793c7-8d9a-4271-95d5-254ae9c8f37b",
+        "2a834f07-2ffc-4ff3-8fe3-f552baebbbd8",
+        "9a6ccaab-ddaa-432a-8b44-91a5b0538dd8",
+        "a6a984c8-03a5-4a82-8195-78fdeee16e90",
+        "42cebbd5-0428-4500-afb0-eb079f13c16d",
+        "0e5d97df-1400-4bf0-902b-a2cf5db11c1e",
+        "c8fc044a-d42e-426b-b63f-9ef82d6439df",
+        "1a51638c-f566-42ee-a598-3a649bb1057a"
+      ],
+      "latency_ms": [
+        169.34425000363262,
+        173.08037499606144,
+        168.94783300085692
+      ],
+      "raw_excluded_count": 0,
+      "final_excluded_count": 0
+    },
+    {
+      "query_id": "tobi-g04",
+      "category": "genre",
+      "method": "bm25",
+      "predicted_track_ids": [
+        "58a4a1f2-a111-4608-ac31-68f35871ce80",
+        "94ff0036-6bf5-4b89-9db0-7a013f108e62",
+        "1451f6f9-8c71-450b-aadf-a0b59230bf2b",
+        "7c60f67c-5de3-44a7-9b03-f0b833a88f72",
+        "8aa0d75e-7372-4dcb-8b5d-f7a3aa0219f7",
+        "758e2810-aed8-4383-a455-7f46ed12414c",
+        "7f2e63ba-b667-4103-bc98-7a920aa9d96e",
+        "996d2eb0-147a-4d20-98f4-6df0bff0e61b",
+        "e49253b5-5811-4438-ac4e-8e23bccdbb59",
+        "eebd9b49-2da7-4978-a134-39cd9386c4c6"
+      ],
+      "latency_ms": [
+        2.3526250006398186,
+        1.8534999981056899,
+        1.862416997028049
+      ],
+      "raw_excluded_count": 0,
+      "final_excluded_count": 0
+    },
+    {
+      "query_id": "tobi-g04",
+      "category": "genre",
+      "method": "semantic",
+      "predicted_track_ids": [
+        "26c6a833-2176-4b88-a01b-45f37c762fe0",
+        "f4925496-44ec-464d-9f38-ee74252ca3b0",
+        "9085e497-721f-4523-80ca-7a86521d001d",
+        "e6ca5739-0578-456b-8e57-f61a778b537e",
+        "940b023f-de26-4c5d-a836-1adb69517f36",
+        "3f87c549-e501-4b6f-a14a-cd145690d545",
+        "cb2413eb-d787-4064-ab2e-1debe8ff9d9c",
+        "d370a81b-0043-40a9-a793-79ec1412360b",
+        "27afe67e-2b3d-43f9-96e8-50a6140cd829",
+        "dfe185ce-b59e-4e6d-b65c-7b955873dc4a"
+      ],
+      "latency_ms": [
+        169.21183399972506,
+        168.6402499981341,
+        175.27795799833257
+      ],
+      "raw_excluded_count": 0,
+      "final_excluded_count": 0
+    },
+    {
+      "query_id": "tobi-g04",
+      "category": "genre",
+      "method": "hybrid",
+      "predicted_track_ids": [
+        "58a4a1f2-a111-4608-ac31-68f35871ce80",
+        "94ff0036-6bf5-4b89-9db0-7a013f108e62",
+        "1451f6f9-8c71-450b-aadf-a0b59230bf2b",
+        "7c60f67c-5de3-44a7-9b03-f0b833a88f72",
+        "8aa0d75e-7372-4dcb-8b5d-f7a3aa0219f7",
+        "758e2810-aed8-4383-a455-7f46ed12414c",
+        "7f2e63ba-b667-4103-bc98-7a920aa9d96e",
+        "996d2eb0-147a-4d20-98f4-6df0bff0e61b",
+        "e49253b5-5811-4438-ac4e-8e23bccdbb59",
+        "eebd9b49-2da7-4978-a134-39cd9386c4c6"
+      ],
+      "latency_ms": [
+        169.57479199481895,
+        170.58970799553208,
+        169.32308300602017
+      ],
+      "raw_excluded_count": 0,
+      "final_excluded_count": 0
+    },
+    {
+      "query_id": "tobi-g04",
+      "category": "genre",
+      "method": "hybrid_feedback",
+      "predicted_track_ids": [
+        "58a4a1f2-a111-4608-ac31-68f35871ce80",
+        "94ff0036-6bf5-4b89-9db0-7a013f108e62",
+        "1451f6f9-8c71-450b-aadf-a0b59230bf2b",
+        "7c60f67c-5de3-44a7-9b03-f0b833a88f72",
+        "8aa0d75e-7372-4dcb-8b5d-f7a3aa0219f7",
+        "758e2810-aed8-4383-a455-7f46ed12414c",
+        "7f2e63ba-b667-4103-bc98-7a920aa9d96e",
+        "996d2eb0-147a-4d20-98f4-6df0bff0e61b",
+        "e49253b5-5811-4438-ac4e-8e23bccdbb59",
+        "eebd9b49-2da7-4978-a134-39cd9386c4c6"
+      ],
+      "latency_ms": [
+        170.35391600074945,
+        170.43883300357265,
+        168.83608300122432
+      ],
+      "raw_excluded_count": 0,
+      "final_excluded_count": 0
+    },
+    {
+      "query_id": "tobi-g05",
+      "category": "genre",
+      "method": "bm25",
+      "predicted_track_ids": [
+        "7c60f67c-5de3-44a7-9b03-f0b833a88f72",
+        "58a4a1f2-a111-4608-ac31-68f35871ce80",
+        "758e2810-aed8-4383-a455-7f46ed12414c",
+        "dba63365-e5a5-4194-ac38-5f9e0168b156",
+        "cd570046-7516-4c90-930b-b7f077643a43",
+        "745bdbcd-c67a-4f14-b809-7c838cb1193b",
+        "8078f71d-0494-41bb-95bd-942626b4bee7",
+        "94ff0036-6bf5-4b89-9db0-7a013f108e62",
+        "1451f6f9-8c71-450b-aadf-a0b59230bf2b",
+        "109e37b5-d235-4e81-a2dd-70a46a20a6b8"
+      ],
+      "latency_ms": [
+        1.9488750040181912,
+        1.6057090033427812,
+        1.5631249989382923
+      ],
+      "raw_excluded_count": 0,
+      "final_excluded_count": 0
+    },
+    {
+      "query_id": "tobi-g05",
+      "category": "genre",
+      "method": "semantic",
+      "predicted_track_ids": [
+        "b4060d5e-a59b-4672-b03c-9057e2dae404",
+        "3f87c549-e501-4b6f-a14a-cd145690d545",
+        "32bb6f88-0d69-4f09-a020-492116cffb55",
+        "dfe185ce-b59e-4e6d-b65c-7b955873dc4a",
+        "cf232ff6-6b50-4f14-9040-e8f7c898413a",
+        "da666a24-efac-4c9c-a628-319554cf7083",
+        "e8d89fcb-819e-4d84-8190-23f973d82649",
+        "e1da64a9-3561-4e50-84a2-078aa7108ab4",
+        "1a1c2ef4-b1da-4318-aac9-b150591839b5",
+        "f4925496-44ec-464d-9f38-ee74252ca3b0"
+      ],
+      "latency_ms": [
+        170.11470800207462,
+        180.73008300416404,
+        175.30520799482474
+      ],
+      "raw_excluded_count": 0,
+      "final_excluded_count": 0
+    },
+    {
+      "query_id": "tobi-g05",
+      "category": "genre",
+      "method": "hybrid",
+      "predicted_track_ids": [
+        "7c60f67c-5de3-44a7-9b03-f0b833a88f72",
+        "58a4a1f2-a111-4608-ac31-68f35871ce80",
+        "758e2810-aed8-4383-a455-7f46ed12414c",
+        "dba63365-e5a5-4194-ac38-5f9e0168b156",
+        "cd570046-7516-4c90-930b-b7f077643a43",
+        "745bdbcd-c67a-4f14-b809-7c838cb1193b",
+        "8078f71d-0494-41bb-95bd-942626b4bee7",
+        "94ff0036-6bf5-4b89-9db0-7a013f108e62",
+        "1451f6f9-8c71-450b-aadf-a0b59230bf2b",
+        "109e37b5-d235-4e81-a2dd-70a46a20a6b8"
+      ],
+      "latency_ms": [
+        173.32424999767682,
+        170.71962499903748,
+        168.70954199839616
+      ],
+      "raw_excluded_count": 0,
+      "final_excluded_count": 0
+    },
+    {
+      "query_id": "tobi-g05",
+      "category": "genre",
+      "method": "hybrid_feedback",
+      "predicted_track_ids": [
+        "7c60f67c-5de3-44a7-9b03-f0b833a88f72",
+        "58a4a1f2-a111-4608-ac31-68f35871ce80",
+        "758e2810-aed8-4383-a455-7f46ed12414c",
+        "dba63365-e5a5-4194-ac38-5f9e0168b156",
+        "cd570046-7516-4c90-930b-b7f077643a43",
+        "745bdbcd-c67a-4f14-b809-7c838cb1193b",
+        "8078f71d-0494-41bb-95bd-942626b4bee7",
+        "94ff0036-6bf5-4b89-9db0-7a013f108e62",
+        "1451f6f9-8c71-450b-aadf-a0b59230bf2b",
+        "109e37b5-d235-4e81-a2dd-70a46a20a6b8"
+      ],
+      "latency_ms": [
+        169.60491600184469,
+        172.45845899742562,
+        171.7339999959222
+      ],
+      "raw_excluded_count": 0,
+      "final_excluded_count": 0
+    },
+    {
+      "query_id": "tobi-a01",
+      "category": "artist_similarity",
+      "method": "bm25",
+      "predicted_track_ids": [
+        "d459a168-9214-45fa-92b3-4240c32fe311",
+        "5c036312-8165-4f1f-883e-cb392851f399",
+        "d80b95c1-67ec-42e7-af7a-75c017ffbe53",
+        "87235a74-7cb3-4070-9948-21caf9480b17",
+        "41a9e602-c45d-41fb-bd66-e96ff69de855",
+        "b3f964b5-d82d-4e5a-b13e-523593398ab3",
+        "b49f1ad9-d4fe-4b91-a66e-f93c68d99416",
+        "6c119457-c12f-44d6-9bbf-223ebce803d6",
+        "407bbe04-ff88-4dfe-8114-10a95b523592",
+        "fd777591-2c63-40af-bb62-ee2c9899baaa"
+      ],
+      "latency_ms": [
+        1.7484589989180677,
+        1.3539999999920838,
+        1.302625001699198
+      ],
+      "raw_excluded_count": 0,
+      "final_excluded_count": 0
+    },
+    {
+      "query_id": "tobi-a01",
+      "category": "artist_similarity",
+      "method": "semantic",
+      "predicted_track_ids": [
+        "95bd351c-1fc7-4cff-bfae-c729212e760c",
+        "64f3f7ba-1181-4c44-922d-203f94245be6",
+        "5dacf636-d96f-4ecb-ae9b-b48682b07b37",
+        "b4060d5e-a59b-4672-b03c-9057e2dae404",
+        "c5a6b2f8-2949-4a11-ae78-4219d1b43968",
+        "fb648f7a-170e-4e8c-972d-715343e1beda",
+        "751a030f-8024-4676-b9b5-c317b6b277e2",
+        "0840a5f3-2837-46df-a0f9-391448b8af8a",
+        "32bb6f88-0d69-4f09-a020-492116cffb55",
+        "4a79a00a-ada7-4796-b358-b4ab079f70ea"
+      ],
+      "latency_ms": [
+        168.608583000605,
+        165.33508299471578,
+        164.15704200335313
+      ],
+      "raw_excluded_count": 0,
+      "final_excluded_count": 0
+    },
+    {
+      "query_id": "tobi-a01",
+      "category": "artist_similarity",
+      "method": "hybrid",
+      "predicted_track_ids": [
+        "d459a168-9214-45fa-92b3-4240c32fe311",
+        "5c036312-8165-4f1f-883e-cb392851f399",
+        "d80b95c1-67ec-42e7-af7a-75c017ffbe53",
+        "87235a74-7cb3-4070-9948-21caf9480b17",
+        "41a9e602-c45d-41fb-bd66-e96ff69de855",
+        "b3f964b5-d82d-4e5a-b13e-523593398ab3",
+        "b49f1ad9-d4fe-4b91-a66e-f93c68d99416",
+        "6c119457-c12f-44d6-9bbf-223ebce803d6",
+        "407bbe04-ff88-4dfe-8114-10a95b523592",
+        "fd777591-2c63-40af-bb62-ee2c9899baaa"
+      ],
+      "latency_ms": [
+        166.79229199507972,
+        172.03158399934182,
+        172.10037499899045
+      ],
+      "raw_excluded_count": 0,
+      "final_excluded_count": 0
+    },
+    {
+      "query_id": "tobi-a01",
+      "category": "artist_similarity",
+      "method": "hybrid_feedback",
+      "predicted_track_ids": [
+        "d459a168-9214-45fa-92b3-4240c32fe311",
+        "5c036312-8165-4f1f-883e-cb392851f399",
+        "d80b95c1-67ec-42e7-af7a-75c017ffbe53",
+        "87235a74-7cb3-4070-9948-21caf9480b17",
+        "41a9e602-c45d-41fb-bd66-e96ff69de855",
+        "b3f964b5-d82d-4e5a-b13e-523593398ab3",
+        "b49f1ad9-d4fe-4b91-a66e-f93c68d99416",
+        "6c119457-c12f-44d6-9bbf-223ebce803d6",
+        "407bbe04-ff88-4dfe-8114-10a95b523592",
+        "fd777591-2c63-40af-bb62-ee2c9899baaa"
+      ],
+      "latency_ms": [
+        168.39245899609523,
+        168.9677499962272,
+        165.9355419978965
+      ],
+      "raw_excluded_count": 0,
+      "final_excluded_count": 0
+    },
+    {
+      "query_id": "tobi-a02",
+      "category": "artist_similarity",
+      "method": "bm25",
+      "predicted_track_ids": [
+        "0754e750-10d2-4d7d-8ec2-00af6a465ffa",
+        "9219a5e9-99f3-4a56-a6e7-a8849e42fe96",
+        "9708e323-eb58-46ad-acdc-7b3ba8ddd3b4",
+        "65b62a5b-fc10-4e56-bf15-338e7f31945d",
+        "c70eadb5-a9ae-466b-a8d9-b75a126fee02",
+        "625d9682-8214-4391-8689-fd14b87d01e8",
+        "db2c5416-9d66-410b-b90a-f5d91195eddc",
+        "6cf24d5e-b63e-4039-9b2c-788af3568ace",
+        "c2d18e98-b9de-462d-a1de-960f3ed6adb6",
+        "d85e6ffd-fd80-482a-b39b-82dfeaa45929"
+      ],
+      "latency_ms": [
+        1.4872499959892593,
+        1.0360829983255826,
+        1.0442499988130294
+      ],
+      "raw_excluded_count": 0,
+      "final_excluded_count": 0
+    },
+    {
+      "query_id": "tobi-a02",
+      "category": "artist_similarity",
+      "method": "semantic",
+      "predicted_track_ids": [
+        "95bd351c-1fc7-4cff-bfae-c729212e760c",
+        "5dacf636-d96f-4ecb-ae9b-b48682b07b37",
+        "71b2b707-8233-4802-8135-e0b0a5da0001",
+        "a34de4e4-48fb-4b2e-ae9e-07d63e0a0286",
+        "b4060d5e-a59b-4672-b03c-9057e2dae404",
+        "32bb6f88-0d69-4f09-a020-492116cffb55",
+        "c093672a-30a9-429b-9a53-6842a95e371b",
+        "fb648f7a-170e-4e8c-972d-715343e1beda",
+        "4a79a00a-ada7-4796-b358-b4ab079f70ea",
+        "751a030f-8024-4676-b9b5-c317b6b277e2"
+      ],
+      "latency_ms": [
+        168.52429199934704,
+        176.64604199671885,
+        168.35249999712687
+      ],
+      "raw_excluded_count": 0,
+      "final_excluded_count": 0
+    },
+    {
+      "query_id": "tobi-a02",
+      "category": "artist_similarity",
+      "method": "hybrid",
+      "predicted_track_ids": [
+        "0754e750-10d2-4d7d-8ec2-00af6a465ffa",
+        "9219a5e9-99f3-4a56-a6e7-a8849e42fe96",
+        "9708e323-eb58-46ad-acdc-7b3ba8ddd3b4",
+        "65b62a5b-fc10-4e56-bf15-338e7f31945d",
+        "c70eadb5-a9ae-466b-a8d9-b75a126fee02",
+        "625d9682-8214-4391-8689-fd14b87d01e8",
+        "db2c5416-9d66-410b-b90a-f5d91195eddc",
+        "6cf24d5e-b63e-4039-9b2c-788af3568ace",
+        "c2d18e98-b9de-462d-a1de-960f3ed6adb6",
+        "d85e6ffd-fd80-482a-b39b-82dfeaa45929"
+      ],
+      "latency_ms": [
+        168.8745000064955,
+        169.1366669983836,
+        168.2221250011935
+      ],
+      "raw_excluded_count": 0,
+      "final_excluded_count": 0
+    },
+    {
+      "query_id": "tobi-a02",
+      "category": "artist_similarity",
+      "method": "hybrid_feedback",
+      "predicted_track_ids": [
+        "0754e750-10d2-4d7d-8ec2-00af6a465ffa",
+        "9219a5e9-99f3-4a56-a6e7-a8849e42fe96",
+        "9708e323-eb58-46ad-acdc-7b3ba8ddd3b4",
+        "65b62a5b-fc10-4e56-bf15-338e7f31945d",
+        "c70eadb5-a9ae-466b-a8d9-b75a126fee02",
+        "625d9682-8214-4391-8689-fd14b87d01e8",
+        "db2c5416-9d66-410b-b90a-f5d91195eddc",
+        "6cf24d5e-b63e-4039-9b2c-788af3568ace",
+        "c2d18e98-b9de-462d-a1de-960f3ed6adb6",
+        "d85e6ffd-fd80-482a-b39b-82dfeaa45929"
+      ],
+      "latency_ms": [
+        169.3072080015554,
+        176.05458299658494,
+        170.88220899313455
+      ],
+      "raw_excluded_count": 0,
+      "final_excluded_count": 0
+    },
+    {
+      "query_id": "tobi-a03",
+      "category": "artist_similarity",
+      "method": "bm25",
+      "predicted_track_ids": [
+        "2f6f156f-abcc-42f2-b4bf-26478b00d6aa",
+        "c2483423-4c30-4a3e-afca-a105cb5b06e4",
+        "ffc21a54-4d53-4474-82ea-00b200aa4d57",
+        "8cdc1c3c-c8b6-40c6-8eef-e0c8573f9980",
+        "e49253b5-5811-4438-ac4e-8e23bccdbb59",
+        "14fa3c41-c129-44a5-8bc7-0e23f9aca3f4",
+        "5c7055ed-6f6b-418b-89e7-81b2830f124d",
+        "7c60f67c-5de3-44a7-9b03-f0b833a88f72",
+        "58a4a1f2-a111-4608-ac31-68f35871ce80",
+        "822f10ba-04fe-4cb5-b8a7-2a220478debb"
+      ],
+      "latency_ms": [
+        1.7178749985760078,
+        1.32879099692218,
+        1.3329170033102855
+      ],
+      "raw_excluded_count": 0,
+      "final_excluded_count": 0
+    },
+    {
+      "query_id": "tobi-a03",
+      "category": "artist_similarity",
+      "method": "semantic",
+      "predicted_track_ids": [
+        "95bd351c-1fc7-4cff-bfae-c729212e760c",
+        "4a79a00a-ada7-4796-b358-b4ab079f70ea",
+        "7206e740-31e2-46d1-ae01-d8f24d31db34",
+        "b4060d5e-a59b-4672-b03c-9057e2dae404",
+        "b88dfb15-1dcd-4ecf-869f-5939dad688ce",
+        "32bb6f88-0d69-4f09-a020-492116cffb55",
+        "0b908cbb-0b74-4d0c-b611-ec6ed4f96335",
+        "7a341b55-d50b-4c94-936a-8987f710c349",
+        "a951dea0-f93e-4304-bf70-ffcf439cb74f",
+        "5dacf636-d96f-4ecb-ae9b-b48682b07b37"
+      ],
+      "latency_ms": [
+        170.55741600051988,
+        167.4974170018686,
+        167.43400000268593
+      ],
+      "raw_excluded_count": 0,
+      "final_excluded_count": 0
+    },
+    {
+      "query_id": "tobi-a03",
+      "category": "artist_similarity",
+      "method": "hybrid",
+      "predicted_track_ids": [
+        "2f6f156f-abcc-42f2-b4bf-26478b00d6aa",
+        "c2483423-4c30-4a3e-afca-a105cb5b06e4",
+        "ffc21a54-4d53-4474-82ea-00b200aa4d57",
+        "8cdc1c3c-c8b6-40c6-8eef-e0c8573f9980",
+        "e49253b5-5811-4438-ac4e-8e23bccdbb59",
+        "14fa3c41-c129-44a5-8bc7-0e23f9aca3f4",
+        "5c7055ed-6f6b-418b-89e7-81b2830f124d",
+        "7c60f67c-5de3-44a7-9b03-f0b833a88f72",
+        "58a4a1f2-a111-4608-ac31-68f35871ce80",
+        "822f10ba-04fe-4cb5-b8a7-2a220478debb"
+      ],
+      "latency_ms": [
+        169.44583400618285,
+        168.8486249986454,
+        169.34949999995297
+      ],
+      "raw_excluded_count": 0,
+      "final_excluded_count": 0
+    },
+    {
+      "query_id": "tobi-a03",
+      "category": "artist_similarity",
+      "method": "hybrid_feedback",
+      "predicted_track_ids": [
+        "2f6f156f-abcc-42f2-b4bf-26478b00d6aa",
+        "c2483423-4c30-4a3e-afca-a105cb5b06e4",
+        "ffc21a54-4d53-4474-82ea-00b200aa4d57",
+        "8cdc1c3c-c8b6-40c6-8eef-e0c8573f9980",
+        "e49253b5-5811-4438-ac4e-8e23bccdbb59",
+        "14fa3c41-c129-44a5-8bc7-0e23f9aca3f4",
+        "5c7055ed-6f6b-418b-89e7-81b2830f124d",
+        "7c60f67c-5de3-44a7-9b03-f0b833a88f72",
+        "58a4a1f2-a111-4608-ac31-68f35871ce80",
+        "822f10ba-04fe-4cb5-b8a7-2a220478debb"
+      ],
+      "latency_ms": [
+        168.9443340001162,
+        177.41995800315635,
+        177.0851249966654
+      ],
+      "raw_excluded_count": 0,
+      "final_excluded_count": 0
+    },
+    {
+      "query_id": "tobi-a04",
+      "category": "artist_similarity",
+      "method": "bm25",
+      "predicted_track_ids": [
+        "4df2d1ef-2edf-4d2c-ade0-b6c241bb318f",
+        "42ff7da0-2066-4cd3-aa80-e77fdf1727d0",
+        "d19b6dae-d98a-490e-96b3-552fed951132",
+        "01716936-ff47-450c-a53d-7c6665551949",
+        "48e62acd-b0fe-41a5-a4e2-ee497c700344",
+        "70797a79-19d4-47bd-aa0f-49279e5f94fa",
+        "f7d7e08b-12cd-4c45-b58e-16799b74924d",
+        "da2de247-e75b-4dd3-ad11-b88840d23625",
+        "8810a38f-4daf-4e64-bb79-1bffc2f6bd58",
+        "42b1f0eb-db0e-454d-abe3-103bfa9aacf2"
+      ],
+      "latency_ms": [
+        1.6235410002991557,
+        1.2708340000244789,
+        1.2080419983249158
+      ],
+      "raw_excluded_count": 0,
+      "final_excluded_count": 0
+    },
+    {
+      "query_id": "tobi-a04",
+      "category": "artist_similarity",
+      "method": "semantic",
+      "predicted_track_ids": [
+        "32bb6f88-0d69-4f09-a020-492116cffb55",
+        "b4060d5e-a59b-4672-b03c-9057e2dae404",
+        "201526bd-29a2-4e65-8ab7-ef657abe7fce",
+        "95bd351c-1fc7-4cff-bfae-c729212e760c",
+        "a951dea0-f93e-4304-bf70-ffcf439cb74f",
+        "485bbf11-a9a0-424b-ac50-f7e6f7a56365",
+        "0b908cbb-0b74-4d0c-b611-ec6ed4f96335",
+        "71b2b707-8233-4802-8135-e0b0a5da0001",
+        "5dacf636-d96f-4ecb-ae9b-b48682b07b37",
+        "90a68a44-33a6-49a4-867e-723e03bfb16f"
+      ],
+      "latency_ms": [
+        174.22391600121045,
+        178.45583299640566,
+        169.7592499986058
+      ],
+      "raw_excluded_count": 0,
+      "final_excluded_count": 0
+    },
+    {
+      "query_id": "tobi-a04",
+      "category": "artist_similarity",
+      "method": "hybrid",
+      "predicted_track_ids": [
+        "4df2d1ef-2edf-4d2c-ade0-b6c241bb318f",
+        "42ff7da0-2066-4cd3-aa80-e77fdf1727d0",
+        "d19b6dae-d98a-490e-96b3-552fed951132",
+        "01716936-ff47-450c-a53d-7c6665551949",
+        "48e62acd-b0fe-41a5-a4e2-ee497c700344",
+        "70797a79-19d4-47bd-aa0f-49279e5f94fa",
+        "f7d7e08b-12cd-4c45-b58e-16799b74924d",
+        "da2de247-e75b-4dd3-ad11-b88840d23625",
+        "8810a38f-4daf-4e64-bb79-1bffc2f6bd58",
+        "42b1f0eb-db0e-454d-abe3-103bfa9aacf2"
+      ],
+      "latency_ms": [
+        171.20666700066067,
+        171.13974999665515,
+        171.10200000024633
+      ],
+      "raw_excluded_count": 0,
+      "final_excluded_count": 0
+    },
+    {
+      "query_id": "tobi-a04",
+      "category": "artist_similarity",
+      "method": "hybrid_feedback",
+      "predicted_track_ids": [
+        "4df2d1ef-2edf-4d2c-ade0-b6c241bb318f",
+        "42ff7da0-2066-4cd3-aa80-e77fdf1727d0",
+        "d19b6dae-d98a-490e-96b3-552fed951132",
+        "01716936-ff47-450c-a53d-7c6665551949",
+        "48e62acd-b0fe-41a5-a4e2-ee497c700344",
+        "70797a79-19d4-47bd-aa0f-49279e5f94fa",
+        "f7d7e08b-12cd-4c45-b58e-16799b74924d",
+        "da2de247-e75b-4dd3-ad11-b88840d23625",
+        "8810a38f-4daf-4e64-bb79-1bffc2f6bd58",
+        "42b1f0eb-db0e-454d-abe3-103bfa9aacf2"
+      ],
+      "latency_ms": [
+        178.27958300040336,
+        167.86370800400618,
+        171.11491600371664
+      ],
+      "raw_excluded_count": 0,
+      "final_excluded_count": 0
+    },
+    {
+      "query_id": "tobi-a05",
+      "category": "artist_similarity",
+      "method": "bm25",
+      "predicted_track_ids": [
+        "915e9c0d-e288-41b6-b7b2-c53ba66245da",
+        "0295a41b-1eb0-4136-b670-d138aec03996",
+        "56c2e210-7e2c-432e-899f-54113ed9efa1",
+        "4d0a2f49-2ed3-4f38-96f5-5e084d7bbd66",
+        "eae9f584-8f3b-4490-8bf8-7d36ca52f970",
+        "1b77adbe-41d1-412e-8e88-35facf69b7b7",
+        "b8efe1ea-451c-427a-a066-6a438222dedb",
+        "4a13f8b3-3436-4177-86a5-a3452a35f8ac",
+        "cc240fea-e991-4a86-b5ae-7bec4d0a92f6",
+        "f93710c9-15f9-490a-9579-ddc74095aaeb"
+      ],
+      "latency_ms": [
+        1.541249999718275,
+        1.1573750016395934,
+        1.122542002121918
+      ],
+      "raw_excluded_count": 0,
+      "final_excluded_count": 0
+    },
+    {
+      "query_id": "tobi-a05",
+      "category": "artist_similarity",
+      "method": "semantic",
+      "predicted_track_ids": [
+        "95bd351c-1fc7-4cff-bfae-c729212e760c",
+        "b4060d5e-a59b-4672-b03c-9057e2dae404",
+        "32bb6f88-0d69-4f09-a020-492116cffb55",
+        "5dacf636-d96f-4ecb-ae9b-b48682b07b37",
+        "b88dfb15-1dcd-4ecf-869f-5939dad688ce",
+        "64f3f7ba-1181-4c44-922d-203f94245be6",
+        "71b2b707-8233-4802-8135-e0b0a5da0001",
+        "751a030f-8024-4676-b9b5-c317b6b277e2",
+        "08fcc5b5-962b-47ed-a8d3-d40409a9394a",
+        "a951dea0-f93e-4304-bf70-ffcf439cb74f"
+      ],
+      "latency_ms": [
+        166.36024999752408,
+        166.59487500146497,
+        165.08504100056598
+      ],
+      "raw_excluded_count": 0,
+      "final_excluded_count": 0
+    },
+    {
+      "query_id": "tobi-a05",
+      "category": "artist_similarity",
+      "method": "hybrid",
+      "predicted_track_ids": [
+        "915e9c0d-e288-41b6-b7b2-c53ba66245da",
+        "0295a41b-1eb0-4136-b670-d138aec03996",
+        "56c2e210-7e2c-432e-899f-54113ed9efa1",
+        "4d0a2f49-2ed3-4f38-96f5-5e084d7bbd66",
+        "eae9f584-8f3b-4490-8bf8-7d36ca52f970",
+        "1b77adbe-41d1-412e-8e88-35facf69b7b7",
+        "b8efe1ea-451c-427a-a066-6a438222dedb",
+        "4a13f8b3-3436-4177-86a5-a3452a35f8ac",
+        "cc240fea-e991-4a86-b5ae-7bec4d0a92f6",
+        "f93710c9-15f9-490a-9579-ddc74095aaeb"
+      ],
+      "latency_ms": [
+        193.21941700036405,
+        172.38383299991256,
+        171.1169170011999
+      ],
+      "raw_excluded_count": 0,
+      "final_excluded_count": 0
+    },
+    {
+      "query_id": "tobi-a05",
+      "category": "artist_similarity",
+      "method": "hybrid_feedback",
+      "predicted_track_ids": [
+        "915e9c0d-e288-41b6-b7b2-c53ba66245da",
+        "0295a41b-1eb0-4136-b670-d138aec03996",
+        "56c2e210-7e2c-432e-899f-54113ed9efa1",
+        "4d0a2f49-2ed3-4f38-96f5-5e084d7bbd66",
+        "eae9f584-8f3b-4490-8bf8-7d36ca52f970",
+        "1b77adbe-41d1-412e-8e88-35facf69b7b7",
+        "b8efe1ea-451c-427a-a066-6a438222dedb",
+        "4a13f8b3-3436-4177-86a5-a3452a35f8ac",
+        "cc240fea-e991-4a86-b5ae-7bec4d0a92f6",
+        "f93710c9-15f9-490a-9579-ddc74095aaeb"
+      ],
+      "latency_ms": [
+        171.7555840004934,
+        168.80041699914727,
+        168.8264580006944
+      ],
+      "raw_excluded_count": 0,
+      "final_excluded_count": 0
+    },
+    {
+      "query_id": "tobi-p01",
+      "category": "playlist_context",
+      "method": "bm25",
+      "predicted_track_ids": [
+        "407bbe04-ff88-4dfe-8114-10a95b523592",
+        "fd777591-2c63-40af-bb62-ee2c9899baaa",
+        "847bec30-2d1a-4e3f-abf7-19e6e234572c",
+        "5583de40-9e05-4f27-b172-7a4e7d10ad5f",
+        "b8891115-5b45-4074-aec0-858ef3752a11",
+        "b49f1ad9-d4fe-4b91-a66e-f93c68d99416",
+        "9571eead-47df-4f38-afbf-056848907725",
+        "d486142f-8ad2-4b3a-9068-4f2608250e8e",
+        "dd64c1f2-694f-4477-ae4b-248d71e4b72e",
+        "58545667-68d0-479e-b4ec-513100ad9103"
+      ],
+      "latency_ms": [
+        7.443958005751483,
+        5.326999998942483,
+        5.31458299519727
+      ],
+      "raw_excluded_count": 1,
+      "final_excluded_count": 0
+    },
+    {
+      "query_id": "tobi-p01",
+      "category": "playlist_context",
+      "method": "semantic",
+      "predicted_track_ids": [
+        "ad103500-f357-45e4-9751-ee93626594a0",
+        "95bd351c-1fc7-4cff-bfae-c729212e760c",
+        "0840a5f3-2837-46df-a0f9-391448b8af8a",
+        "5dacf636-d96f-4ecb-ae9b-b48682b07b37",
+        "c7b0f577-4f6c-45cc-b2d5-a75bad344db5",
+        "68f69d34-4c8c-4619-965b-4d9936d74e3c",
+        "4a79a00a-ada7-4796-b358-b4ab079f70ea",
+        "64f3f7ba-1181-4c44-922d-203f94245be6",
+        "b4060d5e-a59b-4672-b03c-9057e2dae404",
+        "f311c0f2-f944-462c-b46a-b435d6a3cbcf"
+      ],
+      "latency_ms": [
+        292.77183300291654,
+        283.1917079965933,
+        278.579500001797
+      ],
+      "raw_excluded_count": 0,
+      "final_excluded_count": 0
+    },
+    {
+      "query_id": "tobi-p01",
+      "category": "playlist_context",
+      "method": "hybrid",
+      "predicted_track_ids": [
+        "407bbe04-ff88-4dfe-8114-10a95b523592",
+        "fd777591-2c63-40af-bb62-ee2c9899baaa",
+        "847bec30-2d1a-4e3f-abf7-19e6e234572c",
+        "5583de40-9e05-4f27-b172-7a4e7d10ad5f",
+        "b8891115-5b45-4074-aec0-858ef3752a11",
+        "b49f1ad9-d4fe-4b91-a66e-f93c68d99416",
+        "9571eead-47df-4f38-afbf-056848907725",
+        "d486142f-8ad2-4b3a-9068-4f2608250e8e",
+        "dd64c1f2-694f-4477-ae4b-248d71e4b72e",
+        "58545667-68d0-479e-b4ec-513100ad9103"
+      ],
+      "latency_ms": [
+        307.33325000619516,
+        283.1407909980044,
+        282.7637500013225
+      ],
+      "raw_excluded_count": 1,
+      "final_excluded_count": 0
+    },
+    {
+      "query_id": "tobi-p01",
+      "category": "playlist_context",
+      "method": "hybrid_feedback",
+      "predicted_track_ids": [
+        "407bbe04-ff88-4dfe-8114-10a95b523592",
+        "fd777591-2c63-40af-bb62-ee2c9899baaa",
+        "847bec30-2d1a-4e3f-abf7-19e6e234572c",
+        "5583de40-9e05-4f27-b172-7a4e7d10ad5f",
+        "b8891115-5b45-4074-aec0-858ef3752a11",
+        "b49f1ad9-d4fe-4b91-a66e-f93c68d99416",
+        "9571eead-47df-4f38-afbf-056848907725",
+        "d486142f-8ad2-4b3a-9068-4f2608250e8e",
+        "dd64c1f2-694f-4477-ae4b-248d71e4b72e",
+        "58545667-68d0-479e-b4ec-513100ad9103"
+      ],
+      "latency_ms": [
+        291.75266600213945,
+        287.90187500271713,
+        292.60287499346305
+      ],
+      "raw_excluded_count": 1,
+      "final_excluded_count": 0
+    },
+    {
+      "query_id": "tobi-p02",
+      "category": "playlist_context",
+      "method": "bm25",
+      "predicted_track_ids": [
+        "2bed3a48-085c-4f39-9816-7e2225dfb89d",
+        "0754e750-10d2-4d7d-8ec2-00af6a465ffa",
+        "ace0cebd-7cf9-4f30-afba-21ac50434d10",
+        "9219a5e9-99f3-4a56-a6e7-a8849e42fe96",
+        "65b62a5b-fc10-4e56-bf15-338e7f31945d",
+        "c70eadb5-a9ae-466b-a8d9-b75a126fee02",
+        "9708e323-eb58-46ad-acdc-7b3ba8ddd3b4",
+        "db2c5416-9d66-410b-b90a-f5d91195eddc",
+        "c2d18e98-b9de-462d-a1de-960f3ed6adb6",
+        "6cf24d5e-b63e-4039-9b2c-788af3568ace"
+      ],
+      "latency_ms": [
+        1.3657500021508895,
+        1.1217499995836988,
+        1.2023329982184805
+      ],
+      "raw_excluded_count": 1,
+      "final_excluded_count": 0
+    },
+    {
+      "query_id": "tobi-p02",
+      "category": "playlist_context",
+      "method": "semantic",
+      "predicted_track_ids": [
+        "95bd351c-1fc7-4cff-bfae-c729212e760c",
+        "71b2b707-8233-4802-8135-e0b0a5da0001",
+        "ba8fd736-4844-4e82-b731-571b0851bdc9",
+        "e8d89fcb-819e-4d84-8190-23f973d82649",
+        "64f3f7ba-1181-4c44-922d-203f94245be6",
+        "b88dfb15-1dcd-4ecf-869f-5939dad688ce",
+        "32bb6f88-0d69-4f09-a020-492116cffb55",
+        "201526bd-29a2-4e65-8ab7-ef657abe7fce",
+        "5dacf636-d96f-4ecb-ae9b-b48682b07b37",
+        "4109b3aa-4123-407c-8ea7-c905136d573a"
+      ],
+      "latency_ms": [
+        158.29587500047637,
+        149.2962499978603,
+        151.01554099965142
+      ],
+      "raw_excluded_count": 0,
+      "final_excluded_count": 0
+    },
+    {
+      "query_id": "tobi-p02",
+      "category": "playlist_context",
+      "method": "hybrid",
+      "predicted_track_ids": [
+        "2bed3a48-085c-4f39-9816-7e2225dfb89d",
+        "0754e750-10d2-4d7d-8ec2-00af6a465ffa",
+        "ace0cebd-7cf9-4f30-afba-21ac50434d10",
+        "9219a5e9-99f3-4a56-a6e7-a8849e42fe96",
+        "65b62a5b-fc10-4e56-bf15-338e7f31945d",
+        "c70eadb5-a9ae-466b-a8d9-b75a126fee02",
+        "9708e323-eb58-46ad-acdc-7b3ba8ddd3b4",
+        "db2c5416-9d66-410b-b90a-f5d91195eddc",
+        "c2d18e98-b9de-462d-a1de-960f3ed6adb6",
+        "6cf24d5e-b63e-4039-9b2c-788af3568ace"
+      ],
+      "latency_ms": [
+        150.99566599383252,
+        149.80900000227848,
+        148.98395899945172
+      ],
+      "raw_excluded_count": 1,
+      "final_excluded_count": 0
+    },
+    {
+      "query_id": "tobi-p02",
+      "category": "playlist_context",
+      "method": "hybrid_feedback",
+      "predicted_track_ids": [
+        "2bed3a48-085c-4f39-9816-7e2225dfb89d",
+        "0754e750-10d2-4d7d-8ec2-00af6a465ffa",
+        "ace0cebd-7cf9-4f30-afba-21ac50434d10",
+        "9219a5e9-99f3-4a56-a6e7-a8849e42fe96",
+        "65b62a5b-fc10-4e56-bf15-338e7f31945d",
+        "c70eadb5-a9ae-466b-a8d9-b75a126fee02",
+        "9708e323-eb58-46ad-acdc-7b3ba8ddd3b4",
+        "db2c5416-9d66-410b-b90a-f5d91195eddc",
+        "c2d18e98-b9de-462d-a1de-960f3ed6adb6",
+        "6cf24d5e-b63e-4039-9b2c-788af3568ace"
+      ],
+      "latency_ms": [
+        151.22166700166417,
+        162.61862499959534,
+        151.62150000105612
+      ],
+      "raw_excluded_count": 1,
+      "final_excluded_count": 0
+    },
+    {
+      "query_id": "tobi-p03",
+      "category": "playlist_context",
+      "method": "bm25",
+      "predicted_track_ids": [
+        "7480e6b9-45ca-490e-abba-8258eacf4b48",
+        "04f859c8-4ccd-4c31-93fb-57eacb651a2d",
+        "0126679f-27db-4fbf-ad5d-46b4a8598f5a",
+        "b1ece7bb-38be-45a5-ae78-d1a0fad8f9c7",
+        "f6c1c5e9-1924-4138-9aaf-b865e8b872fb",
+        "47e449f7-00ac-455e-9623-47e9db5d30b9",
+        "7b3709d4-30e9-4be5-8f1f-5e0f314518eb",
+        "f204633b-885f-4bb4-a586-32bf3596e350",
+        "a715a017-be4f-4dd6-aeb6-b6363daef2e8",
+        "186f1fe0-477d-4dff-9ed6-76811adc1286"
+      ],
+      "latency_ms": [
+        8.00895900465548,
+        6.263041999773122,
+        6.4139169990085065
+      ],
+      "raw_excluded_count": 1,
+      "final_excluded_count": 0
+    },
+    {
+      "query_id": "tobi-p03",
+      "category": "playlist_context",
+      "method": "semantic",
+      "predicted_track_ids": [
+        "36bac3bd-5004-410f-b536-c3b520af1346",
+        "1bfd44b2-f64c-4f93-bb13-2eeb343a15fa",
+        "f82d7e13-676c-4463-9712-5a8779c18685",
+        "cf823286-5f56-4382-bf31-871a5f888956",
+        "13d57897-ccfd-4eb0-97af-71ab1499841b",
+        "506c0bd7-0679-425e-94f8-7f7404e5da3b",
+        "05b84c1c-8412-4cbe-bc3c-88d30450e746",
+        "d1a79691-8a7c-495e-b80a-b24d4e0a6068",
+        "6a6eee85-ec8b-458a-9536-16652f4a1a28",
+        "4e974f9e-94d0-4ce0-9848-778dacd85420"
+      ],
+      "latency_ms": [
+        431.5444590029074,
+        457.7118329980294,
+        425.55362499842886
+      ],
+      "raw_excluded_count": 1,
+      "final_excluded_count": 0
+    },
+    {
+      "query_id": "tobi-p03",
+      "category": "playlist_context",
+      "method": "hybrid",
+      "predicted_track_ids": [
+        "7b3709d4-30e9-4be5-8f1f-5e0f314518eb",
+        "4e974f9e-94d0-4ce0-9848-778dacd85420",
+        "7480e6b9-45ca-490e-abba-8258eacf4b48",
+        "04f859c8-4ccd-4c31-93fb-57eacb651a2d",
+        "0126679f-27db-4fbf-ad5d-46b4a8598f5a",
+        "b1ece7bb-38be-45a5-ae78-d1a0fad8f9c7",
+        "f6c1c5e9-1924-4138-9aaf-b865e8b872fb",
+        "47e449f7-00ac-455e-9623-47e9db5d30b9",
+        "a35e328c-552e-4042-91a3-8181b177c5d8",
+        "f204633b-885f-4bb4-a586-32bf3596e350"
+      ],
+      "latency_ms": [
+        425.8836250010063,
+        430.8195409976179,
+        438.3802919983282
+      ],
+      "raw_excluded_count": 1,
+      "final_excluded_count": 0
+    },
+    {
+      "query_id": "tobi-p03",
+      "category": "playlist_context",
+      "method": "hybrid_feedback",
+      "predicted_track_ids": [
+        "7b3709d4-30e9-4be5-8f1f-5e0f314518eb",
+        "4e974f9e-94d0-4ce0-9848-778dacd85420",
+        "7480e6b9-45ca-490e-abba-8258eacf4b48",
+        "04f859c8-4ccd-4c31-93fb-57eacb651a2d",
+        "0126679f-27db-4fbf-ad5d-46b4a8598f5a",
+        "b1ece7bb-38be-45a5-ae78-d1a0fad8f9c7",
+        "f6c1c5e9-1924-4138-9aaf-b865e8b872fb",
+        "47e449f7-00ac-455e-9623-47e9db5d30b9",
+        "a35e328c-552e-4042-91a3-8181b177c5d8",
+        "f204633b-885f-4bb4-a586-32bf3596e350"
+      ],
+      "latency_ms": [
+        429.8462090009707,
+        429.3405829957919,
+        423.31104199547553
+      ],
+      "raw_excluded_count": 1,
+      "final_excluded_count": 0
+    },
+    {
+      "query_id": "tobi-p04",
+      "category": "playlist_context",
+      "method": "bm25",
+      "predicted_track_ids": [
+        "b49f1ad9-d4fe-4b91-a66e-f93c68d99416",
+        "5583de40-9e05-4f27-b172-7a4e7d10ad5f",
+        "9571eead-47df-4f38-afbf-056848907725",
+        "b8891115-5b45-4074-aec0-858ef3752a11",
+        "fd777591-2c63-40af-bb62-ee2c9899baaa",
+        "847bec30-2d1a-4e3f-abf7-19e6e234572c",
+        "c2bb5073-7ec4-4b3f-adaf-9162b641dae9",
+        "6959c769-0483-4d47-a805-1332a2efbaae",
+        "d486142f-8ad2-4b3a-9068-4f2608250e8e",
+        "f2aac6f0-d30a-4710-882e-eac5a5632801"
+      ],
+      "latency_ms": [
+        9.585166997567285,
+        9.41637499636272,
+        9.128167002927512
+      ],
+      "raw_excluded_count": 2,
+      "final_excluded_count": 0
+    },
+    {
+      "query_id": "tobi-p04",
+      "category": "playlist_context",
+      "method": "semantic",
+      "predicted_track_ids": [
+        "64f3f7ba-1181-4c44-922d-203f94245be6",
+        "0840a5f3-2837-46df-a0f9-391448b8af8a",
+        "f311c0f2-f944-462c-b46a-b435d6a3cbcf",
+        "5dacf636-d96f-4ecb-ae9b-b48682b07b37",
+        "7a59f2e0-5f06-4660-b7af-f0e880ea7e8f",
+        "915e7d5d-10bf-4209-ba31-4e8cab3b2882",
+        "95bd351c-1fc7-4cff-bfae-c729212e760c",
+        "b96fba24-df47-453b-b620-e1a63bb81efd",
+        "c7b0f577-4f6c-45cc-b2d5-a75bad344db5",
+        "e1da64a9-3561-4e50-84a2-078aa7108ab4"
+      ],
+      "latency_ms": [
+        529.2805830031284,
+        496.3844160010922,
+        503.159042003972
+      ],
+      "raw_excluded_count": 1,
+      "final_excluded_count": 0
+    },
+    {
+      "query_id": "tobi-p04",
+      "category": "playlist_context",
+      "method": "hybrid",
+      "predicted_track_ids": [
+        "b49f1ad9-d4fe-4b91-a66e-f93c68d99416",
+        "5583de40-9e05-4f27-b172-7a4e7d10ad5f",
+        "9571eead-47df-4f38-afbf-056848907725",
+        "b8891115-5b45-4074-aec0-858ef3752a11",
+        "b759b09d-e110-4bc6-9f0b-0703126d5ce4",
+        "fd777591-2c63-40af-bb62-ee2c9899baaa",
+        "847bec30-2d1a-4e3f-abf7-19e6e234572c",
+        "c2bb5073-7ec4-4b3f-adaf-9162b641dae9",
+        "6959c769-0483-4d47-a805-1332a2efbaae",
+        "d486142f-8ad2-4b3a-9068-4f2608250e8e"
+      ],
+      "latency_ms": [
+        501.0450000045239,
+        503.2882499945117,
+        505.10816700261785
+      ],
+      "raw_excluded_count": 2,
+      "final_excluded_count": 0
+    },
+    {
+      "query_id": "tobi-p04",
+      "category": "playlist_context",
+      "method": "hybrid_feedback",
+      "predicted_track_ids": [
+        "b49f1ad9-d4fe-4b91-a66e-f93c68d99416",
+        "5583de40-9e05-4f27-b172-7a4e7d10ad5f",
+        "9571eead-47df-4f38-afbf-056848907725",
+        "b8891115-5b45-4074-aec0-858ef3752a11",
+        "b759b09d-e110-4bc6-9f0b-0703126d5ce4",
+        "fd777591-2c63-40af-bb62-ee2c9899baaa",
+        "847bec30-2d1a-4e3f-abf7-19e6e234572c",
+        "c2bb5073-7ec4-4b3f-adaf-9162b641dae9",
+        "6959c769-0483-4d47-a805-1332a2efbaae",
+        "d486142f-8ad2-4b3a-9068-4f2608250e8e"
+      ],
+      "latency_ms": [
+        506.2319170028786,
+        508.6155000026338,
+        508.99504099652404
+      ],
+      "raw_excluded_count": 2,
+      "final_excluded_count": 0
+    },
+    {
+      "query_id": "tobi-p05",
+      "category": "playlist_context",
+      "method": "bm25",
+      "predicted_track_ids": [
+        "407bbe04-ff88-4dfe-8114-10a95b523592",
+        "fd777591-2c63-40af-bb62-ee2c9899baaa",
+        "5583de40-9e05-4f27-b172-7a4e7d10ad5f",
+        "b49f1ad9-d4fe-4b91-a66e-f93c68d99416",
+        "9571eead-47df-4f38-afbf-056848907725",
+        "847bec30-2d1a-4e3f-abf7-19e6e234572c",
+        "b8891115-5b45-4074-aec0-858ef3752a11",
+        "d486142f-8ad2-4b3a-9068-4f2608250e8e",
+        "14b09631-942a-453a-a5e4-6c37a415a006",
+        "cb31b40d-7043-44e1-926d-416985d30a32"
+      ],
+      "latency_ms": [
+        5.791583003883716,
+        5.446290997497272,
+        5.434124999737833
+      ],
+      "raw_excluded_count": 2,
+      "final_excluded_count": 0
+    },
+    {
+      "query_id": "tobi-p05",
+      "category": "playlist_context",
+      "method": "semantic",
+      "predicted_track_ids": [
+        "32bb6f88-0d69-4f09-a020-492116cffb55",
+        "95bd351c-1fc7-4cff-bfae-c729212e760c",
+        "71b2b707-8233-4802-8135-e0b0a5da0001",
+        "1ef0ecf3-6f11-4597-be29-32b848deee37",
+        "5dacf636-d96f-4ecb-ae9b-b48682b07b37",
+        "b4060d5e-a59b-4672-b03c-9057e2dae404",
+        "e8d89fcb-819e-4d84-8190-23f973d82649",
+        "0840a5f3-2837-46df-a0f9-391448b8af8a",
+        "a34de4e4-48fb-4b2e-ae9e-07d63e0a0286",
+        "7c8a69e1-1eda-4f57-97ff-faf567ea77ef"
+      ],
+      "latency_ms": [
+        326.5499999979511,
+        335.4872079944471,
+        342.99816700513475
+      ],
+      "raw_excluded_count": 0,
+      "final_excluded_count": 0
+    },
+    {
+      "query_id": "tobi-p05",
+      "category": "playlist_context",
+      "method": "hybrid",
+      "predicted_track_ids": [
+        "407bbe04-ff88-4dfe-8114-10a95b523592",
+        "fd777591-2c63-40af-bb62-ee2c9899baaa",
+        "5583de40-9e05-4f27-b172-7a4e7d10ad5f",
+        "b49f1ad9-d4fe-4b91-a66e-f93c68d99416",
+        "9571eead-47df-4f38-afbf-056848907725",
+        "847bec30-2d1a-4e3f-abf7-19e6e234572c",
+        "b8891115-5b45-4074-aec0-858ef3752a11",
+        "d486142f-8ad2-4b3a-9068-4f2608250e8e",
+        "14b09631-942a-453a-a5e4-6c37a415a006",
+        "cb31b40d-7043-44e1-926d-416985d30a32"
+      ],
+      "latency_ms": [
+        387.70366600510897,
+        332.66133299912326,
+        336.18741700047394
+      ],
+      "raw_excluded_count": 2,
+      "final_excluded_count": 0
+    },
+    {
+      "query_id": "tobi-p05",
+      "category": "playlist_context",
+      "method": "hybrid_feedback",
+      "predicted_track_ids": [
+        "407bbe04-ff88-4dfe-8114-10a95b523592",
+        "fd777591-2c63-40af-bb62-ee2c9899baaa",
+        "5583de40-9e05-4f27-b172-7a4e7d10ad5f",
+        "b49f1ad9-d4fe-4b91-a66e-f93c68d99416",
+        "9571eead-47df-4f38-afbf-056848907725",
+        "847bec30-2d1a-4e3f-abf7-19e6e234572c",
+        "b8891115-5b45-4074-aec0-858ef3752a11",
+        "d486142f-8ad2-4b3a-9068-4f2608250e8e",
+        "14b09631-942a-453a-a5e4-6c37a415a006",
+        "cb31b40d-7043-44e1-926d-416985d30a32"
+      ],
+      "latency_ms": [
+        354.4830829996499,
+        363.4243749984307,
+        310.51016700075706
+      ],
+      "raw_excluded_count": 2,
+      "final_excluded_count": 0
+    },
+    {
+      "query_id": "tobi-e01",
+      "category": "exclusion",
+      "method": "bm25",
+      "predicted_track_ids": [
+        "58a4a1f2-a111-4608-ac31-68f35871ce80",
+        "758e2810-aed8-4383-a455-7f46ed12414c",
+        "7c60f67c-5de3-44a7-9b03-f0b833a88f72",
+        "8078f71d-0494-41bb-95bd-942626b4bee7",
+        "94ff0036-6bf5-4b89-9db0-7a013f108e62",
+        "8aa0d75e-7372-4dcb-8b5d-f7a3aa0219f7",
+        "1451f6f9-8c71-450b-aadf-a0b59230bf2b",
+        "e49253b5-5811-4438-ac4e-8e23bccdbb59",
+        "66dcacca-d844-40c0-b509-f1781f2900db",
+        "b867046c-5de5-4c53-a59f-aa0e1308a2d0"
+      ],
+      "latency_ms": [
+        1.9195830027456395,
+        1.648083001782652,
+        1.6485419982927851
+      ],
+      "raw_excluded_count": 1,
+      "final_excluded_count": 0
+    },
+    {
+      "query_id": "tobi-e01",
+      "category": "exclusion",
+      "method": "semantic",
+      "predicted_track_ids": [
+        "ad103500-f357-45e4-9751-ee93626594a0",
+        "407b4797-d2e7-4123-91d4-dc85953629dd",
+        "193290f2-70f0-478b-950b-1e78be00dad0",
+        "f8cd69fb-bea8-4b2a-b2db-49249c6b340a",
+        "b96fba24-df47-453b-b620-e1a63bb81efd",
+        "32bb6f88-0d69-4f09-a020-492116cffb55",
+        "c20d7266-4680-454d-9f27-9e76b6391032",
+        "430c3648-45f3-4651-bb75-fc782faa36cb",
+        "c0a1ce83-c03b-4e49-a7d2-10ee54713179",
+        "cb2413eb-d787-4064-ab2e-1debe8ff9d9c"
+      ],
+      "latency_ms": [
+        179.47987499792362,
+        167.80633299640613,
+        172.63233300036518
+      ],
+      "raw_excluded_count": 0,
+      "final_excluded_count": 0
+    },
+    {
+      "query_id": "tobi-e01",
+      "category": "exclusion",
+      "method": "hybrid",
+      "predicted_track_ids": [
+        "58a4a1f2-a111-4608-ac31-68f35871ce80",
+        "758e2810-aed8-4383-a455-7f46ed12414c",
+        "7c60f67c-5de3-44a7-9b03-f0b833a88f72",
+        "8078f71d-0494-41bb-95bd-942626b4bee7",
+        "94ff0036-6bf5-4b89-9db0-7a013f108e62",
+        "8aa0d75e-7372-4dcb-8b5d-f7a3aa0219f7",
+        "1451f6f9-8c71-450b-aadf-a0b59230bf2b",
+        "e49253b5-5811-4438-ac4e-8e23bccdbb59",
+        "66dcacca-d844-40c0-b509-f1781f2900db",
+        "b867046c-5de5-4c53-a59f-aa0e1308a2d0"
+      ],
+      "latency_ms": [
+        166.85137499734992,
+        227.09662499983096,
+        168.61820800113492
+      ],
+      "raw_excluded_count": 1,
+      "final_excluded_count": 0
+    },
+    {
+      "query_id": "tobi-e01",
+      "category": "exclusion",
+      "method": "hybrid_feedback",
+      "predicted_track_ids": [
+        "58a4a1f2-a111-4608-ac31-68f35871ce80",
+        "758e2810-aed8-4383-a455-7f46ed12414c",
+        "7c60f67c-5de3-44a7-9b03-f0b833a88f72",
+        "8078f71d-0494-41bb-95bd-942626b4bee7",
+        "94ff0036-6bf5-4b89-9db0-7a013f108e62",
+        "8aa0d75e-7372-4dcb-8b5d-f7a3aa0219f7",
+        "1451f6f9-8c71-450b-aadf-a0b59230bf2b",
+        "e49253b5-5811-4438-ac4e-8e23bccdbb59",
+        "66dcacca-d844-40c0-b509-f1781f2900db",
+        "b867046c-5de5-4c53-a59f-aa0e1308a2d0"
+      ],
+      "latency_ms": [
+        169.25716699915938,
+        217.57458399952156,
+        358.58729200117523
+      ],
+      "raw_excluded_count": 1,
+      "final_excluded_count": 0
+    },
+    {
+      "query_id": "tobi-e02",
+      "category": "exclusion",
+      "method": "bm25",
+      "predicted_track_ids": [
+        "1451f6f9-8c71-450b-aadf-a0b59230bf2b",
+        "58a4a1f2-a111-4608-ac31-68f35871ce80",
+        "7c60f67c-5de3-44a7-9b03-f0b833a88f72",
+        "0c43c3ec-e1f6-45a4-86b1-cbfc4387e541",
+        "42d9a8d7-4e02-4036-bc38-fb52eb75e815",
+        "a2f87fc3-b02f-4fdc-8dd4-78051657cc60",
+        "17656c29-d2b7-497b-a7cf-5f3e0826c947",
+        "34acb1cf-3797-4d2d-9aca-d8b9837bd16a",
+        "2e719f3f-e8b1-4a17-964b-9afcebe65ccb",
+        "dbe27c86-1c18-469d-bf91-ba29caf393a0"
+      ],
+      "latency_ms": [
+        3.910708001058083,
+        7.5818330005859025,
+        1.8631659986567684
+      ],
+      "raw_excluded_count": 0,
+      "final_excluded_count": 0
+    },
+    {
+      "query_id": "tobi-e02",
+      "category": "exclusion",
+      "method": "semantic",
+      "predicted_track_ids": [
+        "2e8a335e-98cb-4d3b-bc40-0dd1765864e3",
+        "de8225b5-1e9b-4583-90b4-4ba134590d78",
+        "a6986d17-5cbd-4b35-882e-47917b1260b7",
+        "3f87c549-e501-4b6f-a14a-cd145690d545",
+        "4109b3aa-4123-407c-8ea7-c905136d573a",
+        "1b5b6cf3-2327-447c-8d82-f17949c7fdfe",
+        "dfe185ce-b59e-4e6d-b65c-7b955873dc4a",
+        "485bbf11-a9a0-424b-ac50-f7e6f7a56365",
+        "201526bd-29a2-4e65-8ab7-ef657abe7fce",
+        "1419f6ba-fae2-41c9-be3a-74ef47fb2be4"
+      ],
+      "latency_ms": [
+        373.42316600552294,
+        163.23787500004983,
+        162.31720900395885
+      ],
+      "raw_excluded_count": 0,
+      "final_excluded_count": 0
+    },
+    {
+      "query_id": "tobi-e02",
+      "category": "exclusion",
+      "method": "hybrid",
+      "predicted_track_ids": [
+        "1451f6f9-8c71-450b-aadf-a0b59230bf2b",
+        "58a4a1f2-a111-4608-ac31-68f35871ce80",
+        "7c60f67c-5de3-44a7-9b03-f0b833a88f72",
+        "0c43c3ec-e1f6-45a4-86b1-cbfc4387e541",
+        "42d9a8d7-4e02-4036-bc38-fb52eb75e815",
+        "a2f87fc3-b02f-4fdc-8dd4-78051657cc60",
+        "17656c29-d2b7-497b-a7cf-5f3e0826c947",
+        "34acb1cf-3797-4d2d-9aca-d8b9837bd16a",
+        "2e719f3f-e8b1-4a17-964b-9afcebe65ccb",
+        "dbe27c86-1c18-469d-bf91-ba29caf393a0"
+      ],
+      "latency_ms": [
+        161.7632080015028,
+        161.64316599315498,
+        179.38437499833526
+      ],
+      "raw_excluded_count": 0,
+      "final_excluded_count": 0
+    },
+    {
+      "query_id": "tobi-e02",
+      "category": "exclusion",
+      "method": "hybrid_feedback",
+      "predicted_track_ids": [
+        "1451f6f9-8c71-450b-aadf-a0b59230bf2b",
+        "58a4a1f2-a111-4608-ac31-68f35871ce80",
+        "7c60f67c-5de3-44a7-9b03-f0b833a88f72",
+        "0c43c3ec-e1f6-45a4-86b1-cbfc4387e541",
+        "42d9a8d7-4e02-4036-bc38-fb52eb75e815",
+        "a2f87fc3-b02f-4fdc-8dd4-78051657cc60",
+        "17656c29-d2b7-497b-a7cf-5f3e0826c947",
+        "34acb1cf-3797-4d2d-9aca-d8b9837bd16a",
+        "2e719f3f-e8b1-4a17-964b-9afcebe65ccb",
+        "dbe27c86-1c18-469d-bf91-ba29caf393a0"
+      ],
+      "latency_ms": [
+        164.04162500111852,
+        160.70408399536973,
+        169.32941699633375
+      ],
+      "raw_excluded_count": 0,
+      "final_excluded_count": 0
+    },
+    {
+      "query_id": "tobi-e03",
+      "category": "exclusion",
+      "method": "bm25",
+      "predicted_track_ids": [
+        "7c60f67c-5de3-44a7-9b03-f0b833a88f72",
+        "58a4a1f2-a111-4608-ac31-68f35871ce80",
+        "758e2810-aed8-4383-a455-7f46ed12414c",
+        "94ff0036-6bf5-4b89-9db0-7a013f108e62",
+        "8078f71d-0494-41bb-95bd-942626b4bee7",
+        "1451f6f9-8c71-450b-aadf-a0b59230bf2b",
+        "8aa0d75e-7372-4dcb-8b5d-f7a3aa0219f7",
+        "e49253b5-5811-4438-ac4e-8e23bccdbb59",
+        "109e37b5-d235-4e81-a2dd-70a46a20a6b8",
+        "eebd9b49-2da7-4978-a134-39cd9386c4c6"
+      ],
+      "latency_ms": [
+        1.8267499981448054,
+        1.8427920003887266,
+        1.7230000012204982
+      ],
+      "raw_excluded_count": 0,
+      "final_excluded_count": 0
+    },
+    {
+      "query_id": "tobi-e03",
+      "category": "exclusion",
+      "method": "semantic",
+      "predicted_track_ids": [
+        "95bd351c-1fc7-4cff-bfae-c729212e760c",
+        "dfe185ce-b59e-4e6d-b65c-7b955873dc4a",
+        "7206e740-31e2-46d1-ae01-d8f24d31db34",
+        "32bb6f88-0d69-4f09-a020-492116cffb55",
+        "1ef0ecf3-6f11-4597-be29-32b848deee37",
+        "e6781da8-a3af-4000-adbc-a5ab735dc573",
+        "9307b08c-3442-45b1-a5e9-0bd9cfba45b0",
+        "125f572a-752e-4d2e-af1d-c72e71915e2b",
+        "6ba90970-787c-453e-93f8-a8d08f19caeb",
+        "4a79a00a-ada7-4796-b358-b4ab079f70ea"
+      ],
+      "latency_ms": [
+        161.99720900476677,
+        160.36741599964444,
+        162.74266700202134
+      ],
+      "raw_excluded_count": 0,
+      "final_excluded_count": 0
+    },
+    {
+      "query_id": "tobi-e03",
+      "category": "exclusion",
+      "method": "hybrid",
+      "predicted_track_ids": [
+        "7c60f67c-5de3-44a7-9b03-f0b833a88f72",
+        "58a4a1f2-a111-4608-ac31-68f35871ce80",
+        "758e2810-aed8-4383-a455-7f46ed12414c",
+        "94ff0036-6bf5-4b89-9db0-7a013f108e62",
+        "8078f71d-0494-41bb-95bd-942626b4bee7",
+        "1451f6f9-8c71-450b-aadf-a0b59230bf2b",
+        "8aa0d75e-7372-4dcb-8b5d-f7a3aa0219f7",
+        "e49253b5-5811-4438-ac4e-8e23bccdbb59",
+        "109e37b5-d235-4e81-a2dd-70a46a20a6b8",
+        "eebd9b49-2da7-4978-a134-39cd9386c4c6"
+      ],
+      "latency_ms": [
+        161.74725000018952,
+        162.579583004117,
+        165.91862499626586
+      ],
+      "raw_excluded_count": 0,
+      "final_excluded_count": 0
+    },
+    {
+      "query_id": "tobi-e03",
+      "category": "exclusion",
+      "method": "hybrid_feedback",
+      "predicted_track_ids": [
+        "7c60f67c-5de3-44a7-9b03-f0b833a88f72",
+        "58a4a1f2-a111-4608-ac31-68f35871ce80",
+        "758e2810-aed8-4383-a455-7f46ed12414c",
+        "94ff0036-6bf5-4b89-9db0-7a013f108e62",
+        "8078f71d-0494-41bb-95bd-942626b4bee7",
+        "1451f6f9-8c71-450b-aadf-a0b59230bf2b",
+        "8aa0d75e-7372-4dcb-8b5d-f7a3aa0219f7",
+        "e49253b5-5811-4438-ac4e-8e23bccdbb59",
+        "109e37b5-d235-4e81-a2dd-70a46a20a6b8",
+        "eebd9b49-2da7-4978-a134-39cd9386c4c6"
+      ],
+      "latency_ms": [
+        166.71962499822257,
+        166.03537499759113,
+        162.04045800259337
+      ],
+      "raw_excluded_count": 0,
+      "final_excluded_count": 0
+    },
+    {
+      "query_id": "tobi-e04",
+      "category": "exclusion",
+      "method": "bm25",
+      "predicted_track_ids": [
+        "8078f71d-0494-41bb-95bd-942626b4bee7",
+        "9f33edde-e669-42cc-a7fd-4905bfddc399",
+        "7c60f67c-5de3-44a7-9b03-f0b833a88f72",
+        "58a4a1f2-a111-4608-ac31-68f35871ce80",
+        "758e2810-aed8-4383-a455-7f46ed12414c",
+        "94ff0036-6bf5-4b89-9db0-7a013f108e62",
+        "1451f6f9-8c71-450b-aadf-a0b59230bf2b",
+        "6ecb1db4-c77c-46b0-b671-1ee4c57850fa",
+        "2c479217-b4bd-4137-a976-72831ec3b131",
+        "dcb60e94-2589-4e27-a373-59601748cdba"
+      ],
+      "latency_ms": [
+        1.6870409963303246,
+        1.4324160001706332,
+        1.4025409982423298
+      ],
+      "raw_excluded_count": 0,
+      "final_excluded_count": 0
+    },
+    {
+      "query_id": "tobi-e04",
+      "category": "exclusion",
+      "method": "semantic",
+      "predicted_track_ids": [
+        "ad103500-f357-45e4-9751-ee93626594a0",
+        "7206e740-31e2-46d1-ae01-d8f24d31db34",
+        "261f08e0-fb9d-4c2b-9883-2031c3f5a287",
+        "dfe185ce-b59e-4e6d-b65c-7b955873dc4a",
+        "eff84f4c-39f5-468b-b506-4a664b35aab6",
+        "b038fdfc-f1df-4dcc-9a4c-6e5051383061",
+        "a6743760-c3bb-4900-af34-2f3966fbb60f",
+        "1b838376-0248-4ed2-a319-3b27f7ebf93b",
+        "a837d327-a1d7-4a4e-b046-f2a37c041b31",
+        "11518ece-d38c-4815-b531-7504ff344062"
+      ],
+      "latency_ms": [
+        161.34129199781455,
+        160.7135419981205,
+        172.02233400166733
+      ],
+      "raw_excluded_count": 0,
+      "final_excluded_count": 0
+    },
+    {
+      "query_id": "tobi-e04",
+      "category": "exclusion",
+      "method": "hybrid",
+      "predicted_track_ids": [
+        "8078f71d-0494-41bb-95bd-942626b4bee7",
+        "9f33edde-e669-42cc-a7fd-4905bfddc399",
+        "7c60f67c-5de3-44a7-9b03-f0b833a88f72",
+        "58a4a1f2-a111-4608-ac31-68f35871ce80",
+        "758e2810-aed8-4383-a455-7f46ed12414c",
+        "94ff0036-6bf5-4b89-9db0-7a013f108e62",
+        "1451f6f9-8c71-450b-aadf-a0b59230bf2b",
+        "6ecb1db4-c77c-46b0-b671-1ee4c57850fa",
+        "2c479217-b4bd-4137-a976-72831ec3b131",
+        "dcb60e94-2589-4e27-a373-59601748cdba"
+      ],
+      "latency_ms": [
+        176.65845800365787,
+        163.6252919997787,
+        163.94587499962654
+      ],
+      "raw_excluded_count": 0,
+      "final_excluded_count": 0
+    },
+    {
+      "query_id": "tobi-e04",
+      "category": "exclusion",
+      "method": "hybrid_feedback",
+      "predicted_track_ids": [
+        "8078f71d-0494-41bb-95bd-942626b4bee7",
+        "9f33edde-e669-42cc-a7fd-4905bfddc399",
+        "7c60f67c-5de3-44a7-9b03-f0b833a88f72",
+        "58a4a1f2-a111-4608-ac31-68f35871ce80",
+        "758e2810-aed8-4383-a455-7f46ed12414c",
+        "94ff0036-6bf5-4b89-9db0-7a013f108e62",
+        "1451f6f9-8c71-450b-aadf-a0b59230bf2b",
+        "6ecb1db4-c77c-46b0-b671-1ee4c57850fa",
+        "2c479217-b4bd-4137-a976-72831ec3b131",
+        "dcb60e94-2589-4e27-a373-59601748cdba"
+      ],
+      "latency_ms": [
+        168.14845799672185,
+        171.61987500003306,
+        169.01037500065286
+      ],
+      "raw_excluded_count": 0,
+      "final_excluded_count": 0
+    },
+    {
+      "query_id": "tobi-e05",
+      "category": "exclusion",
+      "method": "bm25",
+      "predicted_track_ids": [
+        "58a4a1f2-a111-4608-ac31-68f35871ce80",
+        "758e2810-aed8-4383-a455-7f46ed12414c",
+        "7c60f67c-5de3-44a7-9b03-f0b833a88f72",
+        "8078f71d-0494-41bb-95bd-942626b4bee7",
+        "94ff0036-6bf5-4b89-9db0-7a013f108e62",
+        "1451f6f9-8c71-450b-aadf-a0b59230bf2b",
+        "e49253b5-5811-4438-ac4e-8e23bccdbb59",
+        "d7a8828a-dedc-4670-9ad7-a5e4efc504fa",
+        "cd570046-7516-4c90-930b-b7f077643a43",
+        "3b8c5678-a0ed-46cb-ba47-99547308138f"
+      ],
+      "latency_ms": [
+        1.7844169997260906,
+        1.5514999977312982,
+        1.6079999986686744
+      ],
+      "raw_excluded_count": 0,
+      "final_excluded_count": 0
+    },
+    {
+      "query_id": "tobi-e05",
+      "category": "exclusion",
+      "method": "semantic",
+      "predicted_track_ids": [
+        "da666a24-efac-4c9c-a628-319554cf7083",
+        "407b4797-d2e7-4123-91d4-dc85953629dd",
+        "e3566f7d-bb70-4f69-ba9b-10f162251601",
+        "fa5008dc-260b-4f41-a087-03ce97df0db1",
+        "e6e8416c-db8f-4be5-910f-cdd26e2b33ae",
+        "3b929d6c-3445-4564-a6aa-c44f52323b56",
+        "a6743760-c3bb-4900-af34-2f3966fbb60f",
+        "b96fba24-df47-453b-b620-e1a63bb81efd",
+        "c7b0f577-4f6c-45cc-b2d5-a75bad344db5",
+        "b4060d5e-a59b-4672-b03c-9057e2dae404"
+      ],
+      "latency_ms": [
+        168.8049160002265,
+        171.2202909984626,
+        167.0788339979481
+      ],
+      "raw_excluded_count": 0,
+      "final_excluded_count": 0
+    },
+    {
+      "query_id": "tobi-e05",
+      "category": "exclusion",
+      "method": "hybrid",
+      "predicted_track_ids": [
+        "58a4a1f2-a111-4608-ac31-68f35871ce80",
+        "758e2810-aed8-4383-a455-7f46ed12414c",
+        "7c60f67c-5de3-44a7-9b03-f0b833a88f72",
+        "8078f71d-0494-41bb-95bd-942626b4bee7",
+        "94ff0036-6bf5-4b89-9db0-7a013f108e62",
+        "1451f6f9-8c71-450b-aadf-a0b59230bf2b",
+        "e49253b5-5811-4438-ac4e-8e23bccdbb59",
+        "d7a8828a-dedc-4670-9ad7-a5e4efc504fa",
+        "cd570046-7516-4c90-930b-b7f077643a43",
+        "3b8c5678-a0ed-46cb-ba47-99547308138f"
+      ],
+      "latency_ms": [
+        169.79749999882188,
+        171.72133400163148,
+        175.30420800176216
+      ],
+      "raw_excluded_count": 0,
+      "final_excluded_count": 0
+    },
+    {
+      "query_id": "tobi-e05",
+      "category": "exclusion",
+      "method": "hybrid_feedback",
+      "predicted_track_ids": [
+        "58a4a1f2-a111-4608-ac31-68f35871ce80",
+        "758e2810-aed8-4383-a455-7f46ed12414c",
+        "7c60f67c-5de3-44a7-9b03-f0b833a88f72",
+        "8078f71d-0494-41bb-95bd-942626b4bee7",
+        "94ff0036-6bf5-4b89-9db0-7a013f108e62",
+        "1451f6f9-8c71-450b-aadf-a0b59230bf2b",
+        "e49253b5-5811-4438-ac4e-8e23bccdbb59",
+        "d7a8828a-dedc-4670-9ad7-a5e4efc504fa",
+        "cd570046-7516-4c90-930b-b7f077643a43",
+        "3b8c5678-a0ed-46cb-ba47-99547308138f"
+      ],
+      "latency_ms": [
+        169.4100000022445,
+        169.33754199999385,
+        176.20412500400562
+      ],
+      "raw_excluded_count": 0,
+      "final_excluded_count": 0
+    },
+    {
+      "query_id": "tobi-f01",
+      "category": "mixed_feedback",
+      "method": "bm25",
+      "predicted_track_ids": [
+        "58a4a1f2-a111-4608-ac31-68f35871ce80",
+        "758e2810-aed8-4383-a455-7f46ed12414c",
+        "7c60f67c-5de3-44a7-9b03-f0b833a88f72",
+        "8078f71d-0494-41bb-95bd-942626b4bee7",
+        "94ff0036-6bf5-4b89-9db0-7a013f108e62",
+        "1451f6f9-8c71-450b-aadf-a0b59230bf2b",
+        "e49253b5-5811-4438-ac4e-8e23bccdbb59",
+        "d7a8828a-dedc-4670-9ad7-a5e4efc504fa",
+        "cd570046-7516-4c90-930b-b7f077643a43",
+        "3b8c5678-a0ed-46cb-ba47-99547308138f"
+      ],
+      "latency_ms": [
+        1.665917006903328,
+        1.4343750008265488,
+        1.3984580000396818
+      ],
+      "raw_excluded_count": 0,
+      "final_excluded_count": 0
+    },
+    {
+      "query_id": "tobi-f01",
+      "category": "mixed_feedback",
+      "method": "semantic",
+      "predicted_track_ids": [
+        "da666a24-efac-4c9c-a628-319554cf7083",
+        "407b4797-d2e7-4123-91d4-dc85953629dd",
+        "e3566f7d-bb70-4f69-ba9b-10f162251601",
+        "fa5008dc-260b-4f41-a087-03ce97df0db1",
+        "e6e8416c-db8f-4be5-910f-cdd26e2b33ae",
+        "3b929d6c-3445-4564-a6aa-c44f52323b56",
+        "a6743760-c3bb-4900-af34-2f3966fbb60f",
+        "b96fba24-df47-453b-b620-e1a63bb81efd",
+        "c7b0f577-4f6c-45cc-b2d5-a75bad344db5",
+        "b4060d5e-a59b-4672-b03c-9057e2dae404"
+      ],
+      "latency_ms": [
+        179.75374999514315,
+        175.67383300047368,
+        179.34233400592348
+      ],
+      "raw_excluded_count": 0,
+      "final_excluded_count": 0
+    },
+    {
+      "query_id": "tobi-f01",
+      "category": "mixed_feedback",
+      "method": "hybrid",
+      "predicted_track_ids": [
+        "58a4a1f2-a111-4608-ac31-68f35871ce80",
+        "758e2810-aed8-4383-a455-7f46ed12414c",
+        "7c60f67c-5de3-44a7-9b03-f0b833a88f72",
+        "8078f71d-0494-41bb-95bd-942626b4bee7",
+        "94ff0036-6bf5-4b89-9db0-7a013f108e62",
+        "1451f6f9-8c71-450b-aadf-a0b59230bf2b",
+        "e49253b5-5811-4438-ac4e-8e23bccdbb59",
+        "d7a8828a-dedc-4670-9ad7-a5e4efc504fa",
+        "cd570046-7516-4c90-930b-b7f077643a43",
+        "3b8c5678-a0ed-46cb-ba47-99547308138f"
+      ],
+      "latency_ms": [
+        174.56662499898812,
+        169.10545900464058,
+        173.42924999684328
+      ],
+      "raw_excluded_count": 0,
+      "final_excluded_count": 0
+    },
+    {
+      "query_id": "tobi-f01",
+      "category": "mixed_feedback",
+      "method": "hybrid_feedback",
+      "predicted_track_ids": [
+        "58a4a1f2-a111-4608-ac31-68f35871ce80",
+        "758e2810-aed8-4383-a455-7f46ed12414c",
+        "7c60f67c-5de3-44a7-9b03-f0b833a88f72",
+        "8078f71d-0494-41bb-95bd-942626b4bee7",
+        "94ff0036-6bf5-4b89-9db0-7a013f108e62",
+        "1451f6f9-8c71-450b-aadf-a0b59230bf2b",
+        "e49253b5-5811-4438-ac4e-8e23bccdbb59",
+        "cd570046-7516-4c90-930b-b7f077643a43",
+        "d7a8828a-dedc-4670-9ad7-a5e4efc504fa",
+        "3b8c5678-a0ed-46cb-ba47-99547308138f"
+      ],
+      "latency_ms": [
+        332.4090000023716,
+        328.081415995257,
+        327.75566700001946
+      ],
+      "raw_excluded_count": 0,
+      "final_excluded_count": 0
+    },
+    {
+      "query_id": "tobi-f02",
+      "category": "mixed_feedback",
+      "method": "bm25",
+      "predicted_track_ids": [
+        "1451f6f9-8c71-450b-aadf-a0b59230bf2b",
+        "0374f211-f3c7-407a-812b-e64040b2b9fd",
+        "71a793c7-8d9a-4271-95d5-254ae9c8f37b",
+        "2a834f07-2ffc-4ff3-8fe3-f552baebbbd8",
+        "9a6ccaab-ddaa-432a-8b44-91a5b0538dd8",
+        "a6a984c8-03a5-4a82-8195-78fdeee16e90",
+        "42cebbd5-0428-4500-afb0-eb079f13c16d",
+        "0e5d97df-1400-4bf0-902b-a2cf5db11c1e",
+        "c8fc044a-d42e-426b-b63f-9ef82d6439df",
+        "1a51638c-f566-42ee-a598-3a649bb1057a"
+      ],
+      "latency_ms": [
+        1.562792000186164,
+        1.4503749989671633,
+        1.4019590016687289
+      ],
+      "raw_excluded_count": 0,
+      "final_excluded_count": 0
+    },
+    {
+      "query_id": "tobi-f02",
+      "category": "mixed_feedback",
+      "method": "semantic",
+      "predicted_track_ids": [
+        "3f87c549-e501-4b6f-a14a-cd145690d545",
+        "a6986d17-5cbd-4b35-882e-47917b1260b7",
+        "de8225b5-1e9b-4583-90b4-4ba134590d78",
+        "485bbf11-a9a0-424b-ac50-f7e6f7a56365",
+        "1b5b6cf3-2327-447c-8d82-f17949c7fdfe",
+        "2e8a335e-98cb-4d3b-bc40-0dd1765864e3",
+        "4109b3aa-4123-407c-8ea7-c905136d573a",
+        "417dba51-5285-4906-916e-e1343679aef1",
+        "201526bd-29a2-4e65-8ab7-ef657abe7fce",
+        "5707b6a4-b987-4568-9c14-1ae884c3b2e7"
+      ],
+      "latency_ms": [
+        162.0409169991035,
+        169.44941700057825,
+        168.6929159986903
+      ],
+      "raw_excluded_count": 0,
+      "final_excluded_count": 0
+    },
+    {
+      "query_id": "tobi-f02",
+      "category": "mixed_feedback",
+      "method": "hybrid",
+      "predicted_track_ids": [
+        "1451f6f9-8c71-450b-aadf-a0b59230bf2b",
+        "0374f211-f3c7-407a-812b-e64040b2b9fd",
+        "71a793c7-8d9a-4271-95d5-254ae9c8f37b",
+        "2a834f07-2ffc-4ff3-8fe3-f552baebbbd8",
+        "9a6ccaab-ddaa-432a-8b44-91a5b0538dd8",
+        "a6a984c8-03a5-4a82-8195-78fdeee16e90",
+        "42cebbd5-0428-4500-afb0-eb079f13c16d",
+        "0e5d97df-1400-4bf0-902b-a2cf5db11c1e",
+        "c8fc044a-d42e-426b-b63f-9ef82d6439df",
+        "1a51638c-f566-42ee-a598-3a649bb1057a"
+      ],
+      "latency_ms": [
+        169.7995840004296,
+        172.31837500003166,
+        169.1841670035501
+      ],
+      "raw_excluded_count": 0,
+      "final_excluded_count": 0
+    },
+    {
+      "query_id": "tobi-f02",
+      "category": "mixed_feedback",
+      "method": "hybrid_feedback",
+      "predicted_track_ids": [
+        "1451f6f9-8c71-450b-aadf-a0b59230bf2b",
+        "0374f211-f3c7-407a-812b-e64040b2b9fd",
+        "71a793c7-8d9a-4271-95d5-254ae9c8f37b",
+        "2a834f07-2ffc-4ff3-8fe3-f552baebbbd8",
+        "9a6ccaab-ddaa-432a-8b44-91a5b0538dd8",
+        "a6a984c8-03a5-4a82-8195-78fdeee16e90",
+        "42cebbd5-0428-4500-afb0-eb079f13c16d",
+        "c8fc044a-d42e-426b-b63f-9ef82d6439df",
+        "0e5d97df-1400-4bf0-902b-a2cf5db11c1e",
+        "1a51638c-f566-42ee-a598-3a649bb1057a"
+      ],
+      "latency_ms": [
+        495.05245899490546,
+        360.7411670018337,
+        356.15783400135115
+      ],
+      "raw_excluded_count": 0,
+      "final_excluded_count": 0
+    },
+    {
+      "query_id": "tobi-f03",
+      "category": "mixed_feedback",
+      "method": "bm25",
+      "predicted_track_ids": [
+        "7c60f67c-5de3-44a7-9b03-f0b833a88f72",
+        "58a4a1f2-a111-4608-ac31-68f35871ce80",
+        "758e2810-aed8-4383-a455-7f46ed12414c",
+        "94ff0036-6bf5-4b89-9db0-7a013f108e62",
+        "e49253b5-5811-4438-ac4e-8e23bccdbb59",
+        "eebd9b49-2da7-4978-a134-39cd9386c4c6",
+        "8078f71d-0494-41bb-95bd-942626b4bee7",
+        "1451f6f9-8c71-450b-aadf-a0b59230bf2b",
+        "cd570046-7516-4c90-930b-b7f077643a43",
+        "109e37b5-d235-4e81-a2dd-70a46a20a6b8"
+      ],
+      "latency_ms": [
+        2.281582994328346,
+        1.9313340017106384,
+        1.9291249991510995
+      ],
+      "raw_excluded_count": 0,
+      "final_excluded_count": 0
+    },
+    {
+      "query_id": "tobi-f03",
+      "category": "mixed_feedback",
+      "method": "semantic",
+      "predicted_track_ids": [
+        "95bd351c-1fc7-4cff-bfae-c729212e760c",
+        "c093672a-30a9-429b-9a53-6842a95e371b",
+        "1ef0ecf3-6f11-4597-be29-32b848deee37",
+        "32bb6f88-0d69-4f09-a020-492116cffb55",
+        "5dacf636-d96f-4ecb-ae9b-b48682b07b37",
+        "e6781da8-a3af-4000-adbc-a5ab735dc573",
+        "dfe185ce-b59e-4e6d-b65c-7b955873dc4a",
+        "7206e740-31e2-46d1-ae01-d8f24d31db34",
+        "b88dfb15-1dcd-4ecf-869f-5939dad688ce",
+        "bac1133f-8b79-4b6c-99c6-e63c48571a5e"
+      ],
+      "latency_ms": [
+        182.07291699945927,
+        168.1454159988789,
+        179.30254199745832
+      ],
+      "raw_excluded_count": 0,
+      "final_excluded_count": 0
+    },
+    {
+      "query_id": "tobi-f03",
+      "category": "mixed_feedback",
+      "method": "hybrid",
+      "predicted_track_ids": [
+        "7c60f67c-5de3-44a7-9b03-f0b833a88f72",
+        "58a4a1f2-a111-4608-ac31-68f35871ce80",
+        "758e2810-aed8-4383-a455-7f46ed12414c",
+        "94ff0036-6bf5-4b89-9db0-7a013f108e62",
+        "e49253b5-5811-4438-ac4e-8e23bccdbb59",
+        "eebd9b49-2da7-4978-a134-39cd9386c4c6",
+        "8078f71d-0494-41bb-95bd-942626b4bee7",
+        "1451f6f9-8c71-450b-aadf-a0b59230bf2b",
+        "cd570046-7516-4c90-930b-b7f077643a43",
+        "109e37b5-d235-4e81-a2dd-70a46a20a6b8"
+      ],
+      "latency_ms": [
+        169.26095799863106,
+        174.6576660007122,
+        173.24354200536618
+      ],
+      "raw_excluded_count": 0,
+      "final_excluded_count": 0
+    },
+    {
+      "query_id": "tobi-f03",
+      "category": "mixed_feedback",
+      "method": "hybrid_feedback",
+      "predicted_track_ids": [
+        "7c60f67c-5de3-44a7-9b03-f0b833a88f72",
+        "58a4a1f2-a111-4608-ac31-68f35871ce80",
+        "758e2810-aed8-4383-a455-7f46ed12414c",
+        "94ff0036-6bf5-4b89-9db0-7a013f108e62",
+        "e49253b5-5811-4438-ac4e-8e23bccdbb59",
+        "eebd9b49-2da7-4978-a134-39cd9386c4c6",
+        "8078f71d-0494-41bb-95bd-942626b4bee7",
+        "1451f6f9-8c71-450b-aadf-a0b59230bf2b",
+        "cd570046-7516-4c90-930b-b7f077643a43",
+        "109e37b5-d235-4e81-a2dd-70a46a20a6b8"
+      ],
+      "latency_ms": [
+        335.65625000483124,
+        330.9235419947072,
+        330.17124999605585
+      ],
+      "raw_excluded_count": 0,
+      "final_excluded_count": 0
+    },
+    {
+      "query_id": "tobi-f04",
+      "category": "mixed_feedback",
+      "method": "bm25",
+      "predicted_track_ids": [
+        "58a4a1f2-a111-4608-ac31-68f35871ce80",
+        "758e2810-aed8-4383-a455-7f46ed12414c",
+        "7c60f67c-5de3-44a7-9b03-f0b833a88f72",
+        "e49253b5-5811-4438-ac4e-8e23bccdbb59",
+        "8078f71d-0494-41bb-95bd-942626b4bee7",
+        "94ff0036-6bf5-4b89-9db0-7a013f108e62",
+        "8aa0d75e-7372-4dcb-8b5d-f7a3aa0219f7",
+        "1451f6f9-8c71-450b-aadf-a0b59230bf2b",
+        "cd570046-7516-4c90-930b-b7f077643a43",
+        "6ecb1db4-c77c-46b0-b671-1ee4c57850fa"
+      ],
+      "latency_ms": [
+        1.917249996040482,
+        1.7378329939674586,
+        1.866416998382192
+      ],
+      "raw_excluded_count": 0,
+      "final_excluded_count": 0
+    },
+    {
+      "query_id": "tobi-f04",
+      "category": "mixed_feedback",
+      "method": "semantic",
+      "predicted_track_ids": [
+        "ad103500-f357-45e4-9751-ee93626594a0",
+        "407b4797-d2e7-4123-91d4-dc85953629dd",
+        "193290f2-70f0-478b-950b-1e78be00dad0",
+        "32bb6f88-0d69-4f09-a020-492116cffb55",
+        "f8cd69fb-bea8-4b2a-b2db-49249c6b340a",
+        "fa5008dc-260b-4f41-a087-03ce97df0db1",
+        "b96fba24-df47-453b-b620-e1a63bb81efd",
+        "e6e8416c-db8f-4be5-910f-cdd26e2b33ae",
+        "b4060d5e-a59b-4672-b03c-9057e2dae404",
+        "da666a24-efac-4c9c-a628-319554cf7083"
+      ],
+      "latency_ms": [
+        188.99529100599466,
+        179.838625001139,
+        168.807709000248
+      ],
+      "raw_excluded_count": 0,
+      "final_excluded_count": 0
+    },
+    {
+      "query_id": "tobi-f04",
+      "category": "mixed_feedback",
+      "method": "hybrid",
+      "predicted_track_ids": [
+        "58a4a1f2-a111-4608-ac31-68f35871ce80",
+        "758e2810-aed8-4383-a455-7f46ed12414c",
+        "7c60f67c-5de3-44a7-9b03-f0b833a88f72",
+        "e49253b5-5811-4438-ac4e-8e23bccdbb59",
+        "8078f71d-0494-41bb-95bd-942626b4bee7",
+        "94ff0036-6bf5-4b89-9db0-7a013f108e62",
+        "8aa0d75e-7372-4dcb-8b5d-f7a3aa0219f7",
+        "1451f6f9-8c71-450b-aadf-a0b59230bf2b",
+        "cd570046-7516-4c90-930b-b7f077643a43",
+        "6ecb1db4-c77c-46b0-b671-1ee4c57850fa"
+      ],
+      "latency_ms": [
+        170.87116699985927,
+        172.12204200041015,
+        173.4948750017793
+      ],
+      "raw_excluded_count": 0,
+      "final_excluded_count": 0
+    },
+    {
+      "query_id": "tobi-f04",
+      "category": "mixed_feedback",
+      "method": "hybrid_feedback",
+      "predicted_track_ids": [
+        "58a4a1f2-a111-4608-ac31-68f35871ce80",
+        "758e2810-aed8-4383-a455-7f46ed12414c",
+        "7c60f67c-5de3-44a7-9b03-f0b833a88f72",
+        "8078f71d-0494-41bb-95bd-942626b4bee7",
+        "e49253b5-5811-4438-ac4e-8e23bccdbb59",
+        "94ff0036-6bf5-4b89-9db0-7a013f108e62",
+        "8aa0d75e-7372-4dcb-8b5d-f7a3aa0219f7",
+        "1451f6f9-8c71-450b-aadf-a0b59230bf2b",
+        "cd570046-7516-4c90-930b-b7f077643a43",
+        "6ecb1db4-c77c-46b0-b671-1ee4c57850fa"
+      ],
+      "latency_ms": [
+        339.8868340009358,
+        334.66649999900255,
+        329.28908300527837
+      ],
+      "raw_excluded_count": 0,
+      "final_excluded_count": 0
+    },
+    {
+      "query_id": "tobi-f05",
+      "category": "mixed_feedback",
+      "method": "bm25",
+      "predicted_track_ids": [
+        "58a4a1f2-a111-4608-ac31-68f35871ce80",
+        "6ecb1db4-c77c-46b0-b671-1ee4c57850fa",
+        "758e2810-aed8-4383-a455-7f46ed12414c",
+        "7c60f67c-5de3-44a7-9b03-f0b833a88f72",
+        "8078f71d-0494-41bb-95bd-942626b4bee7",
+        "94ff0036-6bf5-4b89-9db0-7a013f108e62",
+        "dcb60e94-2589-4e27-a373-59601748cdba",
+        "1451f6f9-8c71-450b-aadf-a0b59230bf2b",
+        "e49253b5-5811-4438-ac4e-8e23bccdbb59",
+        "cdce3b4f-4fd1-41e8-bfb5-7158a1819454"
+      ],
+      "latency_ms": [
+        1.9372500028111972,
+        1.6797080024844036,
+        1.7124580044765025
+      ],
+      "raw_excluded_count": 0,
+      "final_excluded_count": 0
+    },
+    {
+      "query_id": "tobi-f05",
+      "category": "mixed_feedback",
+      "method": "semantic",
+      "predicted_track_ids": [
+        "fa5008dc-260b-4f41-a087-03ce97df0db1",
+        "407b4797-d2e7-4123-91d4-dc85953629dd",
+        "e6e8416c-db8f-4be5-910f-cdd26e2b33ae",
+        "da666a24-efac-4c9c-a628-319554cf7083",
+        "e1da64a9-3561-4e50-84a2-078aa7108ab4",
+        "ce1fc32c-8110-43b5-bfb7-d743967fef51",
+        "e3566f7d-bb70-4f69-ba9b-10f162251601",
+        "0ecaa70f-2f84-4f78-b00d-1ecd1809d422",
+        "e98a2af8-155f-4e95-91e7-eacfec34e5a3",
+        "32bb6f88-0d69-4f09-a020-492116cffb55"
+      ],
+      "latency_ms": [
+        170.11599999386817,
+        173.38266700244276,
+        173.42962499969872
+      ],
+      "raw_excluded_count": 0,
+      "final_excluded_count": 0
+    },
+    {
+      "query_id": "tobi-f05",
+      "category": "mixed_feedback",
+      "method": "hybrid",
+      "predicted_track_ids": [
+        "58a4a1f2-a111-4608-ac31-68f35871ce80",
+        "6ecb1db4-c77c-46b0-b671-1ee4c57850fa",
+        "758e2810-aed8-4383-a455-7f46ed12414c",
+        "7c60f67c-5de3-44a7-9b03-f0b833a88f72",
+        "8078f71d-0494-41bb-95bd-942626b4bee7",
+        "94ff0036-6bf5-4b89-9db0-7a013f108e62",
+        "dcb60e94-2589-4e27-a373-59601748cdba",
+        "1451f6f9-8c71-450b-aadf-a0b59230bf2b",
+        "e49253b5-5811-4438-ac4e-8e23bccdbb59",
+        "cdce3b4f-4fd1-41e8-bfb5-7158a1819454"
+      ],
+      "latency_ms": [
+        172.805750000407,
+        173.80899999989197,
+        172.8387080001994
+      ],
+      "raw_excluded_count": 0,
+      "final_excluded_count": 0
+    },
+    {
+      "query_id": "tobi-f05",
+      "category": "mixed_feedback",
+      "method": "hybrid_feedback",
+      "predicted_track_ids": [
+        "58a4a1f2-a111-4608-ac31-68f35871ce80",
+        "6ecb1db4-c77c-46b0-b671-1ee4c57850fa",
+        "7c60f67c-5de3-44a7-9b03-f0b833a88f72",
+        "758e2810-aed8-4383-a455-7f46ed12414c",
+        "8078f71d-0494-41bb-95bd-942626b4bee7",
+        "94ff0036-6bf5-4b89-9db0-7a013f108e62",
+        "dcb60e94-2589-4e27-a373-59601748cdba",
+        "1451f6f9-8c71-450b-aadf-a0b59230bf2b",
+        "e49253b5-5811-4438-ac4e-8e23bccdbb59",
+        "cdce3b4f-4fd1-41e8-bfb5-7158a1819454"
+      ],
+      "latency_ms": [
+        341.3826250034617,
+        358.5563340020599,
+        330.13137499801815
+      ],
+      "raw_excluded_count": 0,
+      "final_excluded_count": 0
+    }
+  ],
+  "catalog_size": 47071,
+  "retrievers": {
+    "bm25": "BM25Retriever",
+    "semantic": "DenseRetriever",
+    "hybrid": "HybridRetriever"
+  },
+  "feedback_parameters": {
+    "alpha": 1.0,
+    "beta": 0.75,
+    "gamma": 0.25,
+    "weight": 0.75
+  },
+  "latency_scope": "Warm retrieval, filtering, feedback and explanations; model initialization and transport excluded",
+  "repeats": 3,
+  "setup_and_warmup_ms": 16799.016749995644
+}

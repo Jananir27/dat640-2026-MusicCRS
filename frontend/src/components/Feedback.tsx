@@ -1,46 +1,34 @@
-import { useEffect, useState, useRef } from "react";
+import { useState } from "react";
 import { MDBIcon } from "mdb-react-ui-kit";
 
 export default function Feedback({
   message,
   on_feedback,
+  label = "recommendation",
 }: {
   message: string;
+  label?: string;
   on_feedback: (message: string, event: string) => void;
 }): JSX.Element {
   const [liked, setLiked] = useState<boolean | null>(null);
-  const thumbsUp = useRef<HTMLAnchorElement>(null);
-  const thumbsDown = useRef<HTMLAnchorElement>(null);
-
-  useEffect(() => {
-    if (!!thumbsUp.current) {
-      thumbsUp.current.addEventListener("click", () => {
-        setLiked(true);
-        on_feedback(message, "thumbs_up");
-      });
-    }
-  }, [thumbsUp, on_feedback, message]);
-
-  useEffect(() => {
-    if (!!thumbsDown.current) {
-      thumbsDown.current.addEventListener("click", () => {
-        setLiked(false);
-        on_feedback(message, "thumbs_down");
-      });
-    }
-  }, [thumbsDown, on_feedback, message]);
+  const rate = (positive: boolean) => {
+    setLiked(positive);
+    on_feedback(message, positive ? "thumbs_up" : "thumbs_down");
+  };
 
   return (
-    <div className="d-flex flex-row justify-content-end">
-      <a className="text-muted px-1" href="#!" ref={thumbsUp}>
+    <span className="d-inline-flex gap-2">
+      <button type="button" className="btn btn-sm btn-outline-success"
+        aria-label={`Like ${label}`} aria-pressed={liked === true} onClick={() => rate(true)}>
         <MDBIcon className={`${liked ? "fas" : "far"}`} icon="thumbs-up" />
-      </a>
-      <a className="text-muted pe-1" href="#!" ref={thumbsDown}>
+      </button>
+      <button type="button" className="btn btn-sm btn-outline-danger"
+        aria-label={`Dislike ${label}`} aria-pressed={liked === false} onClick={() => rate(false)}>
         <MDBIcon
           className={`${liked !== null && !liked ? "fas" : "far"}`}
           icon="thumbs-down"
         />
-      </a>
-    </div>
+      </button>
+    </span>
   );
 }

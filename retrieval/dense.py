@@ -92,6 +92,7 @@ class DenseRetriever(RetrievalModule):
             track_embeddings.append(embedding)
 
         self.track_ids = track_ids
+        self._track_positions = {track_id: index for index, track_id in enumerate(track_ids)}
 
         self.track_embeddings = np.stack(
             track_embeddings
@@ -160,6 +161,14 @@ class DenseRetriever(RetrievalModule):
     # -------------------------------------------------------------
     # Query encoding
     # -------------------------------------------------------------
+    def encode_query(self, query: str) -> np.ndarray:
+        """Public embedding-space contract for relevance feedback."""
+        return self._encode_queries([query])[0]
+
+    def get_track_embeddings(self, track_ids: list[str]) -> dict[str, np.ndarray]:
+        return {track_id: self.track_embeddings[self._track_positions[track_id]]
+                for track_id in track_ids if track_id in self._track_positions}
+
     def _encode_queries(
             self, queries: list[str],
             ) -> np.ndarray:

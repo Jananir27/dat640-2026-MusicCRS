@@ -1,0 +1,136 @@
+{
+  "judgment_status": "PROVISIONAL METADATA PROXY \u2014 requires assessor review",
+  "query_count": 25,
+  "feedback_query_count": 5,
+  "methods": {
+    "bm25": {
+      "ndcg@5": 0.8411673445952501,
+      "precision@5": 0.848,
+      "mean_ms": 2.6109027863518954,
+      "p50_ms": 1.7230000012204982,
+      "p95_ms": 7.709970801806775,
+      "excluded_tracks_returned": 0
+    },
+    "semantic": {
+      "ndcg@5": 0.4344474802642544,
+      "precision@5": 0.44,
+      "mean_ms": 209.5340793997942,
+      "p50_ms": 170.11599999386817,
+      "p95_ms": 439.39467120144394,
+      "excluded_tracks_returned": 0
+    },
+    "hybrid": {
+      "ndcg@5": 0.8190414857949243,
+      "precision@5": 0.8320000000000001,
+      "mean_ms": 206.08466948004207,
+      "p50_ms": 170.87116699985927,
+      "p95_ms": 433.08776629783097,
+      "excluded_tracks_returned": 0
+    },
+    "hybrid_feedback": {
+      "ndcg@5": 0.8186569067186188,
+      "precision@5": 0.8320000000000001,
+      "mean_ms": 243.69967118633213,
+      "p50_ms": 172.45845899742562,
+      "p95_ms": 449.40808399915096,
+      "excluded_tracks_returned": 0
+    }
+  },
+  "by_category": {
+    "artist_similarity": {
+      "bm25": {
+        "ndcg@5": 0.923286726525733,
+        "precision@5": 0.9199999999999999
+      },
+      "semantic": {
+        "ndcg@5": 0.23982459848083257,
+        "precision@5": 0.24
+      },
+      "hybrid": {
+        "ndcg@5": 0.923286726525733,
+        "precision@5": 0.9199999999999999
+      },
+      "hybrid_feedback": {
+        "ndcg@5": 0.923286726525733,
+        "precision@5": 0.9199999999999999
+      }
+    },
+    "exclusion": {
+      "bm25": {
+        "ndcg@5": 0.7017480615820848,
+        "precision@5": 0.64
+      },
+      "semantic": {
+        "ndcg@5": 0.575488680590279,
+        "precision@5": 0.56
+      },
+      "hybrid": {
+        "ndcg@5": 0.7017480615820848,
+        "precision@5": 0.64
+      },
+      "hybrid_feedback": {
+        "ndcg@5": 0.7017480615820848,
+        "precision@5": 0.64
+      }
+    },
+    "genre": {
+      "bm25": {
+        "ndcg@5": 0.7818890712517292,
+        "precision@5": 0.8400000000000001
+      },
+      "semantic": {
+        "ndcg@5": 0.4129835393451196,
+        "precision@5": 0.4
+      },
+      "hybrid": {
+        "ndcg@5": 0.7818890712517292,
+        "precision@5": 0.8400000000000001
+      },
+      "hybrid_feedback": {
+        "ndcg@5": 0.7818890712517292,
+        "precision@5": 0.8400000000000001
+      }
+    },
+    "mixed_feedback": {
+      "bm25": {
+        "ndcg@5": 0.7989128636167033,
+        "precision@5": 0.8400000000000001
+      },
+      "semantic": {
+        "ndcg@5": 0.5646757022102016,
+        "precision@5": 0.64
+      },
+      "hybrid": {
+        "ndcg@5": 0.7989128636167033,
+        "precision@5": 0.8400000000000001
+      },
+      "hybrid_feedback": {
+        "ndcg@5": 0.7969899682351756,
+        "precision@5": 0.8400000000000001
+      }
+    },
+    "playlist_context": {
+      "bm25": {
+        "ndcg@5": 1.0,
+        "precision@5": 1.0
+      },
+      "semantic": {
+        "ndcg@5": 0.3792648806948392,
+        "precision@5": 0.36
+      },
+      "hybrid": {
+        "ndcg@5": 0.8893707059983713,
+        "precision@5": 0.9199999999999999
+      },
+      "hybrid_feedback": {
+        "ndcg@5": 0.8893707059983713,
+        "precision@5": 0.9199999999999999
+      }
+    }
+  },
+  "paired_feedback_delta": {
+    "ndcg@5": -0.0019228953815277005,
+    "precision@5": 0.0
+  },
+  "latency_scope": "Warm retrieval, filtering, feedback and explanations; model initialization and transport excluded"
+}

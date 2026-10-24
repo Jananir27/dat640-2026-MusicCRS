@@ -4,7 +4,7 @@ import json
 import os
 from uuid import UUID
 
-from flask import g, has_request_context
+from flask import g, has_request_context, request
 
 import ollama
 from dialoguekit.core.annotated_utterance import AnnotatedUtterance
@@ -29,6 +29,15 @@ _INTENT_OPTIONS = Intent("OPTIONS")
 
 
 class MusicChatNamespace(ChatNamespace):
+    def on_feedback(self, data):
+        """Handle this app's track/batch feedback rather than DialogueKit's no-op."""
+        if not isinstance(data, dict) or len(json.dumps(data)) > 5000:
+            return {"ok": False, "error": "Invalid feedback payload"}
+        if not all(key in data for key in ("batch_id", "track_id", "event")):
+            return {"ok": False, "error": "Select a song's feedback button"}
+        self._platform.message(request.sid, "/feedback " + json.dumps(data))
+        return {"ok": True}
+
     def on_connect(self, auth=None):
         device_id = (auth or {}).get("device_id") if isinstance(auth, dict) else None
         if device_id is not None:
@@ -112,7 +121,7 @@ class MusicCRS(Agent):
         if saved is None:
             saved = self._playlist_store.active(self._device_id)
         if saved["id"] != self._active_playlist_id:
-            self._conversation_state = ConversationState()
+            self._conversation_state = ConversationState(feedback=self._conversation_state.feedback)
         self._active_playlist_id = saved["id"]
         self._conversation_state.playlist_ids = [
             track_id for track_id in saved["track_ids"]
@@ -159,6 +168,7 @@ class MusicCRS(Agent):
         if self._playlist_store:
             self._restore_playlist(keep_selection=True)
         self._conversation_state.created_playlist_name = None
+        self._conversation_state.emit_recommendations = False
         if utterance.text.startswith("/info"):
             response = self._info()
         elif utterance.text.startswith("/ask_llm "):
@@ -197,6 +207,12 @@ class MusicCRS(Agent):
                 response, playlist_updated = handled
                 if playlist_updated:
                     dialogue_acts = [self._playlist_updated_dialogue_act()]
+
+        if self._conversation_state.emit_recommendations:
+            dialogue_acts.append(DialogueAct(intent=Intent("RECOMMENDATIONS"), annotations=[
+                SlotValueAnnotation("recommendations_json", json.dumps(
+                    self._conversation_state.recommendation_payload, ensure_ascii=False))
+            ]))
 
         if self._playlist_store:
             if any(str(act.intent) == "PLAYLIST_UPDATED" for act in dialogue_acts):

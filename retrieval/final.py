@@ -154,6 +154,32 @@ class FinalRetriever(RetrievalModule):
         # The final G1 result has at most 20 unique, catalog-valid tracks.
         return list(dict.fromkeys(t for t in ranked if t in self.catalog.metadata_dict))[:min(topk, 20)]
 
+    def encode_query(self, query: str):
+        """Use the same dense embedding space as candidate tracks (Part 4 R2)."""
+        with self._lock:
+            encoder = getattr(self.hybrid.dense, "encode_query", None)
+            return encoder(query) if encoder else None
+
+    def retrieve_query(self, query: str, topk: int = 20) -> list[str]:
+        """Part 4 bridge for a direct discovery query without dialogue labels.
+
+        Retain the saved G1 fusion/reranking stages. Indexing scaffolding such
+        as 'CURRENT REQUEST' is useful in long challenge conversations but can
+        dominate a short genre query with literal tracks titled 'Request'.
+        """
+        if not query.strip() or topk <= 0:
+            return []
+        config = self.artifact["hybrid"]
+        with self._lock:
+            ranked = self._hybrid_ranking(query, config["candidate_k"], 20)
+            reservoir = self._hybrid_ranking(query, config["reservoir_k"], 100)
+            result = self.rerank(ranked, ranked, reservoir, query, "LL")
+        return list(dict.fromkeys(t for t in result if t in self.catalog.metadata_dict))[:min(topk, 20)]
+
+    def get_track_embeddings(self, track_ids: list[str]):
+        lookup = getattr(self.hybrid.dense, "get_track_embeddings", None)
+        return lookup(track_ids) if lookup else {}
+
     def text_to_item_retrieval(self, query: str, topk: int) -> list[str]:
         return self.retrieve_context({
             "conversations": [{"role": "user", "content": query, "turn_number": 1}],

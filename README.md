@@ -1,5 +1,10 @@
 # DAT640-2026 MusicCRS starting package
 
+Part 4 adds conversational and per-song feedback, Rocchio-inspired reranking,
+grounded explanations, and a 25-query comparative evaluation contribution.
+See [the Part 4 implementation and integration guide](PART4_FEEDBACK.md) for
+the shared retriever interface, demo commands, tests, and evaluation protocol.
+
 ## Run the frontend and backend with Docker Compose
 
 The Compose setup runs the Python backend and React development server together.
