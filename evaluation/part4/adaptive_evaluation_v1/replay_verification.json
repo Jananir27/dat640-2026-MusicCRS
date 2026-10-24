@@ -1,0 +1,9 @@
+{
+  "rankings_verified": 75,
+  "exact_top10_match": true,
+  "maximum_score_difference": 0.0,
+  "implementation_sha256": "07a0110f3b59ded7bbd36214fea2d34d47b685257305d6ee2a1d7483877f5b33",
+  "baseline_adapter_sha256": "57124b0e2be58a7fe6e7370970fff97cdd41eb2e99397d40587bf6910bd365ae",
+  "frozen_new_runs_sha256": "4a7f72b679e3e97405c7cdfdd2fc3db5da878957c9e6d823c56a9a68aa4e2c8b",
+  "selected_config_sha256": "0fc60dfdac89b6716cae685724505fddce0654c8fd60df1adb0e1a9fc7c1a17a"
+}

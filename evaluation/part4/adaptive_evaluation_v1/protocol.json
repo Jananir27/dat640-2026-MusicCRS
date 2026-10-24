@@ -1,0 +1,35 @@
+{
+  "selected_config_sha256": "0fc60dfdac89b6716cae685724505fddce0654c8fd60df1adb0e1a9fc7c1a17a",
+  "selected": {
+    "profile": "responsive",
+    "config": {
+      "influence": 0.8,
+      "negative_weight": 0.25,
+      "mood_weight": 0.15,
+      "diversity_penalty": 0.04
+    },
+    "development_protocol_sha256": "488fa23f37252430178d65452f6a9d4f8ec4a6edf11408529efc2dca9f9135b2",
+    "development_runs_sha256": "3681ab075f2f7f4500fccc802f36dba12ee8551dbdce0c4af3e0229299c78615",
+    "development_metrics": {
+      "ndcg@5": 0.9576155592564746,
+      "precision@5": 1.0,
+      "excluded_tracks_returned": 0,
+      "latency": {
+        "mean_ms": 304.12567909806967,
+        "p50_ms": 302.0811039968976,
+        "p95_ms": 359.05791235272767
+      },
+      "feedback_queries": {
+        "ndcg@5": 0.9576155592564746,
+        "precision@5": 1.0
+      }
+    },
+    "frozen_before_evaluation": true
+  },
+  "queries_sha256": "72b5ec7ca2ad11824ad172612e323f35fb6fe30cba134afa00d42222863ead5c",
+  "old_judgments_sha256": "3c942b1f90863729e82cb459b165b0ad6545f380735e0cae883a14f5289cf423",
+  "old_runs_sha256": "e810f1a9191df23ae41a888c539da5fabb774a269f8c319d64e40223a1be50f3",
+  "repeats": 3,
+  "pool_depth": 10,
+  "latency_scope": "New methods: warm retrieval/filtering/ranking; no explanations or transport. Old timing scope differs; do not claim a speed comparison."
+}

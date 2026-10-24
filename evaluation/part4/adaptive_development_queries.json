@@ -1,0 +1,12 @@
+[
+  {"id":"dev-01","query":"Recommend grunge rock like Smells Like Teen Spirit","retrieval_query":"Recommend grunge rock music","genres":["rock"],"styles":["grunge"],"likes":[{"title":"Smells Like Teen Spirit","artist":"Nirvana"}],"dislikes":[{"title":"Everlong","artist":"Foo Fighters"}]},
+  {"id":"dev-02","query":"Recommend energetic alternative rock like Everlong","retrieval_query":"Recommend energetic alternative rock music","genres":["rock","alternative"],"moods":["energetic"],"likes":[{"title":"Everlong","artist":"Foo Fighters"}]},
+  {"id":"dev-03","query":"Recommend hip hop like HUMBLE.","retrieval_query":"Recommend hip hop music","genres":["hip hop"],"likes":[{"title":"HUMBLE.","artist":"Kendrick Lamar"}],"dislikes":[{"title":"Smells Like Teen Spirit","artist":"Nirvana"}]},
+  {"id":"dev-04","query":"Recommend hip hop like Headlines","retrieval_query":"Recommend hip hop music","genres":["hip hop"],"likes":[{"title":"Headlines","artist":"Drake"}]},
+  {"id":"dev-05","query":"Recommend mellow pop like Sunrise","retrieval_query":"Recommend mellow pop music","genres":["pop"],"moods":["chill"],"likes":[{"title":"Sunrise","artist":"Norah Jones"}]},
+  {"id":"dev-06","query":"Recommend soul pop like Valerie","retrieval_query":"Recommend soul pop music","genres":["soul","pop"],"likes":[{"title":"Valerie - Live At BBC Radio 1 Live Lounge, London / 2007","artist":"Amy Winehouse"}]},
+  {"id":"dev-07","query":"Recommend electronic dance like Hey Boy Hey Girl","retrieval_query":"Recommend electronic dance music","genres":["electronic","dance"],"likes":[{"title":"Hey Boy Hey Girl","artist":"The Chemical Brothers"}],"dislikes":[{"title":"Teardrop","artist":"Massive Attack"}]},
+  {"id":"dev-08","query":"Recommend chill electronic music like Teardrop","retrieval_query":"Recommend chill electronic music","genres":["electronic"],"moods":["chill"],"likes":[{"title":"Teardrop","artist":"Massive Attack"}]},
+  {"id":"dev-09","query":"Recommend jazz like My Favorite Things","retrieval_query":"Recommend jazz music","genres":["jazz"],"likes":[{"title":"My Favorite Things","artist":"John Coltrane"}]},
+  {"id":"dev-10","query":"Recommend metal like Change","retrieval_query":"Recommend metal music","genres":["metal"],"likes":[{"title":"Change (In the House of Flies)","artist":"Deftones"}]}
+]

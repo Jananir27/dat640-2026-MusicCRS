@@ -1,0 +1,148 @@
+{
+  "judgment_status": "AI-REVIEWED METADATA \u2014 requires independent human assessment",
+  "judgment_provenance": {
+    "ai_metadata_review": 502
+  },
+  "query_count": 25,
+  "feedback_query_count": 5,
+  "methods": {
+    "bm25": {
+      "ndcg@5": 0.7603128027076758,
+      "precision@5": 0.848,
+      "mean_ms": 2.6109027863518954,
+      "p50_ms": 1.7230000012204982,
+      "p95_ms": 7.709970801806775,
+      "excluded_tracks_returned": 0
+    },
+    "semantic": {
+      "ndcg@5": 0.35530691982311813,
+      "precision@5": 0.48800000000000004,
+      "mean_ms": 209.5340793997942,
+      "p50_ms": 170.11599999386817,
+      "p95_ms": 439.39467120144394,
+      "excluded_tracks_returned": 0
+    },
+    "hybrid": {
+      "ndcg@5": 0.7392102779106692,
+      "precision@5": 0.8320000000000001,
+      "mean_ms": 206.08466948004207,
+      "p50_ms": 170.87116699985927,
+      "p95_ms": 433.08776629783097,
+      "excluded_tracks_returned": 0
+    },
+    "hybrid_feedback": {
+      "ndcg@5": 0.7387637730138921,
+      "precision@5": 0.8320000000000001,
+      "mean_ms": 243.69967118633213,
+      "p50_ms": 172.45845899742562,
+      "p95_ms": 449.40808399915096,
+      "excluded_tracks_returned": 0
+    }
+  },
+  "by_category": {
+    "artist_similarity": {
+      "bm25": {
+        "ndcg@5": 0.8472173812082848,
+        "precision@5": 0.8800000000000001
+      },
+      "semantic": {
+        "ndcg@5": 0.13412904942064027,
+        "precision@5": 0.24000000000000005
+      },
+      "hybrid": {
+        "ndcg@5": 0.8472173812082848,
+        "precision@5": 0.8800000000000001
+      },
+      "hybrid_feedback": {
+        "ndcg@5": 0.8472173812082848,
+        "precision@5": 0.8800000000000001
+      }
+    },
+    "exclusion": {
+      "bm25": {
+        "ndcg@5": 0.6576518129530147,
+        "precision@5": 0.68
+      },
+      "semantic": {
+        "ndcg@5": 0.5247608177318761,
+        "precision@5": 0.68
+      },
+      "hybrid": {
+        "ndcg@5": 0.6576518129530147,
+        "precision@5": 0.68
+      },
+      "hybrid_feedback": {
+        "ndcg@5": 0.6576518129530147,
+        "precision@5": 0.68
+      }
+    },
+    "genre": {
+      "bm25": {
+        "ndcg@5": 0.7341541992296279,
+        "precision@5": 0.8
+      },
+      "semantic": {
+        "ndcg@5": 0.3803497304549402,
+        "precision@5": 0.4
+      },
+      "hybrid": {
+        "ndcg@5": 0.7341541992296279,
+        "precision@5": 0.8
+      },
+      "hybrid_feedback": {
+        "ndcg@5": 0.7341541992296279,
+        "precision@5": 0.8
+      }
+    },
+    "mixed_feedback": {
+      "bm25": {
+        "ndcg@5": 0.6077619808506002,
+        "precision@5": 0.8800000000000001
+      },
+      "semantic": {
+        "ndcg@5": 0.4983154228956598,
+        "precision@5": 0.72
+      },
+      "hybrid": {
+        "ndcg@5": 0.6077619808506002,
+        "precision@5": 0.8800000000000001
+      },
+      "hybrid_feedback": {
+        "ndcg@5": 0.6055294563667152,
+        "precision@5": 0.8800000000000001
+      }
+    },
+    "playlist_context": {
+      "bm25": {
+        "ndcg@5": 0.9547786392968511,
+        "precision@5": 1.0
+      },
+      "semantic": {
+        "ndcg@5": 0.2389795786124745,
+        "precision@5": 0.4
+      },
+      "hybrid": {
+        "ndcg@5": 0.849266015311818,
+        "precision@5": 0.9199999999999999
+      },
+      "hybrid_feedback": {
+        "ndcg@5": 0.849266015311818,
+        "precision@5": 0.9199999999999999
+      }
+    }
+  },
+  "paired_feedback_delta": {
+    "ndcg@5": -0.0022325244838849343,
+    "precision@5": 0.0
+  },
+  "latency_scope": "Warm retrieval, filtering, feedback and explanations; model initialization and transport excluded",
+  "label_review": {
+    "decision_file": "evaluation/part4/label_review_decisions.json",
+    "reviewed_rows": 502,
+    "changed_grades": 133,
+    "human_review_required": true,
+    "audio_review_performed": false,
+    "independent_blind_assessment": false,
+    "latency_note": "Reuses the original frozen retrieval timings; only labels and relevance metrics changed."
+  }
+}

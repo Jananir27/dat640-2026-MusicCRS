@@ -1,0 +1,883 @@
+{
+  "judgment_status": "AI METADATA ASSESSMENT \u2014 not independent human or audio judgments",
+  "query_count": 25,
+  "feedback_query_count": 5,
+  "methods": {
+    "bm25": {
+      "ndcg@5": 0.6883526686677993,
+      "precision@5": 0.848,
+      "excluded_tracks_returned": 0,
+      "latency": {
+        "mean_ms": 2.6109027863518954,
+        "p50_ms": 1.7230000012204982,
+        "p95_ms": 7.709970801806775
+      },
+      "feedback_queries": {
+        "ndcg@5": 0.3578031520909433,
+        "precision@5": 0.8800000000000001
+      }
+    },
+    "semantic": {
+      "ndcg@5": 0.31011579914993165,
+      "precision@5": 0.48800000000000004,
+      "excluded_tracks_returned": 0,
+      "latency": {
+        "mean_ms": 209.5340793997942,
+        "p50_ms": 170.11599999386817,
+        "p95_ms": 439.39467120144394
+      },
+      "feedback_queries": {
+        "ndcg@5": 0.2898538298647059,
+        "precision@5": 0.72
+      }
+    },
+    "hybrid": {
+      "ndcg@5": 0.6672501438707925,
+      "precision@5": 0.8320000000000001,
+      "excluded_tracks_returned": 0,
+      "latency": {
+        "mean_ms": 206.08466948004207,
+        "p50_ms": 170.87116699985927,
+        "p95_ms": 433.08776629783097
+      },
+      "feedback_queries": {
+        "ndcg@5": 0.3578031520909433,
+        "precision@5": 0.8800000000000001
+      }
+    },
+    "hybrid_feedback": {
+      "ndcg@5": 0.6669366538335378,
+      "precision@5": 0.8320000000000001,
+      "excluded_tracks_returned": 0,
+      "latency": {
+        "mean_ms": 243.69967118633213,
+        "p50_ms": 172.45845899742562,
+        "p95_ms": 449.40808399915096
+      },
+      "feedback_queries": {
+        "ndcg@5": 0.3562357019046699,
+        "precision@5": 0.8800000000000001
+      }
+    },
+    "adaptive_baseline": {
+      "ndcg@5": 0.8647250080283296,
+      "precision@5": 0.9840000000000001,
+      "excluded_tracks_returned": 0,
+      "latency": {
+        "mean_ms": 388.4228505201948,
+        "p50_ms": 344.97187500528526,
+        "p95_ms": 625.4851332007091
+      },
+      "feedback_queries": {
+        "ndcg@5": 0.4754777738217336,
+        "precision@5": 1.0
+      }
+    },
+    "adaptive_rerank_only": {
+      "ndcg@5": 0.8846620402987565,
+      "precision@5": 0.9840000000000001,
+      "excluded_tracks_returned": 0,
+      "latency": {
+        "mean_ms": 387.1650778674909,
+        "p50_ms": 346.5182499930961,
+        "p95_ms": 605.9845669966307
+      },
+      "feedback_queries": {
+        "ndcg@5": 0.5751629351738677,
+        "precision@5": 1.0
+      }
+    },
+    "adaptive_feedback_retrieval": {
+      "ndcg@5": 0.9377274038943381,
+      "precision@5": 0.9840000000000001,
+      "excluded_tracks_returned": 0,
+      "latency": {
+        "mean_ms": 383.5262472269824,
+        "p50_ms": 349.3995000026189,
+        "p95_ms": 593.9693337975768
+      },
+      "feedback_queries": {
+        "ndcg@5": 0.8404897531517758,
+        "precision@5": 1.0
+      }
+    }
+  },
+  "paired_feedback_delta": {
+    "hybrid_feedback minus hybrid": {
+      "ndcg@5": -0.0015674501862734448,
+      "precision@5": 0.0
+    },
+    "adaptive_rerank_only minus adaptive_baseline": {
+      "ndcg@5": 0.09968516135213418,
+      "precision@5": 0.0
+    },
+    "adaptive_feedback_retrieval minus adaptive_baseline": {
+      "ndcg@5": 0.36501197933004226,
+      "precision@5": 0.0
+    },
+    "adaptive_feedback_retrieval minus adaptive_rerank_only": {
+      "ndcg@5": 0.265326817977908,
+      "precision@5": 0.0
+    },
+    "adaptive_feedback_retrieval minus hybrid_feedback": {
+      "ndcg@5": 0.4842540512471059,
+      "precision@5": 0.11999999999999997
+    }
+  },
+  "per_query": {
+    "tobi-a01": {
+      "bm25": {
+        "ndcg@5": 1.0,
+        "precision@5": 1.0
+      },
+      "semantic": {
+        "ndcg@5": 0.11506378074895644,
+        "precision@5": 0.4
+      },
+      "hybrid": {
+        "ndcg@5": 1.0,
+        "precision@5": 1.0
+      },
+      "hybrid_feedback": {
+        "ndcg@5": 1.0,
+        "precision@5": 1.0
+      },
+      "adaptive_baseline": {
+        "ndcg@5": 1.0,
+        "precision@5": 1.0
+      },
+      "adaptive_rerank_only": {
+        "ndcg@5": 1.0,
+        "precision@5": 1.0
+      },
+      "adaptive_feedback_retrieval": {
+        "ndcg@5": 1.0,
+        "precision@5": 1.0
+      }
+    },
+    "tobi-a02": {
+      "bm25": {
+        "ndcg@5": 1.0,
+        "precision@5": 1.0
+      },
+      "semantic": {
+        "ndcg@5": 0.0,
+        "precision@5": 0.0
+      },
+      "hybrid": {
+        "ndcg@5": 1.0,
+        "precision@5": 1.0
+      },
+      "hybrid_feedback": {
+        "ndcg@5": 1.0,
+        "precision@5": 1.0
+      },
+      "adaptive_baseline": {
+        "ndcg@5": 1.0,
+        "precision@5": 1.0
+      },
+      "adaptive_rerank_only": {
+        "ndcg@5": 1.0,
+        "precision@5": 1.0
+      },
+      "adaptive_feedback_retrieval": {
+        "ndcg@5": 1.0,
+        "precision@5": 1.0
+      }
+    },
+    "tobi-a03": {
+      "bm25": {
+        "ndcg@5": 0.3672919835537663,
+        "precision@5": 0.6
+      },
+      "semantic": {
+        "ndcg@5": 0.22854179986184534,
+        "precision@5": 0.4
+      },
+      "hybrid": {
+        "ndcg@5": 0.3672919835537663,
+        "precision@5": 0.6
+      },
+      "hybrid_feedback": {
+        "ndcg@5": 0.3672919835537663,
+        "precision@5": 0.6
+      },
+      "adaptive_baseline": {
+        "ndcg@5": 0.5642220350104562,
+        "precision@5": 0.6
+      },
+      "adaptive_rerank_only": {
+        "ndcg@5": 0.5642220350104562,
+        "precision@5": 0.6
+      },
+      "adaptive_feedback_retrieval": {
+        "ndcg@5": 0.5642220350104562,
+        "precision@5": 0.6
+      }
+    },
+    "tobi-a04": {
+      "bm25": {
+        "ndcg@5": 1.0,
+        "precision@5": 1.0
+      },
+      "semantic": {
+        "ndcg@5": 0.0,
+        "precision@5": 0.0
+      },
+      "hybrid": {
+        "ndcg@5": 1.0,
+        "precision@5": 1.0
+      },
+      "hybrid_feedback": {
+        "ndcg@5": 1.0,
+        "precision@5": 1.0
+      },
+      "adaptive_baseline": {
+        "ndcg@5": 1.0,
+        "precision@5": 1.0
+      },
+      "adaptive_rerank_only": {
+        "ndcg@5": 1.0,
+        "precision@5": 1.0
+      },
+      "adaptive_feedback_retrieval": {
+        "ndcg@5": 1.0,
+        "precision@5": 1.0
+      }
+    },
+    "tobi-a05": {
+      "bm25": {
+        "ndcg@5": 0.8687949224876581,
+        "precision@5": 0.8
+      },
+      "semantic": {
+        "ndcg@5": 0.32703966649239957,
+        "precision@5": 0.4
+      },
+      "hybrid": {
+        "ndcg@5": 0.8687949224876581,
+        "precision@5": 0.8
+      },
+      "hybrid_feedback": {
+        "ndcg@5": 0.8687949224876581,
+        "precision@5": 0.8
+      },
+      "adaptive_baseline": {
+        "ndcg@5": 1.0,
+        "precision@5": 1.0
+      },
+      "adaptive_rerank_only": {
+        "ndcg@5": 1.0,
+        "precision@5": 1.0
+      },
+      "adaptive_feedback_retrieval": {
+        "ndcg@5": 1.0,
+        "precision@5": 1.0
+      }
+    },
+    "tobi-e01": {
+      "bm25": {
+        "ndcg@5": 0.6455709457931597,
+        "precision@5": 0.8
+      },
+      "semantic": {
+        "ndcg@5": 0.6238040886593806,
+        "precision@5": 0.8
+      },
+      "hybrid": {
+        "ndcg@5": 0.6455709457931597,
+        "precision@5": 0.8
+      },
+      "hybrid_feedback": {
+        "ndcg@5": 0.6455709457931597,
+        "precision@5": 0.8
+      },
+      "adaptive_baseline": {
+        "ndcg@5": 1.0,
+        "precision@5": 1.0
+      },
+      "adaptive_rerank_only": {
+        "ndcg@5": 1.0,
+        "precision@5": 1.0
+      },
+      "adaptive_feedback_retrieval": {
+        "ndcg@5": 1.0,
+        "precision@5": 1.0
+      }
+    },
+    "tobi-e02": {
+      "bm25": {
+        "ndcg@5": 0.39032682911292027,
+        "precision@5": 0.6
+      },
+      "semantic": {
+        "ndcg@5": 0.7860137352654724,
+        "precision@5": 0.8
+      },
+      "hybrid": {
+        "ndcg@5": 0.39032682911292027,
+        "precision@5": 0.6
+      },
+      "hybrid_feedback": {
+        "ndcg@5": 0.39032682911292027,
+        "precision@5": 0.6
+      },
+      "adaptive_baseline": {
+        "ndcg@5": 1.0,
+        "precision@5": 1.0
+      },
+      "adaptive_rerank_only": {
+        "ndcg@5": 1.0,
+        "precision@5": 1.0
+      },
+      "adaptive_feedback_retrieval": {
+        "ndcg@5": 1.0,
+        "precision@5": 1.0
+      }
+    },
+    "tobi-e03": {
+      "bm25": {
+        "ndcg@5": 0.8687949224876581,
+        "precision@5": 0.8
+      },
+      "semantic": {
+        "ndcg@5": 0.3835663673713356,
+        "precision@5": 0.4
+      },
+      "hybrid": {
+        "ndcg@5": 0.8687949224876581,
+        "precision@5": 0.8
+      },
+      "hybrid_feedback": {
+        "ndcg@5": 0.8687949224876581,
+        "precision@5": 0.8
+      },
+      "adaptive_baseline": {
+        "ndcg@5": 1.0,
+        "precision@5": 1.0
+      },
+      "adaptive_rerank_only": {
+        "ndcg@5": 1.0,
+        "precision@5": 1.0
+      },
+      "adaptive_feedback_retrieval": {
+        "ndcg@5": 1.0,
+        "precision@5": 1.0
+      }
+    },
+    "tobi-e04": {
+      "bm25": {
+        "ndcg@5": 0.5531464700081437,
+        "precision@5": 0.4
+      },
+      "semantic": {
+        "ndcg@5": 0.16958010263680803,
+        "precision@5": 0.4
+      },
+      "hybrid": {
+        "ndcg@5": 0.5531464700081437,
+        "precision@5": 0.4
+      },
+      "hybrid_feedback": {
+        "ndcg@5": 0.5531464700081437,
+        "precision@5": 0.4
+      },
+      "adaptive_baseline": {
+        "ndcg@5": 1.0,
+        "precision@5": 1.0
+      },
+      "adaptive_rerank_only": {
+        "ndcg@5": 1.0,
+        "precision@5": 1.0
+      },
+      "adaptive_feedback_retrieval": {
+        "ndcg@5": 1.0,
+        "precision@5": 1.0
+      }
+    },
+    "tobi-e05": {
+      "bm25": {
+        "ndcg@5": 0.8304198973631919,
+        "precision@5": 0.8
+      },
+      "semantic": {
+        "ndcg@5": 0.6608397947263838,
+        "precision@5": 1.0
+      },
+      "hybrid": {
+        "ndcg@5": 0.8304198973631919,
+        "precision@5": 0.8
+      },
+      "hybrid_feedback": {
+        "ndcg@5": 0.8304198973631919,
+        "precision@5": 0.8
+      },
+      "adaptive_baseline": {
+        "ndcg@5": 1.0,
+        "precision@5": 1.0
+      },
+      "adaptive_rerank_only": {
+        "ndcg@5": 1.0,
+        "precision@5": 1.0
+      },
+      "adaptive_feedback_retrieval": {
+        "ndcg@5": 1.0,
+        "precision@5": 1.0
+      }
+    },
+    "tobi-f01": {
+      "bm25": {
+        "ndcg@5": 0.2768066324543973,
+        "precision@5": 0.8
+      },
+      "semantic": {
+        "ndcg@5": 0.2768066324543973,
+        "precision@5": 0.8
+      },
+      "hybrid": {
+        "ndcg@5": 0.2768066324543973,
+        "precision@5": 0.8
+      },
+      "hybrid_feedback": {
+        "ndcg@5": 0.2768066324543973,
+        "precision@5": 0.8
+      },
+      "adaptive_baseline": {
+        "ndcg@5": 0.3333333333333333,
+        "precision@5": 1.0
+      },
+      "adaptive_rerank_only": {
+        "ndcg@5": 0.5338567867660998,
+        "precision@5": 1.0
+      },
+      "adaptive_feedback_retrieval": {
+        "ndcg@5": 0.9125299483251055,
+        "precision@5": 1.0
+      }
+    },
+    "tobi-f02": {
+      "bm25": {
+        "ndcg@5": 0.3333333333333333,
+        "precision@5": 1.0
+      },
+      "semantic": {
+        "ndcg@5": 0.2768066324543973,
+        "precision@5": 0.8
+      },
+      "hybrid": {
+        "ndcg@5": 0.3333333333333333,
+        "precision@5": 1.0
+      },
+      "hybrid_feedback": {
+        "ndcg@5": 0.3333333333333333,
+        "precision@5": 1.0
+      },
+      "adaptive_baseline": {
+        "ndcg@5": 0.3333333333333333,
+        "precision@5": 1.0
+      },
+      "adaptive_rerank_only": {
+        "ndcg@5": 0.3333333333333333,
+        "precision@5": 1.0
+      },
+      "adaptive_feedback_retrieval": {
+        "ndcg@5": 0.9125299483251055,
+        "precision@5": 1.0
+      }
+    },
+    "tobi-f03": {
+      "bm25": {
+        "ndcg@5": 0.47476776900380596,
+        "precision@5": 1.0
+      },
+      "semantic": {
+        "ndcg@5": 0.062291941932505944,
+        "precision@5": 0.2
+      },
+      "hybrid": {
+        "ndcg@5": 0.47476776900380596,
+        "precision@5": 1.0
+      },
+      "hybrid_feedback": {
+        "ndcg@5": 0.47476776900380596,
+        "precision@5": 1.0
+      },
+      "adaptive_baseline": {
+        "ndcg@5": 0.47476776900380596,
+        "precision@5": 1.0
+      },
+      "adaptive_rerank_only": {
+        "ndcg@5": 0.47476776900380596,
+        "precision@5": 1.0
+      },
+      "adaptive_feedback_retrieval": {
+        "ndcg@5": 0.47476776900380596,
+        "precision@5": 1.0
+      }
+    },
+    "tobi-f04": {
+      "bm25": {
+        "ndcg@5": 0.2768066324543973,
+        "precision@5": 0.8
+      },
+      "semantic": {
+        "ndcg@5": 0.5000306091488957,
+        "precision@5": 0.8
+      },
+      "hybrid": {
+        "ndcg@5": 0.2768066324543973,
+        "precision@5": 0.8
+      },
+      "hybrid_feedback": {
+        "ndcg@5": 0.2768066324543973,
+        "precision@5": 0.8
+      },
+      "adaptive_baseline": {
+        "ndcg@5": 0.7599635902818439,
+        "precision@5": 1.0
+      },
+      "adaptive_rerank_only": {
+        "ndcg@5": 0.5338567867660998,
+        "precision@5": 1.0
+      },
+      "adaptive_feedback_retrieval": {
+        "ndcg@5": 0.9026211001048622,
+        "precision@5": 1.0
+      }
+    },
+    "tobi-f05": {
+      "bm25": {
+        "ndcg@5": 0.4273013932087828,
+        "precision@5": 0.8
+      },
+      "semantic": {
+        "ndcg@5": 0.3333333333333333,
+        "precision@5": 1.0
+      },
+      "hybrid": {
+        "ndcg@5": 0.4273013932087828,
+        "precision@5": 0.8
+      },
+      "hybrid_feedback": {
+        "ndcg@5": 0.4194641422774156,
+        "precision@5": 0.8
+      },
+      "adaptive_baseline": {
+        "ndcg@5": 0.4759908431563516,
+        "precision@5": 1.0
+      },
+      "adaptive_rerank_only": {
+        "ndcg@5": 1.0,
+        "precision@5": 1.0
+      },
+      "adaptive_feedback_retrieval": {
+        "ndcg@5": 1.0,
+        "precision@5": 1.0
+      }
+    },
+    "tobi-g01": {
+      "bm25": {
+        "ndcg@5": 0.7429498456882974,
+        "precision@5": 0.8
+      },
+      "semantic": {
+        "ndcg@5": 0.7261374126646398,
+        "precision@5": 0.8
+      },
+      "hybrid": {
+        "ndcg@5": 0.7429498456882974,
+        "precision@5": 0.8
+      },
+      "hybrid_feedback": {
+        "ndcg@5": 0.7429498456882974,
+        "precision@5": 0.8
+      },
+      "adaptive_baseline": {
+        "ndcg@5": 1.0,
+        "precision@5": 1.0
+      },
+      "adaptive_rerank_only": {
+        "ndcg@5": 1.0,
+        "precision@5": 1.0
+      },
+      "adaptive_feedback_retrieval": {
+        "ndcg@5": 1.0,
+        "precision@5": 1.0
+      }
+    },
+    "tobi-g02": {
+      "bm25": {
+        "ndcg@5": 0.6096731708870796,
+        "precision@5": 0.6
+      },
+      "semantic": {
+        "ndcg@5": 0.0,
+        "precision@5": 0.0
+      },
+      "hybrid": {
+        "ndcg@5": 0.6096731708870796,
+        "precision@5": 0.6
+      },
+      "hybrid_feedback": {
+        "ndcg@5": 0.6096731708870796,
+        "precision@5": 0.6
+      },
+      "adaptive_baseline": {
+        "ndcg@5": 1.0,
+        "precision@5": 1.0
+      },
+      "adaptive_rerank_only": {
+        "ndcg@5": 1.0,
+        "precision@5": 1.0
+      },
+      "adaptive_feedback_retrieval": {
+        "ndcg@5": 1.0,
+        "precision@5": 1.0
+      }
+    },
+    "tobi-g03": {
+      "bm25": {
+        "ndcg@5": 0.7738931964842558,
+        "precision@5": 1.0
+      },
+      "semantic": {
+        "ndcg@5": 0.8304198973631919,
+        "precision@5": 0.8
+      },
+      "hybrid": {
+        "ndcg@5": 0.7738931964842558,
+        "precision@5": 1.0
+      },
+      "hybrid_feedback": {
+        "ndcg@5": 0.7738931964842558,
+        "precision@5": 1.0
+      },
+      "adaptive_baseline": {
+        "ndcg@5": 1.0,
+        "precision@5": 1.0
+      },
+      "adaptive_rerank_only": {
+        "ndcg@5": 1.0,
+        "precision@5": 1.0
+      },
+      "adaptive_feedback_retrieval": {
+        "ndcg@5": 1.0,
+        "precision@5": 1.0
+      }
+    },
+    "tobi-g04": {
+      "bm25": {
+        "ndcg@5": 0.7895676983469901,
+        "precision@5": 1.0
+      },
+      "semantic": {
+        "ndcg@5": 0.21398626473452753,
+        "precision@5": 0.2
+      },
+      "hybrid": {
+        "ndcg@5": 0.7895676983469901,
+        "precision@5": 1.0
+      },
+      "hybrid_feedback": {
+        "ndcg@5": 0.7895676983469901,
+        "precision@5": 1.0
+      },
+      "adaptive_baseline": {
+        "ndcg@5": 1.0,
+        "precision@5": 1.0
+      },
+      "adaptive_rerank_only": {
+        "ndcg@5": 1.0,
+        "precision@5": 1.0
+      },
+      "adaptive_feedback_retrieval": {
+        "ndcg@5": 1.0,
+        "precision@5": 1.0
+      }
+    },
+    "tobi-g05": {
+      "bm25": {
+        "ndcg@5": 0.2054778775428881,
+        "precision@5": 0.6
+      },
+      "semantic": {
+        "ndcg@5": 0.04373502583744726,
+        "precision@5": 0.2
+      },
+      "hybrid": {
+        "ndcg@5": 0.2054778775428881,
+        "precision@5": 0.6
+      },
+      "hybrid_feedback": {
+        "ndcg@5": 0.2054778775428881,
+        "precision@5": 0.6
+      },
+      "adaptive_baseline": {
+        "ndcg@5": 0.9026211001048622,
+        "precision@5": 1.0
+      },
+      "adaptive_rerank_only": {
+        "ndcg@5": 0.9026211001048622,
+        "precision@5": 1.0
+      },
+      "adaptive_feedback_retrieval": {
+        "ndcg@5": 0.9026211001048622,
+        "precision@5": 1.0
+      }
+    },
+    "tobi-p01": {
+      "bm25": {
+        "ndcg@5": 1.0,
+        "precision@5": 1.0
+      },
+      "semantic": {
+        "ndcg@5": 0.2442584792702138,
+        "precision@5": 0.4
+      },
+      "hybrid": {
+        "ndcg@5": 1.0,
+        "precision@5": 1.0
+      },
+      "hybrid_feedback": {
+        "ndcg@5": 1.0,
+        "precision@5": 1.0
+      },
+      "adaptive_baseline": {
+        "ndcg@5": 1.0,
+        "precision@5": 1.0
+      },
+      "adaptive_rerank_only": {
+        "ndcg@5": 1.0,
+        "precision@5": 1.0
+      },
+      "adaptive_feedback_retrieval": {
+        "ndcg@5": 1.0,
+        "precision@5": 1.0
+      }
+    },
+    "tobi-p02": {
+      "bm25": {
+        "ndcg@5": 1.0,
+        "precision@5": 1.0
+      },
+      "semantic": {
+        "ndcg@5": 0.0,
+        "precision@5": 0.0
+      },
+      "hybrid": {
+        "ndcg@5": 1.0,
+        "precision@5": 1.0
+      },
+      "hybrid_feedback": {
+        "ndcg@5": 1.0,
+        "precision@5": 1.0
+      },
+      "adaptive_baseline": {
+        "ndcg@5": 1.0,
+        "precision@5": 1.0
+      },
+      "adaptive_rerank_only": {
+        "ndcg@5": 1.0,
+        "precision@5": 1.0
+      },
+      "adaptive_feedback_retrieval": {
+        "ndcg@5": 1.0,
+        "precision@5": 1.0
+      }
+    },
+    "tobi-p03": {
+      "bm25": {
+        "ndcg@5": 0.7738931964842558,
+        "precision@5": 1.0
+      },
+      "semantic": {
+        "ndcg@5": 0.09242447578501607,
+        "precision@5": 0.4
+      },
+      "hybrid": {
+        "ndcg@5": 0.33380012823398425,
+        "precision@5": 0.6
+      },
+      "hybrid_feedback": {
+        "ndcg@5": 0.33380012823398425,
+        "precision@5": 0.6
+      },
+      "adaptive_baseline": {
+        "ndcg@5": 0.7738931964842558,
+        "precision@5": 1.0
+      },
+      "adaptive_rerank_only": {
+        "ndcg@5": 0.7738931964842558,
+        "precision@5": 1.0
+      },
+      "adaptive_feedback_retrieval": {
+        "ndcg@5": 0.7738931964842558,
+        "precision@5": 1.0
+      }
+    },
+    "tobi-p04": {
+      "bm25": {
+        "ndcg@5": 1.0,
+        "precision@5": 1.0
+      },
+      "semantic": {
+        "ndcg@5": 0.41383858190702183,
+        "precision@5": 0.6
+      },
+      "hybrid": {
+        "ndcg@5": 0.9125299483251055,
+        "precision@5": 1.0
+      },
+      "hybrid_feedback": {
+        "ndcg@5": 0.9125299483251055,
+        "precision@5": 1.0
+      },
+      "adaptive_baseline": {
+        "ndcg@5": 1.0,
+        "precision@5": 1.0
+      },
+      "adaptive_rerank_only": {
+        "ndcg@5": 1.0,
+        "precision@5": 1.0
+      },
+      "adaptive_feedback_retrieval": {
+        "ndcg@5": 1.0,
+        "precision@5": 1.0
+      }
+    },
+    "tobi-p05": {
+      "bm25": {
+        "ndcg@5": 1.0,
+        "precision@5": 1.0
+      },
+      "semantic": {
+        "ndcg@5": 0.4443763561001209,
+        "precision@5": 0.6
+      },
+      "hybrid": {
+        "ndcg@5": 1.0,
+        "precision@5": 1.0
+      },
+      "hybrid_feedback": {
+        "ndcg@5": 1.0,
+        "precision@5": 1.0
+      },
+      "adaptive_baseline": {
+        "ndcg@5": 1.0,
+        "precision@5": 1.0
+      },
+      "adaptive_rerank_only": {
+        "ndcg@5": 1.0,
+        "precision@5": 1.0
+      },
+      "adaptive_feedback_retrieval": {
+        "ndcg@5": 1.0,
+        "precision@5": 1.0
+      }
+    }
+  },
+  "assessors": [
+    "codex-ai:adaptive-metadata-review:REVIEW-REQUIRED",
+    "codex-ai:metadata-reviewed:REVIEW-REQUIRED"
+  ]
+}

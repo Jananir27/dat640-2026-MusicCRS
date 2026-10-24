@@ -1,0 +1,26 @@
+{
+  "profile": "responsive",
+  "config": {
+    "influence": 0.8,
+    "negative_weight": 0.25,
+    "mood_weight": 0.15,
+    "diversity_penalty": 0.04
+  },
+  "development_protocol_sha256": "488fa23f37252430178d65452f6a9d4f8ec4a6edf11408529efc2dca9f9135b2",
+  "development_runs_sha256": "3681ab075f2f7f4500fccc802f36dba12ee8551dbdce0c4af3e0229299c78615",
+  "development_metrics": {
+    "ndcg@5": 0.9576155592564746,
+    "precision@5": 1.0,
+    "excluded_tracks_returned": 0,
+    "latency": {
+      "mean_ms": 304.12567909806967,
+      "p50_ms": 302.0811039968976,
+      "p95_ms": 359.05791235272767
+    },
+    "feedback_queries": {
+      "ndcg@5": 0.9576155592564746,
+      "precision@5": 1.0
+    }
+  },
+  "frozen_before_evaluation": true
+}

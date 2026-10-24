@@ -1,0 +1,262 @@
+{
+  "judgment_status": "AI METADATA ASSESSMENT \u2014 not independent human or audio judgments",
+  "query_count": 10,
+  "feedback_query_count": 10,
+  "methods": {
+    "baseline": {
+      "ndcg@5": 0.5929513043995125,
+      "precision@5": 1.0,
+      "excluded_tracks_returned": 0,
+      "latency": {
+        "mean_ms": 370.9201708014007,
+        "p50_ms": 279.27116700448096,
+        "p95_ms": 768.5690395519482
+      },
+      "feedback_queries": {
+        "ndcg@5": 0.5929513043995125,
+        "precision@5": 1.0
+      }
+    },
+    "conservative": {
+      "ndcg@5": 0.7051480485874146,
+      "precision@5": 1.0,
+      "excluded_tracks_returned": 0,
+      "latency": {
+        "mean_ms": 317.5117541002692,
+        "p50_ms": 309.6157710024272,
+        "p95_ms": 385.4721769057505
+      },
+      "feedback_queries": {
+        "ndcg@5": 0.7051480485874146,
+        "precision@5": 1.0
+      }
+    },
+    "balanced": {
+      "ndcg@5": 0.7999548162871599,
+      "precision@5": 1.0,
+      "excluded_tracks_returned": 0,
+      "latency": {
+        "mean_ms": 315.1542083985987,
+        "p50_ms": 310.71477100340417,
+        "p95_ms": 368.65924810044817
+      },
+      "feedback_queries": {
+        "ndcg@5": 0.7999548162871599,
+        "precision@5": 1.0
+      }
+    },
+    "responsive": {
+      "ndcg@5": 0.9576155592564746,
+      "precision@5": 1.0,
+      "excluded_tracks_returned": 0,
+      "latency": {
+        "mean_ms": 304.12567909806967,
+        "p50_ms": 302.0811039968976,
+        "p95_ms": 359.05791235272767
+      },
+      "feedback_queries": {
+        "ndcg@5": 0.9576155592564746,
+        "precision@5": 1.0
+      }
+    }
+  },
+  "paired_feedback_delta": {
+    "conservative minus baseline": {
+      "ndcg@5": 0.11219674418790215,
+      "precision@5": 0.0
+    },
+    "balanced minus baseline": {
+      "ndcg@5": 0.20700351188764743,
+      "precision@5": 0.0
+    },
+    "responsive minus baseline": {
+      "ndcg@5": 0.36466425485696197,
+      "precision@5": 0.0
+    }
+  },
+  "per_query": {
+    "dev-01": {
+      "baseline": {
+        "ndcg@5": 0.8573424901769816,
+        "precision@5": 1.0
+      },
+      "conservative": {
+        "ndcg@5": 0.9125299483251055,
+        "precision@5": 1.0
+      },
+      "balanced": {
+        "ndcg@5": 1.0,
+        "precision@5": 1.0
+      },
+      "responsive": {
+        "ndcg@5": 1.0,
+        "precision@5": 1.0
+      }
+    },
+    "dev-02": {
+      "baseline": {
+        "ndcg@5": 0.3333333333333333,
+        "precision@5": 1.0
+      },
+      "conservative": {
+        "ndcg@5": 0.7698724385020871,
+        "precision@5": 1.0
+      },
+      "balanced": {
+        "ndcg@5": 0.9125299483251055,
+        "precision@5": 1.0
+      },
+      "responsive": {
+        "ndcg@5": 1.0,
+        "precision@5": 1.0
+      }
+    },
+    "dev-03": {
+      "baseline": {
+        "ndcg@5": 0.40892216721717317,
+        "precision@5": 1.0
+      },
+      "conservative": {
+        "ndcg@5": 0.40892216721717317,
+        "precision@5": 1.0
+      },
+      "balanced": {
+        "ndcg@5": 0.6863024195657901,
+        "precision@5": 1.0
+      },
+      "responsive": {
+        "ndcg@5": 0.9807710461847231,
+        "precision@5": 1.0
+      }
+    },
+    "dev-04": {
+      "baseline": {
+        "ndcg@5": 0.3652848149752749,
+        "precision@5": 1.0
+      },
+      "conservative": {
+        "ndcg@5": 0.3652848149752749,
+        "precision@5": 1.0
+      },
+      "balanced": {
+        "ndcg@5": 0.3652848149752749,
+        "precision@5": 1.0
+      },
+      "responsive": {
+        "ndcg@5": 0.8932868997079263,
+        "precision@5": 1.0
+      }
+    },
+    "dev-05": {
+      "baseline": {
+        "ndcg@5": 0.6724935386069494,
+        "precision@5": 1.0
+      },
+      "conservative": {
+        "ndcg@5": 0.7020976466720956,
+        "precision@5": 1.0
+      },
+      "balanced": {
+        "ndcg@5": 0.8151510484299677,
+        "precision@5": 1.0
+      },
+      "responsive": {
+        "ndcg@5": 1.0,
+        "precision@5": 1.0
+      }
+    },
+    "dev-06": {
+      "baseline": {
+        "ndcg@5": 1.0,
+        "precision@5": 1.0
+      },
+      "conservative": {
+        "ndcg@5": 1.0,
+        "precision@5": 1.0
+      },
+      "balanced": {
+        "ndcg@5": 1.0,
+        "precision@5": 1.0
+      },
+      "responsive": {
+        "ndcg@5": 0.9026211001048622,
+        "precision@5": 1.0
+      }
+    },
+    "dev-07": {
+      "baseline": {
+        "ndcg@5": 0.543765634986343,
+        "precision@5": 1.0
+      },
+      "conservative": {
+        "ndcg@5": 0.7698724385020871,
+        "precision@5": 1.0
+      },
+      "balanced": {
+        "ndcg@5": 0.8573424901769816,
+        "precision@5": 1.0
+      },
+      "responsive": {
+        "ndcg@5": 0.8869465982421278,
+        "precision@5": 1.0
+      }
+    },
+    "dev-08": {
+      "baseline": {
+        "ndcg@5": 0.7738931964842558,
+        "precision@5": 1.0
+      },
+      "conservative": {
+        "ndcg@5": 0.7738931964842558,
+        "precision@5": 1.0
+      },
+      "balanced": {
+        "ndcg@5": 0.7738931964842558,
+        "precision@5": 1.0
+      },
+      "responsive": {
+        "ndcg@5": 0.9125299483251055,
+        "precision@5": 1.0
+      }
+    },
+    "dev-09": {
+      "baseline": {
+        "ndcg@5": 0.543765634986343,
+        "precision@5": 1.0
+      },
+      "conservative": {
+        "ndcg@5": 0.8151510484299677,
+        "precision@5": 1.0
+      },
+      "balanced": {
+        "ndcg@5": 0.9125299483251055,
+        "precision@5": 1.0
+      },
+      "responsive": {
+        "ndcg@5": 1.0,
+        "precision@5": 1.0
+      }
+    },
+    "dev-10": {
+      "baseline": {
+        "ndcg@5": 0.43071223322847096,
+        "precision@5": 1.0
+      },
+      "conservative": {
+        "ndcg@5": 0.5338567867660998,
+        "precision@5": 1.0
+      },
+      "balanced": {
+        "ndcg@5": 0.6765142965891182,
+        "precision@5": 1.0
+      },
+      "responsive": {
+        "ndcg@5": 1.0,
+        "precision@5": 1.0
+      }
+    }
+  },
+  "assessors": [
+    "development-only:metadata-proxy:REVIEW-REQUIRED"
+  ]
+}

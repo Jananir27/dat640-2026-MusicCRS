@@ -1,0 +1,197 @@
+{
+  "schema_version": 1,
+  "review_type": "ai-metadata-review",
+  "assessor": "codex-ai:metadata-reviewed:REVIEW-REQUIRED",
+  "date": "2026-10-23",
+  "input_sha256": {
+    "provisional_judgments.csv": "e153fee79d3e2ca6e6b4a3104fcb8d9eb879c5cb707fbce232f30e2313d53fa7",
+    "judgments.csv": "4cd66600b55a82e381688f7093de48e7f859515be756cf20340aa4674cdbd7cb",
+    "runs.json": "e810f1a9191df23ae41a888c539da5fabb774a269f8c319d64e40223a1be50f3"
+  },
+  "rubric": {
+    "0": "No defensible musical match in the available metadata, a non-music/insufficient-evidence record, or a hard constraint violation. Missing evidence is not proof of musical irrelevance.",
+    "1": "Partial match: only part of a compound request, adjacent genre, generic genre without convincing seed/artist similarity, or conflicting dominant style.",
+    "2": "Strong metadata support for the actual request: requested genre and mood where specified, or a compatible specific style/artist with playlist or positive-feedback context. No hard constraint may be violated."
+  },
+  "interpretation": [
+    "Read the literal request and all context, rather than treating every entry in the query's helper genres array as an equally sufficient alternative.",
+    "Alternative rock is a specific style; a generic rock or generic alternative tag alone is insufficient for full credit.",
+    "Hip-Hop/Rap and R&B/Soul are genuine composite catalog genre labels. Subgenres such as indie pop and Latin Pop count toward pop; jazz-hop is a partial jazz match and a strong hip-hop match.",
+    "A mood-only match is at most partial credit. Happy/dance/bubblegum evidence can support upbeat at lower confidence; mellow is not established merely by soul or R&B tags.",
+    "For artist similarity, the artist's own music is allowed because the request does not demand a different artist. A track credited to the requested artist also needs music evidence; an episode-like record tagged only Others is insufficient.",
+    "For playlist and feedback queries, assess each candidate against the real seed's catalog tags. Generic genre overlap alone usually earns 1. A mixed playlist permits compatibility with either seed; it does not demand that every song fuse both genres.",
+    "A disliked track is forbidden; less like a disliked seed is a soft similarity preference, not a ban on its whole genre or artist. Explicit excluded artists apply to all credited collaborators. Explicit excluded songs and previously supplied seeds must be checked by both ID and title/artist identity.",
+    "An isolated broad tag among contradictory dominant styles does not justify a strong label. Song titles, artist names embedded in other names, album names, and shared film titles do not establish genre or musical similarity.",
+    "All judgments use the frozen pooled metadata and catalog seed records, without audio or external music facts. They are AI judgments requiring independent human review, not human ground truth.",
+    "The pool had already been exposed with its original grades and aggregate metrics in this conversation. The re-review is not independent or fully blind. Per-system candidate ranks and scores are not used to choose the revised grades. After an initial reviewed-metrics calculation, the final evidence check reduced three trap-similarity labels because the actual 21 Savage seed has no trap tag. This amendment addresses unsupported seed inference, not optimization of a system result."
+  ],
+  "query_decisions": {
+    "tobi-g01": [
+      {"grade":2,"keys":"T027 T157 T080 T171 T056 T158 T068 T139 T163 T055","reason":"Alternative-rock evidence supports the requested style; coherent alternative plus rock/indie-rock tags also qualify."},
+      {"grade":1,"keys":"T183 T054 T134 T185 T104 T154","reason":"Related rock is supported, but reggae/classic/progressive/Latin/folk/hip-hop crossover is a weaker fit to the specific alternative-rock request."},
+      {"grade":0,"keys":"T078 T194 T180 T031","reason":"Electronic/hip-hop mashup, indie pop, or electronic metadata does not substantiate the requested alternative-rock style."}
+    ],
+    "tobi-g02": [
+      {"grade":2,"keys":"T087 T181 T176","reason":"Multiple jazz/subgenre tags establish a strong match to the broad jazz request."},
+      {"grade":1,"keys":"T172 T015","reason":"Jazz-rock or jazz-hop is a defensible partial jazz match; the dominant crossover style warrants less than full credit."},
+      {"grade":0,"keys":"T095 T078 T188 T157 T080 T056 T194 T054 T065 T134 T165 T180 T156 T091 T163","reason":"The metadata does not provide credible jazz evidence for this request."}
+    ],
+    "tobi-g03": [
+      {"grade":2,"keys":"T192 T100 T098 T013 T205 T101 T151 T057 T141 T040 T015 T012 T102 T083 T014 T088 T204","reason":"Hip-hop/rap and its documented subgenres directly satisfy the broad hip-hop request."},
+      {"grade":1,"keys":"T078","reason":"The mashup includes hip-hop evidence but also substantial electronic/rock content; this supports a partial rather than unqualified genre match."},
+      {"grade":0,"keys":"T063 T085","reason":"Alternative/pop/rock evidence, without hip-hop evidence, does not meet the request."}
+    ],
+    "tobi-g04": [
+      {"grade":2,"keys":"T080 T056 T129 T158 T134 T169 T091 T138","reason":"Pop/indie-pop/Latin-pop evidence occurs with upbeat, uplifting, happy, or dance-oriented tags; both requested aspects are supported, with inferred mood cases flagged."},
+      {"grade":1,"keys":"T078 T194 T025 T164 T139 T200","reason":"Only one requested aspect is well supported: upbeat crossover without pop, or pop without convincing upbeat evidence."},
+      {"grade":0,"keys":"T069 T081 T057 T041 T053 T052","reason":"Rap/hip-hop tags or a title mentioning pop do not establish upbeat pop."}
+    ],
+    "tobi-g05": [
+      {"grade":1,"keys":"T193 T174 T194 T104 T140 T154 T178 T138","reason":"Mellow/chill evidence without R&B, or R&B/soul evidence without a convincing mellow mood, meets only part of the request."},
+      {"grade":0,"keys":"T078 T074 T157 T057 T080 T056 T054 T134 T180 T091 T075 T208","reason":"The available tags do not substantiate mellow R&B; incidental chill/mashup evidence is too weak to establish the requested musical combination."}
+    ],
+    "tobi-a01": [
+      {"grade":2,"keys":"T157 T118 T143 T120 T117 T109 T161 T115 T124 T126 T113","reason":"The candidate is verified Linkin Park music or has closely matching nu-metal/alternative-rock evidence."},
+      {"grade":1,"keys":"T201 T166 T016","reason":"Soft/alternative/hard rock supplies broad relatedness, but lacks the specific nu-metal/alternative-metal connection supporting a strong similarity claim."},
+      {"grade":0,"keys":"T175 T097 T162 T179 T165 T180","reason":"Electronic/dance or R&B-only metadata does not substantiate similarity to the documented Linkin Park style."}
+    ],
+    "tobi-a02": [
+      {"grade":2,"keys":"T207 T006 T005 T004 T001 T009 T007 T008 T011 T003","reason":"21 Savage is a verified credited artist and hip-hop/rap music is documented, including sparsely tagged records and collaborations."},
+      {"grade":0,"keys":"T157 T097 T162 T202 T179 T165 T076 T180 T077 T016","reason":"No 21 Savage credit or defensible matching hip-hop/trap evidence is supplied by this record; adjacent R&B alone is insufficient here."}
+    ],
+    "tobi-a03": [
+      {"grade":2,"keys":"T019","reason":"This is verified Adele music with pop, soul, ballad, and vocal evidence."},
+      {"grade":1,"keys":"T066 T060 T097 T080 T162 T037 T130 T194 T020 T139","reason":"Pop/soul/R&B or a documented piano reinterpretation provides partial relatedness, but the record does not establish a close match to Adele's documented soul/pop ballad style."},
+      {"grade":0,"keys":"T157 T082 T092 T165 T099 T180 T156 T168 T167","reason":"Dominant lo-fi/alternative guitar rock, punk, electronic music, jazz covers, or an uninformative record does not substantiate Adele similarity. An artist named Robyn Adele Anderson is not Adele."}
+    ],
+    "tobi-a04": [
+      {"grade":2,"keys":"T137 T149 T150 T147 T145 T144 T148 T136 T135 T146","reason":"Miles Davis is explicitly credited and jazz/trumpet/bop/fusion metadata verifies the musical relationship."},
+      {"grade":1,"keys":"T015","reason":"Jazz-hop and jazz-influenced hip-hop are adjacent to jazz, but do not establish a close match to Miles Davis recordings."},
+      {"grade":0,"keys":"T066 T205 T157 T162 T202 T065 T165 T099 T180","reason":"The record supplies no defensible jazz/Miles Davis relationship."}
+    ],
+    "tobi-a05": [
+      {"grade":2,"keys":"T047 T044 T050 T048 T049 T179 T042 T180 T046 T043 T106","reason":"Verified Daft Punk music, or overlapping electronic dance/house/techno styles, supports the requested artist relationship; soundtrack and acoustic reinterpretations are flagged for style uncertainty."},
+      {"grade":1,"keys":"T165","reason":"Dance/electronic tags support broad relatedness, but no more specific Daft Punk/house connection is verified."},
+      {"grade":0,"keys":"T058 T157 T162 T201 T202 T099 T156 T045","reason":"The available music metadata does not substantiate Daft Punk similarity. A title resembling an episode with only Others tags is insufficient evidence of a relevant song."}
+    ],
+    "tobi-p01": [
+      {"grade":2,"keys":"T118 T128 T112 T127 T122 T115 T111 T071 T114 T116 T090 T113","reason":"Linkin Park credit or specific alternative-metal/nu-metal plus rock evidence is compatible with the Numb playlist seed."},
+      {"grade":1,"keys":"T201 T068","reason":"Soft alternative rock or punk/post-hardcore has broad rock overlap but weaker specific similarity to the Numb seed."},
+      {"grade":0,"keys":"T175 T097 T162 T028 T165 T180","reason":"Electronic/R&B or generic Alternative tags do not substantiate compatibility with the documented rock/nu-metal playlist seed."}
+    ],
+    "tobi-p02": [
+      {"grade":2,"keys":"T207 T010 T005 T004 T001 T009 T002 T007 T008 T003","reason":"A verified 21 Savage credit and hip-hop evidence support the playlist's artist and genre; Hip-Hop/Rap is valid evidence even in sparse records."},
+      {"grade":1,"keys":"T205 T141","reason":"Hip-hop is verified, but the actual Numb seed has only Hip-Hop/Rap and artist tags; close track-level similarity or a shared trap style cannot be verified from that seed metadata."},
+      {"grade":0,"keys":"T157 T162 T201 T202 T165 T156 T062 T208","reason":"The supplied record does not substantiate hip-hop compatibility with the playlist seed."}
+    ],
+    "tobi-p03": [
+      {"grade":2,"keys":"T038 T103 T094 T039 T079 T160 T033","reason":"Pop with ballad, soul, orchestral/cinematic, piano, or compatible vocal evidence provides a specific relationship to the Skyfall seed."},
+      {"grade":1,"keys":"T026 T034 T132 T159","reason":"Broad pop/dream-pop, a dance-oriented Bond theme, or a hard-rock Skyfall cover supplies a partial relationship but not a close pop-ballad style match."},
+      {"grade":0,"keys":"T084 T170 T203 T197 T195 T199 T196 T198 T153 T059","reason":"Shared soundtrack/film/title associations, classical scores, or comedy rap do not establish the requested pop playlist fit."}
+    ],
+    "tobi-p04": [
+      {"grade":2,"keys":"T128 T110 T024 T127 T122 T115 T111 T121 T071 T114 T075 T123 T090 T113","reason":"Verified Linkin Park rock or specific alternative-metal/nu-metal evidence supports compatibility with both Numb and In the End."},
+      {"grade":1,"keys":"T201 T187 T125 T185","reason":"Soft/classic/indie rock or an instrumental electronic Linkin Park piece has only partial similarity to the two documented vocal rock seeds."},
+      {"grade":0,"keys":"T175 T162 T165","reason":"Electronic/dance or R&B metadata does not substantiate the requested two-seed rock relationship."}
+    ],
+    "tobi-p05": [
+      {"grade":2,"keys":"T119 T157 T118 T128 T127 T122 T115 T111 T108 T114 T113","reason":"Linkin Park credit or specific nu-metal evidence supports the rock seed of the mixed playlist. A candidate need not combine both seed genres."},
+      {"grade":1,"keys":"T072 T202 T186 T076","reason":"Alternative/emo/folk rock supplies broad overlap with one seed, but does not substantiate close nu-metal or 21 Savage hip-hop compatibility."},
+      {"grade":0,"keys":"T175 T162 T165 T180 T208","reason":"Electronic/R&B or generic Alternative metadata alone does not substantiate either seed's requested rock/hip-hop relationship."}
+    ],
+    "tobi-e01": [
+      {"grade":2,"keys":"T027 T157 T067 T080 T155 T056 T158 T068 T190 T182 T025 T139","reason":"Alternative-rock evidence supports the requested style and no credited artist is Linkin Park."},
+      {"grade":1,"keys":"T183 T054 T134 T185 T017","reason":"Reggae/progressive/Latin/classic/hard rock is only a partial fit to alternative rock; the artist exclusion is satisfied."},
+      {"grade":0,"keys":"T078 T194 T031","reason":"The Linkin Park exclusion is satisfied, but electronic/mashup or indie-pop metadata does not substantiate alternative rock."}
+    ],
+    "tobi-e02": [
+      {"grade":2,"keys":"T093 T022 T013 T205 T089 T151 T036 T057 T141 T131 T015 T096 T014 T184","reason":"Hip-hop/rap is explicitly supported and no credited collaborator is the excluded artist 21 Savage."},
+      {"grade":1,"keys":"T078","reason":"Hip-hop is one component of this electronic/rock mashup; the exclusion is satisfied but the musical fit is partial."},
+      {"grade":0,"keys":"T086 T080 T194 T085 T091","reason":"No 21 Savage credit appears, but alternative rock or pop does not meet the hip-hop request."}
+    ],
+    "tobi-e03": [
+      {"grade":2,"keys":"T193 T023 T080 T037 T056 T194 T158 T035 T134 T091 T139 T200","reason":"Pop, indie pop, or Latin Pop is supported and Adele is not a credited artist. No language or regional restriction was requested."},
+      {"grade":0,"keys":"T078 T072 T157 T097 T206 T054 T165 T191","reason":"The Adele exclusion is satisfied, but electronic, rap, rock, punk, or R&B-only metadata does not substantiate the requested pop genre."}
+    ],
+    "tobi-e04": [
+      {"grade":2,"keys":"T133 T051 T171 T054 T030 T029","reason":"Metal and its documented subgenres are supported; Metallica is not a credited artist even where mentioned in user tags."},
+      {"grade":1,"keys":"T177 T068 T032","reason":"Hard rock or punk/post-hardcore is adjacent to metal; sparse metal tags amid stronger punk evidence do not justify an unqualified metal label."},
+      {"grade":0,"keys":"T070 T078 T080 T037 T056 T194 T134 T064 T142 T091 T105","reason":"The artist exclusion is satisfied, but no defensible metal match is established. A title containing Metal is not metal-genre evidence."}
+    ],
+    "tobi-e05": [
+      {"grade":2,"keys":"T173 T018 T183 T080 T056 T054 T134 T185 T071 T139 T163 T055","reason":"Rock/alternative/hard/progressive/Latin rock is verified, and the track is not the excluded Numb recording by Linkin Park."},
+      {"grade":1,"keys":"T078 T104 T181 T154 T189","reason":"Rock is a weaker crossover or incidental tag alongside dominant mashup, folk, jazz, hip-hop, or electronic styles; the specific song exclusion is satisfied."},
+      {"grade":0,"keys":"T194 T064 T180","reason":"The excluded song is absent, but indie pop, Latin pop with a rock title, or electronic music lacks convincing rock evidence."}
+    ],
+    "tobi-f01": [
+      {"grade":2,"keys":"T071","reason":"Alternative metal plus alternative rock and post-hardcore gives specific metadata support for the liked Numb seed's style."},
+      {"grade":1,"keys":"T078 T173 T018 T183 T080 T056 T054 T134 T185 T104 T154 T139 T163 T055","reason":"Broad rock or a crossover component offers partial relevance, but close similarity to the liked nu-metal/alternative-metal seed is not established. Less like 21 Savage does not ban all hip-hop."},
+      {"grade":0,"keys":"T194 T064 T180 T181 T189","reason":"Dominant indie/Latin pop, electronic, or jazz metadata does not substantiate the requested Numb-like rock relationship; incidental rock tags are insufficient."}
+    ],
+    "tobi-f02": [
+      {"grade":1,"keys":"T192 T100 T078 T098 T013 T205 T101 T151 T057 T141 T040 T015 T012 T102 T083 T014 T088 T204","reason":"Hip-hop/rap supplies broad relevance, but the actual liked Numb seed has only Hip-Hop/Rap and artist tags. Close track-level similarity, including a shared trap style, cannot be verified. The disliked Linkin Park track does not prohibit all genre crossover."},
+      {"grade":0,"keys":"T063 T085","reason":"Alternative/pop/rock metadata lacks the requested hip-hop and positive-seed relationship."}
+    ],
+    "tobi-f03": [
+      {"grade":2,"keys":"T193","reason":"Female-vocal/piano, calm/sad pop with soundtrack associations gives a concrete metadata relationship to the liked Skyfall seed; confidence remains limited by noisy tags."},
+      {"grade":1,"keys":"T080 T162 T037 T056 T194 T134 T104 T091 T139 T200","reason":"Broad pop or adjacent soul/R&B supplies partial relevance, but the metadata does not establish a close cinematic soul/pop-ballad relationship to Skyfall."},
+      {"grade":0,"keys":"T078 T072 T157 T054 T165 T156 T073 T077 T191","reason":"Electronic/mashup, punk, metal, or dominant guitar-rock metadata does not substantiate the requested pop-plus-Skyfall preference."}
+    ],
+    "tobi-f04": [
+      {"grade":2,"keys":"T027 T157 T171","reason":"Alternative-metal/nu-metal plus alternative-rock evidence closely matches the liked In the End seed, and Metallica is not credited."},
+      {"grade":1,"keys":"T183 T080 T056 T054 T158 T134 T068 T185 T104 T154 T139 T163 T055","reason":"Broad or adjacent rock is supported, but specific similarity to the liked rap-rock/nu-metal seed is weaker; the Metallica exclusion is satisfied."},
+      {"grade":0,"keys":"T078 T194 T180 T031","reason":"Electronic/hip-hop mashup, indie pop, or electronic metadata does not substantiate alternative rock like the liked seed, despite satisfying the exclusion."}
+    ],
+    "tobi-f05": [
+      {"grade":2,"keys":"T171 T032","reason":"Explicit energetic plus alternative-rock/metal evidence supports both the requested mood and the liked Numb seed's rock style; 21 Savage is not credited."},
+      {"grade":1,"keys":"T107 T078 T157 T183 T080 T056 T054 T134 T061 T021 T154 T075 T139 T163 T055","reason":"Rock/style or energy is only partly supported, or the specific relationship to Numb is weak. No artist exclusion is violated; aggressive/heavy alone is not verified energetic."},
+      {"grade":0,"keys":"T194 T189 T152","reason":"Indie pop, predominantly mellow electronic, or hip-hop metadata does not substantiate energetic Numb-like rock."}
+    ]
+  },
+  "track_caveats": {
+    "T006": "Sparse Hip-Hop/Rap tag is valid; do not infer irrelevant because the exact alias is absent from an application helper.",
+    "T020": "Adele Adkins is a catalog credit alongside The Piano Guys; a piano/vocal reinterpretation does not automatically establish a close match to Adele's own recordings.",
+    "T025": "Alternative Rock is supplied, but ambient/art-pop tags also occur; genre classification is metadata-based.",
+    "T026": "Dominant alternative/indie-rock metadata; the generic Pop tag gives only partial Skyfall playlist compatibility.",
+    "T032": "Energetic and alternative-rock evidence is clear, but the nu-metal/melodic-death-metal tags coexist with extensive punk tags and need listening confirmation.",
+    "T045": "Episode 2, Todd Edwards is tagged only Others. Treat as insufficient evidence of relevant music; do not assert that it is definitely spoken audio without listening.",
+    "T049": "Daft Punk is credited, but Gonzales Version plus piano/acoustic/mellow tags may differ substantially from their electronic dance recordings.",
+    "T050": "Daft Punk and electronic are verified; soundtrack-oriented material may not match an assessor's intended dance/house interpretation.",
+    "T055": "Alternative Rock is explicit. Sparse metadata is not grounds for treating a broad rock request as irrelevant, but cannot prove seed or mood similarity.",
+    "T056": "Upbeat is inferred from happy, dance and pop/indie-pop tags rather than an explicit upbeat tag; review mood by listening.",
+    "T061": "Energetic rock is explicit, but the record lacks specific nu-metal/alternative-metal evidence for the Numb feedback preference.",
+    "T078": "Electronic/hip-hop mashup with a Rock tag; exact rock contribution and musical similarity require listening. An upbeat tag does not establish pop or R&B.",
+    "T079": "Cinematic, strings, james bond, female vocals and art pop support a Skyfall relationship; no claim is made that the recordings share an actual soundtrack.",
+    "T082": "Pop/indie-pop tags coexist with lo-fi, raw alternative/indie-rock evidence. The record does not substantiate Adele-like soul/pop ballad style despite generic pop overlap.",
+    "T091": "Upbeat is inferred from happy, bubblegum pop and teen-pop tags; listening confirmation remains needed.",
+    "T097": "R&B/Soul is valid genre evidence but does not prove a mellow mood or similarity to Linkin Park, 21 Savage, or Adele.",
+    "T098": "Trap rap occurs with conscious/west-coast hip-hop tags, but the actual 21 Savage Numb seed has no trap tag. A shared seed style is not verified; feedback relevance is partial pending listening.",
+    "T099": "Only Others tags are provided. No musical genre or similarity is invented from the artist identity.",
+    "T104": "Folk/acoustic/singer-songwriter evidence dominates despite folk-rock/pop/rock tags; contextual relevance is partial.",
+    "T106": "The title names Daft Punk, but the similarity label relies on house/disco/electronic/dance evidence, not that title.",
+    "T125": "Session is explicitly instrumental/electronic/breakbeat as well as rock-tagged. Same artist alone does not prove close similarity to both vocal rock seeds.",
+    "T132": "A shared Bond association is supported, but the dance/electropop style differs from the cinematic soul-ballad seed.",
+    "T133": "Metallica appears in a user tag, not the credited artist list; this is not an exclusion violation.",
+    "T138": "Gospel/R&B/pop with uplifting and dance evidence is not automatically mellow R&B.",
+    "T141": "Migos has trap and hip-hop tags. The 21 Savage Numb seed has only Hip-Hop/Rap and artist tags; a specific shared trap style cannot be asserted from the seed record.",
+    "T144": "The catalog combines title variants and broad tags. Miles Davis and jazz are verified, but the exact recording/version is not adjudicated.",
+    "T156": "Electronic is an isolated tag among dominant alternative/progressive-rock evidence; it does not justify strong Daft Punk similarity.",
+    "T159": "A Skyfall cover with hard-rock tags has a composition/title relationship, but does not establish the requested pop playlist style.",
+    "T162": "R&B/Soul is meaningful but sparse. It is not evidence of a specific mood, hip-hop/trap style, or close seed similarity.",
+    "T167": "Robyn Adele Anderson is a different credited identity from Adele. Jazz cover metadata does not establish Adele similarity.",
+    "T168": "Robyn Adele Anderson is a different credited identity from Adele. Jazz cover metadata does not establish Adele similarity.",
+    "T170": "Auditions is soundtrack-tagged, with no verified pop style; do not assume every soundtrack excerpt fits the Skyfall playlist.",
+    "T181": "Jazz/downtempo dominates; the generic Rock tag warrants at most partial broad-rock relevance, not Numb-like relevance.",
+    "T185": "Classic/psychedelic rock dominates despite one alternative-rock tag; partial alternative-rock or Linkin Park similarity is more defensible than full credit.",
+    "T189": "Electronic/downtempo/synth-pop dominates despite Rock Classics title and alternative-rock tag. Broad rock is partial, specific Numb-like rock is unsupported.",
+    "T193": "Skyfall similarity is an AI interpretation of piano/female-vocal/sad/calm/indie-pop tags, not an audio comparison or independently verified similarity fact.",
+    "T194": "Indie/Pop/Alternative and mellow are documented, but no rock or R&B evidence is supplied; the original blanket alternative-rock labels were unsupported.",
+    "T195": "A Skyfall/Bond association alone does not establish pop relevance.",
+    "T196": "A Skyfall/Bond association alone does not establish pop relevance.",
+    "T197": "A Skyfall/Bond association and isolated Rock tag do not establish pop relevance.",
+    "T198": "A Skyfall/Bond association alone does not establish pop relevance.",
+    "T199": "A Skyfall/Bond association and classical/Rock tags do not establish pop relevance.",
+    "T202": "Metal/Rock/Alternative are meaningful but too broad to prove close seed similarity.",
+    "T208": "Only Alternative is supplied; do not infer rock or hip-hop from that label alone."
+  }
+}
