@@ -116,12 +116,84 @@ def interpret_feedback(text, displayed_ids, catalog, select_positions, focus_id=
                     artist_names = [all_artists[lookup]]
                     ids = [track_id for track_id in displayed_ids
                            if lookup in {name_key(a) for a in values(catalog[track_id].get("artist_name"))}]
+
                 else:
-                    in_display = [track_id for track_id in candidates if track_id in displayed_ids]
+                    in_display = [
+                        track_id for track_id in candidates
+                        if track_id in displayed_ids
+                    ]
                     ids = in_display or candidates
+
                     if len(ids) != 1:
-                        update.error = "I couldn't identify one catalog track or artist. Please use a recommendation number or include its artist."
-                        return update
+                        # Prefer a single previously displayed recording when
+                        # the user omits a common remaster suffix.
+                        version_suffix = (
+                            r"\s*(?:-\s*|\()\s*"
+                            r"(?:\d{4}\s+)?remaster(?:ed)?"
+                            r"(?:\s+\d{4})?\)?\s*$"
+                        )
+
+                        displayed_matches = [
+                            track_id
+                            for track_id in displayed_ids
+                            if track_id in catalog
+                            and any(
+                                name_key(re.sub(version_suffix, "", track_title, flags=re.I))
+                                == name_key(title)
+                                for track_title in values(
+                                    catalog[track_id].get("track_name")
+                                )
+                            )
+                            and (
+                                not named_artist
+                                or name_key(named_artist) in {
+                                    name_key(a)
+                                    for a in values(
+                                        catalog[track_id].get("artist_name")
+                                    )
+                                }
+                            )
+                        ]
+
+                        if len(displayed_matches) == 1:
+                            ids = displayed_matches
+                        else:
+                            # No unique displayed match: search the full catalog.
+                            catalog_matches = [
+                                track_id
+                                for track_id, row in catalog.items()
+                                if any(
+                                    name_key(
+                                        re.sub(version_suffix, "", track_title, flags=re.I)
+                                    ) == name_key(title)
+                                    for track_title in values(row.get("track_name"))
+                                )
+                                and (
+                                    not named_artist
+                                    or name_key(named_artist) in {
+                                        name_key(a)
+                                        for a in values(row.get("artist_name"))
+                                    }
+                                )
+                            ]
+
+                            if len(catalog_matches) == 1:
+                                ids = catalog_matches
+                            elif len(catalog_matches) > 1:
+                                update.error = (
+                                    "I found multiple versions of that song. "
+                                    "Please give the complete track title "
+                                    "or select a recommendation number."
+                                )
+                                return update
+                            else:
+                                update.error = (
+                                    "I couldn't identify one catalog track or artist. "
+                                    "Please use a recommendation number or include its artist."
+                                )
+                                return update
+
+
         if any(track_id not in catalog for track_id in ids):
             update.error = "That track is no longer in the catalog."
             return update
