@@ -1,9 +1,12 @@
 # DAT640-2026 MusicCRS starting package
 
 Part 4 adds conversational and per-song feedback, Rocchio-inspired reranking,
-grounded explanations, and a 25-query comparative evaluation contribution.
+grounded explanations, and a combined 50-query comparative evaluation.
 See [the Part 4 implementation and integration guide](PART4_FEEDBACK.md) for
 the shared retriever interface, demo commands, tests, and evaluation protocol.
+The current [R4 report](evaluation/part4/r4_results_v2/REPORT.md) compares four
+retrieval methods using a shared pool with submitted human reviews and explicit
+AI-assisted draft judgments. [Reproduce the evaluation](INTEGRATED_EVALUATION.md).
 
 ## Run the frontend and backend with Docker Compose
 
@@ -67,6 +70,23 @@ terminal. Docker-managed model data remains available across `docker compose dow
 and `docker compose up` runs. To enable the optional `/ask_llm` command, set `MUSICCRS_USE_LLM=true`
 and `OLLAMA_API_KEY` in the environment before starting Compose. Normal chat
 works with the LLM disabled.
+
+For the advanced recommendation route, also set `MUSICCRS_ADVANCED_LLM=true`.
+Compose forwards this flag and `OLLAMA_TIMEOUT_SECONDS` to the backend. Keep API
+keys in the execution environment or a local ignored `.env` file, never in Git.
+The UiS endpoint currently lists `llama3.3:70b-instruct-q4_K_M`; set
+`OLLAMA_MODEL` to that name and `OLLAMA_TIMEOUT_SECONDS=60` for the live check.
+The live integration check uses actual Ollama responses:
+
+```bash
+# Run in a shell where OLLAMA_API_KEY is already configured.
+.venv/bin/python -m tests.r2_live_smoke --live-llm \
+  --output /tmp/musiccrs-live-llm-check.json
+```
+
+The check validates extraction before loading the catalog/model, then exercises
+Socket.IO recommendations, feedback, exclusions and reset. Omitting `--live-llm`
+uses scripted preferences and makes no external LLM calls.
 
 This repository contains a starting package for the MusicCRS group project.
 

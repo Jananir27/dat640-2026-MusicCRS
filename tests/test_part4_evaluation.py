@@ -50,6 +50,8 @@ class Part4EvaluationTests(unittest.TestCase):
             (root / "runs.json").write_text(json.dumps(document))
             cases = [
                 (["codex-ai:metadata-reviewed:REVIEW-REQUIRED"] * 2, "AI-REVIEWED METADATA"),
+                (["AI-assisted:metadata-only:PROVISIONAL"] * 2, "AI-REVIEWED METADATA"),
+                (["codex-ai:adaptive-metadata-review:REVIEW-REQUIRED"] * 2, "AI-REVIEWED METADATA"),
                 (["codex-ai:metadata-reviewed:REVIEW-REQUIRED", "assessor-1"], "MIXED JUDGMENTS"),
                 (["metadata-proxy:REVIEW-REQUIRED"] * 2, "PROVISIONAL METADATA PROXY"),
                 ([""] * 2, "PROVISIONAL METADATA PROXY"),

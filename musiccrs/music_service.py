@@ -21,7 +21,8 @@ from retrieval.final import FinalRetriever
 from musiccrs.music_features import (
     classify_tags, extract_preferences, profile_tracks, select_diverse, select_playlist_matches, track_style,
 )
-from musiccrs.relevance_feedback import FeedbackState, RankedTrack, RocchioFeedback
+from musiccrs.relevance_feedback import FeedbackState
+from musiccrs.feedback_workflow import FeedbackRecommendationAdapter
 from musiccrs.recommendation_explanations import explain_recommendation
 
 
@@ -112,6 +113,7 @@ class MusicService:
         self._retriever_lock = Lock()
         self._r5_entities = None
         self._r5_entities_lock = Lock()
+        self._feedback_adapter = FeedbackRecommendationAdapter(self)
 
     def get_r5_entities(self):
         """Build the read-only name index once for all connected users."""
@@ -121,6 +123,11 @@ class MusicService:
                     from musiccrs.r5_nlu import CatalogEntities
                     self._r5_entities = CatalogEntities(self.catalog)
         return self._r5_entities
+
+    def extract_request_preferences(self, text):
+        from .request_constraints import explicit_request_preferences
+        artists = [mention.name for mention in self.get_r5_entities().mentions(text, "artist")]
+        return explicit_request_preferences(text, artists)
 
     def warm_r5(self):
         from musiccrs.r5_nlu import get_r5_router
@@ -324,7 +331,7 @@ class MusicService:
         artists: list[str] = []
         recent_seeds = seeds[-5:]
         genre_profile, mood_profile = profile_tracks(seeds)
-        requested_genres, requested_moods = extract_preferences(request)
+        requested_genres, requested_moods = self.extract_request_preferences(request)
         genre_profile.update(requested_genres)
         mood_profile.update(requested_moods)
         for track in recent_seeds:
@@ -360,7 +367,9 @@ class MusicService:
             use_playlist_context=False,
         )
         ranked = select_playlist_matches(candidates, seeds, len(candidates), request)
-        return self.rerank_feedback(ranked, state, "; ".join(query_parts), limit)
+        return self.rerank_feedback(ranked, state, "; ".join(query_parts), limit,
+                                    genres=set(requested_genres) or None,
+                                    moods=set(requested_moods) or None)
 
     def recommend_for_playlist_description(
         self,
@@ -370,7 +379,7 @@ class MusicService:
         state: ConversationState | None = None,
     ) -> list[dict]:
         """Retrieve and preference-rerank candidates for a new playlist."""
-        genres, moods = extract_preferences(query)
+        genres, moods = self.extract_request_preferences(query)
         candidates = self.recommend_tracks(
             query,
             limit=min(20, len(self.catalog.metadata_dict)),
@@ -379,33 +388,13 @@ class MusicService:
             new_playlist=True,
         )
         ranked = select_diverse(candidates, len(candidates), genres, moods)
-        return self.rerank_feedback(ranked, state, query, limit) if state else ranked[:limit]
+        return self.rerank_feedback(ranked, state, query, limit, genres=set(genres),
+                                    moods=set(moods), exclude_playlist=False) if state else ranked[:limit]
 
-    def rerank_feedback(self, tracks: list[dict], state: ConversationState, query: str, limit: int = 5):
-        """Adapter for the existing ID-only G1 output; partners can use RankedTrack directly.
-
-        A rank prior is explicitly identified as such; it is not a fabricated
-        BM25 or semantic score. Only encode queries after actual vector feedback.
-        """
-        if not tracks:
-            state.ranking_evidence = {}
-            return []
-        embeddings, query_vector = {}, None
-        provider = self._embedding_provider or self._get_retriever()
-        if state.feedback.votes and hasattr(provider, "get_track_embeddings"):
-            ids = list(dict.fromkeys([track["track_id"] for track in tracks] + list(state.feedback.votes)))
-            embeddings = provider.get_track_embeddings(ids)
-            if hasattr(provider, "encode_query"):
-                query_vector = provider.encode_query(query)
-        candidates = [RankedTrack(track["track_id"], track, 1 - rank / len(tracks),
-                                  scores={"rank_prior": 1 - rank / len(tracks)})
-                      for rank, track in enumerate(tracks)]
-        ranked = RocchioFeedback().rerank(candidates, state.feedback, embeddings, query_vector,
-                                          excluded_ids=state.skip_recommendation_ids | {
-                                              track_id for track_id, vote in state.feedback.votes.items() if vote == 1})
-        state.ranking_evidence = {candidate.track_id: {**candidate.evidence, "scores": candidate.scores}
-                                  for candidate in ranked}
-        return [candidate.metadata for candidate in ranked[:limit]]
+    def rerank_feedback(self, tracks: list[dict], state: ConversationState, query: str,
+                        limit: int = 5, **constraints):
+        """Shared R2 stage; preserve R1 order without feedback and expand with it."""
+        return self._feedback_adapter.rerank(tracks, state, query, limit, **constraints)
 
     def recommend_from_description(self, state: ConversationState, query: str, limit: int = 5):
         """Part 4 discovery can start without a seed playlist."""
@@ -417,17 +406,14 @@ class MusicService:
         )
         search_query = re.sub(r"\b(?:songs?|tracks?|music)\b", " ", search_query, flags=re.I)
         search_query = " ".join(search_query.split()).strip(" .!?;") or query
-        genres, moods = extract_preferences(search_query)
+        genres, moods = self.extract_request_preferences(search_query)
         tracks = self.recommend_tracks(search_query, limit=20, state=state, request=search_query,
                                        exclude_ids=set(state.playlist_ids), direct_query=True)
-        # An explicit genre request needs actual catalog genre evidence; do
-        # not fill its slots with unrelated tracks promoted by feedback.
-        if genres:
-            tracks = [track for track in tracks if set(genres) & classify_tags(
-                track.get("tag_list", "").split(",") if isinstance(track.get("tag_list"), str)
-                else (track.get("tag_list") or []))[0]]
+        # The shared adapter enforces canonical genre eligibility, including
+        # composite tags such as R&B/Soul; do not prefilter with another taxonomy.
         ranked = select_diverse(tracks, len(tracks), genres, moods)
-        return self.rerank_feedback(ranked, state, search_query, limit)
+        return self.rerank_feedback(ranked, state, search_query, limit,
+                                    genres=set(genres), moods=set(moods))
 
     def remember_recommendations(self, state: ConversationState, tracks: list[dict], query: str):
         """Bind UI ratings to an immutable displayed batch, including older messages."""
@@ -447,7 +433,8 @@ class MusicService:
                 self.catalog.metadata_dict,
             )
             records.append({**self.display_record(track["track_id"]), "explanation": reason,
-                            "evidence": facts, "scores": state.ranking_evidence.get(track["track_id"], {}).get("scores", {})})
+                            "evidence": {**facts, "ranking": state.ranking_evidence.get(track["track_id"], {})},
+                            "scores": state.ranking_evidence.get(track["track_id"], {}).get("scores", {})})
         state.recommendation_payload = {"batch_id": batch_id, "tracks": records}
         state.emit_recommendations = True
         return records

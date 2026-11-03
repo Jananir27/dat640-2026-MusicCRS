@@ -1,0 +1,4879 @@
+{
+  "catalog_fixture": false,
+  "catalog_size": 47071,
+  "embedding_model": "Qwen/Qwen3-Embedding-0.6B",
+  "llm_preferences": "live external Ollama responses through the actual JSON validator",
+  "llm_model": "llama3.3:70b-instruct-q4_K_M",
+  "external_llm_calls": 11,
+  "preference_parse_calls": 11,
+  "preference_requests": [
+    {
+      "request": "Recommend energetic rock songs similar to my playlist, but exclude Linkin Park and suggest something like Green Day.",
+      "preferences": {
+        "genre": [
+          "rock"
+        ],
+        "mood": [
+          "energetic"
+        ],
+        "preferred_artists": [
+          "Green Day"
+        ],
+        "excluded_artists": [
+          "Linkin Park"
+        ],
+        "excluded_tracks": [],
+        "use_playlist_context": true,
+        "avoid_playlist_artists": false
+      },
+      "duration_ms": 14696.427416987717
+    },
+    {
+      "request": "Recommend rock music",
+      "preferences": {
+        "genre": [
+          "rock"
+        ],
+        "mood": [],
+        "preferred_artists": [],
+        "excluded_artists": [],
+        "excluded_tracks": [],
+        "use_playlist_context": false,
+        "avoid_playlist_artists": false
+      },
+      "duration_ms": 11780.591958988225
+    },
+    {
+      "request": "Recommend rock music",
+      "preferences": {
+        "genre": [
+          "rock"
+        ],
+        "mood": [],
+        "preferred_artists": [],
+        "excluded_artists": [],
+        "excluded_tracks": [],
+        "use_playlist_context": false,
+        "avoid_playlist_artists": false
+      },
+      "duration_ms": 9180.118750024121
+    },
+    {
+      "request": "Recommend rock music, no Metallica",
+      "preferences": {
+        "genre": [
+          "rock"
+        ],
+        "mood": [],
+        "preferred_artists": [],
+        "excluded_artists": [
+          "Metallica"
+        ],
+        "excluded_tracks": [],
+        "use_playlist_context": false,
+        "avoid_playlist_artists": false
+      },
+      "duration_ms": 8484.304959012661
+    },
+    {
+      "request": "Recommend rock music, no Metallica",
+      "preferences": {
+        "genre": [
+          "rock"
+        ],
+        "mood": [],
+        "preferred_artists": [],
+        "excluded_artists": [
+          "Metallica"
+        ],
+        "excluded_tracks": [],
+        "use_playlist_context": false,
+        "avoid_playlist_artists": false
+      },
+      "duration_ms": 11285.479249985656
+    },
+    {
+      "request": "Recommend rock music",
+      "preferences": {
+        "genre": [
+          "rock"
+        ],
+        "mood": [],
+        "preferred_artists": [],
+        "excluded_artists": [],
+        "excluded_tracks": [],
+        "use_playlist_context": false,
+        "avoid_playlist_artists": false
+      },
+      "duration_ms": 11485.245957999723
+    },
+    {
+      "request": "Recommend rock music",
+      "preferences": {
+        "genre": [
+          "rock"
+        ],
+        "mood": [],
+        "preferred_artists": [],
+        "excluded_artists": [],
+        "excluded_tracks": [],
+        "use_playlist_context": false,
+        "avoid_playlist_artists": false
+      },
+      "duration_ms": 6268.667791009648
+    },
+    {
+      "request": "Recommend rock music",
+      "preferences": {
+        "genre": [
+          "rock"
+        ],
+        "mood": [],
+        "preferred_artists": [],
+        "excluded_artists": [],
+        "excluded_tracks": [],
+        "use_playlist_context": false,
+        "avoid_playlist_artists": false
+      },
+      "duration_ms": 7812.042834004387
+    },
+    {
+      "request": "recommend jazz music",
+      "preferences": {
+        "genre": [
+          "jazz"
+        ],
+        "mood": [],
+        "preferred_artists": [],
+        "excluded_artists": [],
+        "excluded_tracks": [],
+        "use_playlist_context": false,
+        "avoid_playlist_artists": false
+      },
+      "duration_ms": 10938.740332989255
+    },
+    {
+      "request": "Recommend jazz music",
+      "preferences": {
+        "genre": [
+          "jazz"
+        ],
+        "mood": [],
+        "preferred_artists": [],
+        "excluded_artists": [],
+        "excluded_tracks": [],
+        "use_playlist_context": false,
+        "avoid_playlist_artists": false
+      },
+      "duration_ms": 8666.239999991376
+    },
+    {
+      "request": "Recommend rock music",
+      "preferences": {
+        "genre": [
+          "rock"
+        ],
+        "mood": [],
+        "preferred_artists": [],
+        "excluded_artists": [],
+        "excluded_tracks": [],
+        "use_playlist_context": false,
+        "avoid_playlist_artists": false
+      },
+      "duration_ms": 12441.942249977728
+    }
+  ],
+  "checks": {
+    "positive_negative_feedback": true,
+    "adaptive_catalog_path": true,
+    "ranking_changes": true,
+    "nonzero_vector_feedback": true,
+    "rated_seeds_withheld": true,
+    "persistent_r1_exclusions": true,
+    "polite_more_like": true,
+    "temporary_skip_cleared": true,
+    "mixed_feedback_and_new_genre": true,
+    "invalid_compound_atomic": true,
+    "older_batch_rating": true,
+    "reset_to_r1_ranking": true,
+    "seed_free_advanced": true,
+    "server_vote_snapshots": true
+  },
+  "turns": [
+    {
+      "query": "Recommend rock music",
+      "event": "message",
+      "response": "Here are recommendations matching your request:\n1. A Song Request — Richard Cheese (I'd Like A Virgin)\n2. Sultan’s Request — Flying Lotus (Until The Quiet Comes)\n3. Radio #2 — The Ataris (So Long, Astoria)\n4. Brighter — Against The Current (In Our Bones)\n5. 2112: Overture / The Temples Of Syrinx / Discovery / Presentation / Oracle / Soliloquy / Grand Finale - Medley — Rush (2112)\nYou can say 'add all', 'add the first two', or 'add them except the one by [artist]'.",
+      "backend_response_ms": 14956.949374987744,
+      "recommendations": {
+        "batch_id": "ed19077c-aea5-4553-b2b2-185d38f46a7f",
+        "tracks": [
+          {
+            "track_id": "ecaea2e3-df2d-41e6-800d-7151f5652dfc",
+            "track_name": "A Song Request",
+            "artist_name": "Richard Cheese",
+            "album_name": "I'd Like A Virgin",
+            "release_date": "2004-01-01",
+            "tag_list": [
+              "lounge rock",
+              "Dance",
+              "richard cheese",
+              "Rock",
+              "00s",
+              "Jazz",
+              "comedy",
+              "cheese",
+              "jazz",
+              "lounge",
+              "alternative"
+            ],
+            "popularity": 0.0,
+            "explanation": "matches your requested genres: rock",
+            "evidence": {
+              "requested_genres": [
+                "rock"
+              ],
+              "requested_moods": [],
+              "shared_styles": [],
+              "shared_genres": [],
+              "shared_playlist_artist": false,
+              "ranking": {
+                "liked_artist_match": false,
+                "feedback_path": "r1_pool_rocchio",
+                "scores": {
+                  "rank_prior": 0.9,
+                  "base": 0.9,
+                  "feedback_delta": 0.0,
+                  "final": 0.9
+                }
+              }
+            },
+            "scores": {
+              "rank_prior": 0.9,
+              "base": 0.9,
+              "feedback_delta": 0.0,
+              "final": 0.9
+            }
+          },
+          {
+            "track_id": "e0957a07-6333-47f4-933e-8092fc9a6db9",
+            "track_name": "Sultan’s Request",
+            "artist_name": "Flying Lotus",
+            "album_name": "Until The Quiet Comes",
+            "release_date": "2012-10-01",
+            "tag_list": [
+              "experimental",
+              "bass",
+              "Dance",
+              "warp",
+              "american",
+              "1 minute songs",
+              "instrumental",
+              "10s",
+              "Rock",
+              "instrumental hip-hop",
+              "los angeles",
+              "dat bass",
+              "indie",
+              "2012",
+              "trip-hop",
+              "electronic",
+              "hip hop",
+              "hip-hop",
+              "glitch-hop",
+              "idm"
+            ],
+            "popularity": 0.0,
+            "explanation": "matches your requested genres: rock",
+            "evidence": {
+              "requested_genres": [
+                "rock"
+              ],
+              "requested_moods": [],
+              "shared_styles": [],
+              "shared_genres": [],
+              "shared_playlist_artist": false,
+              "ranking": {
+                "liked_artist_match": false,
+                "feedback_path": "r1_pool_rocchio",
+                "scores": {
+                  "rank_prior": 0.85,
+                  "base": 0.85,
+                  "feedback_delta": 0.0,
+                  "final": 0.85
+                }
+              }
+            },
+            "scores": {
+              "rank_prior": 0.85,
+              "base": 0.85,
+              "feedback_delta": 0.0,
+              "final": 0.85
+            }
+          },
+          {
+            "track_id": "1e6cce65-a976-49e9-aeb2-8bea1ab86f51",
+            "track_name": "Radio #2",
+            "artist_name": "The Ataris",
+            "album_name": "So Long, Astoria",
+            "release_date": "2003-03-04",
+            "tag_list": [
+              "punk",
+              "pop punk",
+              "Punk",
+              "the ataris - radio number2",
+              "alternative rock",
+              "high school",
+              "amazing",
+              "catchy",
+              "tripstak",
+              "rock",
+              "the ataris",
+              "punk rock",
+              "revolution",
+              "punk favorites",
+              "request lines",
+              "favorites",
+              "Alternative",
+              "nhl 2004",
+              "radio sucks",
+              "Rock",
+              "screamo",
+              "california",
+              "pop-punk",
+              "favorite bands",
+              "sex pistols",
+              "seen live",
+              "good song",
+              "wake up music",
+              "radio",
+              "driving tunes alternative mix",
+              "rock music",
+              "indie",
+              "alternative",
+              "radio 2",
+              "emo",
+              "pop punk favorites",
+              "pick-me-up",
+              "teen punk",
+              "reminiscent",
+              "cool"
+            ],
+            "popularity": 34.0,
+            "explanation": "matches your requested genres: rock",
+            "evidence": {
+              "requested_genres": [
+                "rock"
+              ],
+              "requested_moods": [],
+              "shared_styles": [],
+              "shared_genres": [],
+              "shared_playlist_artist": false,
+              "ranking": {
+                "liked_artist_match": false,
+                "feedback_path": "r1_pool_rocchio",
+                "scores": {
+                  "rank_prior": 0.8,
+                  "base": 0.8,
+                  "feedback_delta": 0.0,
+                  "final": 0.8
+                }
+              }
+            },
+            "scores": {
+              "rank_prior": 0.8,
+              "base": 0.8,
+              "feedback_delta": 0.0,
+              "final": 0.8
+            }
+          },
+          {
+            "track_id": "3350ba48-0ffd-4c1d-b760-c50174e0c37f",
+            "track_name": "Brighter",
+            "artist_name": "Against The Current",
+            "album_name": "In Our Bones",
+            "release_date": "2016-05-20",
+            "tag_list": [
+              "against the current",
+              "Alternative Rock",
+              "pop rock"
+            ],
+            "popularity": 36.0,
+            "explanation": "selected by the catalog retrieval ranking",
+            "evidence": {
+              "requested_genres": [],
+              "requested_moods": [],
+              "shared_styles": [],
+              "shared_genres": [],
+              "shared_playlist_artist": false,
+              "retrieval_fallback": true,
+              "ranking": {
+                "liked_artist_match": false,
+                "feedback_path": "r1_pool_rocchio",
+                "scores": {
+                  "rank_prior": 0.75,
+                  "base": 0.75,
+                  "feedback_delta": 0.0,
+                  "final": 0.75
+                }
+              }
+            },
+            "scores": {
+              "rank_prior": 0.75,
+              "base": 0.75,
+              "feedback_delta": 0.0,
+              "final": 0.75
+            }
+          },
+          {
+            "track_id": "315e7ed8-635c-4be9-b851-d30084db3c10",
+            "track_name": "2112: Overture / The Temples Of Syrinx / Discovery / Presentation / Oracle / Soliloquy / Grand Finale - Medley",
+            "artist_name": "Rush",
+            "album_name": "2112",
+            "release_date": "1976-04-01",
+            "tag_list": [
+              "hard rock",
+              "Hard Rock",
+              "Rock"
+            ],
+            "popularity": 45.0,
+            "explanation": "matches your requested genres: rock",
+            "evidence": {
+              "requested_genres": [
+                "rock"
+              ],
+              "requested_moods": [],
+              "shared_styles": [],
+              "shared_genres": [],
+              "shared_playlist_artist": false,
+              "ranking": {
+                "liked_artist_match": false,
+                "feedback_path": "r1_pool_rocchio",
+                "scores": {
+                  "rank_prior": 0.65,
+                  "base": 0.65,
+                  "feedback_delta": 0.0,
+                  "final": 0.65
+                }
+              }
+            },
+            "scores": {
+              "rank_prior": 0.65,
+              "base": 0.65,
+              "feedback_delta": 0.0,
+              "final": 0.65
+            }
+          }
+        ]
+      },
+      "feedback_status": {
+        "votes": {},
+        "valid_batch_ids": [
+          "ed19077c-aea5-4553-b2b2-185d38f46a7f"
+        ]
+      }
+    },
+    {
+      "query": "/playlist add ffc14c3d-21b1-4938-b58e-28c21c4d39a3",
+      "event": "message",
+      "response": "Added Numb — Linkin Park (Meteora) to your playlist.",
+      "backend_response_ms": 1.629582984605804,
+      "recommendations": null,
+      "feedback_status": {
+        "votes": {},
+        "valid_batch_ids": [
+          "ed19077c-aea5-4553-b2b2-185d38f46a7f"
+        ]
+      }
+    },
+    {
+      "query": "Recommend rock music",
+      "event": "message",
+      "response": "Here are recommendations matching your request:\n1. A Song Request — Richard Cheese (I'd Like A Virgin)\n2. Sultan’s Request — Flying Lotus (Until The Quiet Comes)\n3. Radio #2 — The Ataris (So Long, Astoria)\n4. Brighter — Against The Current (In Our Bones)\n5. Doomed User — Deftones (Gore, Doomed User)\nYou can say 'add all', 'add the first two', or 'add them except the one by [artist]'.",
+      "backend_response_ms": 11166.567709005903,
+      "recommendations": {
+        "batch_id": "5f777f6f-bc5c-4dae-b667-75f8c08065aa",
+        "tracks": [
+          {
+            "track_id": "ecaea2e3-df2d-41e6-800d-7151f5652dfc",
+            "track_name": "A Song Request",
+            "artist_name": "Richard Cheese",
+            "album_name": "I'd Like A Virgin",
+            "release_date": "2004-01-01",
+            "tag_list": [
+              "lounge rock",
+              "Dance",
+              "richard cheese",
+              "Rock",
+              "00s",
+              "Jazz",
+              "comedy",
+              "cheese",
+              "jazz",
+              "lounge",
+              "alternative"
+            ],
+            "popularity": 0.0,
+            "explanation": "matches your requested genres: rock; shares genres: alternative, rock",
+            "evidence": {
+              "requested_genres": [
+                "rock"
+              ],
+              "requested_moods": [],
+              "shared_styles": [],
+              "shared_genres": [
+                "alternative",
+                "rock"
+              ],
+              "shared_playlist_artist": false,
+              "ranking": {
+                "liked_artist_match": false,
+                "feedback_path": "r1_pool_rocchio",
+                "scores": {
+                  "rank_prior": 0.9,
+                  "base": 0.9,
+                  "feedback_delta": 0.0,
+                  "final": 0.9
+                }
+              }
+            },
+            "scores": {
+              "rank_prior": 0.9,
+              "base": 0.9,
+              "feedback_delta": 0.0,
+              "final": 0.9
+            }
+          },
+          {
+            "track_id": "e0957a07-6333-47f4-933e-8092fc9a6db9",
+            "track_name": "Sultan’s Request",
+            "artist_name": "Flying Lotus",
+            "album_name": "Until The Quiet Comes",
+            "release_date": "2012-10-01",
+            "tag_list": [
+              "experimental",
+              "bass",
+              "Dance",
+              "warp",
+              "american",
+              "1 minute songs",
+              "instrumental",
+              "10s",
+              "Rock",
+              "instrumental hip-hop",
+              "los angeles",
+              "dat bass",
+              "indie",
+              "2012",
+              "trip-hop",
+              "electronic",
+              "hip hop",
+              "hip-hop",
+              "glitch-hop",
+              "idm"
+            ],
+            "popularity": 0.0,
+            "explanation": "matches your requested genres: rock; shares genres: electronic, hip hop, rock",
+            "evidence": {
+              "requested_genres": [
+                "rock"
+              ],
+              "requested_moods": [],
+              "shared_styles": [],
+              "shared_genres": [
+                "electronic",
+                "hip hop",
+                "rock"
+              ],
+              "shared_playlist_artist": false,
+              "ranking": {
+                "liked_artist_match": false,
+                "feedback_path": "r1_pool_rocchio",
+                "scores": {
+                  "rank_prior": 0.85,
+                  "base": 0.85,
+                  "feedback_delta": 0.0,
+                  "final": 0.85
+                }
+              }
+            },
+            "scores": {
+              "rank_prior": 0.85,
+              "base": 0.85,
+              "feedback_delta": 0.0,
+              "final": 0.85
+            }
+          },
+          {
+            "track_id": "1e6cce65-a976-49e9-aeb2-8bea1ab86f51",
+            "track_name": "Radio #2",
+            "artist_name": "The Ataris",
+            "album_name": "So Long, Astoria",
+            "release_date": "2003-03-04",
+            "tag_list": [
+              "punk",
+              "pop punk",
+              "Punk",
+              "the ataris - radio number2",
+              "alternative rock",
+              "high school",
+              "amazing",
+              "catchy",
+              "tripstak",
+              "rock",
+              "the ataris",
+              "punk rock",
+              "revolution",
+              "punk favorites",
+              "request lines",
+              "favorites",
+              "Alternative",
+              "nhl 2004",
+              "radio sucks",
+              "Rock",
+              "screamo",
+              "california",
+              "pop-punk",
+              "favorite bands",
+              "sex pistols",
+              "seen live",
+              "good song",
+              "wake up music",
+              "radio",
+              "driving tunes alternative mix",
+              "rock music",
+              "indie",
+              "alternative",
+              "radio 2",
+              "emo",
+              "pop punk favorites",
+              "pick-me-up",
+              "teen punk",
+              "reminiscent",
+              "cool"
+            ],
+            "popularity": 34.0,
+            "explanation": "matches your requested genres: rock; shares styles: alternative rock, punk rock",
+            "evidence": {
+              "requested_genres": [
+                "rock"
+              ],
+              "requested_moods": [],
+              "shared_styles": [
+                "alternative rock",
+                "punk rock"
+              ],
+              "shared_genres": [
+                "alternative",
+                "emo",
+                "punk",
+                "rock"
+              ],
+              "shared_playlist_artist": false,
+              "ranking": {
+                "liked_artist_match": false,
+                "feedback_path": "r1_pool_rocchio",
+                "scores": {
+                  "rank_prior": 0.8,
+                  "base": 0.8,
+                  "feedback_delta": 0.0,
+                  "final": 0.8
+                }
+              }
+            },
+            "scores": {
+              "rank_prior": 0.8,
+              "base": 0.8,
+              "feedback_delta": 0.0,
+              "final": 0.8
+            }
+          },
+          {
+            "track_id": "3350ba48-0ffd-4c1d-b760-c50174e0c37f",
+            "track_name": "Brighter",
+            "artist_name": "Against The Current",
+            "album_name": "In Our Bones",
+            "release_date": "2016-05-20",
+            "tag_list": [
+              "against the current",
+              "Alternative Rock",
+              "pop rock"
+            ],
+            "popularity": 36.0,
+            "explanation": "shares styles: alternative rock",
+            "evidence": {
+              "requested_genres": [],
+              "requested_moods": [],
+              "shared_styles": [
+                "alternative rock"
+              ],
+              "shared_genres": [
+                "alternative",
+                "pop"
+              ],
+              "shared_playlist_artist": false,
+              "ranking": {
+                "liked_artist_match": false,
+                "feedback_path": "r1_pool_rocchio",
+                "scores": {
+                  "rank_prior": 0.75,
+                  "base": 0.75,
+                  "feedback_delta": 0.0,
+                  "final": 0.75
+                }
+              }
+            },
+            "scores": {
+              "rank_prior": 0.75,
+              "base": 0.75,
+              "feedback_delta": 0.0,
+              "final": 0.75
+            }
+          },
+          {
+            "track_id": "0689a5f6-d2b4-43be-a502-c0de585cf724",
+            "track_name": "Doomed User",
+            "artist_name": "Deftones",
+            "album_name": "Gore, Doomed User",
+            "release_date": "2016-04-08",
+            "tag_list": [
+              "alternative metal",
+              "2016",
+              "nu metal",
+              "english lyrics",
+              "deftones",
+              "k1r7m",
+              "2010s",
+              "chino moreno",
+              "gore",
+              "progressive metal",
+              "male vocalist",
+              "alt metal",
+              "experimental rock",
+              "Rock",
+              "awesome guitar riff",
+              "alternative"
+            ],
+            "popularity": 50.0,
+            "explanation": "matches your requested genres: rock; shares styles: alternative metal, nu metal",
+            "evidence": {
+              "requested_genres": [
+                "rock"
+              ],
+              "requested_moods": [],
+              "shared_styles": [
+                "alternative metal",
+                "nu metal"
+              ],
+              "shared_genres": [
+                "alternative",
+                "rock"
+              ],
+              "shared_playlist_artist": false,
+              "ranking": {
+                "liked_artist_match": false,
+                "feedback_path": "r1_pool_rocchio",
+                "scores": {
+                  "rank_prior": 0.7,
+                  "base": 0.7,
+                  "feedback_delta": 0.0,
+                  "final": 0.7
+                }
+              }
+            },
+            "scores": {
+              "rank_prior": 0.7,
+              "base": 0.7,
+              "feedback_delta": 0.0,
+              "final": 0.7
+            }
+          }
+        ]
+      },
+      "feedback_status": {
+        "votes": {},
+        "valid_batch_ids": [
+          "ed19077c-aea5-4553-b2b2-185d38f46a7f",
+          "5f777f6f-bc5c-4dae-b667-75f8c08065aa"
+        ]
+      }
+    },
+    {
+      "query": "I liked track 2 and I didn’t like track 4",
+      "event": "message",
+      "response": "Noted: liked Sultan’s Request — Flying Lotus (Until The Quiet Comes); disliked Brighter — Against The Current (In Our Bones). I'll use this feedback in subsequent recommendations.",
+      "backend_response_ms": 514.6446249855217,
+      "recommendations": null,
+      "feedback_status": {
+        "votes": {
+          "e0957a07-6333-47f4-933e-8092fc9a6db9": 1,
+          "3350ba48-0ffd-4c1d-b760-c50174e0c37f": -1
+        },
+        "valid_batch_ids": [
+          "ed19077c-aea5-4553-b2b2-185d38f46a7f",
+          "5f777f6f-bc5c-4dae-b667-75f8c08065aa"
+        ]
+      }
+    },
+    {
+      "query": "Recommend rock music, no Metallica",
+      "event": "message",
+      "response": "Here are recommendations matching your request:\n1. Dream To Me — Flying Lotus (Until The Quiet Comes)\n2. All In — Flying Lotus (Until The Quiet Comes)\n3. The Nightcaller — Flying Lotus (Until The Quiet Comes)\n4. Only If You Wanna — Flying Lotus (Until The Quiet Comes)\n5. Tiny Tortures — Flying Lotus (Until The Quiet Comes)\nYou can say 'add all', 'add the first two', or 'add them except the one by [artist]'.",
+      "backend_response_ms": 22347.17895797803,
+      "recommendations": {
+        "batch_id": "20b0654c-c032-4657-8473-967b90f4d492",
+        "tracks": [
+          {
+            "track_id": "8f9cee21-50be-4fd8-aa10-b3d71713774f",
+            "track_name": "Dream To Me",
+            "artist_name": "Flying Lotus",
+            "album_name": "Until The Quiet Comes",
+            "release_date": "2012-10-01",
+            "tag_list": [
+              "experimental",
+              "Dance",
+              "warp",
+              "ethereal",
+              "american",
+              "ambient",
+              "1 minute songs",
+              "instrumental",
+              "chillout",
+              "10s",
+              "Rock",
+              "acid jazz",
+              "instrumental hip-hop",
+              "los angeles",
+              "played",
+              "indie",
+              "2012",
+              "trip-hop",
+              "electronic",
+              "Electronic",
+              "hip-hop"
+            ],
+            "popularity": 0.0,
+            "explanation": "matches your requested genres: rock; shares genres: electronic, hip hop, rock; has similar catalog metadata to a song you liked: Sultan’s Request — Flying Lotus",
+            "evidence": {
+              "requested_genres": [
+                "rock"
+              ],
+              "requested_moods": [],
+              "shared_styles": [],
+              "shared_genres": [
+                "electronic",
+                "hip hop",
+                "rock"
+              ],
+              "shared_playlist_artist": false,
+              "liked_track_id": "e0957a07-6333-47f4-933e-8092fc9a6db9",
+              "liked_similarity": 0.7202638983726501,
+              "feedback_delta": 0.187108128943833,
+              "ranking": {
+                "feedback_applied": true,
+                "feedback_query_used_for_retrieval": true,
+                "new_to_original_pool": true,
+                "seed_candidate": true,
+                "liked_artist_match": true,
+                "positive_style_similarity": 0.7905694150420948,
+                "negative_style_similarity": 0.07537783614444091,
+                "requested_genres": [
+                  "rock"
+                ],
+                "requested_moods": [],
+                "mood_match": [],
+                "original_cosine": 0.4908604323863983,
+                "updated_cosine": 0.6779685613302313,
+                "liked_track_id": "e0957a07-6333-47f4-933e-8092fc9a6db9",
+                "liked_similarity": 0.7202638983726501,
+                "feedback_path": "adaptive_catalog",
+                "outside_r1_pool": true,
+                "usable_feedback_ids": [
+                  "e0957a07-6333-47f4-933e-8092fc9a6db9",
+                  "3350ba48-0ffd-4c1d-b760-c50174e0c37f"
+                ],
+                "unavailable_feedback_ids": [],
+                "scores": {
+                  "rrf": 0,
+                  "fusion_prior": 0.0,
+                  "context": 0.6949557862778586,
+                  "positive_cosine": 0.7202638983726501,
+                  "negative_cosine": 0.5207246541976929,
+                  "mood_fit": 0.0,
+                  "feedback_influence": 0.8,
+                  "before_diversity": 0.5559646290222869,
+                  "final": 0.5559646290222869,
+                  "feedback_delta": 0.187108128943833
+                }
+              }
+            },
+            "scores": {
+              "rrf": 0,
+              "fusion_prior": 0.0,
+              "context": 0.6949557862778586,
+              "positive_cosine": 0.7202638983726501,
+              "negative_cosine": 0.5207246541976929,
+              "mood_fit": 0.0,
+              "feedback_influence": 0.8,
+              "before_diversity": 0.5559646290222869,
+              "final": 0.5559646290222869,
+              "feedback_delta": 0.187108128943833
+            }
+          },
+          {
+            "track_id": "b9db433d-c130-40c7-bdd0-3fba8c8e41d7",
+            "track_name": "All In",
+            "artist_name": "Flying Lotus",
+            "album_name": "Until The Quiet Comes",
+            "release_date": "2012-10-01",
+            "tag_list": [
+              "experimental",
+              "Dance",
+              "experimentel",
+              "warp",
+              "afrofuturism",
+              "ethereal",
+              "idm",
+              "american",
+              "ambient",
+              "instrumental",
+              "10s",
+              "Rock",
+              "acid jazz",
+              "1live fiehe",
+              "instrumental hip-hop",
+              "los angeles",
+              "indie",
+              "jazz",
+              "2012",
+              "trip-hop",
+              "electronic",
+              "downbeat",
+              "Electronic",
+              "summer",
+              "hip-hop",
+              "3 minute songs"
+            ],
+            "popularity": 0.0,
+            "explanation": "matches your requested genres: rock; shares genres: electronic, hip hop, rock; has similar catalog metadata to a song you liked: Sultan’s Request — Flying Lotus",
+            "evidence": {
+              "requested_genres": [
+                "rock"
+              ],
+              "requested_moods": [],
+              "shared_styles": [],
+              "shared_genres": [
+                "electronic",
+                "hip hop",
+                "rock"
+              ],
+              "shared_playlist_artist": false,
+              "liked_track_id": "e0957a07-6333-47f4-933e-8092fc9a6db9",
+              "liked_similarity": 0.7330243587493896,
+              "feedback_delta": 0.16928463487338796,
+              "ranking": {
+                "feedback_applied": true,
+                "feedback_query_used_for_retrieval": true,
+                "new_to_original_pool": true,
+                "seed_candidate": true,
+                "liked_artist_match": true,
+                "positive_style_similarity": 0.7905694150420948,
+                "negative_style_similarity": 0.07537783614444091,
+                "requested_genres": [
+                  "rock"
+                ],
+                "requested_moods": [],
+                "mood_match": [],
+                "original_cosine": 0.5278873443603516,
+                "updated_cosine": 0.6971719792337395,
+                "liked_track_id": "e0957a07-6333-47f4-933e-8092fc9a6db9",
+                "liked_similarity": 0.7330243587493896,
+                "feedback_path": "adaptive_catalog",
+                "outside_r1_pool": true,
+                "usable_feedback_ids": [
+                  "e0957a07-6333-47f4-933e-8092fc9a6db9",
+                  "3350ba48-0ffd-4c1d-b760-c50174e0c37f"
+                ],
+                "unavailable_feedback_ids": [],
+                "scores": {
+                  "rrf": 0,
+                  "fusion_prior": 0.0,
+                  "context": 0.6855260930558127,
+                  "positive_cosine": 0.7330243587493896,
+                  "negative_cosine": 0.6050442457199097,
+                  "mood_fit": 0.0,
+                  "feedback_influence": 0.8,
+                  "before_diversity": 0.5484208744446502,
+                  "final": 0.5084208744446501,
+                  "feedback_delta": 0.16928463487338796
+                }
+              }
+            },
+            "scores": {
+              "rrf": 0,
+              "fusion_prior": 0.0,
+              "context": 0.6855260930558127,
+              "positive_cosine": 0.7330243587493896,
+              "negative_cosine": 0.6050442457199097,
+              "mood_fit": 0.0,
+              "feedback_influence": 0.8,
+              "before_diversity": 0.5484208744446502,
+              "final": 0.5084208744446501,
+              "feedback_delta": 0.16928463487338796
+            }
+          },
+          {
+            "track_id": "606b727b-073d-414e-9620-8d640c42edd1",
+            "track_name": "The Nightcaller",
+            "artist_name": "Flying Lotus",
+            "album_name": "Until The Quiet Comes",
+            "release_date": "2012-10-01",
+            "tag_list": [
+              "experimental",
+              "Dance",
+              "warp",
+              "jazz influences",
+              "3 minute songs",
+              "house",
+              "tight kick sound",
+              "american",
+              "ambient",
+              "straight drum beats",
+              "instrumental",
+              "dance",
+              "chillout",
+              "danceable beats",
+              "10s",
+              "electronica roots",
+              "Rock",
+              "rhythmic clapping",
+              "light drum fills",
+              "highly synthetic sonority",
+              "smoking music",
+              "use of chordal patterning",
+              "los angeles",
+              "indie",
+              "effected synths",
+              "percussion layers",
+              "r and b influences",
+              "2012",
+              "synth riffs",
+              "synth swoops",
+              "trip-hop",
+              "emphasis on instrumental performance",
+              "light percussion fills",
+              "electronic",
+              "Electronic",
+              "vocal samples",
+              "hip-hop",
+              "idm"
+            ],
+            "popularity": 0.0,
+            "explanation": "matches your requested genres: rock; shares genres: electronic, hip hop, rock; has similar catalog metadata to a song you liked: Sultan’s Request — Flying Lotus",
+            "evidence": {
+              "requested_genres": [
+                "rock"
+              ],
+              "requested_moods": [],
+              "shared_styles": [],
+              "shared_genres": [
+                "electronic",
+                "hip hop",
+                "rock"
+              ],
+              "shared_playlist_artist": false,
+              "liked_track_id": "e0957a07-6333-47f4-933e-8092fc9a6db9",
+              "liked_similarity": 0.6999068260192871,
+              "feedback_delta": 0.17257057318377922,
+              "ranking": {
+                "feedback_applied": true,
+                "feedback_query_used_for_retrieval": true,
+                "new_to_original_pool": true,
+                "seed_candidate": true,
+                "liked_artist_match": true,
+                "positive_style_similarity": 0.816496580927726,
+                "negative_style_similarity": 0.0778498944161523,
+                "requested_genres": [
+                  "rock"
+                ],
+                "requested_moods": [],
+                "mood_match": [],
+                "original_cosine": 0.4690093994140625,
+                "updated_cosine": 0.6415799725978417,
+                "liked_track_id": "e0957a07-6333-47f4-933e-8092fc9a6db9",
+                "liked_similarity": 0.6999068260192871,
+                "feedback_path": "adaptive_catalog",
+                "outside_r1_pool": true,
+                "usable_feedback_ids": [
+                  "e0957a07-6333-47f4-933e-8092fc9a6db9",
+                  "3350ba48-0ffd-4c1d-b760-c50174e0c37f"
+                ],
+                "unavailable_feedback_ids": [],
+                "scores": {
+                  "rrf": 0,
+                  "fusion_prior": 0.0,
+                  "context": 0.6839754630362075,
+                  "positive_cosine": 0.6999068260192871,
+                  "negative_cosine": 0.565660297870636,
+                  "mood_fit": 0.0,
+                  "feedback_influence": 0.8,
+                  "before_diversity": 0.5471803704289661,
+                  "final": 0.46718037042896604,
+                  "feedback_delta": 0.17257057318377922
+                }
+              }
+            },
+            "scores": {
+              "rrf": 0,
+              "fusion_prior": 0.0,
+              "context": 0.6839754630362075,
+              "positive_cosine": 0.6999068260192871,
+              "negative_cosine": 0.565660297870636,
+              "mood_fit": 0.0,
+              "feedback_influence": 0.8,
+              "before_diversity": 0.5471803704289661,
+              "final": 0.46718037042896604,
+              "feedback_delta": 0.17257057318377922
+            }
+          },
+          {
+            "track_id": "a6a19596-aae9-4fd4-a6aa-90b69330128e",
+            "track_name": "Only If You Wanna",
+            "artist_name": "Flying Lotus",
+            "album_name": "Until The Quiet Comes",
+            "release_date": "2012-10-01",
+            "tag_list": [
+              "experimental",
+              "Dance",
+              "warp",
+              "ethereal",
+              "modern-jazz",
+              "american",
+              "ambient",
+              "1 minute songs",
+              "instrumental",
+              "10s",
+              "Rock",
+              "acid jazz",
+              "instrumental hip-hop",
+              "los angeles",
+              "indie",
+              "jazz",
+              "2012",
+              "trip-hop",
+              "electronic",
+              "Electronic",
+              "hip-hop"
+            ],
+            "popularity": 0.0,
+            "explanation": "matches your requested genres: rock; shares genres: electronic, hip hop, rock; has similar catalog metadata to a song you liked: Sultan’s Request — Flying Lotus",
+            "evidence": {
+              "requested_genres": [
+                "rock"
+              ],
+              "requested_moods": [],
+              "shared_styles": [],
+              "shared_genres": [
+                "electronic",
+                "hip hop",
+                "rock"
+              ],
+              "shared_playlist_artist": false,
+              "liked_track_id": "e0957a07-6333-47f4-933e-8092fc9a6db9",
+              "liked_similarity": 0.7098384499549866,
+              "feedback_delta": 0.1800504613908852,
+              "ranking": {
+                "feedback_applied": true,
+                "feedback_query_used_for_retrieval": true,
+                "new_to_original_pool": true,
+                "seed_candidate": true,
+                "liked_artist_match": true,
+                "positive_style_similarity": 0.7905694150420948,
+                "negative_style_similarity": 0.07537783614444091,
+                "requested_genres": [
+                  "rock"
+                ],
+                "requested_moods": [],
+                "mood_match": [],
+                "original_cosine": 0.46688830852508545,
+                "updated_cosine": 0.6469387699159707,
+                "liked_track_id": "e0957a07-6333-47f4-933e-8092fc9a6db9",
+                "liked_similarity": 0.7098384499549866,
+                "feedback_path": "adaptive_catalog",
+                "outside_r1_pool": true,
+                "usable_feedback_ids": [
+                  "e0957a07-6333-47f4-933e-8092fc9a6db9",
+                  "3350ba48-0ffd-4c1d-b760-c50174e0c37f"
+                ],
+                "unavailable_feedback_ids": [],
+                "scores": {
+                  "rrf": 0,
+                  "fusion_prior": 0.0,
+                  "context": 0.682662499656288,
+                  "positive_cosine": 0.7098384499549866,
+                  "negative_cosine": 0.5584876537322998,
+                  "mood_fit": 0.0,
+                  "feedback_influence": 0.8,
+                  "before_diversity": 0.5461299997250304,
+                  "final": 0.4261299997250304,
+                  "feedback_delta": 0.1800504613908852
+                }
+              }
+            },
+            "scores": {
+              "rrf": 0,
+              "fusion_prior": 0.0,
+              "context": 0.682662499656288,
+              "positive_cosine": 0.7098384499549866,
+              "negative_cosine": 0.5584876537322998,
+              "mood_fit": 0.0,
+              "feedback_influence": 0.8,
+              "before_diversity": 0.5461299997250304,
+              "final": 0.4261299997250304,
+              "feedback_delta": 0.1800504613908852
+            }
+          },
+          {
+            "track_id": "f754a572-9d50-4594-80d1-008c932aa35b",
+            "track_name": "Tiny Tortures",
+            "artist_name": "Flying Lotus",
+            "album_name": "Until The Quiet Comes",
+            "release_date": "2012-10-01",
+            "tag_list": [
+              "experimental",
+              "Dance",
+              "warp",
+              "ethereal",
+              "american",
+              "ambient",
+              "instrumental",
+              "10s",
+              "Rock",
+              "relevant magazine",
+              "acid jazz",
+              "instrumental hip-hop",
+              "los angeles",
+              "damn this is art",
+              "music video",
+              "played",
+              "indie",
+              "2012",
+              "trip-hop",
+              "electronic",
+              "hip-hop",
+              "3 minute songs"
+            ],
+            "popularity": 0.0,
+            "explanation": "matches your requested genres: rock; shares genres: electronic, hip hop, rock; has similar catalog metadata to a song you liked: Sultan’s Request — Flying Lotus",
+            "evidence": {
+              "requested_genres": [
+                "rock"
+              ],
+              "requested_moods": [],
+              "shared_styles": [],
+              "shared_genres": [
+                "electronic",
+                "hip hop",
+                "rock"
+              ],
+              "shared_playlist_artist": false,
+              "liked_track_id": "e0957a07-6333-47f4-933e-8092fc9a6db9",
+              "liked_similarity": 0.6768747568130493,
+              "feedback_delta": 0.17497289340863065,
+              "ranking": {
+                "feedback_applied": true,
+                "feedback_query_used_for_retrieval": true,
+                "new_to_original_pool": true,
+                "seed_candidate": true,
+                "liked_artist_match": true,
+                "positive_style_similarity": 0.7905694150420948,
+                "negative_style_similarity": 0.07537783614444091,
+                "requested_genres": [
+                  "rock"
+                ],
+                "requested_moods": [],
+                "mood_match": [],
+                "original_cosine": 0.4560748040676117,
+                "updated_cosine": 0.6310476974762423,
+                "liked_track_id": "e0957a07-6333-47f4-933e-8092fc9a6db9",
+                "liked_similarity": 0.6768747568130493,
+                "feedback_path": "adaptive_catalog",
+                "outside_r1_pool": true,
+                "usable_feedback_ids": [
+                  "e0957a07-6333-47f4-933e-8092fc9a6db9",
+                  "3350ba48-0ffd-4c1d-b760-c50174e0c37f"
+                ],
+                "unavailable_feedback_ids": [],
+                "scores": {
+                  "rrf": 0,
+                  "fusion_prior": 0.0,
+                  "context": 0.6769958898027819,
+                  "positive_cosine": 0.6768747568130493,
+                  "negative_cosine": 0.5008063912391663,
+                  "mood_fit": 0.0,
+                  "feedback_influence": 0.8,
+                  "before_diversity": 0.5415967118422256,
+                  "final": 0.38159671184222554,
+                  "feedback_delta": 0.17497289340863065
+                }
+              }
+            },
+            "scores": {
+              "rrf": 0,
+              "fusion_prior": 0.0,
+              "context": 0.6769958898027819,
+              "positive_cosine": 0.6768747568130493,
+              "negative_cosine": 0.5008063912391663,
+              "mood_fit": 0.0,
+              "feedback_influence": 0.8,
+              "before_diversity": 0.5415967118422256,
+              "final": 0.38159671184222554,
+              "feedback_delta": 0.17497289340863065
+            }
+          }
+        ]
+      },
+      "feedback_status": {
+        "votes": {
+          "e0957a07-6333-47f4-933e-8092fc9a6db9": 1,
+          "3350ba48-0ffd-4c1d-b760-c50174e0c37f": -1
+        },
+        "valid_batch_ids": [
+          "ed19077c-aea5-4553-b2b2-185d38f46a7f",
+          "5f777f6f-bc5c-4dae-b667-75f8c08065aa",
+          "20b0654c-c032-4657-8473-967b90f4d492"
+        ]
+      }
+    },
+    {
+      "query": "Please recommend more songs like track 2",
+      "event": "message",
+      "response": "Here are recommendations matching your request:\n1. All The Secrets — Flying Lotus (Until The Quiet Comes)\n2. Dream To Me — Flying Lotus (Until The Quiet Comes)\n3. Only If You Wanna — Flying Lotus (Until The Quiet Comes)\n4. Heave(n) — Flying Lotus (Until The Quiet Comes)\n5. Until The Colours Come — Flying Lotus (Until The Quiet Comes)\nYou can say 'add all', 'add the first two', or 'add them except the one by [artist]'.",
+      "backend_response_ms": 14502.05166701926,
+      "recommendations": {
+        "batch_id": "dd93f436-6d47-461c-92cb-51ae66612896",
+        "tracks": [
+          {
+            "track_id": "cca98648-db5b-4426-9574-95fd316490a6",
+            "track_name": "All The Secrets",
+            "artist_name": "Flying Lotus",
+            "album_name": "Until The Quiet Comes",
+            "release_date": "2012-10-01",
+            "tag_list": [
+              "experimental",
+              "Dance",
+              "warp",
+              "ethereal",
+              "robertitus coleccion",
+              "hann with gun",
+              "american",
+              "ambient",
+              "1 minute songs",
+              "downtempo",
+              "instrumental",
+              "10s",
+              "robertitus global",
+              "Rock",
+              "acid jazz",
+              "instrumental hip-hop",
+              "los angeles",
+              "indie",
+              "jazz",
+              "2012",
+              "trip-hop",
+              "electronic",
+              "Electronic",
+              "hip-hop",
+              "piano beat",
+              "ambient ram",
+              "idm"
+            ],
+            "popularity": 0.0,
+            "explanation": "matches your requested genres: rock; shares genres: electronic, hip hop, rock; has similar catalog metadata to a song you liked: All In — Flying Lotus",
+            "evidence": {
+              "requested_genres": [
+                "rock"
+              ],
+              "requested_moods": [],
+              "shared_styles": [],
+              "shared_genres": [
+                "electronic",
+                "hip hop",
+                "rock"
+              ],
+              "shared_playlist_artist": false,
+              "liked_track_id": "b9db433d-c130-40c7-bdd0-3fba8c8e41d7",
+              "liked_similarity": 0.9081997275352478,
+              "feedback_delta": 0.2371878652777255,
+              "ranking": {
+                "feedback_applied": true,
+                "feedback_query_used_for_retrieval": true,
+                "new_to_original_pool": true,
+                "seed_candidate": true,
+                "liked_artist_match": true,
+                "positive_style_similarity": 0.8944271909999159,
+                "negative_style_similarity": 0.06741998624632421,
+                "requested_genres": [
+                  "rock"
+                ],
+                "requested_moods": [],
+                "mood_match": [],
+                "original_cosine": 0.5065033435821533,
+                "updated_cosine": 0.7436912088598788,
+                "liked_track_id": "b9db433d-c130-40c7-bdd0-3fba8c8e41d7",
+                "liked_similarity": 0.9081997275352478,
+                "feedback_path": "adaptive_catalog",
+                "outside_r1_pool": true,
+                "usable_feedback_ids": [
+                  "e0957a07-6333-47f4-933e-8092fc9a6db9",
+                  "3350ba48-0ffd-4c1d-b760-c50174e0c37f",
+                  "b9db433d-c130-40c7-bdd0-3fba8c8e41d7"
+                ],
+                "unavailable_feedback_ids": [],
+                "scores": {
+                  "rrf": 0.0036231884057971015,
+                  "fusion_prior": 0.17681159420289858,
+                  "context": 0.7733270480874435,
+                  "positive_cosine": 0.82137131690979,
+                  "negative_cosine": 0.541189432144165,
+                  "mood_fit": 0.0,
+                  "feedback_influence": 0.8,
+                  "before_diversity": 0.6540239573105345,
+                  "final": 0.6540239573105345,
+                  "feedback_delta": 0.2371878652777255
+                }
+              }
+            },
+            "scores": {
+              "rrf": 0.0036231884057971015,
+              "fusion_prior": 0.17681159420289858,
+              "context": 0.7733270480874435,
+              "positive_cosine": 0.82137131690979,
+              "negative_cosine": 0.541189432144165,
+              "mood_fit": 0.0,
+              "feedback_influence": 0.8,
+              "before_diversity": 0.6540239573105345,
+              "final": 0.6540239573105345,
+              "feedback_delta": 0.2371878652777255
+            }
+          },
+          {
+            "track_id": "8f9cee21-50be-4fd8-aa10-b3d71713774f",
+            "track_name": "Dream To Me",
+            "artist_name": "Flying Lotus",
+            "album_name": "Until The Quiet Comes",
+            "release_date": "2012-10-01",
+            "tag_list": [
+              "experimental",
+              "Dance",
+              "warp",
+              "ethereal",
+              "american",
+              "ambient",
+              "1 minute songs",
+              "instrumental",
+              "chillout",
+              "10s",
+              "Rock",
+              "acid jazz",
+              "instrumental hip-hop",
+              "los angeles",
+              "played",
+              "indie",
+              "2012",
+              "trip-hop",
+              "electronic",
+              "Electronic",
+              "hip-hop"
+            ],
+            "popularity": 0.0,
+            "explanation": "matches your requested genres: rock; shares genres: electronic, hip hop, rock; has similar catalog metadata to a song you liked: All In — Flying Lotus",
+            "evidence": {
+              "requested_genres": [
+                "rock"
+              ],
+              "requested_moods": [],
+              "shared_styles": [],
+              "shared_genres": [
+                "electronic",
+                "hip hop",
+                "rock"
+              ],
+              "shared_playlist_artist": false,
+              "liked_track_id": "b9db433d-c130-40c7-bdd0-3fba8c8e41d7",
+              "liked_similarity": 0.8239105939865112,
+              "feedback_delta": 0.21705636634373215,
+              "ranking": {
+                "feedback_applied": true,
+                "feedback_query_used_for_retrieval": true,
+                "new_to_original_pool": true,
+                "seed_candidate": true,
+                "liked_artist_match": true,
+                "positive_style_similarity": 1.0,
+                "negative_style_similarity": 0.07537783614444091,
+                "requested_genres": [
+                  "rock"
+                ],
+                "requested_moods": [],
+                "mood_match": [],
+                "original_cosine": 0.4908604323863983,
+                "updated_cosine": 0.7079167987301305,
+                "liked_track_id": "b9db433d-c130-40c7-bdd0-3fba8c8e41d7",
+                "liked_similarity": 0.8239105939865112,
+                "feedback_path": "adaptive_catalog",
+                "outside_r1_pool": true,
+                "usable_feedback_ids": [
+                  "e0957a07-6333-47f4-933e-8092fc9a6db9",
+                  "3350ba48-0ffd-4c1d-b760-c50174e0c37f",
+                  "b9db433d-c130-40c7-bdd0-3fba8c8e41d7"
+                ],
+                "unavailable_feedback_ids": [],
+                "scores": {
+                  "rrf": 0,
+                  "fusion_prior": 0.0,
+                  "context": 0.7836966207675342,
+                  "positive_cosine": 0.7720872163772583,
+                  "negative_cosine": 0.5207246541976929,
+                  "mood_fit": 0.0,
+                  "feedback_influence": 0.8,
+                  "before_diversity": 0.6269572966140274,
+                  "final": 0.5869572966140274,
+                  "feedback_delta": 0.21705636634373215
+                }
+              }
+            },
+            "scores": {
+              "rrf": 0,
+              "fusion_prior": 0.0,
+              "context": 0.7836966207675342,
+              "positive_cosine": 0.7720872163772583,
+              "negative_cosine": 0.5207246541976929,
+              "mood_fit": 0.0,
+              "feedback_influence": 0.8,
+              "before_diversity": 0.6269572966140274,
+              "final": 0.5869572966140274,
+              "feedback_delta": 0.21705636634373215
+            }
+          },
+          {
+            "track_id": "a6a19596-aae9-4fd4-a6aa-90b69330128e",
+            "track_name": "Only If You Wanna",
+            "artist_name": "Flying Lotus",
+            "album_name": "Until The Quiet Comes",
+            "release_date": "2012-10-01",
+            "tag_list": [
+              "experimental",
+              "Dance",
+              "warp",
+              "ethereal",
+              "modern-jazz",
+              "american",
+              "ambient",
+              "1 minute songs",
+              "instrumental",
+              "10s",
+              "Rock",
+              "acid jazz",
+              "instrumental hip-hop",
+              "los angeles",
+              "indie",
+              "jazz",
+              "2012",
+              "trip-hop",
+              "electronic",
+              "Electronic",
+              "hip-hop"
+            ],
+            "popularity": 0.0,
+            "explanation": "matches your requested genres: rock; shares genres: electronic, hip hop, rock; has similar catalog metadata to a song you liked: All In — Flying Lotus",
+            "evidence": {
+              "requested_genres": [
+                "rock"
+              ],
+              "requested_moods": [],
+              "shared_styles": [],
+              "shared_genres": [
+                "electronic",
+                "hip hop",
+                "rock"
+              ],
+              "shared_playlist_artist": false,
+              "liked_track_id": "b9db433d-c130-40c7-bdd0-3fba8c8e41d7",
+              "liked_similarity": 0.8352389335632324,
+              "feedback_delta": 0.21611334560405093,
+              "ranking": {
+                "feedback_applied": true,
+                "feedback_query_used_for_retrieval": true,
+                "new_to_original_pool": true,
+                "seed_candidate": true,
+                "liked_artist_match": true,
+                "positive_style_similarity": 1.0,
+                "negative_style_similarity": 0.07537783614444091,
+                "requested_genres": [
+                  "rock"
+                ],
+                "requested_moods": [],
+                "mood_match": [],
+                "original_cosine": 0.46688830852508545,
+                "updated_cosine": 0.6830016541291364,
+                "liked_track_id": "b9db433d-c130-40c7-bdd0-3fba8c8e41d7",
+                "liked_similarity": 0.8352389335632324,
+                "feedback_path": "adaptive_catalog",
+                "outside_r1_pool": true,
+                "usable_feedback_ids": [
+                  "e0957a07-6333-47f4-933e-8092fc9a6db9",
+                  "3350ba48-0ffd-4c1d-b760-c50174e0c37f",
+                  "b9db433d-c130-40c7-bdd0-3fba8c8e41d7"
+                ],
+                "unavailable_feedback_ids": [],
+                "scores": {
+                  "rrf": 0,
+                  "fusion_prior": 0.0,
+                  "context": 0.7768417811445598,
+                  "positive_cosine": 0.7725386619567871,
+                  "negative_cosine": 0.5584876537322998,
+                  "mood_fit": 0.0,
+                  "feedback_influence": 0.8,
+                  "before_diversity": 0.6214734249156479,
+                  "final": 0.541473424915648,
+                  "feedback_delta": 0.21611334560405093
+                }
+              }
+            },
+            "scores": {
+              "rrf": 0,
+              "fusion_prior": 0.0,
+              "context": 0.7768417811445598,
+              "positive_cosine": 0.7725386619567871,
+              "negative_cosine": 0.5584876537322998,
+              "mood_fit": 0.0,
+              "feedback_influence": 0.8,
+              "before_diversity": 0.6214734249156479,
+              "final": 0.541473424915648,
+              "feedback_delta": 0.21611334560405093
+            }
+          },
+          {
+            "track_id": "390802ac-8a69-48bb-b978-e674f003f3d5",
+            "track_name": "Heave(n)",
+            "artist_name": "Flying Lotus",
+            "album_name": "Until The Quiet Comes",
+            "release_date": "2012-10-01",
+            "tag_list": [
+              "experimental",
+              "Dance",
+              "warp",
+              "ethereal",
+              "american",
+              "ambient",
+              "instrumental",
+              "10s",
+              "2 minute songs",
+              "Rock",
+              "acid jazz",
+              "1live fiehe",
+              "instrumental hip-hop",
+              "los angeles",
+              "indie",
+              "2012",
+              "trip-hop",
+              "electronic",
+              "luvedtrax",
+              "vocal samples",
+              "hip-hop"
+            ],
+            "popularity": 0.0,
+            "explanation": "matches your requested genres: rock; shares genres: electronic, hip hop, rock; has similar catalog metadata to a song you liked: All In — Flying Lotus",
+            "evidence": {
+              "requested_genres": [
+                "rock"
+              ],
+              "requested_moods": [],
+              "shared_styles": [],
+              "shared_genres": [
+                "electronic",
+                "hip hop",
+                "rock"
+              ],
+              "shared_playlist_artist": false,
+              "liked_track_id": "b9db433d-c130-40c7-bdd0-3fba8c8e41d7",
+              "liked_similarity": 0.8151997923851013,
+              "feedback_delta": 0.1515018160969398,
+              "ranking": {
+                "feedback_applied": true,
+                "feedback_query_used_for_retrieval": true,
+                "new_to_original_pool": true,
+                "seed_candidate": true,
+                "liked_artist_match": true,
+                "positive_style_similarity": 1.0,
+                "negative_style_similarity": 0.07537783614444091,
+                "requested_genres": [
+                  "rock"
+                ],
+                "requested_moods": [],
+                "mood_match": [],
+                "original_cosine": 0.5834952592849731,
+                "updated_cosine": 0.734997075381913,
+                "liked_track_id": "b9db433d-c130-40c7-bdd0-3fba8c8e41d7",
+                "liked_similarity": 0.8151997923851013,
+                "feedback_path": "adaptive_catalog",
+                "outside_r1_pool": true,
+                "usable_feedback_ids": [
+                  "e0957a07-6333-47f4-933e-8092fc9a6db9",
+                  "3350ba48-0ffd-4c1d-b760-c50174e0c37f",
+                  "b9db433d-c130-40c7-bdd0-3fba8c8e41d7"
+                ],
+                "unavailable_feedback_ids": [],
+                "scores": {
+                  "rrf": 0.002551020408163265,
+                  "fusion_prior": 0.12448979591836734,
+                  "context": 0.7432325100950603,
+                  "positive_cosine": 0.7392772436141968,
+                  "negative_cosine": 0.6490399837493896,
+                  "mood_fit": 0.0,
+                  "feedback_influence": 0.8,
+                  "before_diversity": 0.6194839672597217,
+                  "final": 0.49948396725972166,
+                  "feedback_delta": 0.1515018160969398
+                }
+              }
+            },
+            "scores": {
+              "rrf": 0.002551020408163265,
+              "fusion_prior": 0.12448979591836734,
+              "context": 0.7432325100950603,
+              "positive_cosine": 0.7392772436141968,
+              "negative_cosine": 0.6490399837493896,
+              "mood_fit": 0.0,
+              "feedback_influence": 0.8,
+              "before_diversity": 0.6194839672597217,
+              "final": 0.49948396725972166,
+              "feedback_delta": 0.1515018160969398
+            }
+          },
+          {
+            "track_id": "63f2f2ad-88be-491f-a10d-631fbc724b3f",
+            "track_name": "Until The Colours Come",
+            "artist_name": "Flying Lotus",
+            "album_name": "Until The Quiet Comes",
+            "release_date": "2012-10-01",
+            "tag_list": [
+              "experimental",
+              "bass",
+              "Dance",
+              "warp",
+              "title tracks",
+              "robertitus coleccion",
+              "american",
+              "nu jazz",
+              "ambient",
+              "instrumental",
+              "title track",
+              "10s",
+              "2 minute songs",
+              "Rock",
+              "acid jazz",
+              "instrumental hip-hop",
+              "los angeles",
+              "indie",
+              "2012",
+              "trip-hop",
+              "electronic",
+              "Electronic",
+              "hip-hop"
+            ],
+            "popularity": 0.0,
+            "explanation": "matches your requested genres: rock; shares genres: electronic, hip hop, rock; has similar catalog metadata to a song you liked: All In — Flying Lotus",
+            "evidence": {
+              "requested_genres": [
+                "rock"
+              ],
+              "requested_moods": [],
+              "shared_styles": [],
+              "shared_genres": [
+                "electronic",
+                "hip hop",
+                "rock"
+              ],
+              "shared_playlist_artist": false,
+              "liked_track_id": "b9db433d-c130-40c7-bdd0-3fba8c8e41d7",
+              "liked_similarity": 0.8642005920410156,
+              "feedback_delta": 0.20396997228550862,
+              "ranking": {
+                "feedback_applied": true,
+                "feedback_query_used_for_retrieval": true,
+                "new_to_original_pool": true,
+                "seed_candidate": true,
+                "liked_artist_match": true,
+                "positive_style_similarity": 1.0,
+                "negative_style_similarity": 0.07537783614444091,
+                "requested_genres": [
+                  "rock"
+                ],
+                "requested_moods": [],
+                "mood_match": [],
+                "original_cosine": 0.5048573613166809,
+                "updated_cosine": 0.7088273336021895,
+                "liked_track_id": "b9db433d-c130-40c7-bdd0-3fba8c8e41d7",
+                "liked_similarity": 0.8642005920410156,
+                "feedback_path": "adaptive_catalog",
+                "outside_r1_pool": true,
+                "usable_feedback_ids": [
+                  "e0957a07-6333-47f4-933e-8092fc9a6db9",
+                  "3350ba48-0ffd-4c1d-b760-c50174e0c37f",
+                  "b9db433d-c130-40c7-bdd0-3fba8c8e41d7"
+                ],
+                "unavailable_feedback_ids": [],
+                "scores": {
+                  "rrf": 0,
+                  "fusion_prior": 0.0,
+                  "context": 0.7735469406895046,
+                  "positive_cosine": 0.7810236215591431,
+                  "negative_cosine": 0.598686695098877,
+                  "mood_fit": 0.0,
+                  "feedback_influence": 0.8,
+                  "before_diversity": 0.6188375525516037,
+                  "final": 0.45883755255160363,
+                  "feedback_delta": 0.20396997228550862
+                }
+              }
+            },
+            "scores": {
+              "rrf": 0,
+              "fusion_prior": 0.0,
+              "context": 0.7735469406895046,
+              "positive_cosine": 0.7810236215591431,
+              "negative_cosine": 0.598686695098877,
+              "mood_fit": 0.0,
+              "feedback_influence": 0.8,
+              "before_diversity": 0.6188375525516037,
+              "final": 0.45883755255160363,
+              "feedback_delta": 0.20396997228550862
+            }
+          }
+        ]
+      },
+      "feedback_status": {
+        "votes": {
+          "e0957a07-6333-47f4-933e-8092fc9a6db9": 1,
+          "3350ba48-0ffd-4c1d-b760-c50174e0c37f": -1,
+          "b9db433d-c130-40c7-bdd0-3fba8c8e41d7": 1
+        },
+        "valid_batch_ids": [
+          "ed19077c-aea5-4553-b2b2-185d38f46a7f",
+          "5f777f6f-bc5c-4dae-b667-75f8c08065aa",
+          "20b0654c-c032-4657-8473-967b90f4d492",
+          "dd93f436-6d47-461c-92cb-51ae66612896"
+        ]
+      }
+    },
+    {
+      "query": "Recommend rock music",
+      "event": "message",
+      "response": "Here are recommendations matching your request:\n1. All The Secrets — Flying Lotus (Until The Quiet Comes)\n2. Dream To Me — Flying Lotus (Until The Quiet Comes)\n3. Only If You Wanna — Flying Lotus (Until The Quiet Comes)\n4. Heave(n) — Flying Lotus (Until The Quiet Comes)\n5. Until The Colours Come — Flying Lotus (Until The Quiet Comes)\nYou can say 'add all', 'add the first two', or 'add them except the one by [artist]'.",
+      "backend_response_ms": 12699.505124997813,
+      "recommendations": {
+        "batch_id": "6b758cb6-5643-438e-b2de-57d00ef48985",
+        "tracks": [
+          {
+            "track_id": "cca98648-db5b-4426-9574-95fd316490a6",
+            "track_name": "All The Secrets",
+            "artist_name": "Flying Lotus",
+            "album_name": "Until The Quiet Comes",
+            "release_date": "2012-10-01",
+            "tag_list": [
+              "experimental",
+              "Dance",
+              "warp",
+              "ethereal",
+              "robertitus coleccion",
+              "hann with gun",
+              "american",
+              "ambient",
+              "1 minute songs",
+              "downtempo",
+              "instrumental",
+              "10s",
+              "robertitus global",
+              "Rock",
+              "acid jazz",
+              "instrumental hip-hop",
+              "los angeles",
+              "indie",
+              "jazz",
+              "2012",
+              "trip-hop",
+              "electronic",
+              "Electronic",
+              "hip-hop",
+              "piano beat",
+              "ambient ram",
+              "idm"
+            ],
+            "popularity": 0.0,
+            "explanation": "matches your requested genres: rock; shares genres: electronic, hip hop, rock; has similar catalog metadata to a song you liked: All In — Flying Lotus",
+            "evidence": {
+              "requested_genres": [
+                "rock"
+              ],
+              "requested_moods": [],
+              "shared_styles": [],
+              "shared_genres": [
+                "electronic",
+                "hip hop",
+                "rock"
+              ],
+              "shared_playlist_artist": false,
+              "liked_track_id": "b9db433d-c130-40c7-bdd0-3fba8c8e41d7",
+              "liked_similarity": 0.9081997275352478,
+              "feedback_delta": 0.2371878652777255,
+              "ranking": {
+                "feedback_applied": true,
+                "feedback_query_used_for_retrieval": true,
+                "new_to_original_pool": true,
+                "seed_candidate": true,
+                "liked_artist_match": true,
+                "positive_style_similarity": 0.8944271909999159,
+                "negative_style_similarity": 0.06741998624632421,
+                "requested_genres": [
+                  "rock"
+                ],
+                "requested_moods": [],
+                "mood_match": [],
+                "original_cosine": 0.5065033435821533,
+                "updated_cosine": 0.7436912088598788,
+                "liked_track_id": "b9db433d-c130-40c7-bdd0-3fba8c8e41d7",
+                "liked_similarity": 0.9081997275352478,
+                "feedback_path": "adaptive_catalog",
+                "outside_r1_pool": true,
+                "usable_feedback_ids": [
+                  "e0957a07-6333-47f4-933e-8092fc9a6db9",
+                  "3350ba48-0ffd-4c1d-b760-c50174e0c37f",
+                  "b9db433d-c130-40c7-bdd0-3fba8c8e41d7"
+                ],
+                "unavailable_feedback_ids": [],
+                "scores": {
+                  "rrf": 0.0036231884057971015,
+                  "fusion_prior": 0.17681159420289858,
+                  "context": 0.7733270480874435,
+                  "positive_cosine": 0.82137131690979,
+                  "negative_cosine": 0.541189432144165,
+                  "mood_fit": 0.0,
+                  "feedback_influence": 0.8,
+                  "before_diversity": 0.6540239573105345,
+                  "final": 0.6540239573105345,
+                  "feedback_delta": 0.2371878652777255
+                }
+              }
+            },
+            "scores": {
+              "rrf": 0.0036231884057971015,
+              "fusion_prior": 0.17681159420289858,
+              "context": 0.7733270480874435,
+              "positive_cosine": 0.82137131690979,
+              "negative_cosine": 0.541189432144165,
+              "mood_fit": 0.0,
+              "feedback_influence": 0.8,
+              "before_diversity": 0.6540239573105345,
+              "final": 0.6540239573105345,
+              "feedback_delta": 0.2371878652777255
+            }
+          },
+          {
+            "track_id": "8f9cee21-50be-4fd8-aa10-b3d71713774f",
+            "track_name": "Dream To Me",
+            "artist_name": "Flying Lotus",
+            "album_name": "Until The Quiet Comes",
+            "release_date": "2012-10-01",
+            "tag_list": [
+              "experimental",
+              "Dance",
+              "warp",
+              "ethereal",
+              "american",
+              "ambient",
+              "1 minute songs",
+              "instrumental",
+              "chillout",
+              "10s",
+              "Rock",
+              "acid jazz",
+              "instrumental hip-hop",
+              "los angeles",
+              "played",
+              "indie",
+              "2012",
+              "trip-hop",
+              "electronic",
+              "Electronic",
+              "hip-hop"
+            ],
+            "popularity": 0.0,
+            "explanation": "matches your requested genres: rock; shares genres: electronic, hip hop, rock; has similar catalog metadata to a song you liked: All In — Flying Lotus",
+            "evidence": {
+              "requested_genres": [
+                "rock"
+              ],
+              "requested_moods": [],
+              "shared_styles": [],
+              "shared_genres": [
+                "electronic",
+                "hip hop",
+                "rock"
+              ],
+              "shared_playlist_artist": false,
+              "liked_track_id": "b9db433d-c130-40c7-bdd0-3fba8c8e41d7",
+              "liked_similarity": 0.8239105939865112,
+              "feedback_delta": 0.21705636634373215,
+              "ranking": {
+                "feedback_applied": true,
+                "feedback_query_used_for_retrieval": true,
+                "new_to_original_pool": true,
+                "seed_candidate": true,
+                "liked_artist_match": true,
+                "positive_style_similarity": 1.0,
+                "negative_style_similarity": 0.07537783614444091,
+                "requested_genres": [
+                  "rock"
+                ],
+                "requested_moods": [],
+                "mood_match": [],
+                "original_cosine": 0.4908604323863983,
+                "updated_cosine": 0.7079167987301305,
+                "liked_track_id": "b9db433d-c130-40c7-bdd0-3fba8c8e41d7",
+                "liked_similarity": 0.8239105939865112,
+                "feedback_path": "adaptive_catalog",
+                "outside_r1_pool": true,
+                "usable_feedback_ids": [
+                  "e0957a07-6333-47f4-933e-8092fc9a6db9",
+                  "3350ba48-0ffd-4c1d-b760-c50174e0c37f",
+                  "b9db433d-c130-40c7-bdd0-3fba8c8e41d7"
+                ],
+                "unavailable_feedback_ids": [],
+                "scores": {
+                  "rrf": 0,
+                  "fusion_prior": 0.0,
+                  "context": 0.7836966207675342,
+                  "positive_cosine": 0.7720872163772583,
+                  "negative_cosine": 0.5207246541976929,
+                  "mood_fit": 0.0,
+                  "feedback_influence": 0.8,
+                  "before_diversity": 0.6269572966140274,
+                  "final": 0.5869572966140274,
+                  "feedback_delta": 0.21705636634373215
+                }
+              }
+            },
+            "scores": {
+              "rrf": 0,
+              "fusion_prior": 0.0,
+              "context": 0.7836966207675342,
+              "positive_cosine": 0.7720872163772583,
+              "negative_cosine": 0.5207246541976929,
+              "mood_fit": 0.0,
+              "feedback_influence": 0.8,
+              "before_diversity": 0.6269572966140274,
+              "final": 0.5869572966140274,
+              "feedback_delta": 0.21705636634373215
+            }
+          },
+          {
+            "track_id": "a6a19596-aae9-4fd4-a6aa-90b69330128e",
+            "track_name": "Only If You Wanna",
+            "artist_name": "Flying Lotus",
+            "album_name": "Until The Quiet Comes",
+            "release_date": "2012-10-01",
+            "tag_list": [
+              "experimental",
+              "Dance",
+              "warp",
+              "ethereal",
+              "modern-jazz",
+              "american",
+              "ambient",
+              "1 minute songs",
+              "instrumental",
+              "10s",
+              "Rock",
+              "acid jazz",
+              "instrumental hip-hop",
+              "los angeles",
+              "indie",
+              "jazz",
+              "2012",
+              "trip-hop",
+              "electronic",
+              "Electronic",
+              "hip-hop"
+            ],
+            "popularity": 0.0,
+            "explanation": "matches your requested genres: rock; shares genres: electronic, hip hop, rock; has similar catalog metadata to a song you liked: All In — Flying Lotus",
+            "evidence": {
+              "requested_genres": [
+                "rock"
+              ],
+              "requested_moods": [],
+              "shared_styles": [],
+              "shared_genres": [
+                "electronic",
+                "hip hop",
+                "rock"
+              ],
+              "shared_playlist_artist": false,
+              "liked_track_id": "b9db433d-c130-40c7-bdd0-3fba8c8e41d7",
+              "liked_similarity": 0.8352389335632324,
+              "feedback_delta": 0.21611334560405093,
+              "ranking": {
+                "feedback_applied": true,
+                "feedback_query_used_for_retrieval": true,
+                "new_to_original_pool": true,
+                "seed_candidate": true,
+                "liked_artist_match": true,
+                "positive_style_similarity": 1.0,
+                "negative_style_similarity": 0.07537783614444091,
+                "requested_genres": [
+                  "rock"
+                ],
+                "requested_moods": [],
+                "mood_match": [],
+                "original_cosine": 0.46688830852508545,
+                "updated_cosine": 0.6830016541291364,
+                "liked_track_id": "b9db433d-c130-40c7-bdd0-3fba8c8e41d7",
+                "liked_similarity": 0.8352389335632324,
+                "feedback_path": "adaptive_catalog",
+                "outside_r1_pool": true,
+                "usable_feedback_ids": [
+                  "e0957a07-6333-47f4-933e-8092fc9a6db9",
+                  "3350ba48-0ffd-4c1d-b760-c50174e0c37f",
+                  "b9db433d-c130-40c7-bdd0-3fba8c8e41d7"
+                ],
+                "unavailable_feedback_ids": [],
+                "scores": {
+                  "rrf": 0,
+                  "fusion_prior": 0.0,
+                  "context": 0.7768417811445598,
+                  "positive_cosine": 0.7725386619567871,
+                  "negative_cosine": 0.5584876537322998,
+                  "mood_fit": 0.0,
+                  "feedback_influence": 0.8,
+                  "before_diversity": 0.6214734249156479,
+                  "final": 0.541473424915648,
+                  "feedback_delta": 0.21611334560405093
+                }
+              }
+            },
+            "scores": {
+              "rrf": 0,
+              "fusion_prior": 0.0,
+              "context": 0.7768417811445598,
+              "positive_cosine": 0.7725386619567871,
+              "negative_cosine": 0.5584876537322998,
+              "mood_fit": 0.0,
+              "feedback_influence": 0.8,
+              "before_diversity": 0.6214734249156479,
+              "final": 0.541473424915648,
+              "feedback_delta": 0.21611334560405093
+            }
+          },
+          {
+            "track_id": "390802ac-8a69-48bb-b978-e674f003f3d5",
+            "track_name": "Heave(n)",
+            "artist_name": "Flying Lotus",
+            "album_name": "Until The Quiet Comes",
+            "release_date": "2012-10-01",
+            "tag_list": [
+              "experimental",
+              "Dance",
+              "warp",
+              "ethereal",
+              "american",
+              "ambient",
+              "instrumental",
+              "10s",
+              "2 minute songs",
+              "Rock",
+              "acid jazz",
+              "1live fiehe",
+              "instrumental hip-hop",
+              "los angeles",
+              "indie",
+              "2012",
+              "trip-hop",
+              "electronic",
+              "luvedtrax",
+              "vocal samples",
+              "hip-hop"
+            ],
+            "popularity": 0.0,
+            "explanation": "matches your requested genres: rock; shares genres: electronic, hip hop, rock; has similar catalog metadata to a song you liked: All In — Flying Lotus",
+            "evidence": {
+              "requested_genres": [
+                "rock"
+              ],
+              "requested_moods": [],
+              "shared_styles": [],
+              "shared_genres": [
+                "electronic",
+                "hip hop",
+                "rock"
+              ],
+              "shared_playlist_artist": false,
+              "liked_track_id": "b9db433d-c130-40c7-bdd0-3fba8c8e41d7",
+              "liked_similarity": 0.8151997923851013,
+              "feedback_delta": 0.1515018160969398,
+              "ranking": {
+                "feedback_applied": true,
+                "feedback_query_used_for_retrieval": true,
+                "new_to_original_pool": true,
+                "seed_candidate": true,
+                "liked_artist_match": true,
+                "positive_style_similarity": 1.0,
+                "negative_style_similarity": 0.07537783614444091,
+                "requested_genres": [
+                  "rock"
+                ],
+                "requested_moods": [],
+                "mood_match": [],
+                "original_cosine": 0.5834952592849731,
+                "updated_cosine": 0.734997075381913,
+                "liked_track_id": "b9db433d-c130-40c7-bdd0-3fba8c8e41d7",
+                "liked_similarity": 0.8151997923851013,
+                "feedback_path": "adaptive_catalog",
+                "outside_r1_pool": true,
+                "usable_feedback_ids": [
+                  "e0957a07-6333-47f4-933e-8092fc9a6db9",
+                  "3350ba48-0ffd-4c1d-b760-c50174e0c37f",
+                  "b9db433d-c130-40c7-bdd0-3fba8c8e41d7"
+                ],
+                "unavailable_feedback_ids": [],
+                "scores": {
+                  "rrf": 0.002551020408163265,
+                  "fusion_prior": 0.12448979591836734,
+                  "context": 0.7432325100950603,
+                  "positive_cosine": 0.7392772436141968,
+                  "negative_cosine": 0.6490399837493896,
+                  "mood_fit": 0.0,
+                  "feedback_influence": 0.8,
+                  "before_diversity": 0.6194839672597217,
+                  "final": 0.49948396725972166,
+                  "feedback_delta": 0.1515018160969398
+                }
+              }
+            },
+            "scores": {
+              "rrf": 0.002551020408163265,
+              "fusion_prior": 0.12448979591836734,
+              "context": 0.7432325100950603,
+              "positive_cosine": 0.7392772436141968,
+              "negative_cosine": 0.6490399837493896,
+              "mood_fit": 0.0,
+              "feedback_influence": 0.8,
+              "before_diversity": 0.6194839672597217,
+              "final": 0.49948396725972166,
+              "feedback_delta": 0.1515018160969398
+            }
+          },
+          {
+            "track_id": "63f2f2ad-88be-491f-a10d-631fbc724b3f",
+            "track_name": "Until The Colours Come",
+            "artist_name": "Flying Lotus",
+            "album_name": "Until The Quiet Comes",
+            "release_date": "2012-10-01",
+            "tag_list": [
+              "experimental",
+              "bass",
+              "Dance",
+              "warp",
+              "title tracks",
+              "robertitus coleccion",
+              "american",
+              "nu jazz",
+              "ambient",
+              "instrumental",
+              "title track",
+              "10s",
+              "2 minute songs",
+              "Rock",
+              "acid jazz",
+              "instrumental hip-hop",
+              "los angeles",
+              "indie",
+              "2012",
+              "trip-hop",
+              "electronic",
+              "Electronic",
+              "hip-hop"
+            ],
+            "popularity": 0.0,
+            "explanation": "matches your requested genres: rock; shares genres: electronic, hip hop, rock; has similar catalog metadata to a song you liked: All In — Flying Lotus",
+            "evidence": {
+              "requested_genres": [
+                "rock"
+              ],
+              "requested_moods": [],
+              "shared_styles": [],
+              "shared_genres": [
+                "electronic",
+                "hip hop",
+                "rock"
+              ],
+              "shared_playlist_artist": false,
+              "liked_track_id": "b9db433d-c130-40c7-bdd0-3fba8c8e41d7",
+              "liked_similarity": 0.8642005920410156,
+              "feedback_delta": 0.20396997228550862,
+              "ranking": {
+                "feedback_applied": true,
+                "feedback_query_used_for_retrieval": true,
+                "new_to_original_pool": true,
+                "seed_candidate": true,
+                "liked_artist_match": true,
+                "positive_style_similarity": 1.0,
+                "negative_style_similarity": 0.07537783614444091,
+                "requested_genres": [
+                  "rock"
+                ],
+                "requested_moods": [],
+                "mood_match": [],
+                "original_cosine": 0.5048573613166809,
+                "updated_cosine": 0.7088273336021895,
+                "liked_track_id": "b9db433d-c130-40c7-bdd0-3fba8c8e41d7",
+                "liked_similarity": 0.8642005920410156,
+                "feedback_path": "adaptive_catalog",
+                "outside_r1_pool": true,
+                "usable_feedback_ids": [
+                  "e0957a07-6333-47f4-933e-8092fc9a6db9",
+                  "3350ba48-0ffd-4c1d-b760-c50174e0c37f",
+                  "b9db433d-c130-40c7-bdd0-3fba8c8e41d7"
+                ],
+                "unavailable_feedback_ids": [],
+                "scores": {
+                  "rrf": 0,
+                  "fusion_prior": 0.0,
+                  "context": 0.7735469406895046,
+                  "positive_cosine": 0.7810236215591431,
+                  "negative_cosine": 0.598686695098877,
+                  "mood_fit": 0.0,
+                  "feedback_influence": 0.8,
+                  "before_diversity": 0.6188375525516037,
+                  "final": 0.45883755255160363,
+                  "feedback_delta": 0.20396997228550862
+                }
+              }
+            },
+            "scores": {
+              "rrf": 0,
+              "fusion_prior": 0.0,
+              "context": 0.7735469406895046,
+              "positive_cosine": 0.7810236215591431,
+              "negative_cosine": 0.598686695098877,
+              "mood_fit": 0.0,
+              "feedback_influence": 0.8,
+              "before_diversity": 0.6188375525516037,
+              "final": 0.45883755255160363,
+              "feedback_delta": 0.20396997228550862
+            }
+          }
+        ]
+      },
+      "feedback_status": {
+        "votes": {
+          "e0957a07-6333-47f4-933e-8092fc9a6db9": 1,
+          "3350ba48-0ffd-4c1d-b760-c50174e0c37f": -1,
+          "b9db433d-c130-40c7-bdd0-3fba8c8e41d7": 1
+        },
+        "valid_batch_ids": [
+          "ed19077c-aea5-4553-b2b2-185d38f46a7f",
+          "5f777f6f-bc5c-4dae-b667-75f8c08065aa",
+          "20b0654c-c032-4657-8473-967b90f4d492",
+          "dd93f436-6d47-461c-92cb-51ae66612896",
+          "6b758cb6-5643-438e-b2de-57d00ef48985"
+        ]
+      }
+    },
+    {
+      "query": "Show me something different",
+      "event": "message",
+      "response": "Here are recommendations matching your request:\n1. Tiny Tortures — Flying Lotus (Until The Quiet Comes)\n2. DMT Song (feat. Thundercat) — Flying Lotus (Until The Quiet Comes)\n3. Getting There (feat. Niki Randa) — Flying Lotus (Until The Quiet Comes)\n4. Putty Boy Strut — Flying Lotus (Until The Quiet Comes, Putty Boy Strut)\n5. The Nightcaller — Flying Lotus (Until The Quiet Comes)\nYou can say 'add all', 'add the first two', or 'add them except the one by [artist]'.",
+      "backend_response_ms": 8935.800625011325,
+      "recommendations": {
+        "batch_id": "b1f9766c-cfe8-4425-8c90-f2a38f4e2b8d",
+        "tracks": [
+          {
+            "track_id": "f754a572-9d50-4594-80d1-008c932aa35b",
+            "track_name": "Tiny Tortures",
+            "artist_name": "Flying Lotus",
+            "album_name": "Until The Quiet Comes",
+            "release_date": "2012-10-01",
+            "tag_list": [
+              "experimental",
+              "Dance",
+              "warp",
+              "ethereal",
+              "american",
+              "ambient",
+              "instrumental",
+              "10s",
+              "Rock",
+              "relevant magazine",
+              "acid jazz",
+              "instrumental hip-hop",
+              "los angeles",
+              "damn this is art",
+              "music video",
+              "played",
+              "indie",
+              "2012",
+              "trip-hop",
+              "electronic",
+              "hip-hop",
+              "3 minute songs"
+            ],
+            "popularity": 0.0,
+            "explanation": "matches your requested genres: rock; shares genres: electronic, hip hop, rock; has similar catalog metadata to a song you liked: All In — Flying Lotus",
+            "evidence": {
+              "requested_genres": [
+                "rock"
+              ],
+              "requested_moods": [],
+              "shared_styles": [],
+              "shared_genres": [
+                "electronic",
+                "hip hop",
+                "rock"
+              ],
+              "shared_playlist_artist": false,
+              "liked_track_id": "b9db433d-c130-40c7-bdd0-3fba8c8e41d7",
+              "liked_similarity": 0.806190013885498,
+              "feedback_delta": 0.21212595904336928,
+              "ranking": {
+                "feedback_applied": true,
+                "feedback_query_used_for_retrieval": true,
+                "new_to_original_pool": true,
+                "seed_candidate": true,
+                "liked_artist_match": true,
+                "positive_style_similarity": 1.0,
+                "negative_style_similarity": 0.07537783614444091,
+                "requested_genres": [
+                  "rock"
+                ],
+                "requested_moods": [],
+                "mood_match": [],
+                "original_cosine": 0.4560748040676117,
+                "updated_cosine": 0.668200763110981,
+                "liked_track_id": "b9db433d-c130-40c7-bdd0-3fba8c8e41d7",
+                "liked_similarity": 0.806190013885498,
+                "feedback_path": "adaptive_catalog",
+                "outside_r1_pool": true,
+                "usable_feedback_ids": [
+                  "e0957a07-6333-47f4-933e-8092fc9a6db9",
+                  "3350ba48-0ffd-4c1d-b760-c50174e0c37f",
+                  "b9db433d-c130-40c7-bdd0-3fba8c8e41d7"
+                ],
+                "unavailable_feedback_ids": [],
+                "scores": {
+                  "rrf": 0,
+                  "fusion_prior": 0.0,
+                  "context": 0.7721538795582656,
+                  "positive_cosine": 0.7415323853492737,
+                  "negative_cosine": 0.5008063912391663,
+                  "mood_fit": 0.0,
+                  "feedback_influence": 0.8,
+                  "before_diversity": 0.6177231036466125,
+                  "final": 0.6177231036466125,
+                  "feedback_delta": 0.21212595904336928
+                }
+              }
+            },
+            "scores": {
+              "rrf": 0,
+              "fusion_prior": 0.0,
+              "context": 0.7721538795582656,
+              "positive_cosine": 0.7415323853492737,
+              "negative_cosine": 0.5008063912391663,
+              "mood_fit": 0.0,
+              "feedback_influence": 0.8,
+              "before_diversity": 0.6177231036466125,
+              "final": 0.6177231036466125,
+              "feedback_delta": 0.21212595904336928
+            }
+          },
+          {
+            "track_id": "ec49feea-7ef5-45e6-aafe-bd9c1f69cc5b",
+            "track_name": "DMT Song (feat. Thundercat)",
+            "artist_name": "Flying Lotus",
+            "album_name": "Until The Quiet Comes",
+            "release_date": "2012-10-01",
+            "tag_list": [
+              "experimental",
+              "trip-hop",
+              "electronic",
+              "ambient",
+              "bass",
+              "Electronic",
+              "Dance",
+              "acid jazz",
+              "collab",
+              "thundercat",
+              "ethereal",
+              "hip-hop",
+              "10s",
+              "Rock"
+            ],
+            "popularity": 0.0,
+            "explanation": "matches your requested genres: rock; shares genres: electronic, hip hop, rock; has similar catalog metadata to a song you liked: All In — Flying Lotus",
+            "evidence": {
+              "requested_genres": [
+                "rock"
+              ],
+              "requested_moods": [],
+              "shared_styles": [],
+              "shared_genres": [
+                "electronic",
+                "hip hop",
+                "rock"
+              ],
+              "shared_playlist_artist": false,
+              "liked_track_id": "b9db433d-c130-40c7-bdd0-3fba8c8e41d7",
+              "liked_similarity": 0.8096866011619568,
+              "feedback_delta": 0.20607370277868398,
+              "ranking": {
+                "feedback_applied": true,
+                "feedback_query_used_for_retrieval": true,
+                "new_to_original_pool": true,
+                "seed_candidate": true,
+                "liked_artist_match": true,
+                "positive_style_similarity": 0.9682458365518541,
+                "negative_style_similarity": 0.0778498944161523,
+                "requested_genres": [
+                  "rock"
+                ],
+                "requested_moods": [],
+                "mood_match": [],
+                "original_cosine": 0.4842384159564972,
+                "updated_cosine": 0.6903121187351812,
+                "liked_track_id": "b9db433d-c130-40c7-bdd0-3fba8c8e41d7",
+                "liked_similarity": 0.8096866011619568,
+                "feedback_path": "adaptive_catalog",
+                "outside_r1_pool": true,
+                "usable_feedback_ids": [
+                  "e0957a07-6333-47f4-933e-8092fc9a6db9",
+                  "3350ba48-0ffd-4c1d-b760-c50174e0c37f",
+                  "b9db433d-c130-40c7-bdd0-3fba8c8e41d7"
+                ],
+                "unavailable_feedback_ids": [],
+                "scores": {
+                  "rrf": 0,
+                  "fusion_prior": 0.0,
+                  "context": 0.7625826466913243,
+                  "positive_cosine": 0.7540451288223267,
+                  "negative_cosine": 0.5335896015167236,
+                  "mood_fit": 0.0,
+                  "feedback_influence": 0.8,
+                  "before_diversity": 0.6100661173530595,
+                  "final": 0.5700661173530595,
+                  "feedback_delta": 0.20607370277868398
+                }
+              }
+            },
+            "scores": {
+              "rrf": 0,
+              "fusion_prior": 0.0,
+              "context": 0.7625826466913243,
+              "positive_cosine": 0.7540451288223267,
+              "negative_cosine": 0.5335896015167236,
+              "mood_fit": 0.0,
+              "feedback_influence": 0.8,
+              "before_diversity": 0.6100661173530595,
+              "final": 0.5700661173530595,
+              "feedback_delta": 0.20607370277868398
+            }
+          },
+          {
+            "track_id": "3b7ad804-ba59-439e-ade6-805b04ba6e19",
+            "track_name": "Getting There (feat. Niki Randa)",
+            "artist_name": "Flying Lotus",
+            "album_name": "Until The Quiet Comes",
+            "release_date": "2012-10-01",
+            "tag_list": [
+              "experimental",
+              "trip-hop",
+              "Dance",
+              "Electronic",
+              "acid jazz",
+              "collab",
+              "hip-hop",
+              "ethereal",
+              "10s",
+              "Rock"
+            ],
+            "popularity": 0.0,
+            "explanation": "matches your requested genres: rock; shares genres: electronic, hip hop, rock; has similar catalog metadata to a song you liked: All In — Flying Lotus",
+            "evidence": {
+              "requested_genres": [
+                "rock"
+              ],
+              "requested_moods": [],
+              "shared_styles": [],
+              "shared_genres": [
+                "electronic",
+                "hip hop",
+                "rock"
+              ],
+              "shared_playlist_artist": false,
+              "liked_track_id": "b9db433d-c130-40c7-bdd0-3fba8c8e41d7",
+              "liked_similarity": 0.8155076503753662,
+              "feedback_delta": 0.14824048443391058,
+              "ranking": {
+                "feedback_applied": true,
+                "feedback_query_used_for_retrieval": true,
+                "new_to_original_pool": true,
+                "seed_candidate": true,
+                "liked_artist_match": true,
+                "positive_style_similarity": 0.9354143466934853,
+                "negative_style_similarity": 0.08058229640253803,
+                "requested_genres": [
+                  "rock"
+                ],
+                "requested_moods": [],
+                "mood_match": [],
+                "original_cosine": 0.5922642946243286,
+                "updated_cosine": 0.7405047790582392,
+                "liked_track_id": "b9db433d-c130-40c7-bdd0-3fba8c8e41d7",
+                "liked_similarity": 0.8155076503753662,
+                "feedback_path": "adaptive_catalog",
+                "outside_r1_pool": true,
+                "usable_feedback_ids": [
+                  "e0957a07-6333-47f4-933e-8092fc9a6db9",
+                  "3350ba48-0ffd-4c1d-b760-c50174e0c37f",
+                  "b9db433d-c130-40c7-bdd0-3fba8c8e41d7"
+                ],
+                "unavailable_feedback_ids": [],
+                "scores": {
+                  "rrf": 0.003289473684210526,
+                  "fusion_prior": 0.16052631578947368,
+                  "context": 0.7224418804740941,
+                  "positive_cosine": 0.7392197847366333,
+                  "negative_cosine": 0.6546982526779175,
+                  "mood_fit": 0.0,
+                  "feedback_influence": 0.8,
+                  "before_diversity": 0.61005876753717,
+                  "final": 0.5300587675371701,
+                  "feedback_delta": 0.14824048443391058
+                }
+              }
+            },
+            "scores": {
+              "rrf": 0.003289473684210526,
+              "fusion_prior": 0.16052631578947368,
+              "context": 0.7224418804740941,
+              "positive_cosine": 0.7392197847366333,
+              "negative_cosine": 0.6546982526779175,
+              "mood_fit": 0.0,
+              "feedback_influence": 0.8,
+              "before_diversity": 0.61005876753717,
+              "final": 0.5300587675371701,
+              "feedback_delta": 0.14824048443391058
+            }
+          },
+          {
+            "track_id": "183c6304-acf0-4f54-be6f-a6c7a922a47d",
+            "track_name": "Putty Boy Strut",
+            "artist_name": "Flying Lotus",
+            "album_name": "Until The Quiet Comes, Putty Boy Strut",
+            "release_date": "2012-10-01",
+            "tag_list": [
+              "experimental",
+              "Dance",
+              "warp",
+              "goeiepoep",
+              "jazz hip-hop",
+              "american",
+              "instrumental",
+              "2012 single",
+              "10s",
+              "catchy as hell",
+              "npr",
+              "2 minute songs",
+              "Rock",
+              "jazz fusion",
+              "fip",
+              "acid jazz",
+              "instrumental hip-hop",
+              "glitch",
+              "los angeles",
+              "played",
+              "indie",
+              "2012",
+              "trip-hop",
+              "electronic",
+              "Electronic",
+              "luvedtrax",
+              "lkaninchen library",
+              "hip-hop",
+              "white rabbit",
+              "glitch-hop",
+              "beats"
+            ],
+            "popularity": 0.0,
+            "explanation": "matches your requested genres: rock; shares genres: electronic, hip hop, rock; has similar catalog metadata to a song you liked: All In — Flying Lotus",
+            "evidence": {
+              "requested_genres": [
+                "rock"
+              ],
+              "requested_moods": [],
+              "shared_styles": [],
+              "shared_genres": [
+                "electronic",
+                "hip hop",
+                "rock"
+              ],
+              "shared_playlist_artist": false,
+              "liked_track_id": "b9db433d-c130-40c7-bdd0-3fba8c8e41d7",
+              "liked_similarity": 0.7584948539733887,
+              "feedback_delta": 0.20106576958438538,
+              "ranking": {
+                "feedback_applied": true,
+                "feedback_query_used_for_retrieval": true,
+                "new_to_original_pool": true,
+                "seed_candidate": true,
+                "liked_artist_match": true,
+                "positive_style_similarity": 0.8603090020146066,
+                "negative_style_similarity": 0.06917144638660747,
+                "requested_genres": [
+                  "rock"
+                ],
+                "requested_moods": [],
+                "mood_match": [],
+                "original_cosine": 0.4360617995262146,
+                "updated_cosine": 0.6371275691106,
+                "liked_track_id": "b9db433d-c130-40c7-bdd0-3fba8c8e41d7",
+                "liked_similarity": 0.7584948539733887,
+                "feedback_path": "adaptive_catalog",
+                "outside_r1_pool": true,
+                "usable_feedback_ids": [
+                  "e0957a07-6333-47f4-933e-8092fc9a6db9",
+                  "3350ba48-0ffd-4c1d-b760-c50174e0c37f",
+                  "b9db433d-c130-40c7-bdd0-3fba8c8e41d7"
+                ],
+                "unavailable_feedback_ids": [],
+                "scores": {
+                  "rrf": 0,
+                  "fusion_prior": 0.0,
+                  "context": 0.716873234808252,
+                  "positive_cosine": 0.7068800926208496,
+                  "negative_cosine": 0.4817935824394226,
+                  "mood_fit": 0.0,
+                  "feedback_influence": 0.8,
+                  "before_diversity": 0.5734985878466017,
+                  "final": 0.4534985878466017,
+                  "feedback_delta": 0.20106576958438538
+                }
+              }
+            },
+            "scores": {
+              "rrf": 0,
+              "fusion_prior": 0.0,
+              "context": 0.716873234808252,
+              "positive_cosine": 0.7068800926208496,
+              "negative_cosine": 0.4817935824394226,
+              "mood_fit": 0.0,
+              "feedback_influence": 0.8,
+              "before_diversity": 0.5734985878466017,
+              "final": 0.4534985878466017,
+              "feedback_delta": 0.20106576958438538
+            }
+          },
+          {
+            "track_id": "606b727b-073d-414e-9620-8d640c42edd1",
+            "track_name": "The Nightcaller",
+            "artist_name": "Flying Lotus",
+            "album_name": "Until The Quiet Comes",
+            "release_date": "2012-10-01",
+            "tag_list": [
+              "experimental",
+              "Dance",
+              "warp",
+              "jazz influences",
+              "3 minute songs",
+              "house",
+              "tight kick sound",
+              "american",
+              "ambient",
+              "straight drum beats",
+              "instrumental",
+              "dance",
+              "chillout",
+              "danceable beats",
+              "10s",
+              "electronica roots",
+              "Rock",
+              "rhythmic clapping",
+              "light drum fills",
+              "highly synthetic sonority",
+              "smoking music",
+              "use of chordal patterning",
+              "los angeles",
+              "indie",
+              "effected synths",
+              "percussion layers",
+              "r and b influences",
+              "2012",
+              "synth riffs",
+              "synth swoops",
+              "trip-hop",
+              "emphasis on instrumental performance",
+              "light percussion fills",
+              "electronic",
+              "Electronic",
+              "vocal samples",
+              "hip-hop",
+              "idm"
+            ],
+            "popularity": 0.0,
+            "explanation": "matches your requested genres: rock; shares genres: electronic, hip hop, rock; has similar catalog metadata to a song you liked: All In — Flying Lotus",
+            "evidence": {
+              "requested_genres": [
+                "rock"
+              ],
+              "requested_moods": [],
+              "shared_styles": [],
+              "shared_genres": [
+                "electronic",
+                "hip hop",
+                "rock"
+              ],
+              "shared_playlist_artist": false,
+              "liked_track_id": "b9db433d-c130-40c7-bdd0-3fba8c8e41d7",
+              "liked_similarity": 0.8165956139564514,
+              "feedback_delta": 0.20616718345991247,
+              "ranking": {
+                "feedback_applied": true,
+                "feedback_query_used_for_retrieval": true,
+                "new_to_original_pool": true,
+                "seed_candidate": true,
+                "liked_artist_match": true,
+                "positive_style_similarity": 0.816496580927726,
+                "negative_style_similarity": 0.0778498944161523,
+                "requested_genres": [
+                  "rock"
+                ],
+                "requested_moods": [],
+                "mood_match": [],
+                "original_cosine": 0.4690093994140625,
+                "updated_cosine": 0.675176582873975,
+                "liked_track_id": "b9db433d-c130-40c7-bdd0-3fba8c8e41d7",
+                "liked_similarity": 0.8165956139564514,
+                "feedback_path": "adaptive_catalog",
+                "outside_r1_pool": true,
+                "usable_feedback_ids": [
+                  "e0957a07-6333-47f4-933e-8092fc9a6db9",
+                  "3350ba48-0ffd-4c1d-b760-c50174e0c37f",
+                  "b9db433d-c130-40c7-bdd0-3fba8c8e41d7"
+                ],
+                "unavailable_feedback_ids": [],
+                "scores": {
+                  "rrf": 0,
+                  "fusion_prior": 0.0,
+                  "context": 0.7131476451193374,
+                  "positive_cosine": 0.7582511901855469,
+                  "negative_cosine": 0.565660297870636,
+                  "mood_fit": 0.0,
+                  "feedback_influence": 0.8,
+                  "before_diversity": 0.5705181160954699,
+                  "final": 0.41051811609546984,
+                  "feedback_delta": 0.20616718345991247
+                }
+              }
+            },
+            "scores": {
+              "rrf": 0,
+              "fusion_prior": 0.0,
+              "context": 0.7131476451193374,
+              "positive_cosine": 0.7582511901855469,
+              "negative_cosine": 0.565660297870636,
+              "mood_fit": 0.0,
+              "feedback_influence": 0.8,
+              "before_diversity": 0.5705181160954699,
+              "final": 0.41051811609546984,
+              "feedback_delta": 0.20616718345991247
+            }
+          }
+        ]
+      },
+      "feedback_status": {
+        "votes": {
+          "e0957a07-6333-47f4-933e-8092fc9a6db9": 1,
+          "3350ba48-0ffd-4c1d-b760-c50174e0c37f": -1,
+          "b9db433d-c130-40c7-bdd0-3fba8c8e41d7": 1
+        },
+        "valid_batch_ids": [
+          "ed19077c-aea5-4553-b2b2-185d38f46a7f",
+          "5f777f6f-bc5c-4dae-b667-75f8c08065aa",
+          "20b0654c-c032-4657-8473-967b90f4d492",
+          "dd93f436-6d47-461c-92cb-51ae66612896",
+          "6b758cb6-5643-438e-b2de-57d00ef48985",
+          "b1f9766c-cfe8-4425-8c90-f2a38f4e2b8d"
+        ]
+      }
+    },
+    {
+      "query": "Recommend rock music",
+      "event": "message",
+      "response": "Here are recommendations matching your request:\n1. All The Secrets — Flying Lotus (Until The Quiet Comes)\n2. Dream To Me — Flying Lotus (Until The Quiet Comes)\n3. Only If You Wanna — Flying Lotus (Until The Quiet Comes)\n4. Heave(n) — Flying Lotus (Until The Quiet Comes)\n5. Until The Colours Come — Flying Lotus (Until The Quiet Comes)\nYou can say 'add all', 'add the first two', or 'add them except the one by [artist]'.",
+      "backend_response_ms": 10149.752792000072,
+      "recommendations": {
+        "batch_id": "0207397f-8cbe-4e50-bf8c-26456afd4e84",
+        "tracks": [
+          {
+            "track_id": "cca98648-db5b-4426-9574-95fd316490a6",
+            "track_name": "All The Secrets",
+            "artist_name": "Flying Lotus",
+            "album_name": "Until The Quiet Comes",
+            "release_date": "2012-10-01",
+            "tag_list": [
+              "experimental",
+              "Dance",
+              "warp",
+              "ethereal",
+              "robertitus coleccion",
+              "hann with gun",
+              "american",
+              "ambient",
+              "1 minute songs",
+              "downtempo",
+              "instrumental",
+              "10s",
+              "robertitus global",
+              "Rock",
+              "acid jazz",
+              "instrumental hip-hop",
+              "los angeles",
+              "indie",
+              "jazz",
+              "2012",
+              "trip-hop",
+              "electronic",
+              "Electronic",
+              "hip-hop",
+              "piano beat",
+              "ambient ram",
+              "idm"
+            ],
+            "popularity": 0.0,
+            "explanation": "matches your requested genres: rock; shares genres: electronic, hip hop, rock; has similar catalog metadata to a song you liked: All In — Flying Lotus",
+            "evidence": {
+              "requested_genres": [
+                "rock"
+              ],
+              "requested_moods": [],
+              "shared_styles": [],
+              "shared_genres": [
+                "electronic",
+                "hip hop",
+                "rock"
+              ],
+              "shared_playlist_artist": false,
+              "liked_track_id": "b9db433d-c130-40c7-bdd0-3fba8c8e41d7",
+              "liked_similarity": 0.9081997275352478,
+              "feedback_delta": 0.2371878652777255,
+              "ranking": {
+                "feedback_applied": true,
+                "feedback_query_used_for_retrieval": true,
+                "new_to_original_pool": true,
+                "seed_candidate": true,
+                "liked_artist_match": true,
+                "positive_style_similarity": 0.8944271909999159,
+                "negative_style_similarity": 0.06741998624632421,
+                "requested_genres": [
+                  "rock"
+                ],
+                "requested_moods": [],
+                "mood_match": [],
+                "original_cosine": 0.5065033435821533,
+                "updated_cosine": 0.7436912088598788,
+                "liked_track_id": "b9db433d-c130-40c7-bdd0-3fba8c8e41d7",
+                "liked_similarity": 0.9081997275352478,
+                "feedback_path": "adaptive_catalog",
+                "outside_r1_pool": true,
+                "usable_feedback_ids": [
+                  "e0957a07-6333-47f4-933e-8092fc9a6db9",
+                  "3350ba48-0ffd-4c1d-b760-c50174e0c37f",
+                  "b9db433d-c130-40c7-bdd0-3fba8c8e41d7"
+                ],
+                "unavailable_feedback_ids": [],
+                "scores": {
+                  "rrf": 0.0036231884057971015,
+                  "fusion_prior": 0.17681159420289858,
+                  "context": 0.7733270480874435,
+                  "positive_cosine": 0.82137131690979,
+                  "negative_cosine": 0.541189432144165,
+                  "mood_fit": 0.0,
+                  "feedback_influence": 0.8,
+                  "before_diversity": 0.6540239573105345,
+                  "final": 0.6540239573105345,
+                  "feedback_delta": 0.2371878652777255
+                }
+              }
+            },
+            "scores": {
+              "rrf": 0.0036231884057971015,
+              "fusion_prior": 0.17681159420289858,
+              "context": 0.7733270480874435,
+              "positive_cosine": 0.82137131690979,
+              "negative_cosine": 0.541189432144165,
+              "mood_fit": 0.0,
+              "feedback_influence": 0.8,
+              "before_diversity": 0.6540239573105345,
+              "final": 0.6540239573105345,
+              "feedback_delta": 0.2371878652777255
+            }
+          },
+          {
+            "track_id": "8f9cee21-50be-4fd8-aa10-b3d71713774f",
+            "track_name": "Dream To Me",
+            "artist_name": "Flying Lotus",
+            "album_name": "Until The Quiet Comes",
+            "release_date": "2012-10-01",
+            "tag_list": [
+              "experimental",
+              "Dance",
+              "warp",
+              "ethereal",
+              "american",
+              "ambient",
+              "1 minute songs",
+              "instrumental",
+              "chillout",
+              "10s",
+              "Rock",
+              "acid jazz",
+              "instrumental hip-hop",
+              "los angeles",
+              "played",
+              "indie",
+              "2012",
+              "trip-hop",
+              "electronic",
+              "Electronic",
+              "hip-hop"
+            ],
+            "popularity": 0.0,
+            "explanation": "matches your requested genres: rock; shares genres: electronic, hip hop, rock; has similar catalog metadata to a song you liked: All In — Flying Lotus",
+            "evidence": {
+              "requested_genres": [
+                "rock"
+              ],
+              "requested_moods": [],
+              "shared_styles": [],
+              "shared_genres": [
+                "electronic",
+                "hip hop",
+                "rock"
+              ],
+              "shared_playlist_artist": false,
+              "liked_track_id": "b9db433d-c130-40c7-bdd0-3fba8c8e41d7",
+              "liked_similarity": 0.8239105939865112,
+              "feedback_delta": 0.21705636634373215,
+              "ranking": {
+                "feedback_applied": true,
+                "feedback_query_used_for_retrieval": true,
+                "new_to_original_pool": true,
+                "seed_candidate": true,
+                "liked_artist_match": true,
+                "positive_style_similarity": 1.0,
+                "negative_style_similarity": 0.07537783614444091,
+                "requested_genres": [
+                  "rock"
+                ],
+                "requested_moods": [],
+                "mood_match": [],
+                "original_cosine": 0.4908604323863983,
+                "updated_cosine": 0.7079167987301305,
+                "liked_track_id": "b9db433d-c130-40c7-bdd0-3fba8c8e41d7",
+                "liked_similarity": 0.8239105939865112,
+                "feedback_path": "adaptive_catalog",
+                "outside_r1_pool": true,
+                "usable_feedback_ids": [
+                  "e0957a07-6333-47f4-933e-8092fc9a6db9",
+                  "3350ba48-0ffd-4c1d-b760-c50174e0c37f",
+                  "b9db433d-c130-40c7-bdd0-3fba8c8e41d7"
+                ],
+                "unavailable_feedback_ids": [],
+                "scores": {
+                  "rrf": 0,
+                  "fusion_prior": 0.0,
+                  "context": 0.7836966207675342,
+                  "positive_cosine": 0.7720872163772583,
+                  "negative_cosine": 0.5207246541976929,
+                  "mood_fit": 0.0,
+                  "feedback_influence": 0.8,
+                  "before_diversity": 0.6269572966140274,
+                  "final": 0.5869572966140274,
+                  "feedback_delta": 0.21705636634373215
+                }
+              }
+            },
+            "scores": {
+              "rrf": 0,
+              "fusion_prior": 0.0,
+              "context": 0.7836966207675342,
+              "positive_cosine": 0.7720872163772583,
+              "negative_cosine": 0.5207246541976929,
+              "mood_fit": 0.0,
+              "feedback_influence": 0.8,
+              "before_diversity": 0.6269572966140274,
+              "final": 0.5869572966140274,
+              "feedback_delta": 0.21705636634373215
+            }
+          },
+          {
+            "track_id": "a6a19596-aae9-4fd4-a6aa-90b69330128e",
+            "track_name": "Only If You Wanna",
+            "artist_name": "Flying Lotus",
+            "album_name": "Until The Quiet Comes",
+            "release_date": "2012-10-01",
+            "tag_list": [
+              "experimental",
+              "Dance",
+              "warp",
+              "ethereal",
+              "modern-jazz",
+              "american",
+              "ambient",
+              "1 minute songs",
+              "instrumental",
+              "10s",
+              "Rock",
+              "acid jazz",
+              "instrumental hip-hop",
+              "los angeles",
+              "indie",
+              "jazz",
+              "2012",
+              "trip-hop",
+              "electronic",
+              "Electronic",
+              "hip-hop"
+            ],
+            "popularity": 0.0,
+            "explanation": "matches your requested genres: rock; shares genres: electronic, hip hop, rock; has similar catalog metadata to a song you liked: All In — Flying Lotus",
+            "evidence": {
+              "requested_genres": [
+                "rock"
+              ],
+              "requested_moods": [],
+              "shared_styles": [],
+              "shared_genres": [
+                "electronic",
+                "hip hop",
+                "rock"
+              ],
+              "shared_playlist_artist": false,
+              "liked_track_id": "b9db433d-c130-40c7-bdd0-3fba8c8e41d7",
+              "liked_similarity": 0.8352389335632324,
+              "feedback_delta": 0.21611334560405093,
+              "ranking": {
+                "feedback_applied": true,
+                "feedback_query_used_for_retrieval": true,
+                "new_to_original_pool": true,
+                "seed_candidate": true,
+                "liked_artist_match": true,
+                "positive_style_similarity": 1.0,
+                "negative_style_similarity": 0.07537783614444091,
+                "requested_genres": [
+                  "rock"
+                ],
+                "requested_moods": [],
+                "mood_match": [],
+                "original_cosine": 0.46688830852508545,
+                "updated_cosine": 0.6830016541291364,
+                "liked_track_id": "b9db433d-c130-40c7-bdd0-3fba8c8e41d7",
+                "liked_similarity": 0.8352389335632324,
+                "feedback_path": "adaptive_catalog",
+                "outside_r1_pool": true,
+                "usable_feedback_ids": [
+                  "e0957a07-6333-47f4-933e-8092fc9a6db9",
+                  "3350ba48-0ffd-4c1d-b760-c50174e0c37f",
+                  "b9db433d-c130-40c7-bdd0-3fba8c8e41d7"
+                ],
+                "unavailable_feedback_ids": [],
+                "scores": {
+                  "rrf": 0,
+                  "fusion_prior": 0.0,
+                  "context": 0.7768417811445598,
+                  "positive_cosine": 0.7725386619567871,
+                  "negative_cosine": 0.5584876537322998,
+                  "mood_fit": 0.0,
+                  "feedback_influence": 0.8,
+                  "before_diversity": 0.6214734249156479,
+                  "final": 0.541473424915648,
+                  "feedback_delta": 0.21611334560405093
+                }
+              }
+            },
+            "scores": {
+              "rrf": 0,
+              "fusion_prior": 0.0,
+              "context": 0.7768417811445598,
+              "positive_cosine": 0.7725386619567871,
+              "negative_cosine": 0.5584876537322998,
+              "mood_fit": 0.0,
+              "feedback_influence": 0.8,
+              "before_diversity": 0.6214734249156479,
+              "final": 0.541473424915648,
+              "feedback_delta": 0.21611334560405093
+            }
+          },
+          {
+            "track_id": "390802ac-8a69-48bb-b978-e674f003f3d5",
+            "track_name": "Heave(n)",
+            "artist_name": "Flying Lotus",
+            "album_name": "Until The Quiet Comes",
+            "release_date": "2012-10-01",
+            "tag_list": [
+              "experimental",
+              "Dance",
+              "warp",
+              "ethereal",
+              "american",
+              "ambient",
+              "instrumental",
+              "10s",
+              "2 minute songs",
+              "Rock",
+              "acid jazz",
+              "1live fiehe",
+              "instrumental hip-hop",
+              "los angeles",
+              "indie",
+              "2012",
+              "trip-hop",
+              "electronic",
+              "luvedtrax",
+              "vocal samples",
+              "hip-hop"
+            ],
+            "popularity": 0.0,
+            "explanation": "matches your requested genres: rock; shares genres: electronic, hip hop, rock; has similar catalog metadata to a song you liked: All In — Flying Lotus",
+            "evidence": {
+              "requested_genres": [
+                "rock"
+              ],
+              "requested_moods": [],
+              "shared_styles": [],
+              "shared_genres": [
+                "electronic",
+                "hip hop",
+                "rock"
+              ],
+              "shared_playlist_artist": false,
+              "liked_track_id": "b9db433d-c130-40c7-bdd0-3fba8c8e41d7",
+              "liked_similarity": 0.8151997923851013,
+              "feedback_delta": 0.1515018160969398,
+              "ranking": {
+                "feedback_applied": true,
+                "feedback_query_used_for_retrieval": true,
+                "new_to_original_pool": true,
+                "seed_candidate": true,
+                "liked_artist_match": true,
+                "positive_style_similarity": 1.0,
+                "negative_style_similarity": 0.07537783614444091,
+                "requested_genres": [
+                  "rock"
+                ],
+                "requested_moods": [],
+                "mood_match": [],
+                "original_cosine": 0.5834952592849731,
+                "updated_cosine": 0.734997075381913,
+                "liked_track_id": "b9db433d-c130-40c7-bdd0-3fba8c8e41d7",
+                "liked_similarity": 0.8151997923851013,
+                "feedback_path": "adaptive_catalog",
+                "outside_r1_pool": true,
+                "usable_feedback_ids": [
+                  "e0957a07-6333-47f4-933e-8092fc9a6db9",
+                  "3350ba48-0ffd-4c1d-b760-c50174e0c37f",
+                  "b9db433d-c130-40c7-bdd0-3fba8c8e41d7"
+                ],
+                "unavailable_feedback_ids": [],
+                "scores": {
+                  "rrf": 0.002551020408163265,
+                  "fusion_prior": 0.12448979591836734,
+                  "context": 0.7432325100950603,
+                  "positive_cosine": 0.7392772436141968,
+                  "negative_cosine": 0.6490399837493896,
+                  "mood_fit": 0.0,
+                  "feedback_influence": 0.8,
+                  "before_diversity": 0.6194839672597217,
+                  "final": 0.49948396725972166,
+                  "feedback_delta": 0.1515018160969398
+                }
+              }
+            },
+            "scores": {
+              "rrf": 0.002551020408163265,
+              "fusion_prior": 0.12448979591836734,
+              "context": 0.7432325100950603,
+              "positive_cosine": 0.7392772436141968,
+              "negative_cosine": 0.6490399837493896,
+              "mood_fit": 0.0,
+              "feedback_influence": 0.8,
+              "before_diversity": 0.6194839672597217,
+              "final": 0.49948396725972166,
+              "feedback_delta": 0.1515018160969398
+            }
+          },
+          {
+            "track_id": "63f2f2ad-88be-491f-a10d-631fbc724b3f",
+            "track_name": "Until The Colours Come",
+            "artist_name": "Flying Lotus",
+            "album_name": "Until The Quiet Comes",
+            "release_date": "2012-10-01",
+            "tag_list": [
+              "experimental",
+              "bass",
+              "Dance",
+              "warp",
+              "title tracks",
+              "robertitus coleccion",
+              "american",
+              "nu jazz",
+              "ambient",
+              "instrumental",
+              "title track",
+              "10s",
+              "2 minute songs",
+              "Rock",
+              "acid jazz",
+              "instrumental hip-hop",
+              "los angeles",
+              "indie",
+              "2012",
+              "trip-hop",
+              "electronic",
+              "Electronic",
+              "hip-hop"
+            ],
+            "popularity": 0.0,
+            "explanation": "matches your requested genres: rock; shares genres: electronic, hip hop, rock; has similar catalog metadata to a song you liked: All In — Flying Lotus",
+            "evidence": {
+              "requested_genres": [
+                "rock"
+              ],
+              "requested_moods": [],
+              "shared_styles": [],
+              "shared_genres": [
+                "electronic",
+                "hip hop",
+                "rock"
+              ],
+              "shared_playlist_artist": false,
+              "liked_track_id": "b9db433d-c130-40c7-bdd0-3fba8c8e41d7",
+              "liked_similarity": 0.8642005920410156,
+              "feedback_delta": 0.20396997228550862,
+              "ranking": {
+                "feedback_applied": true,
+                "feedback_query_used_for_retrieval": true,
+                "new_to_original_pool": true,
+                "seed_candidate": true,
+                "liked_artist_match": true,
+                "positive_style_similarity": 1.0,
+                "negative_style_similarity": 0.07537783614444091,
+                "requested_genres": [
+                  "rock"
+                ],
+                "requested_moods": [],
+                "mood_match": [],
+                "original_cosine": 0.5048573613166809,
+                "updated_cosine": 0.7088273336021895,
+                "liked_track_id": "b9db433d-c130-40c7-bdd0-3fba8c8e41d7",
+                "liked_similarity": 0.8642005920410156,
+                "feedback_path": "adaptive_catalog",
+                "outside_r1_pool": true,
+                "usable_feedback_ids": [
+                  "e0957a07-6333-47f4-933e-8092fc9a6db9",
+                  "3350ba48-0ffd-4c1d-b760-c50174e0c37f",
+                  "b9db433d-c130-40c7-bdd0-3fba8c8e41d7"
+                ],
+                "unavailable_feedback_ids": [],
+                "scores": {
+                  "rrf": 0,
+                  "fusion_prior": 0.0,
+                  "context": 0.7735469406895046,
+                  "positive_cosine": 0.7810236215591431,
+                  "negative_cosine": 0.598686695098877,
+                  "mood_fit": 0.0,
+                  "feedback_influence": 0.8,
+                  "before_diversity": 0.6188375525516037,
+                  "final": 0.45883755255160363,
+                  "feedback_delta": 0.20396997228550862
+                }
+              }
+            },
+            "scores": {
+              "rrf": 0,
+              "fusion_prior": 0.0,
+              "context": 0.7735469406895046,
+              "positive_cosine": 0.7810236215591431,
+              "negative_cosine": 0.598686695098877,
+              "mood_fit": 0.0,
+              "feedback_influence": 0.8,
+              "before_diversity": 0.6188375525516037,
+              "final": 0.45883755255160363,
+              "feedback_delta": 0.20396997228550862
+            }
+          }
+        ]
+      },
+      "feedback_status": {
+        "votes": {
+          "e0957a07-6333-47f4-933e-8092fc9a6db9": 1,
+          "3350ba48-0ffd-4c1d-b760-c50174e0c37f": -1,
+          "b9db433d-c130-40c7-bdd0-3fba8c8e41d7": 1
+        },
+        "valid_batch_ids": [
+          "ed19077c-aea5-4553-b2b2-185d38f46a7f",
+          "5f777f6f-bc5c-4dae-b667-75f8c08065aa",
+          "20b0654c-c032-4657-8473-967b90f4d492",
+          "dd93f436-6d47-461c-92cb-51ae66612896",
+          "6b758cb6-5643-438e-b2de-57d00ef48985",
+          "b1f9766c-cfe8-4425-8c90-f2a38f4e2b8d",
+          "0207397f-8cbe-4e50-bf8c-26456afd4e84"
+        ]
+      }
+    },
+    {
+      "query": "I like track 1 and recommend jazz music",
+      "event": "message",
+      "response": "Here are recommendations matching your request:\n1. Until The Colours Come — Flying Lotus (Until The Quiet Comes)\n2. Dream To Me — Flying Lotus (Until The Quiet Comes)\n3. Heave(n) — Flying Lotus (Until The Quiet Comes)\n4. Only If You Wanna — Flying Lotus (Until The Quiet Comes)\n5. Tiny Tortures — Flying Lotus (Until The Quiet Comes)\nYou can say 'add all', 'add the first two', or 'add them except the one by [artist]'.",
+      "backend_response_ms": 13287.925459007965,
+      "recommendations": {
+        "batch_id": "e0f6d2b9-53e4-41d7-8b7a-59faf0a12887",
+        "tracks": [
+          {
+            "track_id": "63f2f2ad-88be-491f-a10d-631fbc724b3f",
+            "track_name": "Until The Colours Come",
+            "artist_name": "Flying Lotus",
+            "album_name": "Until The Quiet Comes",
+            "release_date": "2012-10-01",
+            "tag_list": [
+              "experimental",
+              "bass",
+              "Dance",
+              "warp",
+              "title tracks",
+              "robertitus coleccion",
+              "american",
+              "nu jazz",
+              "ambient",
+              "instrumental",
+              "title track",
+              "10s",
+              "2 minute songs",
+              "Rock",
+              "acid jazz",
+              "instrumental hip-hop",
+              "los angeles",
+              "indie",
+              "2012",
+              "trip-hop",
+              "electronic",
+              "Electronic",
+              "hip-hop"
+            ],
+            "popularity": 0.0,
+            "explanation": "shares genres: electronic, hip hop, rock; has similar catalog metadata to a song you liked: All In — Flying Lotus",
+            "evidence": {
+              "requested_genres": [],
+              "requested_moods": [],
+              "shared_styles": [],
+              "shared_genres": [
+                "electronic",
+                "hip hop",
+                "rock"
+              ],
+              "shared_playlist_artist": false,
+              "liked_track_id": "b9db433d-c130-40c7-bdd0-3fba8c8e41d7",
+              "liked_similarity": 0.8642005920410156,
+              "feedback_delta": 0.20580875864472714,
+              "ranking": {
+                "feedback_applied": true,
+                "feedback_query_used_for_retrieval": true,
+                "new_to_original_pool": true,
+                "seed_candidate": true,
+                "liked_artist_match": true,
+                "positive_style_similarity": 1.0,
+                "negative_style_similarity": 0.07537783614444091,
+                "requested_genres": [
+                  "jazz"
+                ],
+                "requested_moods": [],
+                "mood_match": [],
+                "original_cosine": 0.5214706659317017,
+                "updated_cosine": 0.7272794245764288,
+                "liked_track_id": "b9db433d-c130-40c7-bdd0-3fba8c8e41d7",
+                "liked_similarity": 0.8642005920410156,
+                "feedback_path": "adaptive_catalog",
+                "outside_r1_pool": true,
+                "usable_feedback_ids": [
+                  "e0957a07-6333-47f4-933e-8092fc9a6db9",
+                  "3350ba48-0ffd-4c1d-b760-c50174e0c37f",
+                  "b9db433d-c130-40c7-bdd0-3fba8c8e41d7",
+                  "cca98648-db5b-4426-9574-95fd316490a6"
+                ],
+                "unavailable_feedback_ids": [],
+                "scores": {
+                  "rrf": 0.0036231884057971015,
+                  "fusion_prior": 0.17681159420289858,
+                  "context": 0.7837341791443233,
+                  "positive_cosine": 0.8013980984687805,
+                  "negative_cosine": 0.598686695098877,
+                  "mood_fit": 0.0,
+                  "feedback_influence": 0.8,
+                  "before_diversity": 0.6623496621560384,
+                  "final": 0.6623496621560384,
+                  "feedback_delta": 0.20580875864472714
+                }
+              }
+            },
+            "scores": {
+              "rrf": 0.0036231884057971015,
+              "fusion_prior": 0.17681159420289858,
+              "context": 0.7837341791443233,
+              "positive_cosine": 0.8013980984687805,
+              "negative_cosine": 0.598686695098877,
+              "mood_fit": 0.0,
+              "feedback_influence": 0.8,
+              "before_diversity": 0.6623496621560384,
+              "final": 0.6623496621560384,
+              "feedback_delta": 0.20580875864472714
+            }
+          },
+          {
+            "track_id": "8f9cee21-50be-4fd8-aa10-b3d71713774f",
+            "track_name": "Dream To Me",
+            "artist_name": "Flying Lotus",
+            "album_name": "Until The Quiet Comes",
+            "release_date": "2012-10-01",
+            "tag_list": [
+              "experimental",
+              "Dance",
+              "warp",
+              "ethereal",
+              "american",
+              "ambient",
+              "1 minute songs",
+              "instrumental",
+              "chillout",
+              "10s",
+              "Rock",
+              "acid jazz",
+              "instrumental hip-hop",
+              "los angeles",
+              "played",
+              "indie",
+              "2012",
+              "trip-hop",
+              "electronic",
+              "Electronic",
+              "hip-hop"
+            ],
+            "popularity": 0.0,
+            "explanation": "shares genres: electronic, hip hop, rock; has similar catalog metadata to a song you liked: All In — Flying Lotus",
+            "evidence": {
+              "requested_genres": [],
+              "requested_moods": [],
+              "shared_styles": [],
+              "shared_genres": [
+                "electronic",
+                "hip hop",
+                "rock"
+              ],
+              "shared_playlist_artist": false,
+              "liked_track_id": "b9db433d-c130-40c7-bdd0-3fba8c8e41d7",
+              "liked_similarity": 0.8239105939865112,
+              "feedback_delta": 0.21767191018726795,
+              "ranking": {
+                "feedback_applied": true,
+                "feedback_query_used_for_retrieval": true,
+                "new_to_original_pool": true,
+                "seed_candidate": true,
+                "liked_artist_match": true,
+                "positive_style_similarity": 1.0,
+                "negative_style_similarity": 0.07537783614444091,
+                "requested_genres": [
+                  "jazz"
+                ],
+                "requested_moods": [],
+                "mood_match": [],
+                "original_cosine": 0.49376487731933594,
+                "updated_cosine": 0.7114367875066039,
+                "liked_track_id": "b9db433d-c130-40c7-bdd0-3fba8c8e41d7",
+                "liked_similarity": 0.8239105939865112,
+                "feedback_path": "adaptive_catalog",
+                "outside_r1_pool": true,
+                "usable_feedback_ids": [
+                  "e0957a07-6333-47f4-933e-8092fc9a6db9",
+                  "3350ba48-0ffd-4c1d-b760-c50174e0c37f",
+                  "b9db433d-c130-40c7-bdd0-3fba8c8e41d7",
+                  "cca98648-db5b-4426-9574-95fd316490a6"
+                ],
+                "unavailable_feedback_ids": [],
+                "scores": {
+                  "rrf": 0.003048780487804878,
+                  "fusion_prior": 0.14878048780487807,
+                  "context": 0.7897008946589832,
+                  "positive_cosine": 0.7840957641601562,
+                  "negative_cosine": 0.5207246541976929,
+                  "mood_fit": 0.0,
+                  "feedback_influence": 0.8,
+                  "before_diversity": 0.6615168132881623,
+                  "final": 0.6215168132881622,
+                  "feedback_delta": 0.21767191018726795
+                }
+              }
+            },
+            "scores": {
+              "rrf": 0.003048780487804878,
+              "fusion_prior": 0.14878048780487807,
+              "context": 0.7897008946589832,
+              "positive_cosine": 0.7840957641601562,
+              "negative_cosine": 0.5207246541976929,
+              "mood_fit": 0.0,
+              "feedback_influence": 0.8,
+              "before_diversity": 0.6615168132881623,
+              "final": 0.6215168132881622,
+              "feedback_delta": 0.21767191018726795
+            }
+          },
+          {
+            "track_id": "390802ac-8a69-48bb-b978-e674f003f3d5",
+            "track_name": "Heave(n)",
+            "artist_name": "Flying Lotus",
+            "album_name": "Until The Quiet Comes",
+            "release_date": "2012-10-01",
+            "tag_list": [
+              "experimental",
+              "Dance",
+              "warp",
+              "ethereal",
+              "american",
+              "ambient",
+              "instrumental",
+              "10s",
+              "2 minute songs",
+              "Rock",
+              "acid jazz",
+              "1live fiehe",
+              "instrumental hip-hop",
+              "los angeles",
+              "indie",
+              "2012",
+              "trip-hop",
+              "electronic",
+              "luvedtrax",
+              "vocal samples",
+              "hip-hop"
+            ],
+            "popularity": 0.0,
+            "explanation": "shares genres: electronic, hip hop, rock; has similar catalog metadata to a song you liked: All In — Flying Lotus",
+            "evidence": {
+              "requested_genres": [],
+              "requested_moods": [],
+              "shared_styles": [],
+              "shared_genres": [
+                "electronic",
+                "hip hop",
+                "rock"
+              ],
+              "shared_playlist_artist": false,
+              "liked_track_id": "b9db433d-c130-40c7-bdd0-3fba8c8e41d7",
+              "liked_similarity": 0.8151997923851013,
+              "feedback_delta": 0.15414269984915108,
+              "ranking": {
+                "feedback_applied": true,
+                "feedback_query_used_for_retrieval": true,
+                "new_to_original_pool": true,
+                "seed_candidate": true,
+                "liked_artist_match": true,
+                "positive_style_similarity": 1.0,
+                "negative_style_similarity": 0.07537783614444091,
+                "requested_genres": [
+                  "jazz"
+                ],
+                "requested_moods": [],
+                "mood_match": [],
+                "original_cosine": 0.5918693542480469,
+                "updated_cosine": 0.746012054097198,
+                "liked_track_id": "b9db433d-c130-40c7-bdd0-3fba8c8e41d7",
+                "liked_similarity": 0.8151997923851013,
+                "feedback_path": "adaptive_catalog",
+                "outside_r1_pool": true,
+                "usable_feedback_ids": [
+                  "e0957a07-6333-47f4-933e-8092fc9a6db9",
+                  "3350ba48-0ffd-4c1d-b760-c50174e0c37f",
+                  "b9db433d-c130-40c7-bdd0-3fba8c8e41d7",
+                  "cca98648-db5b-4426-9574-95fd316490a6"
+                ],
+                "unavailable_feedback_ids": [],
+                "scores": {
+                  "rrf": 0.00390625,
+                  "fusion_prior": 0.19062500000000002,
+                  "context": 0.7524578487924938,
+                  "positive_cosine": 0.7577279210090637,
+                  "negative_cosine": 0.6490399837493896,
+                  "mood_fit": 0.0,
+                  "feedback_influence": 0.8,
+                  "before_diversity": 0.640091279033995,
+                  "final": 0.560091279033995,
+                  "feedback_delta": 0.15414269984915108
+                }
+              }
+            },
+            "scores": {
+              "rrf": 0.00390625,
+              "fusion_prior": 0.19062500000000002,
+              "context": 0.7524578487924938,
+              "positive_cosine": 0.7577279210090637,
+              "negative_cosine": 0.6490399837493896,
+              "mood_fit": 0.0,
+              "feedback_influence": 0.8,
+              "before_diversity": 0.640091279033995,
+              "final": 0.560091279033995,
+              "feedback_delta": 0.15414269984915108
+            }
+          },
+          {
+            "track_id": "a6a19596-aae9-4fd4-a6aa-90b69330128e",
+            "track_name": "Only If You Wanna",
+            "artist_name": "Flying Lotus",
+            "album_name": "Until The Quiet Comes",
+            "release_date": "2012-10-01",
+            "tag_list": [
+              "experimental",
+              "Dance",
+              "warp",
+              "ethereal",
+              "modern-jazz",
+              "american",
+              "ambient",
+              "1 minute songs",
+              "instrumental",
+              "10s",
+              "Rock",
+              "acid jazz",
+              "instrumental hip-hop",
+              "los angeles",
+              "indie",
+              "jazz",
+              "2012",
+              "trip-hop",
+              "electronic",
+              "Electronic",
+              "hip-hop"
+            ],
+            "popularity": 0.0,
+            "explanation": "matches your requested genres: jazz; shares genres: electronic, hip hop, rock; has similar catalog metadata to a song you liked: All In — Flying Lotus",
+            "evidence": {
+              "requested_genres": [
+                "jazz"
+              ],
+              "requested_moods": [],
+              "shared_styles": [],
+              "shared_genres": [
+                "electronic",
+                "hip hop",
+                "rock"
+              ],
+              "shared_playlist_artist": false,
+              "liked_track_id": "b9db433d-c130-40c7-bdd0-3fba8c8e41d7",
+              "liked_similarity": 0.8352389335632324,
+              "feedback_delta": 0.21694347546349357,
+              "ranking": {
+                "feedback_applied": true,
+                "feedback_query_used_for_retrieval": true,
+                "new_to_original_pool": true,
+                "seed_candidate": true,
+                "liked_artist_match": true,
+                "positive_style_similarity": 1.0,
+                "negative_style_similarity": 0.07537783614444091,
+                "requested_genres": [
+                  "jazz"
+                ],
+                "requested_moods": [],
+                "mood_match": [],
+                "original_cosine": 0.4626752734184265,
+                "updated_cosine": 0.6796187488819201,
+                "liked_track_id": "b9db433d-c130-40c7-bdd0-3fba8c8e41d7",
+                "liked_similarity": 0.8352389335632324,
+                "feedback_path": "adaptive_catalog",
+                "outside_r1_pool": true,
+                "usable_feedback_ids": [
+                  "e0957a07-6333-47f4-933e-8092fc9a6db9",
+                  "3350ba48-0ffd-4c1d-b760-c50174e0c37f",
+                  "b9db433d-c130-40c7-bdd0-3fba8c8e41d7",
+                  "cca98648-db5b-4426-9574-95fd316490a6"
+                ],
+                "unavailable_feedback_ids": [],
+                "scores": {
+                  "rrf": 0,
+                  "fusion_prior": 0.0,
+                  "context": 0.7812662637285595,
+                  "positive_cosine": 0.7813876271247864,
+                  "negative_cosine": 0.5584876537322998,
+                  "mood_fit": 0.0,
+                  "feedback_influence": 0.8,
+                  "before_diversity": 0.6250130109828476,
+                  "final": 0.5050130109828476,
+                  "feedback_delta": 0.21694347546349357
+                }
+              }
+            },
+            "scores": {
+              "rrf": 0,
+              "fusion_prior": 0.0,
+              "context": 0.7812662637285595,
+              "positive_cosine": 0.7813876271247864,
+              "negative_cosine": 0.5584876537322998,
+              "mood_fit": 0.0,
+              "feedback_influence": 0.8,
+              "before_diversity": 0.6250130109828476,
+              "final": 0.5050130109828476,
+              "feedback_delta": 0.21694347546349357
+            }
+          },
+          {
+            "track_id": "f754a572-9d50-4594-80d1-008c932aa35b",
+            "track_name": "Tiny Tortures",
+            "artist_name": "Flying Lotus",
+            "album_name": "Until The Quiet Comes",
+            "release_date": "2012-10-01",
+            "tag_list": [
+              "experimental",
+              "Dance",
+              "warp",
+              "ethereal",
+              "american",
+              "ambient",
+              "instrumental",
+              "10s",
+              "Rock",
+              "relevant magazine",
+              "acid jazz",
+              "instrumental hip-hop",
+              "los angeles",
+              "damn this is art",
+              "music video",
+              "played",
+              "indie",
+              "2012",
+              "trip-hop",
+              "electronic",
+              "hip-hop",
+              "3 minute songs"
+            ],
+            "popularity": 0.0,
+            "explanation": "shares genres: electronic, hip hop, rock; has similar catalog metadata to a song you liked: All In — Flying Lotus",
+            "evidence": {
+              "requested_genres": [],
+              "requested_moods": [],
+              "shared_styles": [],
+              "shared_genres": [
+                "electronic",
+                "hip hop",
+                "rock"
+              ],
+              "shared_playlist_artist": false,
+              "liked_track_id": "b9db433d-c130-40c7-bdd0-3fba8c8e41d7",
+              "liked_similarity": 0.806190013885498,
+              "feedback_delta": 0.21820992053338306,
+              "ranking": {
+                "feedback_applied": true,
+                "feedback_query_used_for_retrieval": true,
+                "new_to_original_pool": true,
+                "seed_candidate": true,
+                "liked_artist_match": true,
+                "positive_style_similarity": 1.0,
+                "negative_style_similarity": 0.07537783614444091,
+                "requested_genres": [
+                  "jazz"
+                ],
+                "requested_moods": [],
+                "mood_match": [],
+                "original_cosine": 0.44997623562812805,
+                "updated_cosine": 0.6681861561615111,
+                "liked_track_id": "b9db433d-c130-40c7-bdd0-3fba8c8e41d7",
+                "liked_similarity": 0.806190013885498,
+                "feedback_path": "adaptive_catalog",
+                "outside_r1_pool": true,
+                "usable_feedback_ids": [
+                  "e0957a07-6333-47f4-933e-8092fc9a6db9",
+                  "3350ba48-0ffd-4c1d-b760-c50174e0c37f",
+                  "b9db433d-c130-40c7-bdd0-3fba8c8e41d7",
+                  "cca98648-db5b-4426-9574-95fd316490a6"
+                ],
+                "unavailable_feedback_ids": [],
+                "scores": {
+                  "rrf": 0,
+                  "fusion_prior": 0.0,
+                  "context": 0.7807387365452652,
+                  "positive_cosine": 0.7587020993232727,
+                  "negative_cosine": 0.5008063912391663,
+                  "mood_fit": 0.0,
+                  "feedback_influence": 0.8,
+                  "before_diversity": 0.6245909892362121,
+                  "final": 0.4645909892362121,
+                  "feedback_delta": 0.21820992053338306
+                }
+              }
+            },
+            "scores": {
+              "rrf": 0,
+              "fusion_prior": 0.0,
+              "context": 0.7807387365452652,
+              "positive_cosine": 0.7587020993232727,
+              "negative_cosine": 0.5008063912391663,
+              "mood_fit": 0.0,
+              "feedback_influence": 0.8,
+              "before_diversity": 0.6245909892362121,
+              "final": 0.4645909892362121,
+              "feedback_delta": 0.21820992053338306
+            }
+          }
+        ]
+      },
+      "feedback_status": {
+        "votes": {
+          "e0957a07-6333-47f4-933e-8092fc9a6db9": 1,
+          "3350ba48-0ffd-4c1d-b760-c50174e0c37f": -1,
+          "b9db433d-c130-40c7-bdd0-3fba8c8e41d7": 1,
+          "cca98648-db5b-4426-9574-95fd316490a6": 1
+        },
+        "valid_batch_ids": [
+          "ed19077c-aea5-4553-b2b2-185d38f46a7f",
+          "5f777f6f-bc5c-4dae-b667-75f8c08065aa",
+          "20b0654c-c032-4657-8473-967b90f4d492",
+          "dd93f436-6d47-461c-92cb-51ae66612896",
+          "6b758cb6-5643-438e-b2de-57d00ef48985",
+          "b1f9766c-cfe8-4425-8c90-f2a38f4e2b8d",
+          "0207397f-8cbe-4e50-bf8c-26456afd4e84",
+          "e0f6d2b9-53e4-41d7-8b7a-59faf0a12887"
+        ]
+      }
+    },
+    {
+      "query": "I like track 2 and I did not like track 99",
+      "event": "message",
+      "response": "Please choose recommendation numbers from 1 to 5. I haven't changed your preferences.",
+      "backend_response_ms": 284.145042009186,
+      "recommendations": null,
+      "feedback_status": {
+        "votes": {
+          "e0957a07-6333-47f4-933e-8092fc9a6db9": 1,
+          "3350ba48-0ffd-4c1d-b760-c50174e0c37f": -1,
+          "b9db433d-c130-40c7-bdd0-3fba8c8e41d7": 1,
+          "cca98648-db5b-4426-9574-95fd316490a6": 1
+        },
+        "valid_batch_ids": [
+          "ed19077c-aea5-4553-b2b2-185d38f46a7f",
+          "5f777f6f-bc5c-4dae-b667-75f8c08065aa",
+          "20b0654c-c032-4657-8473-967b90f4d492",
+          "dd93f436-6d47-461c-92cb-51ae66612896",
+          "6b758cb6-5643-438e-b2de-57d00ef48985",
+          "b1f9766c-cfe8-4425-8c90-f2a38f4e2b8d",
+          "0207397f-8cbe-4e50-bf8c-26456afd4e84",
+          "e0f6d2b9-53e4-41d7-8b7a-59faf0a12887"
+        ]
+      }
+    },
+    {
+      "query": "Recommend jazz music",
+      "event": "message",
+      "response": "Here are recommendations matching your request:\n1. Until The Colours Come — Flying Lotus (Until The Quiet Comes)\n2. Dream To Me — Flying Lotus (Until The Quiet Comes)\n3. Heave(n) — Flying Lotus (Until The Quiet Comes)\n4. Only If You Wanna — Flying Lotus (Until The Quiet Comes)\n5. Tiny Tortures — Flying Lotus (Until The Quiet Comes)\nYou can say 'add all', 'add the first two', or 'add them except the one by [artist]'.",
+      "backend_response_ms": 15442.183708015364,
+      "recommendations": {
+        "batch_id": "363e3f8e-e21f-4971-ae9c-58601afabd07",
+        "tracks": [
+          {
+            "track_id": "63f2f2ad-88be-491f-a10d-631fbc724b3f",
+            "track_name": "Until The Colours Come",
+            "artist_name": "Flying Lotus",
+            "album_name": "Until The Quiet Comes",
+            "release_date": "2012-10-01",
+            "tag_list": [
+              "experimental",
+              "bass",
+              "Dance",
+              "warp",
+              "title tracks",
+              "robertitus coleccion",
+              "american",
+              "nu jazz",
+              "ambient",
+              "instrumental",
+              "title track",
+              "10s",
+              "2 minute songs",
+              "Rock",
+              "acid jazz",
+              "instrumental hip-hop",
+              "los angeles",
+              "indie",
+              "2012",
+              "trip-hop",
+              "electronic",
+              "Electronic",
+              "hip-hop"
+            ],
+            "popularity": 0.0,
+            "explanation": "shares genres: electronic, hip hop, rock; has similar catalog metadata to a song you liked: All In — Flying Lotus",
+            "evidence": {
+              "requested_genres": [],
+              "requested_moods": [],
+              "shared_styles": [],
+              "shared_genres": [
+                "electronic",
+                "hip hop",
+                "rock"
+              ],
+              "shared_playlist_artist": false,
+              "liked_track_id": "b9db433d-c130-40c7-bdd0-3fba8c8e41d7",
+              "liked_similarity": 0.8642005920410156,
+              "feedback_delta": 0.20580875864472714,
+              "ranking": {
+                "feedback_applied": true,
+                "feedback_query_used_for_retrieval": true,
+                "new_to_original_pool": true,
+                "seed_candidate": true,
+                "liked_artist_match": true,
+                "positive_style_similarity": 1.0,
+                "negative_style_similarity": 0.07537783614444091,
+                "requested_genres": [
+                  "jazz"
+                ],
+                "requested_moods": [],
+                "mood_match": [],
+                "original_cosine": 0.5214706659317017,
+                "updated_cosine": 0.7272794245764288,
+                "liked_track_id": "b9db433d-c130-40c7-bdd0-3fba8c8e41d7",
+                "liked_similarity": 0.8642005920410156,
+                "feedback_path": "adaptive_catalog",
+                "outside_r1_pool": true,
+                "usable_feedback_ids": [
+                  "e0957a07-6333-47f4-933e-8092fc9a6db9",
+                  "3350ba48-0ffd-4c1d-b760-c50174e0c37f",
+                  "b9db433d-c130-40c7-bdd0-3fba8c8e41d7",
+                  "cca98648-db5b-4426-9574-95fd316490a6"
+                ],
+                "unavailable_feedback_ids": [],
+                "scores": {
+                  "rrf": 0.0036231884057971015,
+                  "fusion_prior": 0.17681159420289858,
+                  "context": 0.7837341791443233,
+                  "positive_cosine": 0.8013980984687805,
+                  "negative_cosine": 0.598686695098877,
+                  "mood_fit": 0.0,
+                  "feedback_influence": 0.8,
+                  "before_diversity": 0.6623496621560384,
+                  "final": 0.6623496621560384,
+                  "feedback_delta": 0.20580875864472714
+                }
+              }
+            },
+            "scores": {
+              "rrf": 0.0036231884057971015,
+              "fusion_prior": 0.17681159420289858,
+              "context": 0.7837341791443233,
+              "positive_cosine": 0.8013980984687805,
+              "negative_cosine": 0.598686695098877,
+              "mood_fit": 0.0,
+              "feedback_influence": 0.8,
+              "before_diversity": 0.6623496621560384,
+              "final": 0.6623496621560384,
+              "feedback_delta": 0.20580875864472714
+            }
+          },
+          {
+            "track_id": "8f9cee21-50be-4fd8-aa10-b3d71713774f",
+            "track_name": "Dream To Me",
+            "artist_name": "Flying Lotus",
+            "album_name": "Until The Quiet Comes",
+            "release_date": "2012-10-01",
+            "tag_list": [
+              "experimental",
+              "Dance",
+              "warp",
+              "ethereal",
+              "american",
+              "ambient",
+              "1 minute songs",
+              "instrumental",
+              "chillout",
+              "10s",
+              "Rock",
+              "acid jazz",
+              "instrumental hip-hop",
+              "los angeles",
+              "played",
+              "indie",
+              "2012",
+              "trip-hop",
+              "electronic",
+              "Electronic",
+              "hip-hop"
+            ],
+            "popularity": 0.0,
+            "explanation": "shares genres: electronic, hip hop, rock; has similar catalog metadata to a song you liked: All In — Flying Lotus",
+            "evidence": {
+              "requested_genres": [],
+              "requested_moods": [],
+              "shared_styles": [],
+              "shared_genres": [
+                "electronic",
+                "hip hop",
+                "rock"
+              ],
+              "shared_playlist_artist": false,
+              "liked_track_id": "b9db433d-c130-40c7-bdd0-3fba8c8e41d7",
+              "liked_similarity": 0.8239105939865112,
+              "feedback_delta": 0.21767191018726795,
+              "ranking": {
+                "feedback_applied": true,
+                "feedback_query_used_for_retrieval": true,
+                "new_to_original_pool": true,
+                "seed_candidate": true,
+                "liked_artist_match": true,
+                "positive_style_similarity": 1.0,
+                "negative_style_similarity": 0.07537783614444091,
+                "requested_genres": [
+                  "jazz"
+                ],
+                "requested_moods": [],
+                "mood_match": [],
+                "original_cosine": 0.49376487731933594,
+                "updated_cosine": 0.7114367875066039,
+                "liked_track_id": "b9db433d-c130-40c7-bdd0-3fba8c8e41d7",
+                "liked_similarity": 0.8239105939865112,
+                "feedback_path": "adaptive_catalog",
+                "outside_r1_pool": true,
+                "usable_feedback_ids": [
+                  "e0957a07-6333-47f4-933e-8092fc9a6db9",
+                  "3350ba48-0ffd-4c1d-b760-c50174e0c37f",
+                  "b9db433d-c130-40c7-bdd0-3fba8c8e41d7",
+                  "cca98648-db5b-4426-9574-95fd316490a6"
+                ],
+                "unavailable_feedback_ids": [],
+                "scores": {
+                  "rrf": 0.003048780487804878,
+                  "fusion_prior": 0.14878048780487807,
+                  "context": 0.7897008946589832,
+                  "positive_cosine": 0.7840957641601562,
+                  "negative_cosine": 0.5207246541976929,
+                  "mood_fit": 0.0,
+                  "feedback_influence": 0.8,
+                  "before_diversity": 0.6615168132881623,
+                  "final": 0.6215168132881622,
+                  "feedback_delta": 0.21767191018726795
+                }
+              }
+            },
+            "scores": {
+              "rrf": 0.003048780487804878,
+              "fusion_prior": 0.14878048780487807,
+              "context": 0.7897008946589832,
+              "positive_cosine": 0.7840957641601562,
+              "negative_cosine": 0.5207246541976929,
+              "mood_fit": 0.0,
+              "feedback_influence": 0.8,
+              "before_diversity": 0.6615168132881623,
+              "final": 0.6215168132881622,
+              "feedback_delta": 0.21767191018726795
+            }
+          },
+          {
+            "track_id": "390802ac-8a69-48bb-b978-e674f003f3d5",
+            "track_name": "Heave(n)",
+            "artist_name": "Flying Lotus",
+            "album_name": "Until The Quiet Comes",
+            "release_date": "2012-10-01",
+            "tag_list": [
+              "experimental",
+              "Dance",
+              "warp",
+              "ethereal",
+              "american",
+              "ambient",
+              "instrumental",
+              "10s",
+              "2 minute songs",
+              "Rock",
+              "acid jazz",
+              "1live fiehe",
+              "instrumental hip-hop",
+              "los angeles",
+              "indie",
+              "2012",
+              "trip-hop",
+              "electronic",
+              "luvedtrax",
+              "vocal samples",
+              "hip-hop"
+            ],
+            "popularity": 0.0,
+            "explanation": "shares genres: electronic, hip hop, rock; has similar catalog metadata to a song you liked: All In — Flying Lotus",
+            "evidence": {
+              "requested_genres": [],
+              "requested_moods": [],
+              "shared_styles": [],
+              "shared_genres": [
+                "electronic",
+                "hip hop",
+                "rock"
+              ],
+              "shared_playlist_artist": false,
+              "liked_track_id": "b9db433d-c130-40c7-bdd0-3fba8c8e41d7",
+              "liked_similarity": 0.8151997923851013,
+              "feedback_delta": 0.15414269984915108,
+              "ranking": {
+                "feedback_applied": true,
+                "feedback_query_used_for_retrieval": true,
+                "new_to_original_pool": true,
+                "seed_candidate": true,
+                "liked_artist_match": true,
+                "positive_style_similarity": 1.0,
+                "negative_style_similarity": 0.07537783614444091,
+                "requested_genres": [
+                  "jazz"
+                ],
+                "requested_moods": [],
+                "mood_match": [],
+                "original_cosine": 0.5918693542480469,
+                "updated_cosine": 0.746012054097198,
+                "liked_track_id": "b9db433d-c130-40c7-bdd0-3fba8c8e41d7",
+                "liked_similarity": 0.8151997923851013,
+                "feedback_path": "adaptive_catalog",
+                "outside_r1_pool": true,
+                "usable_feedback_ids": [
+                  "e0957a07-6333-47f4-933e-8092fc9a6db9",
+                  "3350ba48-0ffd-4c1d-b760-c50174e0c37f",
+                  "b9db433d-c130-40c7-bdd0-3fba8c8e41d7",
+                  "cca98648-db5b-4426-9574-95fd316490a6"
+                ],
+                "unavailable_feedback_ids": [],
+                "scores": {
+                  "rrf": 0.00390625,
+                  "fusion_prior": 0.19062500000000002,
+                  "context": 0.7524578487924938,
+                  "positive_cosine": 0.7577279210090637,
+                  "negative_cosine": 0.6490399837493896,
+                  "mood_fit": 0.0,
+                  "feedback_influence": 0.8,
+                  "before_diversity": 0.640091279033995,
+                  "final": 0.560091279033995,
+                  "feedback_delta": 0.15414269984915108
+                }
+              }
+            },
+            "scores": {
+              "rrf": 0.00390625,
+              "fusion_prior": 0.19062500000000002,
+              "context": 0.7524578487924938,
+              "positive_cosine": 0.7577279210090637,
+              "negative_cosine": 0.6490399837493896,
+              "mood_fit": 0.0,
+              "feedback_influence": 0.8,
+              "before_diversity": 0.640091279033995,
+              "final": 0.560091279033995,
+              "feedback_delta": 0.15414269984915108
+            }
+          },
+          {
+            "track_id": "a6a19596-aae9-4fd4-a6aa-90b69330128e",
+            "track_name": "Only If You Wanna",
+            "artist_name": "Flying Lotus",
+            "album_name": "Until The Quiet Comes",
+            "release_date": "2012-10-01",
+            "tag_list": [
+              "experimental",
+              "Dance",
+              "warp",
+              "ethereal",
+              "modern-jazz",
+              "american",
+              "ambient",
+              "1 minute songs",
+              "instrumental",
+              "10s",
+              "Rock",
+              "acid jazz",
+              "instrumental hip-hop",
+              "los angeles",
+              "indie",
+              "jazz",
+              "2012",
+              "trip-hop",
+              "electronic",
+              "Electronic",
+              "hip-hop"
+            ],
+            "popularity": 0.0,
+            "explanation": "matches your requested genres: jazz; shares genres: electronic, hip hop, rock; has similar catalog metadata to a song you liked: All In — Flying Lotus",
+            "evidence": {
+              "requested_genres": [
+                "jazz"
+              ],
+              "requested_moods": [],
+              "shared_styles": [],
+              "shared_genres": [
+                "electronic",
+                "hip hop",
+                "rock"
+              ],
+              "shared_playlist_artist": false,
+              "liked_track_id": "b9db433d-c130-40c7-bdd0-3fba8c8e41d7",
+              "liked_similarity": 0.8352389335632324,
+              "feedback_delta": 0.21694347546349357,
+              "ranking": {
+                "feedback_applied": true,
+                "feedback_query_used_for_retrieval": true,
+                "new_to_original_pool": true,
+                "seed_candidate": true,
+                "liked_artist_match": true,
+                "positive_style_similarity": 1.0,
+                "negative_style_similarity": 0.07537783614444091,
+                "requested_genres": [
+                  "jazz"
+                ],
+                "requested_moods": [],
+                "mood_match": [],
+                "original_cosine": 0.4626752734184265,
+                "updated_cosine": 0.6796187488819201,
+                "liked_track_id": "b9db433d-c130-40c7-bdd0-3fba8c8e41d7",
+                "liked_similarity": 0.8352389335632324,
+                "feedback_path": "adaptive_catalog",
+                "outside_r1_pool": true,
+                "usable_feedback_ids": [
+                  "e0957a07-6333-47f4-933e-8092fc9a6db9",
+                  "3350ba48-0ffd-4c1d-b760-c50174e0c37f",
+                  "b9db433d-c130-40c7-bdd0-3fba8c8e41d7",
+                  "cca98648-db5b-4426-9574-95fd316490a6"
+                ],
+                "unavailable_feedback_ids": [],
+                "scores": {
+                  "rrf": 0,
+                  "fusion_prior": 0.0,
+                  "context": 0.7812662637285595,
+                  "positive_cosine": 0.7813876271247864,
+                  "negative_cosine": 0.5584876537322998,
+                  "mood_fit": 0.0,
+                  "feedback_influence": 0.8,
+                  "before_diversity": 0.6250130109828476,
+                  "final": 0.5050130109828476,
+                  "feedback_delta": 0.21694347546349357
+                }
+              }
+            },
+            "scores": {
+              "rrf": 0,
+              "fusion_prior": 0.0,
+              "context": 0.7812662637285595,
+              "positive_cosine": 0.7813876271247864,
+              "negative_cosine": 0.5584876537322998,
+              "mood_fit": 0.0,
+              "feedback_influence": 0.8,
+              "before_diversity": 0.6250130109828476,
+              "final": 0.5050130109828476,
+              "feedback_delta": 0.21694347546349357
+            }
+          },
+          {
+            "track_id": "f754a572-9d50-4594-80d1-008c932aa35b",
+            "track_name": "Tiny Tortures",
+            "artist_name": "Flying Lotus",
+            "album_name": "Until The Quiet Comes",
+            "release_date": "2012-10-01",
+            "tag_list": [
+              "experimental",
+              "Dance",
+              "warp",
+              "ethereal",
+              "american",
+              "ambient",
+              "instrumental",
+              "10s",
+              "Rock",
+              "relevant magazine",
+              "acid jazz",
+              "instrumental hip-hop",
+              "los angeles",
+              "damn this is art",
+              "music video",
+              "played",
+              "indie",
+              "2012",
+              "trip-hop",
+              "electronic",
+              "hip-hop",
+              "3 minute songs"
+            ],
+            "popularity": 0.0,
+            "explanation": "shares genres: electronic, hip hop, rock; has similar catalog metadata to a song you liked: All In — Flying Lotus",
+            "evidence": {
+              "requested_genres": [],
+              "requested_moods": [],
+              "shared_styles": [],
+              "shared_genres": [
+                "electronic",
+                "hip hop",
+                "rock"
+              ],
+              "shared_playlist_artist": false,
+              "liked_track_id": "b9db433d-c130-40c7-bdd0-3fba8c8e41d7",
+              "liked_similarity": 0.806190013885498,
+              "feedback_delta": 0.21820992053338306,
+              "ranking": {
+                "feedback_applied": true,
+                "feedback_query_used_for_retrieval": true,
+                "new_to_original_pool": true,
+                "seed_candidate": true,
+                "liked_artist_match": true,
+                "positive_style_similarity": 1.0,
+                "negative_style_similarity": 0.07537783614444091,
+                "requested_genres": [
+                  "jazz"
+                ],
+                "requested_moods": [],
+                "mood_match": [],
+                "original_cosine": 0.44997623562812805,
+                "updated_cosine": 0.6681861561615111,
+                "liked_track_id": "b9db433d-c130-40c7-bdd0-3fba8c8e41d7",
+                "liked_similarity": 0.806190013885498,
+                "feedback_path": "adaptive_catalog",
+                "outside_r1_pool": true,
+                "usable_feedback_ids": [
+                  "e0957a07-6333-47f4-933e-8092fc9a6db9",
+                  "3350ba48-0ffd-4c1d-b760-c50174e0c37f",
+                  "b9db433d-c130-40c7-bdd0-3fba8c8e41d7",
+                  "cca98648-db5b-4426-9574-95fd316490a6"
+                ],
+                "unavailable_feedback_ids": [],
+                "scores": {
+                  "rrf": 0,
+                  "fusion_prior": 0.0,
+                  "context": 0.7807387365452652,
+                  "positive_cosine": 0.7587020993232727,
+                  "negative_cosine": 0.5008063912391663,
+                  "mood_fit": 0.0,
+                  "feedback_influence": 0.8,
+                  "before_diversity": 0.6245909892362121,
+                  "final": 0.4645909892362121,
+                  "feedback_delta": 0.21820992053338306
+                }
+              }
+            },
+            "scores": {
+              "rrf": 0,
+              "fusion_prior": 0.0,
+              "context": 0.7807387365452652,
+              "positive_cosine": 0.7587020993232727,
+              "negative_cosine": 0.5008063912391663,
+              "mood_fit": 0.0,
+              "feedback_influence": 0.8,
+              "before_diversity": 0.6245909892362121,
+              "final": 0.4645909892362121,
+              "feedback_delta": 0.21820992053338306
+            }
+          }
+        ]
+      },
+      "feedback_status": {
+        "votes": {
+          "e0957a07-6333-47f4-933e-8092fc9a6db9": 1,
+          "3350ba48-0ffd-4c1d-b760-c50174e0c37f": -1,
+          "b9db433d-c130-40c7-bdd0-3fba8c8e41d7": 1,
+          "cca98648-db5b-4426-9574-95fd316490a6": 1
+        },
+        "valid_batch_ids": [
+          "ed19077c-aea5-4553-b2b2-185d38f46a7f",
+          "5f777f6f-bc5c-4dae-b667-75f8c08065aa",
+          "20b0654c-c032-4657-8473-967b90f4d492",
+          "dd93f436-6d47-461c-92cb-51ae66612896",
+          "6b758cb6-5643-438e-b2de-57d00ef48985",
+          "b1f9766c-cfe8-4425-8c90-f2a38f4e2b8d",
+          "0207397f-8cbe-4e50-bf8c-26456afd4e84",
+          "e0f6d2b9-53e4-41d7-8b7a-59faf0a12887",
+          "363e3f8e-e21f-4971-ae9c-58601afabd07"
+        ]
+      }
+    },
+    {
+      "query": "Rate a track from the original batch",
+      "event": "feedback",
+      "response": "Noted: you disliked A Song Request — Richard Cheese (I'd Like A Virgin). I'll use that in subsequent recommendations.",
+      "backend_response_ms": 1.910457998747006,
+      "recommendations": null,
+      "feedback_status": {
+        "votes": {
+          "e0957a07-6333-47f4-933e-8092fc9a6db9": 1,
+          "3350ba48-0ffd-4c1d-b760-c50174e0c37f": -1,
+          "b9db433d-c130-40c7-bdd0-3fba8c8e41d7": 1,
+          "cca98648-db5b-4426-9574-95fd316490a6": 1,
+          "ecaea2e3-df2d-41e6-800d-7151f5652dfc": -1
+        },
+        "valid_batch_ids": [
+          "ed19077c-aea5-4553-b2b2-185d38f46a7f",
+          "5f777f6f-bc5c-4dae-b667-75f8c08065aa",
+          "20b0654c-c032-4657-8473-967b90f4d492",
+          "dd93f436-6d47-461c-92cb-51ae66612896",
+          "6b758cb6-5643-438e-b2de-57d00ef48985",
+          "b1f9766c-cfe8-4425-8c90-f2a38f4e2b8d",
+          "0207397f-8cbe-4e50-bf8c-26456afd4e84",
+          "e0f6d2b9-53e4-41d7-8b7a-59faf0a12887",
+          "363e3f8e-e21f-4971-ae9c-58601afabd07"
+        ]
+      }
+    },
+    {
+      "query": "Reset my feedback",
+      "event": "message",
+      "response": "I've cleared your feedback and exclusions for this conversation.",
+      "backend_response_ms": 0.4544580006040633,
+      "recommendations": null,
+      "feedback_status": {
+        "votes": {},
+        "valid_batch_ids": [
+          "ed19077c-aea5-4553-b2b2-185d38f46a7f",
+          "5f777f6f-bc5c-4dae-b667-75f8c08065aa",
+          "20b0654c-c032-4657-8473-967b90f4d492",
+          "dd93f436-6d47-461c-92cb-51ae66612896",
+          "6b758cb6-5643-438e-b2de-57d00ef48985",
+          "b1f9766c-cfe8-4425-8c90-f2a38f4e2b8d",
+          "0207397f-8cbe-4e50-bf8c-26456afd4e84",
+          "e0f6d2b9-53e4-41d7-8b7a-59faf0a12887",
+          "363e3f8e-e21f-4971-ae9c-58601afabd07"
+        ]
+      }
+    },
+    {
+      "query": "Recommend rock music",
+      "event": "message",
+      "response": "Here are recommendations matching your request:\n1. A Song Request — Richard Cheese (I'd Like A Virgin)\n2. Sultan’s Request — Flying Lotus (Until The Quiet Comes)\n3. Radio #2 — The Ataris (So Long, Astoria)\n4. Brighter — Against The Current (In Our Bones)\n5. Doomed User — Deftones (Gore, Doomed User)\nYou can say 'add all', 'add the first two', or 'add them except the one by [artist]'.",
+      "backend_response_ms": 14118.927333009196,
+      "recommendations": {
+        "batch_id": "9982a71f-0ab4-499f-966e-f36c1549b1ae",
+        "tracks": [
+          {
+            "track_id": "ecaea2e3-df2d-41e6-800d-7151f5652dfc",
+            "track_name": "A Song Request",
+            "artist_name": "Richard Cheese",
+            "album_name": "I'd Like A Virgin",
+            "release_date": "2004-01-01",
+            "tag_list": [
+              "lounge rock",
+              "Dance",
+              "richard cheese",
+              "Rock",
+              "00s",
+              "Jazz",
+              "comedy",
+              "cheese",
+              "jazz",
+              "lounge",
+              "alternative"
+            ],
+            "popularity": 0.0,
+            "explanation": "matches your requested genres: rock; shares genres: alternative, rock",
+            "evidence": {
+              "requested_genres": [
+                "rock"
+              ],
+              "requested_moods": [],
+              "shared_styles": [],
+              "shared_genres": [
+                "alternative",
+                "rock"
+              ],
+              "shared_playlist_artist": false,
+              "ranking": {
+                "liked_artist_match": false,
+                "feedback_path": "r1_pool_rocchio",
+                "scores": {
+                  "rank_prior": 0.9,
+                  "base": 0.9,
+                  "feedback_delta": 0.0,
+                  "final": 0.9
+                }
+              }
+            },
+            "scores": {
+              "rank_prior": 0.9,
+              "base": 0.9,
+              "feedback_delta": 0.0,
+              "final": 0.9
+            }
+          },
+          {
+            "track_id": "e0957a07-6333-47f4-933e-8092fc9a6db9",
+            "track_name": "Sultan’s Request",
+            "artist_name": "Flying Lotus",
+            "album_name": "Until The Quiet Comes",
+            "release_date": "2012-10-01",
+            "tag_list": [
+              "experimental",
+              "bass",
+              "Dance",
+              "warp",
+              "american",
+              "1 minute songs",
+              "instrumental",
+              "10s",
+              "Rock",
+              "instrumental hip-hop",
+              "los angeles",
+              "dat bass",
+              "indie",
+              "2012",
+              "trip-hop",
+              "electronic",
+              "hip hop",
+              "hip-hop",
+              "glitch-hop",
+              "idm"
+            ],
+            "popularity": 0.0,
+            "explanation": "matches your requested genres: rock; shares genres: electronic, hip hop, rock",
+            "evidence": {
+              "requested_genres": [
+                "rock"
+              ],
+              "requested_moods": [],
+              "shared_styles": [],
+              "shared_genres": [
+                "electronic",
+                "hip hop",
+                "rock"
+              ],
+              "shared_playlist_artist": false,
+              "ranking": {
+                "liked_artist_match": false,
+                "feedback_path": "r1_pool_rocchio",
+                "scores": {
+                  "rank_prior": 0.85,
+                  "base": 0.85,
+                  "feedback_delta": 0.0,
+                  "final": 0.85
+                }
+              }
+            },
+            "scores": {
+              "rank_prior": 0.85,
+              "base": 0.85,
+              "feedback_delta": 0.0,
+              "final": 0.85
+            }
+          },
+          {
+            "track_id": "1e6cce65-a976-49e9-aeb2-8bea1ab86f51",
+            "track_name": "Radio #2",
+            "artist_name": "The Ataris",
+            "album_name": "So Long, Astoria",
+            "release_date": "2003-03-04",
+            "tag_list": [
+              "punk",
+              "pop punk",
+              "Punk",
+              "the ataris - radio number2",
+              "alternative rock",
+              "high school",
+              "amazing",
+              "catchy",
+              "tripstak",
+              "rock",
+              "the ataris",
+              "punk rock",
+              "revolution",
+              "punk favorites",
+              "request lines",
+              "favorites",
+              "Alternative",
+              "nhl 2004",
+              "radio sucks",
+              "Rock",
+              "screamo",
+              "california",
+              "pop-punk",
+              "favorite bands",
+              "sex pistols",
+              "seen live",
+              "good song",
+              "wake up music",
+              "radio",
+              "driving tunes alternative mix",
+              "rock music",
+              "indie",
+              "alternative",
+              "radio 2",
+              "emo",
+              "pop punk favorites",
+              "pick-me-up",
+              "teen punk",
+              "reminiscent",
+              "cool"
+            ],
+            "popularity": 34.0,
+            "explanation": "matches your requested genres: rock; shares styles: alternative rock, punk rock",
+            "evidence": {
+              "requested_genres": [
+                "rock"
+              ],
+              "requested_moods": [],
+              "shared_styles": [
+                "alternative rock",
+                "punk rock"
+              ],
+              "shared_genres": [
+                "alternative",
+                "emo",
+                "punk",
+                "rock"
+              ],
+              "shared_playlist_artist": false,
+              "ranking": {
+                "liked_artist_match": false,
+                "feedback_path": "r1_pool_rocchio",
+                "scores": {
+                  "rank_prior": 0.8,
+                  "base": 0.8,
+                  "feedback_delta": 0.0,
+                  "final": 0.8
+                }
+              }
+            },
+            "scores": {
+              "rank_prior": 0.8,
+              "base": 0.8,
+              "feedback_delta": 0.0,
+              "final": 0.8
+            }
+          },
+          {
+            "track_id": "3350ba48-0ffd-4c1d-b760-c50174e0c37f",
+            "track_name": "Brighter",
+            "artist_name": "Against The Current",
+            "album_name": "In Our Bones",
+            "release_date": "2016-05-20",
+            "tag_list": [
+              "against the current",
+              "Alternative Rock",
+              "pop rock"
+            ],
+            "popularity": 36.0,
+            "explanation": "shares styles: alternative rock",
+            "evidence": {
+              "requested_genres": [],
+              "requested_moods": [],
+              "shared_styles": [
+                "alternative rock"
+              ],
+              "shared_genres": [
+                "alternative",
+                "pop"
+              ],
+              "shared_playlist_artist": false,
+              "ranking": {
+                "liked_artist_match": false,
+                "feedback_path": "r1_pool_rocchio",
+                "scores": {
+                  "rank_prior": 0.7,
+                  "base": 0.7,
+                  "feedback_delta": 0.0,
+                  "final": 0.7
+                }
+              }
+            },
+            "scores": {
+              "rank_prior": 0.7,
+              "base": 0.7,
+              "feedback_delta": 0.0,
+              "final": 0.7
+            }
+          },
+          {
+            "track_id": "0689a5f6-d2b4-43be-a502-c0de585cf724",
+            "track_name": "Doomed User",
+            "artist_name": "Deftones",
+            "album_name": "Gore, Doomed User",
+            "release_date": "2016-04-08",
+            "tag_list": [
+              "alternative metal",
+              "2016",
+              "nu metal",
+              "english lyrics",
+              "deftones",
+              "k1r7m",
+              "2010s",
+              "chino moreno",
+              "gore",
+              "progressive metal",
+              "male vocalist",
+              "alt metal",
+              "experimental rock",
+              "Rock",
+              "awesome guitar riff",
+              "alternative"
+            ],
+            "popularity": 50.0,
+            "explanation": "matches your requested genres: rock; shares styles: alternative metal, nu metal",
+            "evidence": {
+              "requested_genres": [
+                "rock"
+              ],
+              "requested_moods": [],
+              "shared_styles": [
+                "alternative metal",
+                "nu metal"
+              ],
+              "shared_genres": [
+                "alternative",
+                "rock"
+              ],
+              "shared_playlist_artist": false,
+              "ranking": {
+                "liked_artist_match": false,
+                "feedback_path": "r1_pool_rocchio",
+                "scores": {
+                  "rank_prior": 0.65,
+                  "base": 0.65,
+                  "feedback_delta": 0.0,
+                  "final": 0.65
+                }
+              }
+            },
+            "scores": {
+              "rank_prior": 0.65,
+              "base": 0.65,
+              "feedback_delta": 0.0,
+              "final": 0.65
+            }
+          }
+        ]
+      },
+      "feedback_status": {
+        "votes": {},
+        "valid_batch_ids": [
+          "ed19077c-aea5-4553-b2b2-185d38f46a7f",
+          "5f777f6f-bc5c-4dae-b667-75f8c08065aa",
+          "20b0654c-c032-4657-8473-967b90f4d492",
+          "dd93f436-6d47-461c-92cb-51ae66612896",
+          "6b758cb6-5643-438e-b2de-57d00ef48985",
+          "b1f9766c-cfe8-4425-8c90-f2a38f4e2b8d",
+          "0207397f-8cbe-4e50-bf8c-26456afd4e84",
+          "e0f6d2b9-53e4-41d7-8b7a-59faf0a12887",
+          "363e3f8e-e21f-4971-ae9c-58601afabd07",
+          "9982a71f-0ab4-499f-966e-f36c1549b1ae"
+        ]
+      }
+    }
+  ],
+  "latency_scope": "In-process Socket.IO, retrieval, feedback, explanations and serialization; browser/network excluded",
+  "quality_claim": "Integration correctness only; no human relevance assessment or new nDCG/Precision measurement."
+}

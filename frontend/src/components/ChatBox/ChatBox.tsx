@@ -11,6 +11,7 @@ import React, {
 import QuickReplyButton from "../QuickReply";
 import PlaylistPanel from "../PlaylistPanel";
 import RecommendationFeedback from "../RecommendationFeedback";
+import { FeedbackStatus, FeedbackStatusContext, parseFeedbackStatus } from "../../contexts/FeedbackStatusContext";
 
 import { useSocket } from "../../contexts/SocketContext";
 import { UserContext } from "../../contexts/UserContext";
@@ -70,6 +71,10 @@ export default function ChatBox() {
   const [playlist, setPlaylist] =
     useState<PlaylistTrack[]>([]);
   const [library, setLibrary] = useState<PlaylistLibrary | null>(null);
+  const [feedbackStatus, setFeedbackStatus] = useState<FeedbackStatus>({ votes: {}, validBatchIds: [] });
+  useEffect(() => {
+    if (!isConnected) setFeedbackStatus({ votes: {}, validBatchIds: [] });
+  }, [isConnected]);
 
   // ---------------------------------------------------------
   // Refs
@@ -155,6 +160,13 @@ export default function ChatBox() {
 
   const handelMessage = useCallback(
     (message: ChatMessage) => {
+      const feedbackState = message.dialogue_acts
+        ?.find((act) => act.intent === "FEEDBACK_STATE")
+        ?.annotations.find((item) => item.slot === "feedback_state_json");
+      if (feedbackState) {
+        const status = parseFeedbackStatus(feedbackState.value);
+        if (status) setFeedbackStatus(status);
+      }
       if (message.text) {
         const image_url =
           message.attachments?.find(
@@ -327,6 +339,7 @@ export default function ChatBox() {
 
       setPlaylist([]);
       setLibrary(null);
+      setFeedbackStatus({ votes: {}, validBatchIds: [] });
 
       chatMessagesRef.current = [];
     });
@@ -337,6 +350,7 @@ export default function ChatBox() {
   // ---------------------------------------------------------
 
   return (
+    <FeedbackStatusContext.Provider value={feedbackStatus}>
     <div className="musiccrs-layout">
 
       {/* =====================================================
@@ -472,5 +486,6 @@ export default function ChatBox() {
       />
 
     </div>
+    </FeedbackStatusContext.Provider>
   );
 }

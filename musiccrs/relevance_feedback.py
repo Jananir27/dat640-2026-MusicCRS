@@ -23,6 +23,20 @@ def values(value) -> list[str]:
     return [str(v).strip() for v in (value if isinstance(value, (list, tuple)) else [value]) if str(v).strip()]
 
 
+def artist_names(metadata) -> list[str]:
+    """Preserve band names and split only explicit featured-artist credits."""
+    result = []
+    for credit in values(metadata.get("artist_name")):
+        result.append(credit)
+        result.extend(part.strip(" ()") for part in re.split(
+            r"\s+(?:\(\s*)?(?:feat\.?|ft\.?|featuring)\s+", credit, flags=re.I))
+    return list(dict.fromkeys(name for name in result if name))
+
+
+def artist_keys(metadata) -> set[str]:
+    return {name_key(name) for name in artist_names(metadata)}
+
+
 @dataclass
 class FeedbackState:
     """Latest explicit vote wins; hard exclusions remain independent of votes."""
@@ -43,7 +57,7 @@ class FeedbackState:
         (self.liked_artists if positive else self.disliked_artists).add(key)
 
     def excludes(self, metadata: dict) -> bool:
-        artists = {name_key(a) for a in values(metadata.get("artist_name"))}
+        artists = artist_keys(metadata)
         track_id = metadata["track_id"]
         return (track_id in self.excluded_track_ids or self.votes.get(track_id) == -1
                 or bool(artists & {name_key(a) for a in self.excluded_artists | self.disliked_artists}))
@@ -152,7 +166,7 @@ class RocchioFeedback:
                     similarity, track_id = max(similarities)
                     if similarity >= 0.5:
                         evidence.update(liked_track_id=track_id, liked_similarity=similarity)
-            artist_match = bool({name_key(a) for a in values(candidate.metadata.get("artist_name"))}
+            artist_match = bool(artist_keys(candidate.metadata)
                                 & {name_key(a) for a in feedback.liked_artists})
             score = candidate.score + self.weight * delta + 0.1 * artist_match
             evidence["liked_artist_match"] = artist_match

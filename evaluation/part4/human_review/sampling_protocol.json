@@ -1,0 +1,285 @@
+{
+  "source": "evaluation/part4/adaptive_evaluation_v1/reviewed_judgments.csv",
+  "source_sha256": "e053ed19518694a22b5039119b712127ffc9e6967cc939a27f53f23c318cdcd1",
+  "queries": "evaluation/part4/tobi_queries.json",
+  "queries_sha256": "72b5ec7ca2ad11824ad172612e323f35fb6fe30cba134afa00d42222863ead5c",
+  "source_pairs": 734,
+  "query_count": 25,
+  "sample_pairs": 75,
+  "per_query": 3,
+  "seed": "20261026",
+  "method": "Equal allocation by query. Within each query, sort unique query-track pairs by SHA256(UTF8(seed + NUL + query_id + NUL + track_id)); select the first three without replacement. Present queries in the original query-file order and pairs in hash order.",
+  "selection_inputs": [
+    "seed",
+    "query_id",
+    "track_id"
+  ],
+  "blinded": [
+    "grade",
+    "reason",
+    "assessor",
+    "retrieval method",
+    "retrieval score",
+    "rank"
+  ],
+  "review_fields": {
+    "grade": "",
+    "reason": "",
+    "assessor": ""
+  },
+  "metadata": "Query, context, title, artist, album and tags copied verbatim from the evaluated pool. No metadata corrections or human grades applied.",
+  "intended_use": "Human review of a sample and comparison with AI-assisted judgments; not a fully human-judged nDCG@5 or Precision@5 evaluation.",
+  "output_sha256": "a00b1ef8e2008dff908b50b25831e53a44cfc1249f54e151559a9c1c5c4cef2d",
+  "strata": [
+    {
+      "query_id": "tobi-g01",
+      "category": "genre",
+      "pool_size": 30,
+      "selected_track_ids": [
+        "58a4a1f2-a111-4608-ac31-68f35871ce80",
+        "cd570046-7516-4c90-930b-b7f077643a43",
+        "96e38d99-cccb-40e0-a1e2-6eab32df3899"
+      ]
+    },
+    {
+      "query_id": "tobi-g02",
+      "category": "genre",
+      "pool_size": 30,
+      "selected_track_ids": [
+        "dccab7a5-eb5c-4eac-9790-3923b5b25273",
+        "ed6b3a71-2c5a-420b-b424-b1e72ed5a4cc",
+        "591fbca5-57a2-41a3-af1a-bea5c14831e4"
+      ]
+    },
+    {
+      "query_id": "tobi-g03",
+      "category": "genre",
+      "pool_size": 30,
+      "selected_track_ids": [
+        "83b157c4-ed44-492c-84b6-df84ccd66226",
+        "0c43c3ec-e1f6-45a4-86b1-cbfc4387e541",
+        "201526bd-29a2-4e65-8ab7-ef657abe7fce"
+      ]
+    },
+    {
+      "query_id": "tobi-g04",
+      "category": "genre",
+      "pool_size": 30,
+      "selected_track_ids": [
+        "caeced17-4476-4258-9f62-273500ea281a",
+        "f4925496-44ec-464d-9f38-ee74252ca3b0",
+        "85844b55-9776-4b14-bf4e-b8a18f992c96"
+      ]
+    },
+    {
+      "query_id": "tobi-g05",
+      "category": "genre",
+      "pool_size": 30,
+      "selected_track_ids": [
+        "e1da64a9-3561-4e50-84a2-078aa7108ab4",
+        "730eff50-25d6-4154-8cfe-3f4f6e66493c",
+        "58a4a1f2-a111-4608-ac31-68f35871ce80"
+      ]
+    },
+    {
+      "query_id": "tobi-a01",
+      "category": "artist_similarity",
+      "pool_size": 23,
+      "selected_track_ids": [
+        "407bbe04-ff88-4dfe-8114-10a95b523592",
+        "c5a6b2f8-2949-4a11-ae78-4219d1b43968",
+        "32bb6f88-0d69-4f09-a020-492116cffb55"
+      ]
+    },
+    {
+      "query_id": "tobi-a02",
+      "category": "artist_similarity",
+      "pool_size": 25,
+      "selected_track_ids": [
+        "1a6cf188-4e96-49f5-abce-b4eaf6728a62",
+        "9219a5e9-99f3-4a56-a6e7-a8849e42fe96",
+        "0754e750-10d2-4d7d-8ec2-00af6a465ffa"
+      ]
+    },
+    {
+      "query_id": "tobi-a03",
+      "category": "artist_similarity",
+      "pool_size": 23,
+      "selected_track_ids": [
+        "7a341b55-d50b-4c94-936a-8987f710c349",
+        "b4060d5e-a59b-4672-b03c-9057e2dae404",
+        "e49253b5-5811-4438-ac4e-8e23bccdbb59"
+      ]
+    },
+    {
+      "query_id": "tobi-a04",
+      "category": "artist_similarity",
+      "pool_size": 24,
+      "selected_track_ids": [
+        "485bbf11-a9a0-424b-ac50-f7e6f7a56365",
+        "95bd351c-1fc7-4cff-bfae-c729212e760c",
+        "8541cd73-7c69-4200-92c1-e7b63df9b1b2"
+      ]
+    },
+    {
+      "query_id": "tobi-a05",
+      "category": "artist_similarity",
+      "pool_size": 23,
+      "selected_track_ids": [
+        "32bb6f88-0d69-4f09-a020-492116cffb55",
+        "1b77adbe-41d1-412e-8e88-35facf69b7b7",
+        "4d0a2f49-2ed3-4f38-96f5-5e084d7bbd66"
+      ]
+    },
+    {
+      "query_id": "tobi-p01",
+      "category": "playlist_context",
+      "pool_size": 23,
+      "selected_track_ids": [
+        "dd64c1f2-694f-4477-ae4b-248d71e4b72e",
+        "52efc13b-75f7-416f-943f-3683f5a057b7",
+        "9571eead-47df-4f38-afbf-056848907725"
+      ]
+    },
+    {
+      "query_id": "tobi-p02",
+      "category": "playlist_context",
+      "pool_size": 22,
+      "selected_track_ids": [
+        "bb4b7a83-4437-4c9e-9c13-e5dbc225e2e6",
+        "9708e323-eb58-46ad-acdc-7b3ba8ddd3b4",
+        "c2d18e98-b9de-462d-a1de-960f3ed6adb6"
+      ]
+    },
+    {
+      "query_id": "tobi-p03",
+      "category": "playlist_context",
+      "pool_size": 23,
+      "selected_track_ids": [
+        "6a6eee85-ec8b-458a-9536-16652f4a1a28",
+        "21c81e51-23da-4a44-8e71-c306f0d5d34a",
+        "6709675e-8519-45dd-8056-71a676f9b717"
+      ]
+    },
+    {
+      "query_id": "tobi-p04",
+      "category": "playlist_context",
+      "pool_size": 25,
+      "selected_track_ids": [
+        "b96fba24-df47-453b-b620-e1a63bb81efd",
+        "9571eead-47df-4f38-afbf-056848907725",
+        "b8891115-5b45-4074-aec0-858ef3752a11"
+      ]
+    },
+    {
+      "query_id": "tobi-p05",
+      "category": "playlist_context",
+      "pool_size": 23,
+      "selected_track_ids": [
+        "27e59071-2aa3-4ad4-b89f-957b75cf5553",
+        "32bb6f88-0d69-4f09-a020-492116cffb55",
+        "14b09631-942a-453a-a5e4-6c37a415a006"
+      ]
+    },
+    {
+      "query_id": "tobi-e01",
+      "category": "exclusion",
+      "pool_size": 30,
+      "selected_track_ids": [
+        "407b4797-d2e7-4123-91d4-dc85953629dd",
+        "22972e34-efa6-4dc1-9887-19b63b9a925d",
+        "7c60f67c-5de3-44a7-9b03-f0b833a88f72"
+      ]
+    },
+    {
+      "query_id": "tobi-e02",
+      "category": "exclusion",
+      "pool_size": 23,
+      "selected_track_ids": [
+        "0c43c3ec-e1f6-45a4-86b1-cbfc4387e541",
+        "a2f87fc3-b02f-4fdc-8dd4-78051657cc60",
+        "1b5b6cf3-2327-447c-8d82-f17949c7fdfe"
+      ]
+    },
+    {
+      "query_id": "tobi-e03",
+      "category": "exclusion",
+      "pool_size": 30,
+      "selected_track_ids": [
+        "7c60f67c-5de3-44a7-9b03-f0b833a88f72",
+        "32bb6f88-0d69-4f09-a020-492116cffb55",
+        "9307b08c-3442-45b1-a5e9-0bd9cfba45b0"
+      ]
+    },
+    {
+      "query_id": "tobi-e04",
+      "category": "exclusion",
+      "pool_size": 30,
+      "selected_track_ids": [
+        "8078f71d-0494-41bb-95bd-942626b4bee7",
+        "6ecb1db4-c77c-46b0-b671-1ee4c57850fa",
+        "758e2810-aed8-4383-a455-7f46ed12414c"
+      ]
+    },
+    {
+      "query_id": "tobi-e05",
+      "category": "exclusion",
+      "pool_size": 29,
+      "selected_track_ids": [
+        "cd570046-7516-4c90-930b-b7f077643a43",
+        "7c60f67c-5de3-44a7-9b03-f0b833a88f72",
+        "12ba4a14-12ee-4842-a993-314ae69aab16"
+      ]
+    },
+    {
+      "query_id": "tobi-f01",
+      "category": "mixed_feedback",
+      "pool_size": 41,
+      "selected_track_ids": [
+        "1104f82f-1ddc-480b-aede-e62816312bbd",
+        "12ba4a14-12ee-4842-a993-314ae69aab16",
+        "8d923a89-5bd7-4f95-ab5f-0aa02818872f"
+      ]
+    },
+    {
+      "query_id": "tobi-f02",
+      "category": "mixed_feedback",
+      "pool_size": 44,
+      "selected_track_ids": [
+        "1b5b6cf3-2327-447c-8d82-f17949c7fdfe",
+        "0374f211-f3c7-407a-812b-e64040b2b9fd",
+        "de8225b5-1e9b-4583-90b4-4ba134590d78"
+      ]
+    },
+    {
+      "query_id": "tobi-f03",
+      "category": "mixed_feedback",
+      "pool_size": 42,
+      "selected_track_ids": [
+        "038a6514-51c4-402e-9ac5-a042a3bc7982",
+        "0b908cbb-0b74-4d0c-b611-ec6ed4f96335",
+        "cd570046-7516-4c90-930b-b7f077643a43"
+      ]
+    },
+    {
+      "query_id": "tobi-f04",
+      "category": "mixed_feedback",
+      "pool_size": 41,
+      "selected_track_ids": [
+        "61eeedef-5e25-4f5e-9b28-5a99c8f4237e",
+        "6e2aace4-5868-468f-bc81-f6ed08597158",
+        "dc2248e1-dafd-427f-b524-cb5f0779680c"
+      ]
+    },
+    {
+      "query_id": "tobi-f05",
+      "category": "mixed_feedback",
+      "pool_size": 40,
+      "selected_track_ids": [
+        "e548601a-f573-4d06-b395-a40de6273184",
+        "dcb60e94-2589-4e27-a373-59601748cdba",
+        "8078f71d-0494-41bb-95bd-942626b4bee7"
+      ]
+    }
+  ]
+}

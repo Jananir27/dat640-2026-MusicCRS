@@ -1,5 +1,9 @@
 # Adaptive retrieval improvement — 2026-10-24
 
+**Runtime integration update:** [R2_WORKFLOW.md](R2_WORKFLOW.md) documents the
+subsequent integration into the live feedback workflow. The experiment and metric
+tables below describe the original isolated run and have not been re-evaluated.
+
 The isolated implementation is
 [`musiccrs/adaptive_retrieval.py`](musiccrs/adaptive_retrieval.py). It improves
 measured relevance on the current **AI-reviewed metadata benchmark**. It does

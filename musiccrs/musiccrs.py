@@ -31,10 +31,17 @@ _INTENT_OPTIONS = Intent("OPTIONS")
 class MusicChatNamespace(ChatNamespace):
     def on_feedback(self, data):
         """Handle this app's track/batch feedback rather than DialogueKit's no-op."""
-        if not isinstance(data, dict) or len(json.dumps(data)) > 5000:
+        if not isinstance(data, dict):
             return {"ok": False, "error": "Invalid feedback payload"}
-        if not all(key in data for key in ("batch_id", "track_id", "event")):
+        if not all(isinstance(data.get(key), str) and data[key] for key in ("batch_id", "track_id", "event")):
             return {"ok": False, "error": "Select a song's feedback button"}
+        if data["event"] not in {"thumbs_up", "thumbs_down"}:
+            return {"ok": False, "error": "Invalid rating event"}
+        try:
+            if len(json.dumps(data)) > 5000:
+                return {"ok": False, "error": "Invalid feedback payload"}
+        except (TypeError, ValueError):
+            return {"ok": False, "error": "Invalid feedback payload"}
         self._platform.message(request.sid, "/feedback " + json.dumps(data))
         return {"ok": True}
 
@@ -233,6 +240,13 @@ class MusicCRS(Agent):
                 SlotValueAnnotation("recommendations_json", json.dumps(
                     self._conversation_state.recommendation_payload, ensure_ascii=False))
             ]))
+
+        dialogue_acts.append(DialogueAct(intent=Intent("FEEDBACK_STATE"), annotations=[
+            SlotValueAnnotation("feedback_state_json", json.dumps({
+                "votes": self._conversation_state.feedback.votes,
+                "valid_batch_ids": list(self._conversation_state.recommendation_batches),
+            }))
+        ]))
 
         if self._playlist_store:
             if any(str(act.intent) == "PLAYLIST_UPDATED" for act in dialogue_acts):

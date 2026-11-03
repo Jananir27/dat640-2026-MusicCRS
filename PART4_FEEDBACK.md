@@ -1,5 +1,10 @@
 # Part 4 — Tobi: adaptive relevance feedback and explanations
 
+**Current R2 integration:** see [R2_WORKFLOW.md](R2_WORKFLOW.md). Both live routes
+now share an adapter that can expand candidates using R1's indexes. The original
+pool-only adapter described below remains the fallback for small injected providers;
+the recorded evaluation results below predate this integration.
+
 ## Implemented scope
 
 This implements R2 (adaptive feedback), R3 (grounded explanations), and Tobi's

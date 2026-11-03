@@ -14,9 +14,11 @@ services:
       HF_HOME: /app/cache/huggingface
       HF_DATASETS_CACHE: /app/cache/huggingface/datasets
       MUSICCRS_USE_LLM: ${MUSICCRS_USE_LLM:-false}
+      MUSICCRS_ADVANCED_LLM: ${MUSICCRS_ADVANCED_LLM:-false}
       OLLAMA_HOST: ${OLLAMA_HOST:-https://ollama.ux.uis.no}
       OLLAMA_MODEL: ${OLLAMA_MODEL:-llama3.3:70b}
       OLLAMA_API_KEY: ${OLLAMA_API_KEY:-}
+      OLLAMA_TIMEOUT_SECONDS: ${OLLAMA_TIMEOUT_SECONDS:-6}
       OMP_NUM_THREADS: ${MUSICCRS_CPU_THREADS:-4}
     volumes:
       # Store the SQLite catalog, embeddings, and MiniLM/Qwen weights here on

@@ -1,13 +1,13 @@
-"""Part 4 proof-of-concept: LLM preferences + catalog-valid retrieval + exclusions.
-
-This does not modify the existing MusicService or live chatbot routing.
-"""
+"""R1 preference extraction/retrieval followed by the shared R2 feedback stage."""
 from __future__ import annotations
 
 from time import perf_counter
 import re
 import unicodedata
 from typing import Any
+
+from .feedback_workflow import remember_r1_exclusions
+from .music_features import classify_tags
 
 
 def _norm(value: Any) -> str:
@@ -57,6 +57,9 @@ def recommend_with_llm(request: str, parser: Any, service: Any, state: Any,
     retrieval_query = " ".join(query_parts)
 
     playlist_ids = set(getattr(state, "playlist_ids", []))
+    shared_feedback = hasattr(service, "rerank_feedback") and hasattr(service, "catalog")
+    if shared_feedback:
+        remember_r1_exclusions(service, state, prefs, request)
     candidates = service.recommend_tracks(
         retrieval_query,
         exclude_ids=playlist_ids,
@@ -81,13 +84,18 @@ def recommend_with_llm(request: str, parser: Any, service: Any, state: Any,
         track_id = track.get("track_id")
         if track_id in playlist_ids:
             continue
-        if _artist_matches(track.get("artist_name"), excluded_artists | playlist_artists):
+        if not shared_feedback and _artist_matches(track.get("artist_name"), excluded_artists | playlist_artists):
             continue
-        if _track_matches(track.get("track_name"), excluded_tracks):
+        if not shared_feedback and _track_matches(track.get("track_name"), excluded_tracks):
             continue
         recommendations.append(track)
-        if len(recommendations) >= limit:
-            break
+    if shared_feedback:
+        genres, _ = classify_tags(prefs["genre"])
+        _, moods = classify_tags(prefs["mood"])
+        recommendations = service.rerank_feedback(
+            recommendations, state, retrieval_query, limit, genres=genres, moods=moods)
+    else:
+        recommendations = recommendations[:limit]
     t3 = perf_counter()
     return {
         "preferences": prefs,

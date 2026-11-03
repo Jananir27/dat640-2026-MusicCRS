@@ -1,0 +1,2355 @@
+{
+  "evaluation": "Integrated standard application route, common four-method pool",
+  "runs_sha256": "2c4f82e45d49a3f74a3c61da8a8a3ed348619025c98c9665e230565c9295bcd9",
+  "pool_sha256": "19bfd5639ee818d01e2c8e5c916b21f5a2bfb459de0223b58ec47dc5be847a64",
+  "query_count": 50,
+  "ranking_count": 200,
+  "timing_samples": 600,
+  "pooled_pairs": 554,
+  "human_review_imports": [
+    {
+      "source": "Tobi_75_Combined_Submitted_Reviews.csv",
+      "sha256": "c273347947df7a37f7b0cda4e29098095cd5ec4501234370e2637bbc1119feff",
+      "assessors": {
+        "Janani": 75
+      },
+      "reviewed_queries": 25,
+      "pairs_per_query": {
+        "tobi-a01": 3,
+        "tobi-a02": 3,
+        "tobi-a03": 3,
+        "tobi-a04": 3,
+        "tobi-a05": 3,
+        "tobi-e01": 3,
+        "tobi-e02": 3,
+        "tobi-e03": 3,
+        "tobi-e04": 3,
+        "tobi-e05": 3,
+        "tobi-f01": 3,
+        "tobi-f02": 3,
+        "tobi-f03": 3,
+        "tobi-f04": 3,
+        "tobi-f05": 3,
+        "tobi-g01": 3,
+        "tobi-g02": 3,
+        "tobi-g03": 3,
+        "tobi-g04": 3,
+        "tobi-g05": 3,
+        "tobi-p01": 3,
+        "tobi-p02": 3,
+        "tobi-p03": 3,
+        "tobi-p04": 3,
+        "tobi-p05": 3
+      },
+      "agreement_with_previous_ai": {
+        "pairs": 75,
+        "exact_matches": 65,
+        "exact_agreement": 0.8666666666666667,
+        "mean_absolute_grade_difference": 0.14666666666666667,
+        "confusion_ai_rows_human_columns_0_1_2": [
+          [
+            16,
+            0,
+            0
+          ],
+          [
+            2,
+            15,
+            3
+          ],
+          [
+            1,
+            4,
+            34
+          ]
+        ]
+      },
+      "metadata_repairs": 0
+    },
+    {
+      "source": "Janani_75_Blind_Human_Review_For_Tobi.xlsx",
+      "sha256": "ca107114731422ba6c5406a219f0778854e04b534faa4ca06a6bf8a6e050e023",
+      "assessors": {
+        "Tobi": 75
+      },
+      "reviewed_queries": 25,
+      "pairs_per_query": {
+        "janani-a01": 3,
+        "janani-a02": 3,
+        "janani-a03": 3,
+        "janani-a04": 3,
+        "janani-a05": 3,
+        "janani-e01": 3,
+        "janani-e02": 3,
+        "janani-e03": 3,
+        "janani-e04": 3,
+        "janani-e05": 3,
+        "janani-f01": 3,
+        "janani-f02": 3,
+        "janani-f03": 3,
+        "janani-f04": 3,
+        "janani-f05": 3,
+        "janani-g01": 3,
+        "janani-g02": 3,
+        "janani-g03": 3,
+        "janani-g04": 3,
+        "janani-g05": 3,
+        "janani-m01": 3,
+        "janani-m02": 3,
+        "janani-m03": 3,
+        "janani-m04": 3,
+        "janani-m05": 3
+      },
+      "agreement_with_previous_ai": {
+        "pairs": 75,
+        "exact_matches": 61,
+        "exact_agreement": 0.8133333333333334,
+        "mean_absolute_grade_difference": 0.2,
+        "confusion_ai_rows_human_columns_0_1_2": [
+          [
+            25,
+            2,
+            1
+          ],
+          [
+            1,
+            10,
+            7
+          ],
+          [
+            0,
+            3,
+            26
+          ]
+        ]
+      },
+      "metadata_repairs": 3
+    }
+  ],
+  "submitted_review_count": 150,
+  "combined_ai_human_agreement": {
+    "pairs": 150,
+    "exact_matches": 126,
+    "exact_agreement": 0.84,
+    "mean_absolute_grade_difference": 0.17333333333333334,
+    "confusion_ai_rows_human_columns_0_1_2": [
+      [
+        41,
+        2,
+        1
+      ],
+      [
+        3,
+        25,
+        10
+      ],
+      [
+        1,
+        7,
+        60
+      ]
+    ]
+  },
+  "metadata_repairs": [
+    {
+      "query_id": "janani-g01",
+      "track_id": "94ff0036-6bf5-4b89-9db0-7a013f108e62",
+      "field": "title",
+      "operation": "reversed UTF-8 decoded as Mac Roman",
+      "submitted": "√Ångel de amor",
+      "canonical": "Ángel de amor"
+    },
+    {
+      "query_id": "janani-g01",
+      "track_id": "94ff0036-6bf5-4b89-9db0-7a013f108e62",
+      "field": "artist",
+      "operation": "reversed UTF-8 decoded as Mac Roman",
+      "submitted": "Man√°",
+      "canonical": "Maná"
+    },
+    {
+      "query_id": "janani-g01",
+      "track_id": "94ff0036-6bf5-4b89-9db0-7a013f108e62",
+      "field": "tags",
+      "operation": "reversed UTF-8 decoded as Mac Roman",
+      "submitted": "singer-songwriters, angel de amor, constant play, great drumms, i love, romantica, favourites, favorite tracks, internacional, jaimes favorites, rolas favoritas, mana, rock, rock mexicano, Latin, latinas, upbeat, el silencio de los angeles, classic rock faves, Latin Pop, rock en espa√±ol, mexican rock, orgasmic, latin rock, tracks i recommend, latinos",
+      "canonical": "singer-songwriters, angel de amor, constant play, great drumms, i love, romantica, favourites, favorite tracks, internacional, jaimes favorites, rolas favoritas, mana, rock, rock mexicano, Latin, latinas, upbeat, el silencio de los angeles, classic rock faves, Latin Pop, rock en español, mexican rock, orgasmic, latin rock, tracks i recommend, latinos"
+    }
+  ],
+  "human_overrides": [
+    {
+      "query_id": "janani-a02",
+      "track_id": "59c06349-cf03-4c9c-ada1-6d16169d1ea6",
+      "previous_ai_grade": "2",
+      "human_grade": "1"
+    },
+    {
+      "query_id": "janani-a02",
+      "track_id": "f551e260-0a58-480e-89fc-6f38ec172f49",
+      "previous_ai_grade": "2",
+      "human_grade": "2"
+    },
+    {
+      "query_id": "janani-a04",
+      "track_id": "16c2253d-94d0-4627-8175-c778bae853e5",
+      "previous_ai_grade": "2",
+      "human_grade": "2"
+    },
+    {
+      "query_id": "janani-a04",
+      "track_id": "f3f2b3d5-d1d0-42fd-855c-09912c9a428c",
+      "previous_ai_grade": "2",
+      "human_grade": "2"
+    },
+    {
+      "query_id": "janani-a05",
+      "track_id": "4819db27-2162-4208-aa46-077bc4f7874f",
+      "previous_ai_grade": "1",
+      "human_grade": "2"
+    },
+    {
+      "query_id": "janani-e05",
+      "track_id": "2e8a335e-98cb-4d3b-bc40-0dd1765864e3",
+      "previous_ai_grade": "2",
+      "human_grade": "2"
+    },
+    {
+      "query_id": "janani-e05",
+      "track_id": "42d9a8d7-4e02-4036-bc38-fb52eb75e815",
+      "previous_ai_grade": "2",
+      "human_grade": "2"
+    },
+    {
+      "query_id": "janani-g02",
+      "track_id": "142d3eba-bcc0-4c2b-85e6-e29653c0c05e",
+      "previous_ai_grade": "2",
+      "human_grade": "2"
+    },
+    {
+      "query_id": "janani-g04",
+      "track_id": "865bb3d4-9bc1-4488-9ba4-d95db30be200",
+      "previous_ai_grade": "2",
+      "human_grade": "2"
+    },
+    {
+      "query_id": "janani-g04",
+      "track_id": "d7394c90-65ea-435e-8076-df0e61388292",
+      "previous_ai_grade": "1",
+      "human_grade": "2"
+    },
+    {
+      "query_id": "janani-m02",
+      "track_id": "93940a7b-8887-4fb9-a0d1-35d3b1f0e4b5",
+      "previous_ai_grade": "0",
+      "human_grade": "0"
+    },
+    {
+      "query_id": "janani-m02",
+      "track_id": "d9dc8d68-9834-4ac3-9a06-cb6084fa037e",
+      "previous_ai_grade": "2",
+      "human_grade": "2"
+    },
+    {
+      "query_id": "janani-m04",
+      "track_id": "7477abf8-4c46-44f6-beb9-8ebd0e97f53f",
+      "previous_ai_grade": "2",
+      "human_grade": "2"
+    },
+    {
+      "query_id": "janani-m04",
+      "track_id": "d94047bc-5775-4a00-acd4-606ce564d2ca",
+      "previous_ai_grade": "2",
+      "human_grade": "2"
+    },
+    {
+      "query_id": "janani-m05",
+      "track_id": "93940a7b-8887-4fb9-a0d1-35d3b1f0e4b5",
+      "previous_ai_grade": "0",
+      "human_grade": "0"
+    },
+    {
+      "query_id": "janani-m05",
+      "track_id": "d7394c90-65ea-435e-8076-df0e61388292",
+      "previous_ai_grade": "1",
+      "human_grade": "1"
+    },
+    {
+      "query_id": "tobi-a01",
+      "track_id": "41a9e602-c45d-41fb-bd66-e96ff69de855",
+      "previous_ai_grade": "2",
+      "human_grade": "2"
+    },
+    {
+      "query_id": "tobi-a01",
+      "track_id": "d80b95c1-67ec-42e7-af7a-75c017ffbe53",
+      "previous_ai_grade": "2",
+      "human_grade": "2"
+    },
+    {
+      "query_id": "tobi-a02",
+      "track_id": "65b62a5b-fc10-4e56-bf15-338e7f31945d",
+      "previous_ai_grade": "2",
+      "human_grade": "2"
+    },
+    {
+      "query_id": "tobi-a02",
+      "track_id": "6cf24d5e-b63e-4039-9b2c-788af3568ace",
+      "previous_ai_grade": "2",
+      "human_grade": "2"
+    },
+    {
+      "query_id": "tobi-a02",
+      "track_id": "db2c5416-9d66-410b-b90a-f5d91195eddc",
+      "previous_ai_grade": "2",
+      "human_grade": "2"
+    },
+    {
+      "query_id": "tobi-a03",
+      "track_id": "2f6f156f-abcc-42f2-b4bf-26478b00d6aa",
+      "previous_ai_grade": "1",
+      "human_grade": "2"
+    },
+    {
+      "query_id": "tobi-a05",
+      "track_id": "1b77adbe-41d1-412e-8e88-35facf69b7b7",
+      "previous_ai_grade": "2",
+      "human_grade": "2"
+    },
+    {
+      "query_id": "tobi-e02",
+      "track_id": "2e8a335e-98cb-4d3b-bc40-0dd1765864e3",
+      "previous_ai_grade": "2",
+      "human_grade": "2"
+    },
+    {
+      "query_id": "tobi-e02",
+      "track_id": "a2f87fc3-b02f-4fdc-8dd4-78051657cc60",
+      "previous_ai_grade": "2",
+      "human_grade": "2"
+    },
+    {
+      "query_id": "tobi-e03",
+      "track_id": "038a6514-51c4-402e-9ac5-a042a3bc7982",
+      "previous_ai_grade": "2",
+      "human_grade": "2"
+    },
+    {
+      "query_id": "tobi-e03",
+      "track_id": "8ca2ef00-2d7f-4894-8530-d04eb7d338af",
+      "previous_ai_grade": "2",
+      "human_grade": "2"
+    },
+    {
+      "query_id": "tobi-e04",
+      "track_id": "46f458ad-ebad-486e-8217-4a20110bb20e",
+      "previous_ai_grade": "2",
+      "human_grade": "2"
+    },
+    {
+      "query_id": "tobi-f01",
+      "track_id": "b96fba24-df47-453b-b620-e1a63bb81efd",
+      "previous_ai_grade": "1",
+      "human_grade": "1"
+    },
+    {
+      "query_id": "tobi-f02",
+      "track_id": "42d9a8d7-4e02-4036-bc38-fb52eb75e815",
+      "previous_ai_grade": "1",
+      "human_grade": "1"
+    },
+    {
+      "query_id": "tobi-f03",
+      "track_id": "6cfb084a-97ef-4a26-b9a2-6d10fe6f160a",
+      "previous_ai_grade": "1",
+      "human_grade": "1"
+    },
+    {
+      "query_id": "tobi-g01",
+      "track_id": "228db402-2432-45be-b846-6178de3e27df",
+      "previous_ai_grade": "2",
+      "human_grade": "2"
+    },
+    {
+      "query_id": "tobi-g02",
+      "track_id": "ba0205ba-833f-471a-bddc-94f052672954",
+      "previous_ai_grade": "2",
+      "human_grade": "2"
+    },
+    {
+      "query_id": "tobi-g03",
+      "track_id": "0c43c3ec-e1f6-45a4-86b1-cbfc4387e541",
+      "previous_ai_grade": "2",
+      "human_grade": "2"
+    },
+    {
+      "query_id": "tobi-g04",
+      "track_id": "863b386a-987b-4836-a86a-f5dff485805b",
+      "previous_ai_grade": "2",
+      "human_grade": "2"
+    },
+    {
+      "query_id": "tobi-p01",
+      "track_id": "b8891115-5b45-4074-aec0-858ef3752a11",
+      "previous_ai_grade": "2",
+      "human_grade": "2"
+    },
+    {
+      "query_id": "tobi-p01",
+      "track_id": "dd64c1f2-694f-4477-ae4b-248d71e4b72e",
+      "previous_ai_grade": "2",
+      "human_grade": "2"
+    },
+    {
+      "query_id": "tobi-p02",
+      "track_id": "c2d18e98-b9de-462d-a1de-960f3ed6adb6",
+      "previous_ai_grade": "2",
+      "human_grade": "2"
+    },
+    {
+      "query_id": "tobi-p04",
+      "track_id": "26562a56-7e85-45dc-8f08-47157aa9463f",
+      "previous_ai_grade": "2",
+      "human_grade": "2"
+    },
+    {
+      "query_id": "tobi-p05",
+      "track_id": "5583de40-9e05-4f27-b172-7a4e7d10ad5f",
+      "previous_ai_grade": "2",
+      "human_grade": "2"
+    }
+  ],
+  "assessment_counts": {
+    "reused_ai_metadata": 192,
+    "new_ai_metadata": 322,
+    "submitted_human": 40
+  },
+  "missing_pairs": 0,
+  "fully_human_judged_pool": false,
+  "review_process_note": "Submitted reviewer identities are retained. Independence, listening and blinding were not independently verified. Sample agreement is not full-pool validation or inter-human agreement.",
+  "query_categories": {
+    "genre": 10,
+    "artist_similarity": 5,
+    "playlist_context": 5,
+    "exclusion": 10,
+    "mixed_feedback": 10,
+    "mood": 5,
+    "activity": 5
+  },
+  "excluded_tracks_returned": 0,
+  "latency": {
+    "bm25": {
+      "mean_ms": 207.80185976647772,
+      "p50_ms": 21.589562500594184,
+      "p95_ms": 909.8132728482586
+    },
+    "semantic": {
+      "mean_ms": 514.4800294184824,
+      "p50_ms": 240.22108349890914,
+      "p95_ms": 1688.9563480886857
+    },
+    "hybrid": {
+      "mean_ms": 853.8673563336488,
+      "p50_ms": 464.0523124980973,
+      "p95_ms": 2397.3535708981185
+    },
+    "hybrid_feedback": {
+      "mean_ms": 846.5719538998868,
+      "p50_ms": 773.3802705042763,
+      "p95_ms": 1871.1788661530577
+    }
+  },
+  "latency_scope": "Warm conversation handling, constraint extraction, retrieval, feedback, explanations and payload construction; excludes schema preparation, model/index initialization, transport and browser rendering",
+  "metrics": {
+    "judgment_status": "MIXED JUDGMENTS — includes AI-reviewed metadata; requires independent human assessment",
+    "judgment_provenance": {
+      "ai_metadata_review": 514,
+      "named_assessor": 40
+    },
+    "query_count": 50,
+    "feedback_query_count": 10,
+    "methods": {
+      "bm25": {
+        "ndcg@5": 0.8650192477475099,
+        "precision@5": 0.9440000000000001,
+        "mean_ms": 207.80185976647772,
+        "p50_ms": 21.589562500594184,
+        "p95_ms": 909.8132728482586,
+        "excluded_tracks_returned": 0
+      },
+      "semantic": {
+        "ndcg@5": 0.623624971202511,
+        "precision@5": 0.792,
+        "mean_ms": 514.4800294184824,
+        "p50_ms": 240.22108349890914,
+        "p95_ms": 1688.9563480886857,
+        "excluded_tracks_returned": 0
+      },
+      "hybrid": {
+        "ndcg@5": 0.8636156066722945,
+        "precision@5": 0.94,
+        "mean_ms": 853.8673563336488,
+        "p50_ms": 464.0523124980973,
+        "p95_ms": 2397.3535708981185,
+        "excluded_tracks_returned": 0
+      },
+      "hybrid_feedback": {
+        "ndcg@5": 0.9258535362056495,
+        "precision@5": 0.9520000000000001,
+        "mean_ms": 846.5719538998868,
+        "p50_ms": 773.3802705042763,
+        "p95_ms": 1871.1788661530577,
+        "excluded_tracks_returned": 0
+      }
+    },
+    "by_category": {
+      "activity": {
+        "bm25": {
+          "ndcg@5": 0.8485843806127636,
+          "precision@5": 0.96
+        },
+        "semantic": {
+          "ndcg@5": 0.38703020947281763,
+          "precision@5": 0.64
+        },
+        "hybrid": {
+          "ndcg@5": 0.8430382441656251,
+          "precision@5": 0.96
+        },
+        "hybrid_feedback": {
+          "ndcg@5": 0.8430382441656251,
+          "precision@5": 0.96
+        }
+      },
+      "artist_similarity": {
+        "bm25": {
+          "ndcg@5": 0.9115275075940673,
+          "precision@5": 0.8800000000000001
+        },
+        "semantic": {
+          "ndcg@5": 0.6858503520853894,
+          "precision@5": 0.8
+        },
+        "hybrid": {
+          "ndcg@5": 0.9166668607471641,
+          "precision@5": 0.8800000000000001
+        },
+        "hybrid_feedback": {
+          "ndcg@5": 0.9166668607471641,
+          "precision@5": 0.8800000000000001
+        }
+      },
+      "exclusion": {
+        "bm25": {
+          "ndcg@5": 0.9902621100104863,
+          "precision@5": 1.0
+        },
+        "semantic": {
+          "ndcg@5": 0.8865506519063553,
+          "precision@5": 0.9199999999999999
+        },
+        "hybrid": {
+          "ndcg@5": 0.9868794922487659,
+          "precision@5": 0.9800000000000001
+        },
+        "hybrid_feedback": {
+          "ndcg@5": 0.9868794922487659,
+          "precision@5": 0.9800000000000001
+        }
+      },
+      "genre": {
+        "bm25": {
+          "ndcg@5": 0.9576658222802245,
+          "precision@5": 0.9400000000000001
+        },
+        "semantic": {
+          "ndcg@5": 0.5453208491457232,
+          "precision@5": 0.8
+        },
+        "hybrid": {
+          "ndcg@5": 0.9640210945080179,
+          "precision@5": 0.96
+        },
+        "hybrid_feedback": {
+          "ndcg@5": 0.9640210945080179,
+          "precision@5": 0.96
+        }
+      },
+      "mixed_feedback": {
+        "bm25": {
+          "ndcg@5": 0.6265765659447461,
+          "precision@5": 0.9400000000000001
+        },
+        "semantic": {
+          "ndcg@5": 0.6214180990625113,
+          "precision@5": 0.86
+        },
+        "hybrid": {
+          "ndcg@5": 0.6265765659447461,
+          "precision@5": 0.9400000000000001
+        },
+        "hybrid_feedback": {
+          "ndcg@5": 0.9377662136115209,
+          "precision@5": 1.0
+        }
+      },
+      "mood": {
+        "bm25": {
+          "ndcg@5": 0.7709047378279332,
+          "precision@5": 0.8400000000000001
+        },
+        "semantic": {
+          "ndcg@5": 0.21741197504940094,
+          "precision@5": 0.36
+        },
+        "hybrid": {
+          "ndcg@5": 0.7513298014376746,
+          "precision@5": 0.8
+        },
+        "hybrid_feedback": {
+          "ndcg@5": 0.7513298014376746,
+          "precision@5": 0.8
+        }
+      },
+      "playlist_context": {
+        "bm25": {
+          "ndcg@5": 0.9701668549694216,
+          "precision@5": 1.0
+        },
+        "semantic": {
+          "ndcg@5": 0.8393779751883221,
+          "precision@5": 0.96
+        },
+        "hybrid": {
+          "ndcg@5": 0.9701668549694216,
+          "precision@5": 1.0
+        },
+        "hybrid_feedback": {
+          "ndcg@5": 0.9701668549694216,
+          "precision@5": 1.0
+        }
+      }
+    },
+    "paired_feedback_delta": {
+      "ndcg@5": 0.31118964766677465,
+      "precision@5": 0.06
+    },
+    "latency_scope": "Warm conversation handling, constraint extraction, retrieval, feedback, explanations and payload construction; excludes schema preparation, model/index initialization, transport and browser rendering"
+  },
+  "source_hashes": {
+    "evaluation/part4/integrated_evaluation_v2/runs.json": "2c4f82e45d49a3f74a3c61da8a8a3ed348619025c98c9665e230565c9295bcd9",
+    "evaluation/part4/integrated_evaluation_v2/judgments.csv": "19bfd5639ee818d01e2c8e5c916b21f5a2bfb459de0223b58ec47dc5be847a64",
+    "evaluation/part4/adaptive_evaluation_v1/reviewed_judgments.csv": "e053ed19518694a22b5039119b712127ffc9e6967cc939a27f53f23c318cdcd1",
+    "evaluation/part4/janani_results/judgments.csv": "d8c26af18ddf7be6618e0ec2ab70d862a0e3455bb46e4d0a5a5206b050533639",
+    "/Users/bebs/Downloads/Tobi_75_Combined_Submitted_Reviews.csv": "c273347947df7a37f7b0cda4e29098095cd5ec4501234370e2637bbc1119feff",
+    "/Users/bebs/Downloads/Janani_75_Blind_Human_Review_For_Tobi.xlsx": "ca107114731422ba6c5406a219f0778854e04b534faa4ca06a6bf8a6e050e023"
+  },
+  "evaluator_source_sha256": {
+    "retrieval/evaluation/r4_finalize.py": "1daae797c1d5914ef241f855b093added3475d0aa84f39d887d88de1012f31ce",
+    "retrieval/evaluation/part4.py": "ffe881ca58e8621b71f82b970bb67a858ebbc4ecd238606c648815b43da6acef",
+    "retrieval/evaluation/metrics.py": "26e8330ad18c7466809b4f00805a472c142a64ce1a50c8a64792ac54d8acbb7e"
+  },
+  "tobi_sample_protocol_check": {
+    "planned_sample_sha256": "c45b59ac86f40d8dc4ef3f93084423379448b12fecb0ebb971691104aeedb135",
+    "planned_pairs": 75,
+    "returned_pairs": 75,
+    "matching_planned_pairs": 11,
+    "same_sample": false,
+    "interpretation": "Returned reviews still cover three per query. Do not describe them as the original seeded random sample unless the identities match."
+  },
+  "historical_review_effect": {
+    "tobi": {
+      "runs_sha256": "b0bc69bad014b27f320d4022d33b24397a89861b26c94b13a526a71f7cb04ea6",
+      "before_human_review": {
+        "judgment_status": "AI-REVIEWED METADATA — requires independent human assessment",
+        "judgment_provenance": {
+          "ai_metadata_review": 734
+        },
+        "query_count": 25,
+        "feedback_query_count": 5,
+        "methods": {
+          "bm25": {
+            "ndcg@5": 0.6883526686677993,
+            "precision@5": 0.848,
+            "mean_ms": 2.6109027863518954,
+            "p50_ms": 1.7230000012204982,
+            "p95_ms": 7.709970801806775,
+            "excluded_tracks_returned": 0
+          },
+          "semantic": {
+            "ndcg@5": 0.31011579914993165,
+            "precision@5": 0.48800000000000004,
+            "mean_ms": 209.5340793997942,
+            "p50_ms": 170.11599999386817,
+            "p95_ms": 439.39467120144394,
+            "excluded_tracks_returned": 0
+          },
+          "hybrid": {
+            "ndcg@5": 0.6672501438707925,
+            "precision@5": 0.8320000000000001,
+            "mean_ms": 206.08466948004207,
+            "p50_ms": 170.87116699985927,
+            "p95_ms": 433.08776629783097,
+            "excluded_tracks_returned": 0
+          },
+          "hybrid_feedback": {
+            "ndcg@5": 0.6669366538335378,
+            "precision@5": 0.8320000000000001,
+            "mean_ms": 243.69967118633213,
+            "p50_ms": 172.45845899742562,
+            "p95_ms": 449.40808399915096,
+            "excluded_tracks_returned": 0
+          },
+          "adaptive_baseline": {
+            "ndcg@5": 0.8647250080283296,
+            "precision@5": 0.9840000000000001,
+            "mean_ms": 388.4228505201948,
+            "p50_ms": 344.97187500528526,
+            "p95_ms": 625.4851332007091,
+            "excluded_tracks_returned": 0
+          },
+          "adaptive_rerank_only": {
+            "ndcg@5": 0.8846620402987565,
+            "precision@5": 0.9840000000000001,
+            "mean_ms": 387.1650778674909,
+            "p50_ms": 346.5182499930961,
+            "p95_ms": 605.9845669966307,
+            "excluded_tracks_returned": 0
+          },
+          "adaptive_feedback_retrieval": {
+            "ndcg@5": 0.9377274038943381,
+            "precision@5": 0.9840000000000001,
+            "mean_ms": 383.5262472269824,
+            "p50_ms": 349.3995000026189,
+            "p95_ms": 593.9693337975768,
+            "excluded_tracks_returned": 0
+          }
+        },
+        "by_category": {
+          "artist_similarity": {
+            "bm25": {
+              "ndcg@5": 0.8472173812082848,
+              "precision@5": 0.8800000000000001
+            },
+            "semantic": {
+              "ndcg@5": 0.13412904942064027,
+              "precision@5": 0.24000000000000005
+            },
+            "hybrid": {
+              "ndcg@5": 0.8472173812082848,
+              "precision@5": 0.8800000000000001
+            },
+            "hybrid_feedback": {
+              "ndcg@5": 0.8472173812082848,
+              "precision@5": 0.8800000000000001
+            },
+            "adaptive_baseline": {
+              "ndcg@5": 0.9128444070020911,
+              "precision@5": 0.9199999999999999
+            },
+            "adaptive_rerank_only": {
+              "ndcg@5": 0.9128444070020911,
+              "precision@5": 0.9199999999999999
+            },
+            "adaptive_feedback_retrieval": {
+              "ndcg@5": 0.9128444070020911,
+              "precision@5": 0.9199999999999999
+            }
+          },
+          "exclusion": {
+            "bm25": {
+              "ndcg@5": 0.6576518129530147,
+              "precision@5": 0.68
+            },
+            "semantic": {
+              "ndcg@5": 0.5247608177318761,
+              "precision@5": 0.68
+            },
+            "hybrid": {
+              "ndcg@5": 0.6576518129530147,
+              "precision@5": 0.68
+            },
+            "hybrid_feedback": {
+              "ndcg@5": 0.6576518129530147,
+              "precision@5": 0.68
+            },
+            "adaptive_baseline": {
+              "ndcg@5": 1.0,
+              "precision@5": 1.0
+            },
+            "adaptive_rerank_only": {
+              "ndcg@5": 1.0,
+              "precision@5": 1.0
+            },
+            "adaptive_feedback_retrieval": {
+              "ndcg@5": 1.0,
+              "precision@5": 1.0
+            }
+          },
+          "genre": {
+            "bm25": {
+              "ndcg@5": 0.6243123577899021,
+              "precision@5": 0.8
+            },
+            "semantic": {
+              "ndcg@5": 0.3628557201199613,
+              "precision@5": 0.4
+            },
+            "hybrid": {
+              "ndcg@5": 0.6243123577899021,
+              "precision@5": 0.8
+            },
+            "hybrid_feedback": {
+              "ndcg@5": 0.6243123577899021,
+              "precision@5": 0.8
+            },
+            "adaptive_baseline": {
+              "ndcg@5": 0.9805242200209724,
+              "precision@5": 1.0
+            },
+            "adaptive_rerank_only": {
+              "ndcg@5": 0.9805242200209724,
+              "precision@5": 1.0
+            },
+            "adaptive_feedback_retrieval": {
+              "ndcg@5": 0.9805242200209724,
+              "precision@5": 1.0
+            }
+          },
+          "mixed_feedback": {
+            "bm25": {
+              "ndcg@5": 0.3578031520909433,
+              "precision@5": 0.8800000000000001
+            },
+            "semantic": {
+              "ndcg@5": 0.2898538298647059,
+              "precision@5": 0.72
+            },
+            "hybrid": {
+              "ndcg@5": 0.3578031520909433,
+              "precision@5": 0.8800000000000001
+            },
+            "hybrid_feedback": {
+              "ndcg@5": 0.3562357019046699,
+              "precision@5": 0.8800000000000001
+            },
+            "adaptive_baseline": {
+              "ndcg@5": 0.4754777738217336,
+              "precision@5": 1.0
+            },
+            "adaptive_rerank_only": {
+              "ndcg@5": 0.5751629351738677,
+              "precision@5": 1.0
+            },
+            "adaptive_feedback_retrieval": {
+              "ndcg@5": 0.8404897531517758,
+              "precision@5": 1.0
+            }
+          },
+          "playlist_context": {
+            "bm25": {
+              "ndcg@5": 0.9547786392968511,
+              "precision@5": 1.0
+            },
+            "semantic": {
+              "ndcg@5": 0.2389795786124745,
+              "precision@5": 0.4
+            },
+            "hybrid": {
+              "ndcg@5": 0.849266015311818,
+              "precision@5": 0.9199999999999999
+            },
+            "hybrid_feedback": {
+              "ndcg@5": 0.849266015311818,
+              "precision@5": 0.9199999999999999
+            },
+            "adaptive_baseline": {
+              "ndcg@5": 0.9547786392968511,
+              "precision@5": 1.0
+            },
+            "adaptive_rerank_only": {
+              "ndcg@5": 0.9547786392968511,
+              "precision@5": 1.0
+            },
+            "adaptive_feedback_retrieval": {
+              "ndcg@5": 0.9547786392968511,
+              "precision@5": 1.0
+            }
+          }
+        },
+        "paired_feedback_delta": {
+          "ndcg@5": -0.0015674501862734448,
+          "precision@5": 0.0
+        },
+        "latency_scope": "Not recorded in this historical run; do not compare its timings with the integrated benchmark"
+      },
+      "after_human_review": {
+        "judgment_status": "MIXED JUDGMENTS — includes AI-reviewed metadata; requires independent human assessment",
+        "judgment_provenance": {
+          "named_assessor": 75,
+          "ai_metadata_review": 659
+        },
+        "query_count": 25,
+        "feedback_query_count": 5,
+        "methods": {
+          "bm25": {
+            "ndcg@5": 0.6943541328693342,
+            "precision@5": 0.848,
+            "mean_ms": 2.6109027863518954,
+            "p50_ms": 1.7230000012204982,
+            "p95_ms": 7.709970801806775,
+            "excluded_tracks_returned": 0
+          },
+          "semantic": {
+            "ndcg@5": 0.30825832509552914,
+            "precision@5": 0.48800000000000004,
+            "mean_ms": 209.5340793997942,
+            "p50_ms": 170.11599999386817,
+            "p95_ms": 439.39467120144394,
+            "excluded_tracks_returned": 0
+          },
+          "hybrid": {
+            "ndcg@5": 0.6732516080723276,
+            "precision@5": 0.8320000000000001,
+            "mean_ms": 206.08466948004207,
+            "p50_ms": 170.87116699985927,
+            "p95_ms": 433.08776629783097,
+            "excluded_tracks_returned": 0
+          },
+          "hybrid_feedback": {
+            "ndcg@5": 0.6729381180350729,
+            "precision@5": 0.8320000000000001,
+            "mean_ms": 243.69967118633213,
+            "p50_ms": 172.45845899742562,
+            "p95_ms": 449.40808399915096,
+            "excluded_tracks_returned": 0
+          },
+          "adaptive_baseline": {
+            "ndcg@5": 0.8730210787361059,
+            "precision@5": 0.9840000000000001,
+            "mean_ms": 388.4228505201948,
+            "p50_ms": 344.97187500528526,
+            "p95_ms": 625.4851332007091,
+            "excluded_tracks_returned": 0
+          },
+          "adaptive_rerank_only": {
+            "ndcg@5": 0.8929581110065328,
+            "precision@5": 0.9840000000000001,
+            "mean_ms": 387.1650778674909,
+            "p50_ms": 346.5182499930961,
+            "p95_ms": 605.9845669966307,
+            "excluded_tracks_returned": 0
+          },
+          "adaptive_feedback_retrieval": {
+            "ndcg@5": 0.9460234746021144,
+            "precision@5": 0.9840000000000001,
+            "mean_ms": 383.5262472269824,
+            "p50_ms": 349.3995000026189,
+            "p95_ms": 593.9693337975768,
+            "excluded_tracks_returned": 0
+          }
+        },
+        "by_category": {
+          "artist_similarity": {
+            "bm25": {
+              "ndcg@5": 0.8967004821949871,
+              "precision@5": 0.8800000000000001
+            },
+            "semantic": {
+              "ndcg@5": 0.12484167914862784,
+              "precision@5": 0.24000000000000005
+            },
+            "hybrid": {
+              "ndcg@5": 0.8967004821949871,
+              "precision@5": 0.8800000000000001
+            },
+            "hybrid_feedback": {
+              "ndcg@5": 0.8967004821949871,
+              "precision@5": 0.8800000000000001
+            },
+            "adaptive_baseline": {
+              "ndcg@5": 0.9543247605409728,
+              "precision@5": 0.9199999999999999
+            },
+            "adaptive_rerank_only": {
+              "ndcg@5": 0.9543247605409728,
+              "precision@5": 0.9199999999999999
+            },
+            "adaptive_feedback_retrieval": {
+              "ndcg@5": 0.9543247605409728,
+              "precision@5": 0.9199999999999999
+            }
+          },
+          "exclusion": {
+            "bm25": {
+              "ndcg@5": 0.6381760329739872,
+              "precision@5": 0.68
+            },
+            "semantic": {
+              "ndcg@5": 0.5247608177318761,
+              "precision@5": 0.68
+            },
+            "hybrid": {
+              "ndcg@5": 0.6381760329739872,
+              "precision@5": 0.68
+            },
+            "hybrid_feedback": {
+              "ndcg@5": 0.6381760329739872,
+              "precision@5": 0.68
+            },
+            "adaptive_baseline": {
+              "ndcg@5": 1.0,
+              "precision@5": 1.0
+            },
+            "adaptive_rerank_only": {
+              "ndcg@5": 1.0,
+              "precision@5": 1.0
+            },
+            "adaptive_feedback_retrieval": {
+              "ndcg@5": 1.0,
+              "precision@5": 1.0
+            }
+          },
+          "genre": {
+            "bm25": {
+              "ndcg@5": 0.6243123577899021,
+              "precision@5": 0.8
+            },
+            "semantic": {
+              "ndcg@5": 0.3628557201199613,
+              "precision@5": 0.4
+            },
+            "hybrid": {
+              "ndcg@5": 0.6243123577899021,
+              "precision@5": 0.8
+            },
+            "hybrid_feedback": {
+              "ndcg@5": 0.6243123577899021,
+              "precision@5": 0.8
+            },
+            "adaptive_baseline": {
+              "ndcg@5": 0.9805242200209724,
+              "precision@5": 1.0
+            },
+            "adaptive_rerank_only": {
+              "ndcg@5": 0.9805242200209724,
+              "precision@5": 1.0
+            },
+            "adaptive_feedback_retrieval": {
+              "ndcg@5": 0.9805242200209724,
+              "precision@5": 1.0
+            }
+          },
+          "mixed_feedback": {
+            "bm25": {
+              "ndcg@5": 0.3578031520909433,
+              "precision@5": 0.8800000000000001
+            },
+            "semantic": {
+              "ndcg@5": 0.2898538298647059,
+              "precision@5": 0.72
+            },
+            "hybrid": {
+              "ndcg@5": 0.3578031520909433,
+              "precision@5": 0.8800000000000001
+            },
+            "hybrid_feedback": {
+              "ndcg@5": 0.3562357019046699,
+              "precision@5": 0.8800000000000001
+            },
+            "adaptive_baseline": {
+              "ndcg@5": 0.4754777738217336,
+              "precision@5": 1.0
+            },
+            "adaptive_rerank_only": {
+              "ndcg@5": 0.5751629351738677,
+              "precision@5": 1.0
+            },
+            "adaptive_feedback_retrieval": {
+              "ndcg@5": 0.8404897531517758,
+              "precision@5": 1.0
+            }
+          },
+          "playlist_context": {
+            "bm25": {
+              "ndcg@5": 0.9547786392968511,
+              "precision@5": 1.0
+            },
+            "semantic": {
+              "ndcg@5": 0.2389795786124745,
+              "precision@5": 0.4
+            },
+            "hybrid": {
+              "ndcg@5": 0.849266015311818,
+              "precision@5": 0.9199999999999999
+            },
+            "hybrid_feedback": {
+              "ndcg@5": 0.849266015311818,
+              "precision@5": 0.9199999999999999
+            },
+            "adaptive_baseline": {
+              "ndcg@5": 0.9547786392968511,
+              "precision@5": 1.0
+            },
+            "adaptive_rerank_only": {
+              "ndcg@5": 0.9547786392968511,
+              "precision@5": 1.0
+            },
+            "adaptive_feedback_retrieval": {
+              "ndcg@5": 0.9547786392968511,
+              "precision@5": 1.0
+            }
+          }
+        },
+        "paired_feedback_delta": {
+          "ndcg@5": -0.0015674501862734448,
+          "precision@5": 0.0
+        },
+        "latency_scope": "Not recorded in this historical run; do not compare its timings with the integrated benchmark"
+      },
+      "scope": "Historical frozen pipeline only. Do not combine these separate pipelines as a unified 50-query experiment."
+    },
+    "janani": {
+      "runs_sha256": "56c4217027848b6a5f4a72f89b8e00b50633fa909d86a12352f1fec7f0073e92",
+      "before_human_review": {
+        "judgment_status": "AI-REVIEWED METADATA — requires independent human assessment",
+        "judgment_provenance": {
+          "ai_metadata_review": 251
+        },
+        "query_count": 25,
+        "feedback_query_count": 5,
+        "methods": {
+          "bm25": {
+            "ndcg@5": 0.7729969663732962,
+            "precision@5": 0.848,
+            "mean_ms": 5.26557007804513,
+            "p50_ms": 4.605050198733807,
+            "p95_ms": 5.945632979273795,
+            "excluded_tracks_returned": 0
+          },
+          "semantic": {
+            "ndcg@5": 0.4262162868425172,
+            "precision@5": 0.6080000000000001,
+            "mean_ms": 90.92005174607038,
+            "p50_ms": 88.8034631498158,
+            "p95_ms": 90.67370360717177,
+            "excluded_tracks_returned": 0
+          },
+          "hybrid": {
+            "ndcg@5": 0.7726363801262665,
+            "precision@5": 0.848,
+            "mean_ms": 94.64616479352117,
+            "p50_ms": 91.42420114949346,
+            "p95_ms": 96.15753507241605,
+            "excluded_tracks_returned": 0
+          },
+          "hybrid_feedback": {
+            "ndcg@5": 0.7735737432470685,
+            "precision@5": 0.848,
+            "mean_ms": 114.49097080156207,
+            "p50_ms": 92.28992275893688,
+            "p95_ms": 183.9264469221234,
+            "excluded_tracks_returned": 0
+          }
+        },
+        "by_category": {
+          "activity": {
+            "bm25": {
+              "ndcg@5": 0.6913219575640311,
+              "precision@5": 0.8800000000000001
+            },
+            "semantic": {
+              "ndcg@5": 0.4649323213989362,
+              "precision@5": 0.72
+            },
+            "hybrid": {
+              "ndcg@5": 0.6895190263288818,
+              "precision@5": 0.8800000000000001
+            },
+            "hybrid_feedback": {
+              "ndcg@5": 0.6895190263288818,
+              "precision@5": 0.8800000000000001
+            }
+          },
+          "exclusion": {
+            "bm25": {
+              "ndcg@5": 0.7532674549667588,
+              "precision@5": 0.72
+            },
+            "semantic": {
+              "ndcg@5": 0.3391275664730178,
+              "precision@5": 0.44000000000000006
+            },
+            "hybrid": {
+              "ndcg@5": 0.7532674549667588,
+              "precision@5": 0.72
+            },
+            "hybrid_feedback": {
+              "ndcg@5": 0.7532674549667588,
+              "precision@5": 0.72
+            }
+          },
+          "genre": {
+            "bm25": {
+              "ndcg@5": 0.9021501373803018,
+              "precision@5": 0.96
+            },
+            "semantic": {
+              "ndcg@5": 0.3261537783521173,
+              "precision@5": 0.48
+            },
+            "hybrid": {
+              "ndcg@5": 0.9021501373803018,
+              "precision@5": 0.96
+            },
+            "hybrid_feedback": {
+              "ndcg@5": 0.9021501373803018,
+              "precision@5": 0.96
+            }
+          },
+          "mixed_feedback": {
+            "bm25": {
+              "ndcg@5": 0.7755763117760532,
+              "precision@5": 0.8800000000000001
+            },
+            "semantic": {
+              "ndcg@5": 0.504221334857007,
+              "precision@5": 0.68
+            },
+            "hybrid": {
+              "ndcg@5": 0.7755763117760532,
+              "precision@5": 0.8800000000000001
+            },
+            "hybrid_feedback": {
+              "ndcg@5": 0.7802631273800641,
+              "precision@5": 0.8800000000000001
+            }
+          },
+          "mood": {
+            "bm25": {
+              "ndcg@5": 0.7426689701793362,
+              "precision@5": 0.8
+            },
+            "semantic": {
+              "ndcg@5": 0.496646433131508,
+              "precision@5": 0.72
+            },
+            "hybrid": {
+              "ndcg@5": 0.7426689701793362,
+              "precision@5": 0.8
+            },
+            "hybrid_feedback": {
+              "ndcg@5": 0.7426689701793362,
+              "precision@5": 0.8
+            }
+          }
+        },
+        "paired_feedback_delta": {
+          "ndcg@5": 0.004686815604010819,
+          "precision@5": 0.0
+        },
+        "latency_scope": "Warm retrieval, filtering, feedback and explanations; model initialization and transport excluded"
+      },
+      "after_human_review": {
+        "judgment_status": "MIXED JUDGMENTS — includes AI-reviewed metadata; requires independent human assessment",
+        "judgment_provenance": {
+          "named_assessor": 75,
+          "ai_metadata_review": 176
+        },
+        "query_count": 25,
+        "feedback_query_count": 5,
+        "methods": {
+          "bm25": {
+            "ndcg@5": 0.8003973041624068,
+            "precision@5": 0.856,
+            "mean_ms": 5.26557007804513,
+            "p50_ms": 4.605050198733807,
+            "p95_ms": 5.945632979273795,
+            "excluded_tracks_returned": 0
+          },
+          "semantic": {
+            "ndcg@5": 0.4199962821981208,
+            "precision@5": 0.616,
+            "mean_ms": 90.92005174607038,
+            "p50_ms": 88.8034631498158,
+            "p95_ms": 90.67370360717177,
+            "excluded_tracks_returned": 0
+          },
+          "hybrid": {
+            "ndcg@5": 0.790483463803844,
+            "precision@5": 0.856,
+            "mean_ms": 94.64616479352117,
+            "p50_ms": 91.42420114949346,
+            "p95_ms": 96.15753507241605,
+            "excluded_tracks_returned": 0
+          },
+          "hybrid_feedback": {
+            "ndcg@5": 0.7914208269246462,
+            "precision@5": 0.856,
+            "mean_ms": 114.49097080156207,
+            "p50_ms": 92.28992275893688,
+            "p95_ms": 183.9264469221234,
+            "excluded_tracks_returned": 0
+          }
+        },
+        "by_category": {
+          "activity": {
+            "bm25": {
+              "ndcg@5": 0.6928322366955558,
+              "precision@5": 0.8800000000000001
+            },
+            "semantic": {
+              "ndcg@5": 0.46555901667232646,
+              "precision@5": 0.72
+            },
+            "hybrid": {
+              "ndcg@5": 0.6432630349027417,
+              "precision@5": 0.8800000000000001
+            },
+            "hybrid_feedback": {
+              "ndcg@5": 0.6432630349027417,
+              "precision@5": 0.8800000000000001
+            }
+          },
+          "exclusion": {
+            "bm25": {
+              "ndcg@5": 0.7452935876407778,
+              "precision@5": 0.72
+            },
+            "semantic": {
+              "ndcg@5": 0.3300895370739606,
+              "precision@5": 0.44000000000000006
+            },
+            "hybrid": {
+              "ndcg@5": 0.7452935876407778,
+              "precision@5": 0.72
+            },
+            "hybrid_feedback": {
+              "ndcg@5": 0.7452935876407778,
+              "precision@5": 0.72
+            }
+          },
+          "genre": {
+            "bm25": {
+              "ndcg@5": 0.9481756496798843,
+              "precision@5": 0.96
+            },
+            "semantic": {
+              "ndcg@5": 0.3261537783521173,
+              "precision@5": 0.48
+            },
+            "hybrid": {
+              "ndcg@5": 0.9481756496798843,
+              "precision@5": 0.96
+            },
+            "hybrid_feedback": {
+              "ndcg@5": 0.9481756496798843,
+              "precision@5": 0.96
+            }
+          },
+          "mixed_feedback": {
+            "bm25": {
+              "ndcg@5": 0.8564095550929309,
+              "precision@5": 0.8800000000000001
+            },
+            "semantic": {
+              "ndcg@5": 0.4812987235335471,
+              "precision@5": 0.68
+            },
+            "hybrid": {
+              "ndcg@5": 0.8564095550929309,
+              "precision@5": 0.8800000000000001
+            },
+            "hybrid_feedback": {
+              "ndcg@5": 0.8610963706969418,
+              "precision@5": 0.8800000000000001
+            }
+          },
+          "mood": {
+            "bm25": {
+              "ndcg@5": 0.7592754917028854,
+              "precision@5": 0.8400000000000001
+            },
+            "semantic": {
+              "ndcg@5": 0.49688035535865244,
+              "precision@5": 0.76
+            },
+            "hybrid": {
+              "ndcg@5": 0.7592754917028854,
+              "precision@5": 0.8400000000000001
+            },
+            "hybrid_feedback": {
+              "ndcg@5": 0.7592754917028854,
+              "precision@5": 0.8400000000000001
+            }
+          }
+        },
+        "paired_feedback_delta": {
+          "ndcg@5": 0.004686815604010808,
+          "precision@5": 0.0
+        },
+        "latency_scope": "Warm retrieval, filtering, feedback and explanations; model initialization and transport excluded"
+      },
+      "scope": "Historical frozen pipeline only. Do not combine these separate pipelines as a unified 50-query experiment."
+    }
+  },
+  "independent_metric_audit": {
+    "maximum_method_average_difference": 1.1102230246251565e-16,
+    "per_query": {
+      "tobi-g01": {
+        "bm25": {
+          "ndcg@5": 1.0,
+          "precision@5": 1.0
+        },
+        "semantic": {
+          "ndcg@5": 0.5289635809537699,
+          "precision@5": 0.6
+        },
+        "hybrid": {
+          "ndcg@5": 1.0,
+          "precision@5": 1.0
+        },
+        "hybrid_feedback": {
+          "ndcg@5": 1.0,
+          "precision@5": 1.0
+        }
+      },
+      "tobi-g02": {
+        "bm25": {
+          "ndcg@5": 1.0,
+          "precision@5": 1.0
+        },
+        "semantic": {
+          "ndcg@5": 0.3304505065120877,
+          "precision@5": 0.6
+        },
+        "hybrid": {
+          "ndcg@5": 1.0,
+          "precision@5": 1.0
+        },
+        "hybrid_feedback": {
+          "ndcg@5": 1.0,
+          "precision@5": 1.0
+        }
+      },
+      "tobi-g03": {
+        "bm25": {
+          "ndcg@5": 1.0,
+          "precision@5": 1.0
+        },
+        "semantic": {
+          "ndcg@5": 1.0,
+          "precision@5": 1.0
+        },
+        "hybrid": {
+          "ndcg@5": 1.0,
+          "precision@5": 1.0
+        },
+        "hybrid_feedback": {
+          "ndcg@5": 1.0,
+          "precision@5": 1.0
+        }
+      },
+      "tobi-g04": {
+        "bm25": {
+          "ndcg@5": 1.0,
+          "precision@5": 1.0
+        },
+        "semantic": {
+          "ndcg@5": 0.6724935386069495,
+          "precision@5": 1.0
+        },
+        "hybrid": {
+          "ndcg@5": 1.0,
+          "precision@5": 1.0
+        },
+        "hybrid_feedback": {
+          "ndcg@5": 1.0,
+          "precision@5": 1.0
+        }
+      },
+      "tobi-g05": {
+        "bm25": {
+          "ndcg@5": 0.7227265726449518,
+          "precision@5": 0.6
+        },
+        "semantic": {
+          "ndcg@5": 0.646910188523972,
+          "precision@5": 1.0
+        },
+        "hybrid": {
+          "ndcg@5": 0.7714160225925206,
+          "precision@5": 0.8
+        },
+        "hybrid_feedback": {
+          "ndcg@5": 0.7714160225925206,
+          "precision@5": 0.8
+        }
+      },
+      "tobi-a01": {
+        "bm25": {
+          "ndcg@5": 1.0,
+          "precision@5": 1.0
+        },
+        "semantic": {
+          "ndcg@5": 0.8869465982421281,
+          "precision@5": 1.0
+        },
+        "hybrid": {
+          "ndcg@5": 1.0,
+          "precision@5": 1.0
+        },
+        "hybrid_feedback": {
+          "ndcg@5": 1.0,
+          "precision@5": 1.0
+        }
+      },
+      "tobi-a02": {
+        "bm25": {
+          "ndcg@5": 1.0,
+          "precision@5": 1.0
+        },
+        "semantic": {
+          "ndcg@5": 1.0,
+          "precision@5": 1.0
+        },
+        "hybrid": {
+          "ndcg@5": 1.0,
+          "precision@5": 1.0
+        },
+        "hybrid_feedback": {
+          "ndcg@5": 1.0,
+          "precision@5": 1.0
+        }
+      },
+      "tobi-a03": {
+        "bm25": {
+          "ndcg@5": 0.7716238027048642,
+          "precision@5": 0.6
+        },
+        "semantic": {
+          "ndcg@5": 0.324908057430603,
+          "precision@5": 0.6
+        },
+        "hybrid": {
+          "ndcg@5": 0.8571968910711802,
+          "precision@5": 0.6
+        },
+        "hybrid_feedback": {
+          "ndcg@5": 0.8571968910711802,
+          "precision@5": 0.6
+        }
+      },
+      "tobi-a04": {
+        "bm25": {
+          "ndcg@5": 1.0,
+          "precision@5": 1.0
+        },
+        "semantic": {
+          "ndcg@5": 0.21739710475421564,
+          "precision@5": 0.4
+        },
+        "hybrid": {
+          "ndcg@5": 0.8687949224876583,
+          "precision@5": 0.8
+        },
+        "hybrid_feedback": {
+          "ndcg@5": 0.8687949224876583,
+          "precision@5": 0.8
+        }
+      },
+      "tobi-a05": {
+        "bm25": {
+          "ndcg@5": 0.7860137352654726,
+          "precision@5": 0.8
+        },
+        "semantic": {
+          "ndcg@5": 1.0,
+          "precision@5": 1.0
+        },
+        "hybrid": {
+          "ndcg@5": 0.8573424901769816,
+          "precision@5": 1.0
+        },
+        "hybrid_feedback": {
+          "ndcg@5": 0.8573424901769816,
+          "precision@5": 1.0
+        }
+      },
+      "tobi-p01": {
+        "bm25": {
+          "ndcg@5": 1.0,
+          "precision@5": 1.0
+        },
+        "semantic": {
+          "ndcg@5": 1.0,
+          "precision@5": 1.0
+        },
+        "hybrid": {
+          "ndcg@5": 1.0,
+          "precision@5": 1.0
+        },
+        "hybrid_feedback": {
+          "ndcg@5": 1.0,
+          "precision@5": 1.0
+        }
+      },
+      "tobi-p02": {
+        "bm25": {
+          "ndcg@5": 1.0,
+          "precision@5": 1.0
+        },
+        "semantic": {
+          "ndcg@5": 0.7020976466720958,
+          "precision@5": 1.0
+        },
+        "hybrid": {
+          "ndcg@5": 1.0,
+          "precision@5": 1.0
+        },
+        "hybrid_feedback": {
+          "ndcg@5": 1.0,
+          "precision@5": 1.0
+        }
+      },
+      "tobi-p03": {
+        "bm25": {
+          "ndcg@5": 0.850834274847108,
+          "precision@5": 1.0
+        },
+        "semantic": {
+          "ndcg@5": 0.49479222926951455,
+          "precision@5": 0.8
+        },
+        "hybrid": {
+          "ndcg@5": 0.850834274847108,
+          "precision@5": 1.0
+        },
+        "hybrid_feedback": {
+          "ndcg@5": 0.850834274847108,
+          "precision@5": 1.0
+        }
+      },
+      "tobi-p04": {
+        "bm25": {
+          "ndcg@5": 1.0,
+          "precision@5": 1.0
+        },
+        "semantic": {
+          "ndcg@5": 1.0,
+          "precision@5": 1.0
+        },
+        "hybrid": {
+          "ndcg@5": 1.0,
+          "precision@5": 1.0
+        },
+        "hybrid_feedback": {
+          "ndcg@5": 1.0,
+          "precision@5": 1.0
+        }
+      },
+      "tobi-p05": {
+        "bm25": {
+          "ndcg@5": 1.0,
+          "precision@5": 1.0
+        },
+        "semantic": {
+          "ndcg@5": 1.0,
+          "precision@5": 1.0
+        },
+        "hybrid": {
+          "ndcg@5": 1.0,
+          "precision@5": 1.0
+        },
+        "hybrid_feedback": {
+          "ndcg@5": 1.0,
+          "precision@5": 1.0
+        }
+      },
+      "tobi-e01": {
+        "bm25": {
+          "ndcg@5": 1.0,
+          "precision@5": 1.0
+        },
+        "semantic": {
+          "ndcg@5": 0.5289635809537699,
+          "precision@5": 0.6
+        },
+        "hybrid": {
+          "ndcg@5": 1.0,
+          "precision@5": 1.0
+        },
+        "hybrid_feedback": {
+          "ndcg@5": 1.0,
+          "precision@5": 1.0
+        }
+      },
+      "tobi-e02": {
+        "bm25": {
+          "ndcg@5": 1.0,
+          "precision@5": 1.0
+        },
+        "semantic": {
+          "ndcg@5": 1.0,
+          "precision@5": 1.0
+        },
+        "hybrid": {
+          "ndcg@5": 1.0,
+          "precision@5": 1.0
+        },
+        "hybrid_feedback": {
+          "ndcg@5": 1.0,
+          "precision@5": 1.0
+        }
+      },
+      "tobi-e03": {
+        "bm25": {
+          "ndcg@5": 1.0,
+          "precision@5": 1.0
+        },
+        "semantic": {
+          "ndcg@5": 0.8687949224876583,
+          "precision@5": 0.8
+        },
+        "hybrid": {
+          "ndcg@5": 1.0,
+          "precision@5": 1.0
+        },
+        "hybrid_feedback": {
+          "ndcg@5": 1.0,
+          "precision@5": 1.0
+        }
+      },
+      "tobi-e04": {
+        "bm25": {
+          "ndcg@5": 1.0,
+          "precision@5": 1.0
+        },
+        "semantic": {
+          "ndcg@5": 1.0,
+          "precision@5": 1.0
+        },
+        "hybrid": {
+          "ndcg@5": 1.0,
+          "precision@5": 1.0
+        },
+        "hybrid_feedback": {
+          "ndcg@5": 1.0,
+          "precision@5": 1.0
+        }
+      },
+      "tobi-e05": {
+        "bm25": {
+          "ndcg@5": 1.0,
+          "precision@5": 1.0
+        },
+        "semantic": {
+          "ndcg@5": 0.9125299483251055,
+          "precision@5": 1.0
+        },
+        "hybrid": {
+          "ndcg@5": 1.0,
+          "precision@5": 1.0
+        },
+        "hybrid_feedback": {
+          "ndcg@5": 1.0,
+          "precision@5": 1.0
+        }
+      },
+      "tobi-f01": {
+        "bm25": {
+          "ndcg@5": 0.33333333333333337,
+          "precision@5": 1.0
+        },
+        "semantic": {
+          "ndcg@5": 0.5296347172140421,
+          "precision@5": 0.8
+        },
+        "hybrid": {
+          "ndcg@5": 0.33333333333333337,
+          "precision@5": 1.0
+        },
+        "hybrid_feedback": {
+          "ndcg@5": 0.9125299483251055,
+          "precision@5": 1.0
+        }
+      },
+      "tobi-f02": {
+        "bm25": {
+          "ndcg@5": 0.36528481497527493,
+          "precision@5": 1.0
+        },
+        "semantic": {
+          "ndcg@5": 0.36528481497527493,
+          "precision@5": 1.0
+        },
+        "hybrid": {
+          "ndcg@5": 0.36528481497527493,
+          "precision@5": 1.0
+        },
+        "hybrid_feedback": {
+          "ndcg@5": 1.0,
+          "precision@5": 1.0
+        }
+      },
+      "tobi-f03": {
+        "bm25": {
+          "ndcg@5": 1.0,
+          "precision@5": 1.0
+        },
+        "semantic": {
+          "ndcg@5": 0.8687949224876582,
+          "precision@5": 0.8
+        },
+        "hybrid": {
+          "ndcg@5": 1.0,
+          "precision@5": 1.0
+        },
+        "hybrid_feedback": {
+          "ndcg@5": 1.0,
+          "precision@5": 1.0
+        }
+      },
+      "tobi-f04": {
+        "bm25": {
+          "ndcg@5": 0.759963590281844,
+          "precision@5": 1.0
+        },
+        "semantic": {
+          "ndcg@5": 0.43158468105863224,
+          "precision@5": 0.6
+        },
+        "hybrid": {
+          "ndcg@5": 0.759963590281844,
+          "precision@5": 1.0
+        },
+        "hybrid_feedback": {
+          "ndcg@5": 0.9026211001048624,
+          "precision@5": 1.0
+        }
+      },
+      "tobi-f05": {
+        "bm25": {
+          "ndcg@5": 0.4759908431563517,
+          "precision@5": 1.0
+        },
+        "semantic": {
+          "ndcg@5": 0.33333333333333337,
+          "precision@5": 1.0
+        },
+        "hybrid": {
+          "ndcg@5": 0.4759908431563517,
+          "precision@5": 1.0
+        },
+        "hybrid_feedback": {
+          "ndcg@5": 1.0,
+          "precision@5": 1.0
+        }
+      },
+      "janani-g01": {
+        "bm25": {
+          "ndcg@5": 1.0,
+          "precision@5": 1.0
+        },
+        "semantic": {
+          "ndcg@5": 0.33333333333333337,
+          "precision@5": 1.0
+        },
+        "hybrid": {
+          "ndcg@5": 1.0,
+          "precision@5": 1.0
+        },
+        "hybrid_feedback": {
+          "ndcg@5": 1.0,
+          "precision@5": 1.0
+        }
+      },
+      "janani-g02": {
+        "bm25": {
+          "ndcg@5": 1.0,
+          "precision@5": 1.0
+        },
+        "semantic": {
+          "ndcg@5": 0.5296347172140421,
+          "precision@5": 0.8
+        },
+        "hybrid": {
+          "ndcg@5": 1.0,
+          "precision@5": 1.0
+        },
+        "hybrid_feedback": {
+          "ndcg@5": 1.0,
+          "precision@5": 1.0
+        }
+      },
+      "janani-g03": {
+        "bm25": {
+          "ndcg@5": 1.0,
+          "precision@5": 1.0
+        },
+        "semantic": {
+          "ndcg@5": 0.6130840109067678,
+          "precision@5": 0.8
+        },
+        "hybrid": {
+          "ndcg@5": 1.0,
+          "precision@5": 1.0
+        },
+        "hybrid_feedback": {
+          "ndcg@5": 1.0,
+          "precision@5": 1.0
+        }
+      },
+      "janani-g04": {
+        "bm25": {
+          "ndcg@5": 0.8539316501572936,
+          "precision@5": 0.8
+        },
+        "semantic": {
+          "ndcg@5": 0.5157051110116302,
+          "precision@5": 0.8
+        },
+        "hybrid": {
+          "ndcg@5": 0.8687949224876583,
+          "precision@5": 0.8
+        },
+        "hybrid_feedback": {
+          "ndcg@5": 0.8687949224876583,
+          "precision@5": 0.8
+        }
+      },
+      "janani-g05": {
+        "bm25": {
+          "ndcg@5": 1.0,
+          "precision@5": 1.0
+        },
+        "semantic": {
+          "ndcg@5": 0.2826335043946801,
+          "precision@5": 0.4
+        },
+        "hybrid": {
+          "ndcg@5": 1.0,
+          "precision@5": 1.0
+        },
+        "hybrid_feedback": {
+          "ndcg@5": 1.0,
+          "precision@5": 1.0
+        }
+      },
+      "janani-m01": {
+        "bm25": {
+          "ndcg@5": 0.6549176226839696,
+          "precision@5": 1.0
+        },
+        "semantic": {
+          "ndcg@5": 0.08750372712995078,
+          "precision@5": 0.2
+        },
+        "hybrid": {
+          "ndcg@5": 0.8057635919248215,
+          "precision@5": 1.0
+        },
+        "hybrid_feedback": {
+          "ndcg@5": 0.8057635919248215,
+          "precision@5": 1.0
+        }
+      },
+      "janani-m02": {
+        "bm25": {
+          "ndcg@5": 0.6681130542686283,
+          "precision@5": 0.6
+        },
+        "semantic": {
+          "ndcg@5": 0.23823558355891236,
+          "precision@5": 0.4
+        },
+        "hybrid": {
+          "ndcg@5": 0.8118947216573654,
+          "precision@5": 0.8
+        },
+        "hybrid_feedback": {
+          "ndcg@5": 0.8118947216573654,
+          "precision@5": 0.8
+        }
+      },
+      "janani-m03": {
+        "bm25": {
+          "ndcg@5": 0.9125299483251055,
+          "precision@5": 1.0
+        },
+        "semantic": {
+          "ndcg@5": 0.2139862647345276,
+          "precision@5": 0.2
+        },
+        "hybrid": {
+          "ndcg@5": 0.5296347172140421,
+          "precision@5": 0.6
+        },
+        "hybrid_feedback": {
+          "ndcg@5": 0.5296347172140421,
+          "precision@5": 0.6
+        }
+      },
+      "janani-m04": {
+        "bm25": {
+          "ndcg@5": 1.0,
+          "precision@5": 1.0
+        },
+        "semantic": {
+          "ndcg@5": 0.46252803185459074,
+          "precision@5": 0.8
+        },
+        "hybrid": {
+          "ndcg@5": 1.0,
+          "precision@5": 1.0
+        },
+        "hybrid_feedback": {
+          "ndcg@5": 1.0,
+          "precision@5": 1.0
+        }
+      },
+      "janani-m05": {
+        "bm25": {
+          "ndcg@5": 0.6189630638619631,
+          "precision@5": 0.6
+        },
+        "semantic": {
+          "ndcg@5": 0.0848062679690234,
+          "precision@5": 0.2
+        },
+        "hybrid": {
+          "ndcg@5": 0.6093559763921439,
+          "precision@5": 0.6
+        },
+        "hybrid_feedback": {
+          "ndcg@5": 0.6093559763921439,
+          "precision@5": 0.6
+        }
+      },
+      "janani-a01": {
+        "bm25": {
+          "ndcg@5": 0.6511450647445489,
+          "precision@5": 0.8
+        },
+        "semantic": {
+          "ndcg@5": 0.5958337834156117,
+          "precision@5": 1.0
+        },
+        "hybrid": {
+          "ndcg@5": 0.7108844341837509,
+          "precision@5": 0.8
+        },
+        "hybrid_feedback": {
+          "ndcg@5": 0.7108844341837509,
+          "precision@5": 0.8
+        }
+      },
+      "janani-a02": {
+        "bm25": {
+          "ndcg@5": 0.8420809200104147,
+          "precision@5": 1.0
+        },
+        "semantic": {
+          "ndcg@5": 0.0,
+          "precision@5": 0.0
+        },
+        "hybrid": {
+          "ndcg@5": 0.8420809200104147,
+          "precision@5": 1.0
+        },
+        "hybrid_feedback": {
+          "ndcg@5": 0.8420809200104147,
+          "precision@5": 1.0
+        }
+      },
+      "janani-a03": {
+        "bm25": {
+          "ndcg@5": 0.94445371809913,
+          "precision@5": 1.0
+        },
+        "semantic": {
+          "ndcg@5": 0.27984651795050325,
+          "precision@5": 0.6
+        },
+        "hybrid": {
+          "ndcg@5": 0.94445371809913,
+          "precision@5": 1.0
+        },
+        "hybrid_feedback": {
+          "ndcg@5": 0.94445371809913,
+          "precision@5": 1.0
+        }
+      },
+      "janani-a04": {
+        "bm25": {
+          "ndcg@5": 0.9026211001048624,
+          "precision@5": 1.0
+        },
+        "semantic": {
+          "ndcg@5": 0.6724935386069495,
+          "precision@5": 1.0
+        },
+        "hybrid": {
+          "ndcg@5": 0.9026211001048624,
+          "precision@5": 1.0
+        },
+        "hybrid_feedback": {
+          "ndcg@5": 0.9026211001048624,
+          "precision@5": 1.0
+        }
+      },
+      "janani-a05": {
+        "bm25": {
+          "ndcg@5": 0.9026211001048624,
+          "precision@5": 1.0
+        },
+        "semantic": {
+          "ndcg@5": 0.3869772073910237,
+          "precision@5": 0.6
+        },
+        "hybrid": {
+          "ndcg@5": 0.8151510484299679,
+          "precision@5": 1.0
+        },
+        "hybrid_feedback": {
+          "ndcg@5": 0.8151510484299679,
+          "precision@5": 1.0
+        }
+      },
+      "janani-e01": {
+        "bm25": {
+          "ndcg@5": 1.0,
+          "precision@5": 1.0
+        },
+        "semantic": {
+          "ndcg@5": 0.9125299483251055,
+          "precision@5": 1.0
+        },
+        "hybrid": {
+          "ndcg@5": 1.0,
+          "precision@5": 1.0
+        },
+        "hybrid_feedback": {
+          "ndcg@5": 1.0,
+          "precision@5": 1.0
+        }
+      },
+      "janani-e02": {
+        "bm25": {
+          "ndcg@5": 1.0,
+          "precision@5": 1.0
+        },
+        "semantic": {
+          "ndcg@5": 0.8687949224876583,
+          "precision@5": 0.8
+        },
+        "hybrid": {
+          "ndcg@5": 1.0,
+          "precision@5": 1.0
+        },
+        "hybrid_feedback": {
+          "ndcg@5": 1.0,
+          "precision@5": 1.0
+        }
+      },
+      "janani-e03": {
+        "bm25": {
+          "ndcg@5": 1.0,
+          "precision@5": 1.0
+        },
+        "semantic": {
+          "ndcg@5": 0.773893196484256,
+          "precision@5": 1.0
+        },
+        "hybrid": {
+          "ndcg@5": 1.0,
+          "precision@5": 1.0
+        },
+        "hybrid_feedback": {
+          "ndcg@5": 1.0,
+          "precision@5": 1.0
+        }
+      },
+      "janani-e04": {
+        "bm25": {
+          "ndcg@5": 0.9026211001048624,
+          "precision@5": 1.0
+        },
+        "semantic": {
+          "ndcg@5": 1.0,
+          "precision@5": 1.0
+        },
+        "hybrid": {
+          "ndcg@5": 0.8687949224876583,
+          "precision@5": 0.8
+        },
+        "hybrid_feedback": {
+          "ndcg@5": 0.8687949224876583,
+          "precision@5": 0.8
+        }
+      },
+      "janani-e05": {
+        "bm25": {
+          "ndcg@5": 1.0,
+          "precision@5": 1.0
+        },
+        "semantic": {
+          "ndcg@5": 1.0,
+          "precision@5": 1.0
+        },
+        "hybrid": {
+          "ndcg@5": 1.0,
+          "precision@5": 1.0
+        },
+        "hybrid_feedback": {
+          "ndcg@5": 1.0,
+          "precision@5": 1.0
+        }
+      },
+      "janani-f01": {
+        "bm25": {
+          "ndcg@5": 0.6164336326286644,
+          "precision@5": 0.6
+        },
+        "semantic": {
+          "ndcg@5": 0.8687949224876582,
+          "precision@5": 0.8
+        },
+        "hybrid": {
+          "ndcg@5": 0.6164336326286644,
+          "precision@5": 0.6
+        },
+        "hybrid_feedback": {
+          "ndcg@5": 1.0,
+          "precision@5": 1.0
+        }
+      },
+      "janani-f02": {
+        "bm25": {
+          "ndcg@5": 0.3494746300967187,
+          "precision@5": 0.8
+        },
+        "semantic": {
+          "ndcg@5": 0.5296347172140421,
+          "precision@5": 0.8
+        },
+        "hybrid": {
+          "ndcg@5": 0.3494746300967187,
+          "precision@5": 0.8
+        },
+        "hybrid_feedback": {
+          "ndcg@5": 0.5733697430514895,
+          "precision@5": 1.0
+        }
+      },
+      "janani-f03": {
+        "bm25": {
+          "ndcg@5": 1.0,
+          "precision@5": 1.0
+        },
+        "semantic": {
+          "ndcg@5": 1.0,
+          "precision@5": 1.0
+        },
+        "hybrid": {
+          "ndcg@5": 1.0,
+          "precision@5": 1.0
+        },
+        "hybrid_feedback": {
+          "ndcg@5": 1.0,
+          "precision@5": 1.0
+        }
+      },
+      "janani-f04": {
+        "bm25": {
+          "ndcg@5": 1.0,
+          "precision@5": 1.0
+        },
+        "semantic": {
+          "ndcg@5": 1.0,
+          "precision@5": 1.0
+        },
+        "hybrid": {
+          "ndcg@5": 1.0,
+          "precision@5": 1.0
+        },
+        "hybrid_feedback": {
+          "ndcg@5": 1.0,
+          "precision@5": 1.0
+        }
+      },
+      "janani-f05": {
+        "bm25": {
+          "ndcg@5": 0.36528481497527493,
+          "precision@5": 1.0
+        },
+        "semantic": {
+          "ndcg@5": 0.2871188818544728,
+          "precision@5": 0.8
+        },
+        "hybrid": {
+          "ndcg@5": 0.36528481497527493,
+          "precision@5": 1.0
+        },
+        "hybrid_feedback": {
+          "ndcg@5": 0.9891413446337513,
+          "precision@5": 1.0
+        }
+      }
+    },
+    "feedback_per_query_deltas": {
+      "tobi-f01": {
+        "ndcg@5": 0.5791966149917721,
+        "precision@5": 0.0
+      },
+      "tobi-f02": {
+        "ndcg@5": 0.634715185024725,
+        "precision@5": 0.0
+      },
+      "tobi-f03": {
+        "ndcg@5": 0.0,
+        "precision@5": 0.0
+      },
+      "tobi-f04": {
+        "ndcg@5": 0.1426575098230184,
+        "precision@5": 0.0
+      },
+      "tobi-f05": {
+        "ndcg@5": 0.5240091568436482,
+        "precision@5": 0.0
+      },
+      "janani-f01": {
+        "ndcg@5": 0.38356636737133565,
+        "precision@5": 0.4
+      },
+      "janani-f02": {
+        "ndcg@5": 0.22389511295477077,
+        "precision@5": 0.19999999999999996
+      },
+      "janani-f03": {
+        "ndcg@5": 0.0,
+        "precision@5": 0.0
+      },
+      "janani-f04": {
+        "ndcg@5": 0.0,
+        "precision@5": 0.0
+      },
+      "janani-f05": {
+        "ndcg@5": 0.6238565296584764,
+        "precision@5": 0.0
+      }
+    },
+    "feedback_outcomes": {
+      "ndcg@5": {
+        "improved": 7,
+        "tied": 3
+      },
+      "precision@5": {
+        "tied": 8,
+        "improved": 2
+      }
+    },
+    "non_feedback_ranking_changes": [],
+    "paired_design": "Same query, playlist and hard exclusions; hybrid without versus with supplied soft feedback. This is a controlled feedback ablation, not a longitudinal user study."
+  },
+  "ai_decisions_sha256": "22e945cc30a4f8ad62cf6d2d0547c8af499685d2c7bad1508dc2a39aadaa5186"
+}

@@ -1,0 +1,43 @@
+{
+  "query_count": 50,
+  "run_count": 200,
+  "timing_samples": 600,
+  "pooled_pairs": 554,
+  "reused_judgments": 232,
+  "unjudged_pairs": 322,
+  "metadata_mismatches_not_reused": 0,
+  "assessors": {
+    "AI-assisted:metadata-only:PROVISIONAL": 55,
+    "UNJUDGED": 322,
+    "codex-ai:metadata-reviewed:REVIEW-REQUIRED": 73,
+    "codex-ai:adaptive-metadata-review:REVIEW-REQUIRED": 104
+  },
+  "judgment_source_sha256": {
+    "evaluation/part4/adaptive_evaluation_v1/reviewed_judgments.csv": "e053ed19518694a22b5039119b712127ffc9e6967cc939a27f53f23c318cdcd1",
+    "evaluation/part4/janani_results/judgments.csv": "d8c26af18ddf7be6618e0ec2ab70d862a0e3455bb46e4d0a5a5206b050533639"
+  },
+  "excluded_tracks_returned": 0,
+  "latency": {
+    "bm25": {
+      "mean_ms": 207.80185976647772,
+      "p50_ms": 21.589562500594184,
+      "p95_ms": 909.8132728482586
+    },
+    "semantic": {
+      "mean_ms": 514.4800294184824,
+      "p50_ms": 240.22108349890914,
+      "p95_ms": 1688.9563480886857
+    },
+    "hybrid": {
+      "mean_ms": 853.8673563336488,
+      "p50_ms": 464.0523124980973,
+      "p95_ms": 2397.3535708981185
+    },
+    "hybrid_feedback": {
+      "mean_ms": 846.5719538998868,
+      "p50_ms": 773.3802705042763,
+      "p95_ms": 1871.1788661530577
+    }
+  },
+  "scoring_note": "No new relevance labels generated. Complete judgments and human assessment remain required; use score only when all pooled grades are present."
+}

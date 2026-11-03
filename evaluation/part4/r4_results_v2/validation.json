@@ -1,0 +1,29 @@
+{
+  "python_tests": {
+    "count": 202,
+    "passed": true,
+    "command": "MUSICCRS_NLU_LOCAL_ONLY=1 HF_HUB_OFFLINE=1 HF_DATASETS_OFFLINE=1 .venv/bin/python -m unittest discover -s tests -p 'test_*.py'"
+  },
+  "reproduction_from_preserved_reviews": {
+    "all_metrics_identical": true,
+    "all_per_query_scores_identical": true,
+    "all_554_normalized_judgments_identical": true
+  },
+  "review_snapshots_sha256_verified": true,
+  "evaluator_source_hashes_verified": true,
+  "missing_grades": 0,
+  "human_pairs": 40,
+  "ai_metadata_pairs": 514,
+  "current_pool_fully_human_reviewed": false,
+  "independent_metric_audit_maximum_difference": 1.1102230246251565e-16,
+  "exclusion_violations": 0,
+  "non_feedback_ranking_changes": 0,
+  "file_sha256": {
+    "report.json": "45b24425c7cba2fa9ca4568ec1bba57d1c08bba4bc5d9974e8f8ae0ed508b0d0",
+    "REPORT.md": "19eba7576101743c915dbf534de2c6abcf14c76ca506b84382505d7ea7116c05",
+    "merged_judgments.json": "dea6efdb23cdd8a3bdf58dcb12eccbd372eb4344be937f2ac29b488ee3392c2d",
+    "ai_decisions.json": "22e945cc30a4f8ad62cf6d2d0547c8af499685d2c7bad1508dc2a39aadaa5186",
+    "catalog_and_constraint_audit.json": "f7098ce47d023c5b2c0dd5922bd8dc4ee984f89b2ef60118568143a9f96e5ec9"
+  },
+  "note": "Validation adds no labels, changes no rankings, and does not rerun or replace the frozen latency samples."
+}

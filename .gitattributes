@@ -1,0 +1,10 @@
+# Frozen evaluation inputs and reports contain SHA-256 hashes of file bytes.
+# Preserve their original line endings when adding or checking out files.
+evaluation/part4/integrated_evaluation_v2/** -text
+evaluation/part4/r4_results_v2/** -text
+evaluation/part4/r2_integration_v2/** -text
+evaluation/part4/live_llm_check_v1/** -text
+evaluation/part4/human_review/sampling_protocol.json -text
+# CRLF is intentional in the original CSV inputs; retain other whitespace checks.
+evaluation/part4/integrated_evaluation_v2/*.csv whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+evaluation/part4/r4_results_v2/source_reviews/*.csv whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol

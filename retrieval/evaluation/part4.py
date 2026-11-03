@@ -165,18 +165,20 @@ def score_benchmark(run_path, judgments_path):
     judgments = defaultdict(dict)
     provisional = False
     provenance = defaultdict(int)
-    with Path(judgments_path).open(newline="") as stream:
+    with Path(judgments_path).open(newline="", encoding="utf-8-sig") as stream:
         for row in csv.DictReader(stream):
             if row["track_id"] in judgments[row["query_id"]]:
                 raise ValueError("Duplicate query/track judgment")
             if row["grade"] not in {"0", "1", "2"}:
                 raise ValueError("Complete all pooled 0–2 judgments before scoring")
             judgments[row["query_id"]][row["track_id"]] = int(row["grade"])
-            provisional |= "REVIEW-REQUIRED" in row.get("assessor", "") or not row.get("assessor")
-            assessor = row.get("assessor", "")
-            if assessor.startswith("codex-ai:metadata-reviewed:"):
+            assessor = row.get("assessor", "").strip()
+            ai_assisted = assessor.casefold().startswith(("codex-ai:", "ai-assisted:", "ai:"))
+            provisional |= ai_assisted or any(flag in assessor.upper() for flag in
+                                              ("REVIEW-REQUIRED", "PROVISIONAL", "PROXY")) or not assessor
+            if ai_assisted:
                 provenance["ai_metadata_review"] += 1
-            elif "REVIEW-REQUIRED" in assessor or not assessor:
+            elif any(flag in assessor.upper() for flag in ("REVIEW-REQUIRED", "PROVISIONAL", "PROXY")) or not assessor:
                 provenance["unreviewed_or_proxy"] += 1
             else:
                 provenance["named_assessor"] += 1

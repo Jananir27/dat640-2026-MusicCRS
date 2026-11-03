@@ -1,0 +1,42 @@
+{
+  "python_tests": 194,
+  "selected_frontend_tests": 8,
+  "typescript": "passed",
+  "frontend_production_build": "passed with existing warnings",
+  "legacy_integration_scenarios": 18,
+  "legacy_conversation_turns": 74,
+  "legacy_checks": "passed",
+  "real_catalog_demonstrations": {
+    "live_standard_demo.json": {
+      "turns": 8,
+      "checks": 6,
+      "all_passed": true
+    },
+    "live_advanced_demo.json": {
+      "turns": 15,
+      "checks": 14,
+      "all_passed": true
+    }
+  },
+  "evaluation": {
+    "query_count": 50,
+    "run_count": 200,
+    "timing_samples": 600,
+    "pooled_pairs": 554,
+    "reused_judgments": 232,
+    "unjudged_pairs": 322,
+    "excluded_tracks_returned": 0
+  },
+  "latest_code_replay": {
+    "rankings": 200,
+    "matched": true,
+    "maximum_score_difference": 0.0,
+    "report": "evaluation/part4/integrated_evaluation_v2/replay_verification_final.json",
+    "source_hashes_match_worktree": true
+  },
+  "incomplete_judgment_scoring_guard": "Complete all pooled 0\u20132 judgments before scoring",
+  "human_judgments_created": 0,
+  "external_llm_calls": 0,
+  "semantic_model": "Qwen/Qwen3-Embedding-0.6B",
+  "note": "The 600 timing samples belong to the recorded recommendation run. All 200 rankings and scores were replayed unchanged after the playlist-replacement and conservative credit-parser corrections; no replacement timing estimates or relevance labels were generated."
+}

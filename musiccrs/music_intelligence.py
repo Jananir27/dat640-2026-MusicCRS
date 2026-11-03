@@ -9,6 +9,7 @@ import re
 from musiccrs.music_features import extract_preferences
 from musiccrs.music_service import ConversationState, MusicService
 from musiccrs.feedback_language import FeedbackUpdate, interpret_feedback, split_exclusion_request
+from musiccrs.feedback_workflow import FeedbackRankingError, FeedbackReferenceError
 from musiccrs.relevance_feedback import FeedbackState, name_key
 
 
@@ -128,28 +129,15 @@ class MusicIntelligence:
         if not message:
             return None
 
-        # A request for more songs like a numbered track also expresses
-        # positive feedback about that track.
-        numbered_feedback_request = re.match(
-            r"^(?:recommend|suggest)\s+(?:me\s+)?more\s+"
-            r"(?:songs?|tracks?)\s+like\s+(?:track|song)\s+\d+\b",
-            message,
-            re.I,
-        )
-        if numbered_feedback_request and hasattr(self.service, "catalog"):
+        # Resolve feedback before generic recommendation/playlist selection.
+        # The parser returns None for a fresh request with no feedback.
+        if hasattr(self.service, "catalog"):
             feedback = self._handle_feedback(message, state)
             if feedback is not None:
                 return feedback
 
         # Fresh recommendation requests must not select old suggestions.
         if not self._is_recommendation_request(message):
-            feedback = (
-                self._handle_feedback(message, state)
-                if hasattr(self.service, "catalog")
-                else None
-            )
-            if feedback is not None:
-                return feedback
             selection = self._handle_pending_selection(message, state)
             if selection is not None:
                 return selection
@@ -221,15 +209,15 @@ class MusicIntelligence:
             state.skip_recommendation_ids.clear()
             return "I've cleared your feedback and exclusions for this conversation.", False
         self._apply_feedback(update, state)
-        if update.different:
-            state.skip_recommendation_ids.update(state.last_recommendation_ids)
         if update.recommend:
-            query = state.last_recommendation_query
+            query = update.recommendation_query or state.last_recommendation_query
             if not query and update.likes:
                 labels = [self.service.display_track(self.service.get_track(track_id)) for track_id in update.likes]
                 query = "Recommend songs similar to " + "; ".join(labels)
             if not query:
                 return "What genre, artist, or mood should I use for the next recommendations?", False
+            if update.different:
+                state.skip_recommendation_ids.update(state.last_recommendation_ids)
             return self._recommend(query, state)
         parts = []
         if update.likes:
@@ -1124,6 +1112,33 @@ class MusicIntelligence:
         )
 
     def _recommend(self, message: str, state: ConversationState) -> tuple[str, bool]:
+        previous_recommendations = state.last_recommendation_ids[:]
+        # A failed/empty new request must not leave old numbered choices active.
+        # Immutable older UI batches remain available for explicit button votes.
+        state.pending_recommendation_ids.clear()
+        state.last_recommendation_ids.clear()
+        state.ranking_evidence.clear()
+        state.recommendation_payload = None
+        state.emit_recommendations = False
+        try:
+            return self._recommend_request(message, state, previous_recommendations)
+        except (FeedbackRankingError, FeedbackReferenceError) as exc:
+            state.pending_recommendation_ids.clear()
+            state.last_recommendation_ids.clear()
+            state.ranking_evidence.clear()
+            state.recommendation_payload = None
+            state.emit_recommendations = False
+            if isinstance(exc, FeedbackReferenceError):
+                return str(exc), False
+            import logging
+            logging.getLogger(__name__).exception("Feedback recommendation failed")
+            return "I couldn't update the recommendations right now. Your feedback is saved for this conversation; please try again.", False
+        finally:
+            # 'Different' is a one-request skip, including the LLM/error paths.
+            state.skip_recommendation_ids.clear()
+
+    def _recommend_request(self, message: str, state: ConversationState,
+                           previous_recommendations: list[str]) -> tuple[str, bool]:
         original_message = message
         exclusion = None
 
@@ -1136,7 +1151,7 @@ class MusicIntelligence:
             if exclusion:
                 update = interpret_feedback(
                     exclusion,
-                    state.last_recommendation_ids,
+                    previous_recommendations,
                     self.service.catalog.metadata_dict,
                     self._selected_positions,
                     state.last_question_track_id,
@@ -1151,14 +1166,14 @@ class MusicIntelligence:
         # Part 4 is opt-in. Keep the original R6 algorithm for bare /recommend.
         if (
             self._advanced_recommender is not None
-            and state.playlist_ids
             and message.strip() != "/recommend"
-            and (not state.feedback.has_preferences or bool(exclusion))
         ):
             # Old pending choices must not survive a new recommendation request.
             state.pending_recommendation_ids.clear()
             try:
                 result = self._advanced_recommender(original_message, state)
+            except (FeedbackRankingError, FeedbackReferenceError):
+                raise
             except Exception:
                 # Never let an LLM/network failure produce unfiltered suggestions.
                 import logging
@@ -1202,7 +1217,9 @@ class MusicIntelligence:
                 False,
             )
 
-        requested_genres, requested_moods = extract_preferences(message)
+        requested_genres, requested_moods = (self.service.extract_request_preferences(message)
+                                             if hasattr(self.service, "extract_request_preferences")
+                                             else extract_preferences(message))
         named_artists = self.service.get_r5_entities().mentions(message, "artist") if not state.playlist_ids else []
         if not state.playlist_ids and not (requested_genres or requested_moods or named_artists or state.feedback.has_preferences):
             return "Add at least one song to your playlist first, and I can suggest related tracks.", False
@@ -1218,8 +1235,6 @@ class MusicIntelligence:
             recommendations = self.service.recommend_from_playlist(state, limit=5, request=retrieval_request)
         else:
             recommendations = self.service.recommend_from_description(state, message, limit=5)
-        # 'Different' skips a displayed batch for this retrieval, not a lasting dislike.
-        state.skip_recommendation_ids.clear()
         if not recommendations:
             state.pending_recommendation_ids.clear()
             state.last_recommendation_ids.clear()

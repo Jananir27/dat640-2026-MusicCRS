@@ -1,0 +1,11 @@
+{
+  "pooled_pairs_verified": 554,
+  "catalog_field_checks": 2216,
+  "metadata_mismatches": 0,
+  "rankings_checked": 200,
+  "returned_tracks_checked": 987,
+  "exclusion_violations": [],
+  "scope": "Frozen current rankings checked against current catalog metadata and production hard-exclusion resolver; rankings and latency were not rerun.",
+  "reference_runs_sha256": "2c4f82e45d49a3f74a3c61da8a8a3ed348619025c98c9665e230565c9295bcd9",
+  "catalog_sha256": "316b7da97794bcc19bff1300ab23d03d77ae3fbf211e0e19ea282ccb4ce0425e"
+}

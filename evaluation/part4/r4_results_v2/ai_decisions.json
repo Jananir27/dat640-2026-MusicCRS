@@ -1,0 +1,2330 @@
+{
+  "assessor": "codex-ai:integrated-metadata-review:PROVISIONAL",
+  "review_type": "Explicit AI metadata-only judgments; no audio assessment or new human grades",
+  "runs_sha256": "2c4f82e45d49a3f74a3c61da8a8a3ed348619025c98c9665e230565c9295bcd9",
+  "pool_sha256": "19bfd5639ee818d01e2c8e5c916b21f5a2bfb459de0223b58ec47dc5be847a64",
+  "blind_new_pairs_sha256": "f71d323a33d59e6a871e6b983bc6b559001a0c6e4a62d1119f663b206333e7c9",
+  "rubric": {
+    "0": "Unsupported/unrelated, dominant conflict with the request, or hard-constraint violation. Missing tags are not proof of audible irrelevance.",
+    "1": "Partial genre/mood/context support, adjacent style, or insufficient evidence for the complete request.",
+    "2": "Strong verified metadata support for the complete literal request and context."
+  },
+  "policy": [
+    "Literal query and supplied context take priority over helper arrays.",
+    "Titles and artist names do not establish genre, mood, instrumentation or musical similarity.",
+    "No retrieval method, rank, retrieval score, embedding or AI/human label was supplied in the new-pair review input.",
+    "The reviewer has prior project context and historical aggregate results; this is not an independent human or fully blind assessment.",
+    "Seed metadata was inspected in the local catalog. Numb by 21 Savage has only artist and Hip-Hop/Rap tags; no trap style is inferred.",
+    "Genre exclusions and known-track identity remain hard constraints. Seed-based requests require more than a generic genre match for strong credit.",
+    "No ranking parameters were changed and no grades were selected or revised to improve a system score.",
+    "No audio was played; sparse/noisy/conflicting folksonomic tags limit validity."
+  ],
+  "explicit_grade_vectors_by_query_in_frozen_missing_pair_order": {
+    "janani-a01": "211111",
+    "janani-a02": "002000",
+    "janani-a03": "12012012",
+    "janani-a04": "221121",
+    "janani-a05": "21020211",
+    "janani-e01": "2222212222",
+    "janani-e02": "222222222",
+    "janani-e03": "2222212222",
+    "janani-e04": "2212222",
+    "janani-e05": "2222222",
+    "janani-f01": "1010011111111",
+    "janani-f02": "211011222111120",
+    "janani-f03": "111111111111111",
+    "janani-f04": "2222222222",
+    "janani-f05": "1111212111120112",
+    "janani-g01": "2121212121",
+    "janani-g02": "2221122",
+    "janani-g03": "12210222",
+    "janani-g04": "10110",
+    "janani-g05": "22022122",
+    "janani-m01": "0212001201",
+    "janani-m02": "0200",
+    "janani-m03": "20000200",
+    "janani-m04": "21012",
+    "janani-m05": "00000",
+    "tobi-a01": "2212222",
+    "tobi-a02": "2",
+    "tobi-a03": "1010",
+    "tobi-a04": "2201200",
+    "tobi-a05": "2222",
+    "tobi-e01": "2020",
+    "tobi-e02": "2222",
+    "tobi-e03": "22",
+    "tobi-e04": "22",
+    "tobi-e05": "2122",
+    "tobi-f01": "2012",
+    "tobi-f02": "111",
+    "tobi-f03": "11",
+    "tobi-f04": "10201",
+    "tobi-f05": "11111",
+    "tobi-g01": "20201",
+    "tobi-g02": "1012",
+    "tobi-g03": "2222",
+    "tobi-g04": "111",
+    "tobi-g05": "12121",
+    "tobi-p01": "2222",
+    "tobi-p02": "2111",
+    "tobi-p03": "1011111111",
+    "tobi-p04": "222",
+    "tobi-p05": "222222"
+  },
+  "decisions": [
+    {
+      "query_id": "janani-a01",
+      "track_id": "b0b02e2e-4226-4a03-896c-adb832be0f55",
+      "review_key": "P001",
+      "grade": 2,
+      "reason": "Rock and energetic are explicitly documented, supporting the gym request."
+    },
+    {
+      "query_id": "janani-a01",
+      "track_id": "b25e4628-a344-4272-9dee-865166ed93f0",
+      "review_key": "P002",
+      "grade": 1,
+      "reason": "Rock, hard-rock or rap-rock evidence supplies a partial match; the requested energy is not firmly documented."
+    },
+    {
+      "query_id": "janani-a01",
+      "track_id": "c38fb533-4aaf-429e-bd14-d572d72969e4",
+      "review_key": "P003",
+      "grade": 1,
+      "reason": "Rock, hard-rock or rap-rock evidence supplies a partial match; the requested energy is not firmly documented."
+    },
+    {
+      "query_id": "janani-a01",
+      "track_id": "f631d940-fa20-4eaf-a3ff-8f9cf5bcc39e",
+      "review_key": "P004",
+      "grade": 1,
+      "reason": "Rock, hard-rock or rap-rock evidence supplies a partial match; the requested energy is not firmly documented."
+    },
+    {
+      "query_id": "janani-a01",
+      "track_id": "fc3ae7ab-0c30-4ef3-94ef-7e9a8c1ecaeb",
+      "review_key": "P005",
+      "grade": 1,
+      "reason": "Rock, hard-rock or rap-rock evidence supplies a partial match; the requested energy is not firmly documented."
+    },
+    {
+      "query_id": "janani-a01",
+      "track_id": "fde8d446-b06c-4d35-bf67-4dd5621f3cf1",
+      "review_key": "P006",
+      "grade": 1,
+      "reason": "Rock, hard-rock or rap-rock evidence supplies a partial match; the requested energy is not firmly documented."
+    },
+    {
+      "query_id": "janani-a02",
+      "track_id": "4639e8e5-1517-4a42-9db0-8c25bfff6de0",
+      "review_key": "P007",
+      "grade": 0,
+      "reason": "The metadata does not establish peaceful instrumental music; the title is not sufficient evidence."
+    },
+    {
+      "query_id": "janani-a02",
+      "track_id": "5ee49a2c-7cd2-4577-8397-0162d1c7ba6a",
+      "review_key": "P008",
+      "grade": 0,
+      "reason": "The metadata does not establish peaceful instrumental music; the title is not sufficient evidence."
+    },
+    {
+      "query_id": "janani-a02",
+      "track_id": "6a708db3-06b1-4c55-9078-e909e73ac887",
+      "review_key": "P009",
+      "grade": 2,
+      "reason": "Instrumental and peaceful are explicitly documented together."
+    },
+    {
+      "query_id": "janani-a02",
+      "track_id": "d7a2a87c-edbf-4d56-ae2d-adbae8a7258e",
+      "review_key": "P010",
+      "grade": 0,
+      "reason": "The metadata does not establish peaceful instrumental music; the title is not sufficient evidence."
+    },
+    {
+      "query_id": "janani-a02",
+      "track_id": "dbf94769-0af7-4f8d-befa-44e9c377595e",
+      "review_key": "P011",
+      "grade": 0,
+      "reason": "The metadata does not establish peaceful instrumental music; the title is not sufficient evidence."
+    },
+    {
+      "query_id": "janani-a02",
+      "track_id": "f576a0d6-d8a7-4214-a740-536af2a710ee",
+      "review_key": "P012",
+      "grade": 0,
+      "reason": "The metadata does not establish peaceful instrumental music; the title is not sufficient evidence."
+    },
+    {
+      "query_id": "janani-a03",
+      "track_id": "025ad387-3442-47c3-b65e-e39ed6cd4009",
+      "review_key": "P013",
+      "grade": 1,
+      "reason": "Fast, hopeful or mixed happy/chill style evidence gives only partial support for upbeat listening."
+    },
+    {
+      "query_id": "janani-a03",
+      "track_id": "0b86c536-7dda-4c7e-b2ae-15b3d74aee75",
+      "review_key": "P014",
+      "grade": 2,
+      "reason": "Upbeat metadata directly supports the requested road-trip mood."
+    },
+    {
+      "query_id": "janani-a03",
+      "track_id": "14abf5a7-7918-4b8e-975b-d46eeea92454",
+      "review_key": "P015",
+      "grade": 0,
+      "reason": "No defensible upbeat mood evidence is supplied; travel-related words in titles do not establish suitability."
+    },
+    {
+      "query_id": "janani-a03",
+      "track_id": "1828a7d6-d523-49af-b9b5-9c5d2ccc6cc2",
+      "review_key": "P016",
+      "grade": 1,
+      "reason": "Fast, hopeful or mixed happy/chill style evidence gives only partial support for upbeat listening."
+    },
+    {
+      "query_id": "janani-a03",
+      "track_id": "4bc767b6-d541-4773-9898-aa5cdb2b2182",
+      "review_key": "P017",
+      "grade": 2,
+      "reason": "Upbeat metadata directly supports the requested road-trip mood."
+    },
+    {
+      "query_id": "janani-a03",
+      "track_id": "af648086-ec10-4b3c-83ce-941586a71430",
+      "review_key": "P018",
+      "grade": 0,
+      "reason": "No defensible upbeat mood evidence is supplied; travel-related words in titles do not establish suitability."
+    },
+    {
+      "query_id": "janani-a03",
+      "track_id": "dedbe92a-8222-4477-8ff0-c26efb2dfd15",
+      "review_key": "P019",
+      "grade": 1,
+      "reason": "Fast, hopeful or mixed happy/chill style evidence gives only partial support for upbeat listening."
+    },
+    {
+      "query_id": "janani-a03",
+      "track_id": "e789d980-0ce2-4ea5-b6e0-313ddab9b5cb",
+      "review_key": "P020",
+      "grade": 2,
+      "reason": "Upbeat metadata directly supports the requested road-trip mood."
+    },
+    {
+      "query_id": "janani-a04",
+      "track_id": "22f765e6-d10c-4350-864f-0f543719e4a2",
+      "review_key": "P021",
+      "grade": 2,
+      "reason": "Dance and energetic are explicitly documented together."
+    },
+    {
+      "query_id": "janani-a04",
+      "track_id": "2361d844-1429-4a29-a62f-89a59bb1e543",
+      "review_key": "P022",
+      "grade": 2,
+      "reason": "Dance and energetic are explicitly documented together."
+    },
+    {
+      "query_id": "janani-a04",
+      "track_id": "6e58fe77-3881-4bb0-ae29-a936ecff36d3",
+      "review_key": "P023",
+      "grade": 1,
+      "reason": "Dance/house/disco or dance-associated R&B is documented, but the requested energy remains uncertain."
+    },
+    {
+      "query_id": "janani-a04",
+      "track_id": "889b99a1-9bfe-48b3-9871-e105643f15be",
+      "review_key": "P024",
+      "grade": 1,
+      "reason": "Dance/house/disco or dance-associated R&B is documented, but the requested energy remains uncertain."
+    },
+    {
+      "query_id": "janani-a04",
+      "track_id": "adbaff0d-e962-4725-9f8b-411a3a7108dc",
+      "review_key": "P025",
+      "grade": 2,
+      "reason": "Dance and energetic are explicitly documented together."
+    },
+    {
+      "query_id": "janani-a04",
+      "track_id": "cb024d25-c018-47aa-83cf-09baec5dff02",
+      "review_key": "P026",
+      "grade": 1,
+      "reason": "Dance/house/disco or dance-associated R&B is documented, but the requested energy remains uncertain."
+    },
+    {
+      "query_id": "janani-a05",
+      "track_id": "094b1d3a-3a4b-44d8-be53-41492f92cae1",
+      "review_key": "P027",
+      "grade": 2,
+      "reason": "Relaxing, soft, mellow or calm metadata supports bedtime listening."
+    },
+    {
+      "query_id": "janani-a05",
+      "track_id": "13591430-ac68-465c-87bb-f7416e023184",
+      "review_key": "P028",
+      "grade": 1,
+      "reason": "Only a broad relaxation association or conflicting dance context is supplied; bedtime suitability is not strongly verified."
+    },
+    {
+      "query_id": "janani-a05",
+      "track_id": "47103f3a-3018-42ac-a7be-382ea8b788f5",
+      "review_key": "P029",
+      "grade": 0,
+      "reason": "The metadata is insufficient or emphasizes intense/heavy music; sleep/relaxation words in a title are not proof."
+    },
+    {
+      "query_id": "janani-a05",
+      "track_id": "6331f2b0-ae9e-4494-98b8-fe1cb79792aa",
+      "review_key": "P030",
+      "grade": 2,
+      "reason": "Relaxing, soft, mellow or calm metadata supports bedtime listening."
+    },
+    {
+      "query_id": "janani-a05",
+      "track_id": "83bcacbb-fd70-4fb3-85c6-f516152f13ed",
+      "review_key": "P031",
+      "grade": 0,
+      "reason": "The metadata is insufficient or emphasizes intense/heavy music; sleep/relaxation words in a title are not proof."
+    },
+    {
+      "query_id": "janani-a05",
+      "track_id": "9957ff2c-4911-4776-8cca-96e8376654c9",
+      "review_key": "P032",
+      "grade": 2,
+      "reason": "Relaxing, soft, mellow or calm metadata supports bedtime listening."
+    },
+    {
+      "query_id": "janani-a05",
+      "track_id": "f14cde96-71c6-4aab-b2ed-42714aada3c4",
+      "review_key": "P033",
+      "grade": 1,
+      "reason": "Only a broad relaxation association or conflicting dance context is supplied; bedtime suitability is not strongly verified."
+    },
+    {
+      "query_id": "janani-a05",
+      "track_id": "fa39fa06-2515-4fb4-adbc-ae3eaefb7032",
+      "review_key": "P034",
+      "grade": 1,
+      "reason": "Only a broad relaxation association or conflicting dance context is supplied; bedtime suitability is not strongly verified."
+    },
+    {
+      "query_id": "janani-e01",
+      "track_id": "0184c0ba-dda6-4753-b7d4-4a9643f50bcf",
+      "review_key": "P035",
+      "grade": 2,
+      "reason": "Verified rock styles match the broad request, and the credited artist is not Linkin Park."
+    },
+    {
+      "query_id": "janani-e01",
+      "track_id": "1104f82f-1ddc-480b-aede-e62816312bbd",
+      "review_key": "P036",
+      "grade": 2,
+      "reason": "Verified rock styles match the broad request, and the credited artist is not Linkin Park."
+    },
+    {
+      "query_id": "janani-e01",
+      "track_id": "12ba4a14-12ee-4842-a993-314ae69aab16",
+      "review_key": "P037",
+      "grade": 2,
+      "reason": "Verified rock styles match the broad request, and the credited artist is not Linkin Park."
+    },
+    {
+      "query_id": "janani-e01",
+      "track_id": "2d75059c-db2d-4145-b8a7-8880b0a3b904",
+      "review_key": "P038",
+      "grade": 2,
+      "reason": "Verified rock styles match the broad request, and the credited artist is not Linkin Park."
+    },
+    {
+      "query_id": "janani-e01",
+      "track_id": "32bb6f88-0d69-4f09-a020-492116cffb55",
+      "review_key": "P039",
+      "grade": 2,
+      "reason": "Verified rock styles match the broad request, and the credited artist is not Linkin Park."
+    },
+    {
+      "query_id": "janani-e01",
+      "track_id": "6aa93a24-9acf-4c9c-a150-15b88b2b7c93",
+      "review_key": "P040",
+      "grade": 1,
+      "reason": "Electro/jazz-funk dominates; an incidental rock tag supports only a partial rock match."
+    },
+    {
+      "query_id": "janani-e01",
+      "track_id": "7b11e6ce-b6a0-4c3f-8c64-154d8de116ea",
+      "review_key": "P041",
+      "grade": 2,
+      "reason": "Verified rock styles match the broad request, and the credited artist is not Linkin Park."
+    },
+    {
+      "query_id": "janani-e01",
+      "track_id": "8d923a89-5bd7-4f95-ab5f-0aa02818872f",
+      "review_key": "P042",
+      "grade": 2,
+      "reason": "Verified rock styles match the broad request, and the credited artist is not Linkin Park."
+    },
+    {
+      "query_id": "janani-e01",
+      "track_id": "dbf94769-0af7-4f8d-befa-44e9c377595e",
+      "review_key": "P043",
+      "grade": 2,
+      "reason": "Verified rock styles match the broad request, and the credited artist is not Linkin Park."
+    },
+    {
+      "query_id": "janani-e01",
+      "track_id": "e6e8416c-db8f-4be5-910f-cdd26e2b33ae",
+      "review_key": "P044",
+      "grade": 2,
+      "reason": "Verified rock styles match the broad request, and the credited artist is not Linkin Park."
+    },
+    {
+      "query_id": "janani-e02",
+      "track_id": "038a6514-51c4-402e-9ac5-a042a3bc7982",
+      "review_key": "P045",
+      "grade": 2,
+      "reason": "Pop or a specific pop subgenre is explicitly documented; Adele is not a credited artist. No language restriction was requested."
+    },
+    {
+      "query_id": "janani-e02",
+      "track_id": "0b908cbb-0b74-4d0c-b611-ec6ed4f96335",
+      "review_key": "P046",
+      "grade": 2,
+      "reason": "Pop or a specific pop subgenre is explicitly documented; Adele is not a credited artist. No language restriction was requested."
+    },
+    {
+      "query_id": "janani-e02",
+      "track_id": "8ca2ef00-2d7f-4894-8530-d04eb7d338af",
+      "review_key": "P047",
+      "grade": 2,
+      "reason": "Pop or a specific pop subgenre is explicitly documented; Adele is not a credited artist. No language restriction was requested."
+    },
+    {
+      "query_id": "janani-e02",
+      "track_id": "9307b08c-3442-45b1-a5e9-0bd9cfba45b0",
+      "review_key": "P048",
+      "grade": 2,
+      "reason": "Pop or a specific pop subgenre is explicitly documented; Adele is not a credited artist. No language restriction was requested."
+    },
+    {
+      "query_id": "janani-e02",
+      "track_id": "ba6a0aef-ab67-479c-b8d8-89d99badf9f1",
+      "review_key": "P049",
+      "grade": 2,
+      "reason": "Pop or a specific pop subgenre is explicitly documented; Adele is not a credited artist. No language restriction was requested."
+    },
+    {
+      "query_id": "janani-e02",
+      "track_id": "dfe185ce-b59e-4e6d-b65c-7b955873dc4a",
+      "review_key": "P050",
+      "grade": 2,
+      "reason": "Pop or a specific pop subgenre is explicitly documented; Adele is not a credited artist. No language restriction was requested."
+    },
+    {
+      "query_id": "janani-e02",
+      "track_id": "eb989cf6-b3d8-4e54-835c-c0b12a88a5c7",
+      "review_key": "P051",
+      "grade": 2,
+      "reason": "Pop or a specific pop subgenre is explicitly documented; Adele is not a credited artist. No language restriction was requested."
+    },
+    {
+      "query_id": "janani-e02",
+      "track_id": "f4925496-44ec-464d-9f38-ee74252ca3b0",
+      "review_key": "P052",
+      "grade": 2,
+      "reason": "Pop or a specific pop subgenre is explicitly documented; Adele is not a credited artist. No language restriction was requested."
+    },
+    {
+      "query_id": "janani-e02",
+      "track_id": "fab17713-66b3-46de-9b6f-458cc7b9f359",
+      "review_key": "P053",
+      "grade": 2,
+      "reason": "Pop or a specific pop subgenre is explicitly documented; Adele is not a credited artist. No language restriction was requested."
+    },
+    {
+      "query_id": "janani-e03",
+      "track_id": "0e01f88f-b6c1-4a72-8cfc-1ae8409ef60b",
+      "review_key": "P054",
+      "grade": 2,
+      "reason": "Electronic, electro or house metadata supports electronic music; Daft Punk is not a credited artist."
+    },
+    {
+      "query_id": "janani-e03",
+      "track_id": "0ebc9c6f-1ecd-43fb-a66c-615ec3f9e160",
+      "review_key": "P055",
+      "grade": 2,
+      "reason": "Electronic, electro or house metadata supports electronic music; Daft Punk is not a credited artist."
+    },
+    {
+      "query_id": "janani-e03",
+      "track_id": "185ec65a-de0b-4afc-815b-9fece1fe2ddc",
+      "review_key": "P056",
+      "grade": 2,
+      "reason": "Electronic, electro or house metadata supports electronic music; Daft Punk is not a credited artist."
+    },
+    {
+      "query_id": "janani-e03",
+      "track_id": "2d2e8b4e-5695-4387-a399-62aa67229eb1",
+      "review_key": "P057",
+      "grade": 2,
+      "reason": "Electronic, electro or house metadata supports electronic music; Daft Punk is not a credited artist."
+    },
+    {
+      "query_id": "janani-e03",
+      "track_id": "3f7ce252-fbe4-4249-a47f-2f60b712cb53",
+      "review_key": "P058",
+      "grade": 2,
+      "reason": "Electronic, electro or house metadata supports electronic music; Daft Punk is not a credited artist."
+    },
+    {
+      "query_id": "janani-e03",
+      "track_id": "4d8dc9d6-67c2-4260-ad05-0374b9155f8a",
+      "review_key": "P059",
+      "grade": 1,
+      "reason": "Electronic is present alongside otherwise predominantly pop metadata; support for an electronic-focused request is limited."
+    },
+    {
+      "query_id": "janani-e03",
+      "track_id": "4da660e1-26ac-41df-a253-cd3fbd8c2396",
+      "review_key": "P060",
+      "grade": 2,
+      "reason": "Electronic, electro or house metadata supports electronic music; Daft Punk is not a credited artist."
+    },
+    {
+      "query_id": "janani-e03",
+      "track_id": "7d0c82a0-fa72-40aa-b827-37ae72d2dc69",
+      "review_key": "P061",
+      "grade": 2,
+      "reason": "Electronic, electro or house metadata supports electronic music; Daft Punk is not a credited artist."
+    },
+    {
+      "query_id": "janani-e03",
+      "track_id": "be72c8c3-2c16-45d9-ac36-0a44ebf6a673",
+      "review_key": "P062",
+      "grade": 2,
+      "reason": "Electronic, electro or house metadata supports electronic music; Daft Punk is not a credited artist."
+    },
+    {
+      "query_id": "janani-e03",
+      "track_id": "d36d49cd-d730-4d58-bffb-9846d936e771",
+      "review_key": "P063",
+      "grade": 2,
+      "reason": "Electronic, electro or house metadata supports electronic music; Daft Punk is not a credited artist."
+    },
+    {
+      "query_id": "janani-e04",
+      "track_id": "1b838376-0248-4ed2-a319-3b27f7ebf93b",
+      "review_key": "P064",
+      "grade": 2,
+      "reason": "Metal or a specific metal subgenre is explicitly documented; Metallica is not a credited artist."
+    },
+    {
+      "query_id": "janani-e04",
+      "track_id": "1cf84129-056d-4e7a-96c9-10bd968eb490",
+      "review_key": "P065",
+      "grade": 2,
+      "reason": "Metal or a specific metal subgenre is explicitly documented; Metallica is not a credited artist."
+    },
+    {
+      "query_id": "janani-e04",
+      "track_id": "4a6e31de-7079-4cc2-b197-7e1d7d38f290",
+      "review_key": "P066",
+      "grade": 1,
+      "reason": "Progressive/classic hard-rock evidence dominates over the scattered metal tags, making this a partial metal match."
+    },
+    {
+      "query_id": "janani-e04",
+      "track_id": "6da8c716-3c7f-40ec-af83-a7933d91d21c",
+      "review_key": "P067",
+      "grade": 2,
+      "reason": "Metal or a specific metal subgenre is explicitly documented; Metallica is not a credited artist."
+    },
+    {
+      "query_id": "janani-e04",
+      "track_id": "a837d327-a1d7-4a4e-b046-f2a37c041b31",
+      "review_key": "P068",
+      "grade": 2,
+      "reason": "Metal or a specific metal subgenre is explicitly documented; Metallica is not a credited artist."
+    },
+    {
+      "query_id": "janani-e04",
+      "track_id": "cc16d715-487e-48ba-a41b-bdf5e381d008",
+      "review_key": "P069",
+      "grade": 2,
+      "reason": "Metal or a specific metal subgenre is explicitly documented; Metallica is not a credited artist."
+    },
+    {
+      "query_id": "janani-e04",
+      "track_id": "fe975710-9b19-4b05-8f94-d0b324bd698f",
+      "review_key": "P070",
+      "grade": 2,
+      "reason": "Metal or a specific metal subgenre is explicitly documented; Metallica is not a credited artist."
+    },
+    {
+      "query_id": "janani-e05",
+      "track_id": "147d8fd9-c9fa-48ab-844a-07b830efe205",
+      "review_key": "P071",
+      "grade": 2,
+      "reason": "Hip-Hop/Rap or an explicit hip-hop subgenre directly matches the request, with no 21 Savage credit."
+    },
+    {
+      "query_id": "janani-e05",
+      "track_id": "17656c29-d2b7-497b-a7cf-5f3e0826c947",
+      "review_key": "P072",
+      "grade": 2,
+      "reason": "Hip-Hop/Rap or an explicit hip-hop subgenre directly matches the request, with no 21 Savage credit."
+    },
+    {
+      "query_id": "janani-e05",
+      "track_id": "26c6a833-2176-4b88-a01b-45f37c762fe0",
+      "review_key": "P073",
+      "grade": 2,
+      "reason": "Hip-Hop/Rap or an explicit hip-hop subgenre directly matches the request, with no 21 Savage credit."
+    },
+    {
+      "query_id": "janani-e05",
+      "track_id": "34acb1cf-3797-4d2d-9aca-d8b9837bd16a",
+      "review_key": "P074",
+      "grade": 2,
+      "reason": "Hip-Hop/Rap or an explicit hip-hop subgenre directly matches the request, with no 21 Savage credit."
+    },
+    {
+      "query_id": "janani-e05",
+      "track_id": "8770973d-aa02-48d6-8753-84b745d09dee",
+      "review_key": "P075",
+      "grade": 2,
+      "reason": "Hip-Hop/Rap or an explicit hip-hop subgenre directly matches the request, with no 21 Savage credit."
+    },
+    {
+      "query_id": "janani-e05",
+      "track_id": "9f214bc9-ae27-480d-bc5f-01907f077fab",
+      "review_key": "P076",
+      "grade": 2,
+      "reason": "Hip-Hop/Rap or an explicit hip-hop subgenre directly matches the request, with no 21 Savage credit."
+    },
+    {
+      "query_id": "janani-e05",
+      "track_id": "a2f87fc3-b02f-4fdc-8dd4-78051657cc60",
+      "review_key": "P077",
+      "grade": 2,
+      "reason": "Hip-Hop/Rap or an explicit hip-hop subgenre directly matches the request, with no 21 Savage credit."
+    },
+    {
+      "query_id": "janani-f01",
+      "track_id": "00963d01-c359-4f64-abe2-bc224ecd8627",
+      "review_key": "P078",
+      "grade": 1,
+      "reason": "Rock, seed-related alternative/nu-metal style, or uplifting mood is supported, but the full uplifting-and-Numb-similarity combination is not established."
+    },
+    {
+      "query_id": "janani-f01",
+      "track_id": "0b45d70a-ce99-4e29-8aab-6d8c640dfacd",
+      "review_key": "P079",
+      "grade": 0,
+      "reason": "Dominant death-metal or electronic/pop/R&B evidence does not establish uplifting rock similar to the supplied Numb seed."
+    },
+    {
+      "query_id": "janani-f01",
+      "track_id": "1ef69dd3-2155-4e4d-8368-725a0564e9db",
+      "review_key": "P080",
+      "grade": 1,
+      "reason": "Rock, seed-related alternative/nu-metal style, or uplifting mood is supported, but the full uplifting-and-Numb-similarity combination is not established."
+    },
+    {
+      "query_id": "janani-f01",
+      "track_id": "2c8b0723-b93c-46e7-8eb2-73c5cb62947a",
+      "review_key": "P081",
+      "grade": 0,
+      "reason": "Dominant death-metal or electronic/pop/R&B evidence does not establish uplifting rock similar to the supplied Numb seed."
+    },
+    {
+      "query_id": "janani-f01",
+      "track_id": "2cf0ace1-5586-44a1-8b09-8cf687c6bd1d",
+      "review_key": "P082",
+      "grade": 0,
+      "reason": "Dominant death-metal or electronic/pop/R&B evidence does not establish uplifting rock similar to the supplied Numb seed."
+    },
+    {
+      "query_id": "janani-f01",
+      "track_id": "3bba1661-9097-433e-9838-9fca94199332",
+      "review_key": "P083",
+      "grade": 1,
+      "reason": "Rock, seed-related alternative/nu-metal style, or uplifting mood is supported, but the full uplifting-and-Numb-similarity combination is not established."
+    },
+    {
+      "query_id": "janani-f01",
+      "track_id": "5eb7d23a-6295-4a65-b4ac-6dc77cbab3c2",
+      "review_key": "P084",
+      "grade": 1,
+      "reason": "Rock, seed-related alternative/nu-metal style, or uplifting mood is supported, but the full uplifting-and-Numb-similarity combination is not established."
+    },
+    {
+      "query_id": "janani-f01",
+      "track_id": "690c6a80-6bd2-4394-83f9-c8a433614aa2",
+      "review_key": "P085",
+      "grade": 1,
+      "reason": "Rock, seed-related alternative/nu-metal style, or uplifting mood is supported, but the full uplifting-and-Numb-similarity combination is not established."
+    },
+    {
+      "query_id": "janani-f01",
+      "track_id": "6aafb53b-73f4-4679-8601-92e3f757df59",
+      "review_key": "P086",
+      "grade": 1,
+      "reason": "Rock, seed-related alternative/nu-metal style, or uplifting mood is supported, but the full uplifting-and-Numb-similarity combination is not established."
+    },
+    {
+      "query_id": "janani-f01",
+      "track_id": "6e8f89dc-874c-4433-a8ee-0f701763869f",
+      "review_key": "P087",
+      "grade": 1,
+      "reason": "Rock, seed-related alternative/nu-metal style, or uplifting mood is supported, but the full uplifting-and-Numb-similarity combination is not established."
+    },
+    {
+      "query_id": "janani-f01",
+      "track_id": "847bec30-2d1a-4e3f-abf7-19e6e234572c",
+      "review_key": "P088",
+      "grade": 1,
+      "reason": "Rock, seed-related alternative/nu-metal style, or uplifting mood is supported, but the full uplifting-and-Numb-similarity combination is not established."
+    },
+    {
+      "query_id": "janani-f01",
+      "track_id": "fc3ae7ab-0c30-4ef3-94ef-7e9a8c1ecaeb",
+      "review_key": "P089",
+      "grade": 1,
+      "reason": "Rock, seed-related alternative/nu-metal style, or uplifting mood is supported, but the full uplifting-and-Numb-similarity combination is not established."
+    },
+    {
+      "query_id": "janani-f01",
+      "track_id": "fd777591-2c63-40af-bb62-ee2c9899baaa",
+      "review_key": "P090",
+      "grade": 1,
+      "reason": "Rock, seed-related alternative/nu-metal style, or uplifting mood is supported, but the full uplifting-and-Numb-similarity combination is not established."
+    },
+    {
+      "query_id": "janani-f02",
+      "track_id": "0e07ad6e-f533-410c-80cf-71a4850b44d4",
+      "review_key": "P091",
+      "grade": 2,
+      "reason": "Emotional pop with orchestral, piano/ballad, soul or strings evidence gives concrete compatibility with the supplied Skyfall metadata."
+    },
+    {
+      "query_id": "janani-f02",
+      "track_id": "35539b92-49cf-40ac-b603-35cf0c15cdf5",
+      "review_key": "P092",
+      "grade": 1,
+      "reason": "Pop, emotional mood or a related vocal style is documented, but similarity to the orchestral/soul ballad seed remains partial."
+    },
+    {
+      "query_id": "janani-f02",
+      "track_id": "609e3e4f-6261-4916-9b9f-e7c4fbf553d4",
+      "review_key": "P093",
+      "grade": 1,
+      "reason": "Pop, emotional mood or a related vocal style is documented, but similarity to the orchestral/soul ballad seed remains partial."
+    },
+    {
+      "query_id": "janani-f02",
+      "track_id": "6f4b78bc-be70-4940-9a46-b70ea717b17d",
+      "review_key": "P094",
+      "grade": 0,
+      "reason": "Dominant hip-hop/dream-pop or classic hard/blues-rock evidence does not establish the requested emotional Skyfall-like pop."
+    },
+    {
+      "query_id": "janani-f02",
+      "track_id": "768dedd0-c4ba-49e4-9e59-3f3044513a94",
+      "review_key": "P095",
+      "grade": 1,
+      "reason": "Pop, emotional mood or a related vocal style is documented, but similarity to the orchestral/soul ballad seed remains partial."
+    },
+    {
+      "query_id": "janani-f02",
+      "track_id": "7d0030dd-788a-4047-9541-011c583f4ce9",
+      "review_key": "P096",
+      "grade": 1,
+      "reason": "Pop, emotional mood or a related vocal style is documented, but similarity to the orchestral/soul ballad seed remains partial."
+    },
+    {
+      "query_id": "janani-f02",
+      "track_id": "92879470-6589-4a42-8e39-3446f1043ee7",
+      "review_key": "P097",
+      "grade": 2,
+      "reason": "Emotional pop with orchestral, piano/ballad, soul or strings evidence gives concrete compatibility with the supplied Skyfall metadata."
+    },
+    {
+      "query_id": "janani-f02",
+      "track_id": "9477b465-e04c-4158-af10-ead8543d16b9",
+      "review_key": "P098",
+      "grade": 2,
+      "reason": "Emotional pop with orchestral, piano/ballad, soul or strings evidence gives concrete compatibility with the supplied Skyfall metadata."
+    },
+    {
+      "query_id": "janani-f02",
+      "track_id": "96b1a4e6-3f56-45b2-a0a7-edb681de5baf",
+      "review_key": "P099",
+      "grade": 2,
+      "reason": "Emotional pop with orchestral, piano/ballad, soul or strings evidence gives concrete compatibility with the supplied Skyfall metadata."
+    },
+    {
+      "query_id": "janani-f02",
+      "track_id": "af9e139b-d79c-45ac-bc61-de23be1d841e",
+      "review_key": "P100",
+      "grade": 1,
+      "reason": "Pop, emotional mood or a related vocal style is documented, but similarity to the orchestral/soul ballad seed remains partial."
+    },
+    {
+      "query_id": "janani-f02",
+      "track_id": "c3352a20-fd5a-4f41-88f8-7b439d30a10e",
+      "review_key": "P101",
+      "grade": 1,
+      "reason": "Pop, emotional mood or a related vocal style is documented, but similarity to the orchestral/soul ballad seed remains partial."
+    },
+    {
+      "query_id": "janani-f02",
+      "track_id": "dfbf334b-ef5f-48e2-8706-b3ac263e8dc8",
+      "review_key": "P102",
+      "grade": 1,
+      "reason": "Pop, emotional mood or a related vocal style is documented, but similarity to the orchestral/soul ballad seed remains partial."
+    },
+    {
+      "query_id": "janani-f02",
+      "track_id": "e2ef61e9-a788-45cd-b813-c52295e25ac3",
+      "review_key": "P103",
+      "grade": 1,
+      "reason": "Pop, emotional mood or a related vocal style is documented, but similarity to the orchestral/soul ballad seed remains partial."
+    },
+    {
+      "query_id": "janani-f02",
+      "track_id": "f3998f73-e158-45db-9b6e-1e909b27acb0",
+      "review_key": "P104",
+      "grade": 2,
+      "reason": "Emotional pop with orchestral, piano/ballad, soul or strings evidence gives concrete compatibility with the supplied Skyfall metadata."
+    },
+    {
+      "query_id": "janani-f02",
+      "track_id": "f8434c8d-c130-4ab6-8246-16cbdf8cb380",
+      "review_key": "P105",
+      "grade": 0,
+      "reason": "Dominant hip-hop/dream-pop or classic hard/blues-rock evidence does not establish the requested emotional Skyfall-like pop."
+    },
+    {
+      "query_id": "janani-f03",
+      "track_id": "0c43c3ec-e1f6-45a4-86b1-cbfc4387e541",
+      "review_key": "P106",
+      "grade": 1,
+      "reason": "Hip-hop is documented. The disliked Numb seed supplies only artist and Hip-Hop/Rap tags, so a specific style contrast cannot be verified. Trap or another unprovided seed style is not inferred."
+    },
+    {
+      "query_id": "janani-f03",
+      "track_id": "147d8fd9-c9fa-48ab-844a-07b830efe205",
+      "review_key": "P107",
+      "grade": 1,
+      "reason": "Hip-hop is documented. The disliked Numb seed supplies only artist and Hip-Hop/Rap tags, so a specific style contrast cannot be verified. Trap or another unprovided seed style is not inferred."
+    },
+    {
+      "query_id": "janani-f03",
+      "track_id": "17656c29-d2b7-497b-a7cf-5f3e0826c947",
+      "review_key": "P108",
+      "grade": 1,
+      "reason": "Hip-hop is documented. The disliked Numb seed supplies only artist and Hip-Hop/Rap tags, so a specific style contrast cannot be verified. Trap or another unprovided seed style is not inferred."
+    },
+    {
+      "query_id": "janani-f03",
+      "track_id": "26c6a833-2176-4b88-a01b-45f37c762fe0",
+      "review_key": "P109",
+      "grade": 1,
+      "reason": "Hip-hop is documented. The disliked Numb seed supplies only artist and Hip-Hop/Rap tags, so a specific style contrast cannot be verified. Trap or another unprovided seed style is not inferred."
+    },
+    {
+      "query_id": "janani-f03",
+      "track_id": "2e8a335e-98cb-4d3b-bc40-0dd1765864e3",
+      "review_key": "P110",
+      "grade": 1,
+      "reason": "Hip-hop is documented. The disliked Numb seed supplies only artist and Hip-Hop/Rap tags, so a specific style contrast cannot be verified. Trap or another unprovided seed style is not inferred."
+    },
+    {
+      "query_id": "janani-f03",
+      "track_id": "34acb1cf-3797-4d2d-9aca-d8b9837bd16a",
+      "review_key": "P111",
+      "grade": 1,
+      "reason": "Hip-hop is documented. The disliked Numb seed supplies only artist and Hip-Hop/Rap tags, so a specific style contrast cannot be verified. Trap or another unprovided seed style is not inferred."
+    },
+    {
+      "query_id": "janani-f03",
+      "track_id": "3720e291-2259-439e-a6ef-8449383ddffe",
+      "review_key": "P112",
+      "grade": 1,
+      "reason": "Hip-hop is documented. The disliked Numb seed supplies only artist and Hip-Hop/Rap tags, so a specific style contrast cannot be verified. Trap or another unprovided seed style is not inferred."
+    },
+    {
+      "query_id": "janani-f03",
+      "track_id": "42d9a8d7-4e02-4036-bc38-fb52eb75e815",
+      "review_key": "P113",
+      "grade": 1,
+      "reason": "Hip-hop is documented. The disliked Numb seed supplies only artist and Hip-Hop/Rap tags, so a specific style contrast cannot be verified. Trap or another unprovided seed style is not inferred."
+    },
+    {
+      "query_id": "janani-f03",
+      "track_id": "72b6ea75-3222-4031-9318-f9ab7d52ff8e",
+      "review_key": "P114",
+      "grade": 1,
+      "reason": "Hip-hop is documented. The disliked Numb seed supplies only artist and Hip-Hop/Rap tags, so a specific style contrast cannot be verified. Trap or another unprovided seed style is not inferred."
+    },
+    {
+      "query_id": "janani-f03",
+      "track_id": "8770973d-aa02-48d6-8753-84b745d09dee",
+      "review_key": "P115",
+      "grade": 1,
+      "reason": "Hip-hop is documented. The disliked Numb seed supplies only artist and Hip-Hop/Rap tags, so a specific style contrast cannot be verified. Trap or another unprovided seed style is not inferred."
+    },
+    {
+      "query_id": "janani-f03",
+      "track_id": "9258566b-2a72-4044-be4b-e7a168962558",
+      "review_key": "P116",
+      "grade": 1,
+      "reason": "Hip-hop is documented. The disliked Numb seed supplies only artist and Hip-Hop/Rap tags, so a specific style contrast cannot be verified. Trap or another unprovided seed style is not inferred."
+    },
+    {
+      "query_id": "janani-f03",
+      "track_id": "9f214bc9-ae27-480d-bc5f-01907f077fab",
+      "review_key": "P117",
+      "grade": 1,
+      "reason": "Hip-hop is documented. The disliked Numb seed supplies only artist and Hip-Hop/Rap tags, so a specific style contrast cannot be verified. Trap or another unprovided seed style is not inferred."
+    },
+    {
+      "query_id": "janani-f03",
+      "track_id": "a2f87fc3-b02f-4fdc-8dd4-78051657cc60",
+      "review_key": "P118",
+      "grade": 1,
+      "reason": "Hip-hop is documented. The disliked Numb seed supplies only artist and Hip-Hop/Rap tags, so a specific style contrast cannot be verified. Trap or another unprovided seed style is not inferred."
+    },
+    {
+      "query_id": "janani-f03",
+      "track_id": "cc2e9fd9-42a8-4978-b88c-5b68351d3d66",
+      "review_key": "P119",
+      "grade": 1,
+      "reason": "Hip-hop is documented. The disliked Numb seed supplies only artist and Hip-Hop/Rap tags, so a specific style contrast cannot be verified. Trap or another unprovided seed style is not inferred."
+    },
+    {
+      "query_id": "janani-f03",
+      "track_id": "db0fd2ff-522c-4017-acd4-ee4cfefafd34",
+      "review_key": "P120",
+      "grade": 1,
+      "reason": "Hip-hop is documented. The disliked Numb seed supplies only artist and Hip-Hop/Rap tags, so a specific style contrast cannot be verified. Trap or another unprovided seed style is not inferred."
+    },
+    {
+      "query_id": "janani-f04",
+      "track_id": "26562a56-7e85-45dc-8f08-47157aa9463f",
+      "review_key": "P121",
+      "grade": 2,
+      "reason": "The track is by Linkin Park or has documented nu-metal/alternative-metal/rap-rock compatibility with the two supplied playlist seeds."
+    },
+    {
+      "query_id": "janani-f04",
+      "track_id": "3dd9e229-b749-4e68-8894-fe41f7361a76",
+      "review_key": "P122",
+      "grade": 2,
+      "reason": "The track is by Linkin Park or has documented nu-metal/alternative-metal/rap-rock compatibility with the two supplied playlist seeds."
+    },
+    {
+      "query_id": "janani-f04",
+      "track_id": "58545667-68d0-479e-b4ec-513100ad9103",
+      "review_key": "P123",
+      "grade": 2,
+      "reason": "The track is by Linkin Park or has documented nu-metal/alternative-metal/rap-rock compatibility with the two supplied playlist seeds."
+    },
+    {
+      "query_id": "janani-f04",
+      "track_id": "6959c769-0483-4d47-a805-1332a2efbaae",
+      "review_key": "P124",
+      "grade": 2,
+      "reason": "The track is by Linkin Park or has documented nu-metal/alternative-metal/rap-rock compatibility with the two supplied playlist seeds."
+    },
+    {
+      "query_id": "janani-f04",
+      "track_id": "847bec30-2d1a-4e3f-abf7-19e6e234572c",
+      "review_key": "P125",
+      "grade": 2,
+      "reason": "The track is by Linkin Park or has documented nu-metal/alternative-metal/rap-rock compatibility with the two supplied playlist seeds."
+    },
+    {
+      "query_id": "janani-f04",
+      "track_id": "95752ea9-4454-4a2c-8261-b8ec2dbceb8a",
+      "review_key": "P126",
+      "grade": 2,
+      "reason": "The track is by Linkin Park or has documented nu-metal/alternative-metal/rap-rock compatibility with the two supplied playlist seeds."
+    },
+    {
+      "query_id": "janani-f04",
+      "track_id": "a0b65472-98d3-4fdf-8804-9e8375818b9d",
+      "review_key": "P127",
+      "grade": 2,
+      "reason": "The track is by Linkin Park or has documented nu-metal/alternative-metal/rap-rock compatibility with the two supplied playlist seeds."
+    },
+    {
+      "query_id": "janani-f04",
+      "track_id": "c2bb5073-7ec4-4b3f-adaf-9162b641dae9",
+      "review_key": "P128",
+      "grade": 2,
+      "reason": "The track is by Linkin Park or has documented nu-metal/alternative-metal/rap-rock compatibility with the two supplied playlist seeds."
+    },
+    {
+      "query_id": "janani-f04",
+      "track_id": "d486142f-8ad2-4b3a-9068-4f2608250e8e",
+      "review_key": "P129",
+      "grade": 2,
+      "reason": "The track is by Linkin Park or has documented nu-metal/alternative-metal/rap-rock compatibility with the two supplied playlist seeds."
+    },
+    {
+      "query_id": "janani-f04",
+      "track_id": "dd64c1f2-694f-4477-ae4b-248d71e4b72e",
+      "review_key": "P130",
+      "grade": 2,
+      "reason": "The track is by Linkin Park or has documented nu-metal/alternative-metal/rap-rock compatibility with the two supplied playlist seeds."
+    },
+    {
+      "query_id": "janani-f05",
+      "track_id": "2d2aec0f-dde7-415d-b652-40631e63947d",
+      "review_key": "P131",
+      "grade": 1,
+      "reason": "Rock or related alternative/metal style and/or energy matches part of the request, but full energetic Linkin-Park-style evidence is incomplete."
+    },
+    {
+      "query_id": "janani-f05",
+      "track_id": "2d2e8b4e-5695-4387-a399-62aa67229eb1",
+      "review_key": "P132",
+      "grade": 1,
+      "reason": "Rock or related alternative/metal style and/or energy matches part of the request, but full energetic Linkin-Park-style evidence is incomplete."
+    },
+    {
+      "query_id": "janani-f05",
+      "track_id": "3158d9ba-2d4c-404e-893b-44d65ccc6b84",
+      "review_key": "P133",
+      "grade": 1,
+      "reason": "Rock or related alternative/metal style and/or energy matches part of the request, but full energetic Linkin-Park-style evidence is incomplete."
+    },
+    {
+      "query_id": "janani-f05",
+      "track_id": "3696dd7e-5bcf-4724-95e6-147404c1eefb",
+      "review_key": "P134",
+      "grade": 1,
+      "reason": "Rock or related alternative/metal style and/or energy matches part of the request, but full energetic Linkin-Park-style evidence is incomplete."
+    },
+    {
+      "query_id": "janani-f05",
+      "track_id": "5581aa62-b68c-4251-9e1f-ee25ef46f88a",
+      "review_key": "P135",
+      "grade": 2,
+      "reason": "Linkin Park credit, energetic and alternative-rock/nu-metal evidence jointly support the full request; Metallica is not credited."
+    },
+    {
+      "query_id": "janani-f05",
+      "track_id": "abbe1de1-b731-4680-9a9b-ad67b5ec3613",
+      "review_key": "P136",
+      "grade": 1,
+      "reason": "Rock or related alternative/metal style and/or energy matches part of the request, but full energetic Linkin-Park-style evidence is incomplete."
+    },
+    {
+      "query_id": "janani-f05",
+      "track_id": "b49f1ad9-d4fe-4b91-a66e-f93c68d99416",
+      "review_key": "P137",
+      "grade": 2,
+      "reason": "Linkin Park credit, energetic and alternative-rock/nu-metal evidence jointly support the full request; Metallica is not credited."
+    },
+    {
+      "query_id": "janani-f05",
+      "track_id": "bc845b41-3eb9-4a74-b54c-8fc0af6e7256",
+      "review_key": "P138",
+      "grade": 1,
+      "reason": "Rock or related alternative/metal style and/or energy matches part of the request, but full energetic Linkin-Park-style evidence is incomplete."
+    },
+    {
+      "query_id": "janani-f05",
+      "track_id": "c20d7266-4680-454d-9f27-9e76b6391032",
+      "review_key": "P139",
+      "grade": 1,
+      "reason": "Rock or related alternative/metal style and/or energy matches part of the request, but full energetic Linkin-Park-style evidence is incomplete."
+    },
+    {
+      "query_id": "janani-f05",
+      "track_id": "c500c350-c154-451e-a596-f7df60d4be77",
+      "review_key": "P140",
+      "grade": 1,
+      "reason": "Rock or related alternative/metal style and/or energy matches part of the request, but full energetic Linkin-Park-style evidence is incomplete."
+    },
+    {
+      "query_id": "janani-f05",
+      "track_id": "ebb4a50d-75a8-4159-9989-f0cbb398c879",
+      "review_key": "P141",
+      "grade": 1,
+      "reason": "Rock or related alternative/metal style and/or energy matches part of the request, but full energetic Linkin-Park-style evidence is incomplete."
+    },
+    {
+      "query_id": "janani-f05",
+      "track_id": "f2aac6f0-d30a-4710-882e-eac5a5632801",
+      "review_key": "P142",
+      "grade": 2,
+      "reason": "Linkin Park credit, energetic and alternative-rock/nu-metal evidence jointly support the full request; Metallica is not credited."
+    },
+    {
+      "query_id": "janani-f05",
+      "track_id": "f631d940-fa20-4eaf-a3ff-8f9cf5bcc39e",
+      "review_key": "P143",
+      "grade": 0,
+      "reason": "Dominant thrash/speed metal does not establish the requested alternative-rock/Linkin-Park style. Energy is not inferred from the title."
+    },
+    {
+      "query_id": "janani-f05",
+      "track_id": "fbcfc37d-db7a-41f7-a728-0ac2249771b3",
+      "review_key": "P144",
+      "grade": 1,
+      "reason": "Rock or related alternative/metal style and/or energy matches part of the request, but full energetic Linkin-Park-style evidence is incomplete."
+    },
+    {
+      "query_id": "janani-f05",
+      "track_id": "fc3ae7ab-0c30-4ef3-94ef-7e9a8c1ecaeb",
+      "review_key": "P145",
+      "grade": 1,
+      "reason": "Rock or related alternative/metal style and/or energy matches part of the request, but full energetic Linkin-Park-style evidence is incomplete."
+    },
+    {
+      "query_id": "janani-f05",
+      "track_id": "ffc14c3d-21b1-4938-b58e-28c21c4d39a3",
+      "review_key": "P146",
+      "grade": 2,
+      "reason": "Linkin Park credit, energetic and alternative-rock/nu-metal evidence jointly support the full request; Metallica is not credited."
+    },
+    {
+      "query_id": "janani-g01",
+      "track_id": "21795e04-9496-44c3-beaf-5ca2b73fdb4b",
+      "review_key": "P147",
+      "grade": 2,
+      "reason": "Rock and energetic metadata jointly support the full request, including eligible rap-rock or punk-rock."
+    },
+    {
+      "query_id": "janani-g01",
+      "track_id": "235ce5ac-5c3f-4fae-8bd5-3386ae9ab2ef",
+      "review_key": "P148",
+      "grade": 1,
+      "reason": "Rock is documented, but an energetic mood is not directly established; an energy-related title is not used as evidence."
+    },
+    {
+      "query_id": "janani-g01",
+      "track_id": "4cc121a9-0c29-435a-a16d-f24e0e64fff1",
+      "review_key": "P149",
+      "grade": 2,
+      "reason": "Rock and energetic metadata jointly support the full request, including eligible rap-rock or punk-rock."
+    },
+    {
+      "query_id": "janani-g01",
+      "track_id": "6eecd29b-b08a-47a0-a90d-51816a808f88",
+      "review_key": "P150",
+      "grade": 1,
+      "reason": "Rock is documented, but an energetic mood is not directly established; an energy-related title is not used as evidence."
+    },
+    {
+      "query_id": "janani-g01",
+      "track_id": "90daf37a-9905-4d8e-85fe-1be22f4f2977",
+      "review_key": "P151",
+      "grade": 2,
+      "reason": "Rock and energetic metadata jointly support the full request, including eligible rap-rock or punk-rock."
+    },
+    {
+      "query_id": "janani-g01",
+      "track_id": "c20d7266-4680-454d-9f27-9e76b6391032",
+      "review_key": "P152",
+      "grade": 1,
+      "reason": "Rock is documented, but an energetic mood is not directly established; an energy-related title is not used as evidence."
+    },
+    {
+      "query_id": "janani-g01",
+      "track_id": "cdce3b4f-4fd1-41e8-bfb5-7158a1819454",
+      "review_key": "P153",
+      "grade": 2,
+      "reason": "Rock and energetic metadata jointly support the full request, including eligible rap-rock or punk-rock."
+    },
+    {
+      "query_id": "janani-g01",
+      "track_id": "f631d940-fa20-4eaf-a3ff-8f9cf5bcc39e",
+      "review_key": "P154",
+      "grade": 1,
+      "reason": "Rock is documented, but an energetic mood is not directly established; an energy-related title is not used as evidence."
+    },
+    {
+      "query_id": "janani-g01",
+      "track_id": "fbcfc37d-db7a-41f7-a728-0ac2249771b3",
+      "review_key": "P155",
+      "grade": 2,
+      "reason": "Rock and energetic metadata jointly support the full request, including eligible rap-rock or punk-rock."
+    },
+    {
+      "query_id": "janani-g01",
+      "track_id": "fc3ae7ab-0c30-4ef3-94ef-7e9a8c1ecaeb",
+      "review_key": "P156",
+      "grade": 1,
+      "reason": "Rock is documented, but an energetic mood is not directly established; an energy-related title is not used as evidence."
+    },
+    {
+      "query_id": "janani-g02",
+      "track_id": "0aaee03e-7294-45b3-863b-8abe357070d0",
+      "review_key": "P157",
+      "grade": 2,
+      "reason": "Jazz, smooth/acid/nu-jazz or instrumental-jazz evidence and relaxing/chill metadata support the full request."
+    },
+    {
+      "query_id": "janani-g02",
+      "track_id": "0b0170ed-2269-41f5-8b6c-311b9c303635",
+      "review_key": "P158",
+      "grade": 2,
+      "reason": "Jazz, smooth/acid/nu-jazz or instrumental-jazz evidence and relaxing/chill metadata support the full request."
+    },
+    {
+      "query_id": "janani-g02",
+      "track_id": "1b43dc07-02de-4904-9cb1-4bb874cc51a7",
+      "review_key": "P159",
+      "grade": 2,
+      "reason": "Jazz, smooth/acid/nu-jazz or instrumental-jazz evidence and relaxing/chill metadata support the full request."
+    },
+    {
+      "query_id": "janani-g02",
+      "track_id": "1f1407a2-850f-4654-a54e-106979281b16",
+      "review_key": "P160",
+      "grade": 1,
+      "reason": "Jazz-rap/jazz-hop and chill evidence give an adjacent match, rather than a strong jazz recommendation."
+    },
+    {
+      "query_id": "janani-g02",
+      "track_id": "7c6adc5d-22df-4dd3-ae7c-bc5b6cea7d9f",
+      "review_key": "P161",
+      "grade": 1,
+      "reason": "Jazz-rap/jazz-hop and chill evidence give an adjacent match, rather than a strong jazz recommendation."
+    },
+    {
+      "query_id": "janani-g02",
+      "track_id": "d42fd17d-2d71-4c40-ae2b-0b9f59179ee7",
+      "review_key": "P162",
+      "grade": 2,
+      "reason": "Jazz, smooth/acid/nu-jazz or instrumental-jazz evidence and relaxing/chill metadata support the full request."
+    },
+    {
+      "query_id": "janani-g02",
+      "track_id": "d4801b97-6170-4418-8725-e8aa5f6b431b",
+      "review_key": "P163",
+      "grade": 2,
+      "reason": "Jazz, smooth/acid/nu-jazz or instrumental-jazz evidence and relaxing/chill metadata support the full request."
+    },
+    {
+      "query_id": "janani-g03",
+      "track_id": "147d8fd9-c9fa-48ab-844a-07b830efe205",
+      "review_key": "P164",
+      "grade": 1,
+      "reason": "Hip-hop is documented, but classic-era/style evidence is insufficient in these supplied tags."
+    },
+    {
+      "query_id": "janani-g03",
+      "track_id": "19689c96-dbb5-4ac3-a186-c61f71cf8617",
+      "review_key": "P165",
+      "grade": 2,
+      "reason": "Classic/old-school/golden-age hip-hop metadata directly supports the request."
+    },
+    {
+      "query_id": "janani-g03",
+      "track_id": "72b6ea75-3222-4031-9318-f9ab7d52ff8e",
+      "review_key": "P166",
+      "grade": 2,
+      "reason": "Classic/old-school/golden-age hip-hop metadata directly supports the request."
+    },
+    {
+      "query_id": "janani-g03",
+      "track_id": "9f214bc9-ae27-480d-bc5f-01907f077fab",
+      "review_key": "P167",
+      "grade": 1,
+      "reason": "Hip-hop is documented, but classic-era/style evidence is insufficient in these supplied tags."
+    },
+    {
+      "query_id": "janani-g03",
+      "track_id": "ac6a0317-f29e-45c0-8bba-280c38434520",
+      "review_key": "P168",
+      "grade": 0,
+      "reason": "Pop/funk dominates, and an incidental hip-hop tag does not establish classic hip-hop."
+    },
+    {
+      "query_id": "janani-g03",
+      "track_id": "af57009d-677a-4126-82d3-5534daa68367",
+      "review_key": "P169",
+      "grade": 2,
+      "reason": "Classic/old-school/golden-age hip-hop metadata directly supports the request."
+    },
+    {
+      "query_id": "janani-g03",
+      "track_id": "eccf754b-af69-4e5d-9318-78d6cade18e2",
+      "review_key": "P170",
+      "grade": 2,
+      "reason": "Classic/old-school/golden-age hip-hop metadata directly supports the request."
+    },
+    {
+      "query_id": "janani-g03",
+      "track_id": "fc7a632e-2daf-402b-8ffe-b2839317d110",
+      "review_key": "P171",
+      "grade": 2,
+      "reason": "Classic/old-school/golden-age hip-hop metadata directly supports the request."
+    },
+    {
+      "query_id": "janani-g04",
+      "track_id": "417dba51-5285-4906-916e-e1343679aef1",
+      "review_key": "P172",
+      "grade": 1,
+      "reason": "Pop or a pop-related style is documented, but upbeat mood is not firmly established."
+    },
+    {
+      "query_id": "janani-g04",
+      "track_id": "96b1a4e6-3f56-45b2-a0a7-edb681de5baf",
+      "review_key": "P173",
+      "grade": 0,
+      "reason": "Sad, ballad or funeral-related evidence conflicts with the requested upbeat mood."
+    },
+    {
+      "query_id": "janani-g04",
+      "track_id": "ba7d1cd0-e17c-4849-953f-4e1ef234a00e",
+      "review_key": "P174",
+      "grade": 1,
+      "reason": "Pop or a pop-related style is documented, but upbeat mood is not firmly established."
+    },
+    {
+      "query_id": "janani-g04",
+      "track_id": "cb2413eb-d787-4064-ab2e-1debe8ff9d9c",
+      "review_key": "P175",
+      "grade": 1,
+      "reason": "Pop or a pop-related style is documented, but upbeat mood is not firmly established."
+    },
+    {
+      "query_id": "janani-g04",
+      "track_id": "d9dc8d68-9834-4ac3-9a06-cb6084fa037e",
+      "review_key": "P176",
+      "grade": 0,
+      "reason": "Sad, ballad or funeral-related evidence conflicts with the requested upbeat mood."
+    },
+    {
+      "query_id": "janani-g05",
+      "track_id": "12079a89-1244-49a1-960d-976ca32d9d34",
+      "review_key": "P177",
+      "grade": 2,
+      "reason": "Folk and acoustic or acoustic-folk evidence jointly support the request."
+    },
+    {
+      "query_id": "janani-g05",
+      "track_id": "329528d6-5e95-4d08-94e7-a04a37ffebe1",
+      "review_key": "P178",
+      "grade": 2,
+      "reason": "Folk and acoustic or acoustic-folk evidence jointly support the request."
+    },
+    {
+      "query_id": "janani-g05",
+      "track_id": "6a565eda-9d8b-4c46-9a34-69091a77c878",
+      "review_key": "P179",
+      "grade": 0,
+      "reason": "Progressive/death/folk-metal evidence does not establish acoustic folk."
+    },
+    {
+      "query_id": "janani-g05",
+      "track_id": "6f9e6e1a-60e8-4da8-bc66-28646649f2f7",
+      "review_key": "P180",
+      "grade": 2,
+      "reason": "Folk and acoustic or acoustic-folk evidence jointly support the request."
+    },
+    {
+      "query_id": "janani-g05",
+      "track_id": "718d4628-c83e-4b36-bf51-daccb7e792af",
+      "review_key": "P181",
+      "grade": 2,
+      "reason": "Folk and acoustic or acoustic-folk evidence jointly support the request."
+    },
+    {
+      "query_id": "janani-g05",
+      "track_id": "decb2654-1600-4035-acdb-c53d14dc9ff9",
+      "review_key": "P182",
+      "grade": 1,
+      "reason": "Folk/country-folk is documented, but acoustic evidence is limited to a personal tag rather than clear instrumentation metadata."
+    },
+    {
+      "query_id": "janani-g05",
+      "track_id": "f2341b5c-5bd4-4e98-ba72-c97f47796cf6",
+      "review_key": "P183",
+      "grade": 2,
+      "reason": "Folk and acoustic or acoustic-folk evidence jointly support the request."
+    },
+    {
+      "query_id": "janani-g05",
+      "track_id": "fb85cc85-ef34-4c09-a37d-dc615405ddd1",
+      "review_key": "P184",
+      "grade": 2,
+      "reason": "Folk and acoustic or acoustic-folk evidence jointly support the request."
+    },
+    {
+      "query_id": "janani-m01",
+      "track_id": "10aecf21-195f-4ea3-8d61-c3d651c7657e",
+      "review_key": "P185",
+      "grade": 0,
+      "reason": "No verified cheerful/uplifting mood is supplied. Song titles and generic genre tags are not sufficient."
+    },
+    {
+      "query_id": "janani-m01",
+      "track_id": "1634991c-c5f2-4f4e-bd11-2dd8ce444174",
+      "review_key": "P186",
+      "grade": 2,
+      "reason": "Cheerful/happy and upbeat/uplifting evidence support the requested positive mood."
+    },
+    {
+      "query_id": "janani-m01",
+      "track_id": "29c6dc59-73d4-4c70-a61e-e9fd15a66964",
+      "review_key": "P187",
+      "grade": 1,
+      "reason": "Only one positive or feel-good mood component is supported; the complete cheerful/uplifting combination remains uncertain."
+    },
+    {
+      "query_id": "janani-m01",
+      "track_id": "332fbadb-62a7-46c6-bab6-302ecb57d397",
+      "review_key": "P188",
+      "grade": 2,
+      "reason": "Cheerful/happy and upbeat/uplifting evidence support the requested positive mood."
+    },
+    {
+      "query_id": "janani-m01",
+      "track_id": "5b273888-6bca-4845-ada2-fcd6bbe570ed",
+      "review_key": "P189",
+      "grade": 0,
+      "reason": "No verified cheerful/uplifting mood is supplied. Song titles and generic genre tags are not sufficient."
+    },
+    {
+      "query_id": "janani-m01",
+      "track_id": "5b7d29df-d20b-4455-b816-e28cba389ec2",
+      "review_key": "P190",
+      "grade": 0,
+      "reason": "No verified cheerful/uplifting mood is supplied. Song titles and generic genre tags are not sufficient."
+    },
+    {
+      "query_id": "janani-m01",
+      "track_id": "6433be25-9960-4981-8d8d-dda8090b6e45",
+      "review_key": "P191",
+      "grade": 1,
+      "reason": "Only one positive or feel-good mood component is supported; the complete cheerful/uplifting combination remains uncertain."
+    },
+    {
+      "query_id": "janani-m01",
+      "track_id": "67154840-b680-411b-b5ed-49fd535b8726",
+      "review_key": "P192",
+      "grade": 2,
+      "reason": "Cheerful/happy and upbeat/uplifting evidence support the requested positive mood."
+    },
+    {
+      "query_id": "janani-m01",
+      "track_id": "789e2547-4313-4599-a7db-5cdda4b98c1d",
+      "review_key": "P193",
+      "grade": 0,
+      "reason": "No verified cheerful/uplifting mood is supplied. Song titles and generic genre tags are not sufficient."
+    },
+    {
+      "query_id": "janani-m01",
+      "track_id": "7abc270b-6747-48b2-8af1-5d307b9fa028",
+      "review_key": "P194",
+      "grade": 1,
+      "reason": "Only one positive or feel-good mood component is supported; the complete cheerful/uplifting combination remains uncertain."
+    },
+    {
+      "query_id": "janani-m02",
+      "track_id": "7561d8ed-7675-4779-b59a-c229712d3bf1",
+      "review_key": "P195",
+      "grade": 0,
+      "reason": "No verified sad/emotional mood is supplied; title wording alone is not enough."
+    },
+    {
+      "query_id": "janani-m02",
+      "track_id": "97519935-5435-4faa-ac11-ae67de6cc64b",
+      "review_key": "P196",
+      "grade": 2,
+      "reason": "Emotional, sad and melancholy metadata directly support the request."
+    },
+    {
+      "query_id": "janani-m02",
+      "track_id": "c5fdcf78-9f88-4fc3-bfb9-c0a86ca5b22d",
+      "review_key": "P197",
+      "grade": 0,
+      "reason": "No verified sad/emotional mood is supplied; title wording alone is not enough."
+    },
+    {
+      "query_id": "janani-m02",
+      "track_id": "d7394c90-65ea-435e-8076-df0e61388292",
+      "review_key": "P198",
+      "grade": 0,
+      "reason": "No verified sad/emotional mood is supplied; title wording alone is not enough."
+    },
+    {
+      "query_id": "janani-m03",
+      "track_id": "19e0cab9-d913-4c0f-a09f-0dfd8f7d67e9",
+      "review_key": "P199",
+      "grade": 2,
+      "reason": "Peaceful/quiet/chill or calm/ambient/relax metadata supports the request."
+    },
+    {
+      "query_id": "janani-m03",
+      "track_id": "1e5706ef-4b2b-4f2a-b1c6-c08618bf3e76",
+      "review_key": "P200",
+      "grade": 0,
+      "reason": "Calm and peaceful qualities are not established by the supplied metadata; calm/peace/sleep wording in titles or artist names is not used as evidence."
+    },
+    {
+      "query_id": "janani-m03",
+      "track_id": "62baa6a1-311d-4a06-bf65-fe678d0b134d",
+      "review_key": "P201",
+      "grade": 0,
+      "reason": "Calm and peaceful qualities are not established by the supplied metadata; calm/peace/sleep wording in titles or artist names is not used as evidence."
+    },
+    {
+      "query_id": "janani-m03",
+      "track_id": "85bdc062-8c44-47c5-9c9c-7147dafd41c0",
+      "review_key": "P202",
+      "grade": 0,
+      "reason": "Calm and peaceful qualities are not established by the supplied metadata; calm/peace/sleep wording in titles or artist names is not used as evidence."
+    },
+    {
+      "query_id": "janani-m03",
+      "track_id": "d5f16c0c-24cb-48f8-9e45-b1ab4d3ad90a",
+      "review_key": "P203",
+      "grade": 0,
+      "reason": "Calm and peaceful qualities are not established by the supplied metadata; calm/peace/sleep wording in titles or artist names is not used as evidence."
+    },
+    {
+      "query_id": "janani-m03",
+      "track_id": "f1735a91-3451-4ea8-b66c-aba76ad869b4",
+      "review_key": "P204",
+      "grade": 2,
+      "reason": "Peaceful/quiet/chill or calm/ambient/relax metadata supports the request."
+    },
+    {
+      "query_id": "janani-m03",
+      "track_id": "f8ab07be-abc0-4956-8f6d-16420970d7e0",
+      "review_key": "P205",
+      "grade": 0,
+      "reason": "Calm and peaceful qualities are not established by the supplied metadata; calm/peace/sleep wording in titles or artist names is not used as evidence."
+    },
+    {
+      "query_id": "janani-m03",
+      "track_id": "fd4cc1f3-8d09-4169-b0b4-1f71a655d8f4",
+      "review_key": "P206",
+      "grade": 0,
+      "reason": "Calm and peaceful qualities are not established by the supplied metadata; calm/peace/sleep wording in titles or artist names is not used as evidence."
+    },
+    {
+      "query_id": "janani-m04",
+      "track_id": "2ae008c1-c13e-438a-aa9f-8a80f68a5a65",
+      "review_key": "P207",
+      "grade": 2,
+      "reason": "Dark and intense are both explicitly documented."
+    },
+    {
+      "query_id": "janani-m04",
+      "track_id": "35056739-4081-4156-abb7-36633e0e9323",
+      "review_key": "P208",
+      "grade": 1,
+      "reason": "Heavy/thrash/death-metal style suggests intensity, but dark mood is not explicitly established."
+    },
+    {
+      "query_id": "janani-m04",
+      "track_id": "3adaaa26-d3b9-421b-839b-61bf6816710c",
+      "review_key": "P209",
+      "grade": 0,
+      "reason": "Electronic/synthwave alone does not verify dark and intense mood; the title is not sufficient."
+    },
+    {
+      "query_id": "janani-m04",
+      "track_id": "7c191790-9399-4eac-8c1b-7b2848bb4fe3",
+      "review_key": "P210",
+      "grade": 1,
+      "reason": "Heavy/thrash/death-metal style suggests intensity, but dark mood is not explicitly established."
+    },
+    {
+      "query_id": "janani-m04",
+      "track_id": "d183284a-b1b3-487a-8683-b56186c5baa2",
+      "review_key": "P211",
+      "grade": 2,
+      "reason": "Dark and intense are both explicitly documented."
+    },
+    {
+      "query_id": "janani-m05",
+      "track_id": "37bc416a-5624-4e06-9ee7-12ed5c1da456",
+      "review_key": "P212",
+      "grade": 0,
+      "reason": "The supplied metadata does not establish both romantic and relaxing music. Romance/relaxation wording in titles or artist names is not evidence of musical attributes."
+    },
+    {
+      "query_id": "janani-m05",
+      "track_id": "71364550-353d-4776-9f0f-b4f6be7bc76c",
+      "review_key": "P213",
+      "grade": 0,
+      "reason": "The supplied metadata does not establish both romantic and relaxing music. Romance/relaxation wording in titles or artist names is not evidence of musical attributes."
+    },
+    {
+      "query_id": "janani-m05",
+      "track_id": "83bcacbb-fd70-4fb3-85c6-f516152f13ed",
+      "review_key": "P214",
+      "grade": 0,
+      "reason": "The supplied metadata does not establish both romantic and relaxing music. Romance/relaxation wording in titles or artist names is not evidence of musical attributes."
+    },
+    {
+      "query_id": "janani-m05",
+      "track_id": "9768e23e-ae0c-4650-9bb3-5396abdcdc3f",
+      "review_key": "P215",
+      "grade": 0,
+      "reason": "The supplied metadata does not establish both romantic and relaxing music. Romance/relaxation wording in titles or artist names is not evidence of musical attributes."
+    },
+    {
+      "query_id": "janani-m05",
+      "track_id": "d9dc8d68-9834-4ac3-9a06-cb6084fa037e",
+      "review_key": "P216",
+      "grade": 0,
+      "reason": "The supplied metadata does not establish both romantic and relaxing music. Romance/relaxation wording in titles or artist names is not evidence of musical attributes."
+    },
+    {
+      "query_id": "tobi-a01",
+      "track_id": "26562a56-7e85-45dc-8f08-47157aa9463f",
+      "review_key": "P217",
+      "grade": 2,
+      "reason": "The requested artist is credited and musical rock/alternative/nu-metal metadata is supplied."
+    },
+    {
+      "query_id": "tobi-a01",
+      "track_id": "847bec30-2d1a-4e3f-abf7-19e6e234572c",
+      "review_key": "P218",
+      "grade": 2,
+      "reason": "The requested artist is credited and musical rock/alternative/nu-metal metadata is supplied."
+    },
+    {
+      "query_id": "tobi-a01",
+      "track_id": "915e7d5d-10bf-4209-ba31-4e8cab3b2882",
+      "review_key": "P219",
+      "grade": 1,
+      "reason": "Electronic indie-pop/indie-rock overlaps only broadly with Linkin Park; a specific shared style is not established."
+    },
+    {
+      "query_id": "tobi-a01",
+      "track_id": "bab98b4b-a6cd-4891-89af-b8c3cb9f7a86",
+      "review_key": "P220",
+      "grade": 2,
+      "reason": "The requested artist is credited and musical rock/alternative/nu-metal metadata is supplied."
+    },
+    {
+      "query_id": "tobi-a01",
+      "track_id": "bc9986e7-88fa-4d3e-a592-d521a4177110",
+      "review_key": "P221",
+      "grade": 2,
+      "reason": "The requested artist is credited and musical rock/alternative/nu-metal metadata is supplied."
+    },
+    {
+      "query_id": "tobi-a01",
+      "track_id": "ea4a2d5d-ada3-4e72-9665-54c07dcf187b",
+      "review_key": "P222",
+      "grade": 2,
+      "reason": "The requested artist is credited and musical rock/alternative/nu-metal metadata is supplied."
+    },
+    {
+      "query_id": "tobi-a01",
+      "track_id": "f4c130e2-6075-44fd-9bec-f4215007442e",
+      "review_key": "P223",
+      "grade": 2,
+      "reason": "The requested artist is credited and musical rock/alternative/nu-metal metadata is supplied."
+    },
+    {
+      "query_id": "tobi-a02",
+      "track_id": "a5312cd4-4e57-420f-9db5-f45fb349bdae",
+      "review_key": "P224",
+      "grade": 2,
+      "reason": "The requested artist is credited and Hip-Hop/Rap metadata verifies musical genre compatibility."
+    },
+    {
+      "query_id": "tobi-a03",
+      "track_id": "05f1984c-8423-4efc-9996-83dfd4dcdcbc",
+      "review_key": "P225",
+      "grade": 1,
+      "reason": "Soul/pop or soft-rock vocal metadata gives an adjacent match, without strong evidence of Adele-like style."
+    },
+    {
+      "query_id": "tobi-a03",
+      "track_id": "18457755-39b8-433a-a6bc-145d2a3924ea",
+      "review_key": "P226",
+      "grade": 0,
+      "reason": "Dominant rap or screamo/metalcore metadata does not support an Adele-like recommendation."
+    },
+    {
+      "query_id": "tobi-a03",
+      "track_id": "96b1a4e6-3f56-45b2-a0a7-edb681de5baf",
+      "review_key": "P227",
+      "grade": 1,
+      "reason": "Soul/pop or soft-rock vocal metadata gives an adjacent match, without strong evidence of Adele-like style."
+    },
+    {
+      "query_id": "tobi-a03",
+      "track_id": "d5de1269-f462-4a13-ae1d-f6e319c9fae0",
+      "review_key": "P228",
+      "grade": 0,
+      "reason": "Dominant rap or screamo/metalcore metadata does not support an Adele-like recommendation."
+    },
+    {
+      "query_id": "tobi-a04",
+      "track_id": "431f05b3-771f-41b5-9545-6a8cdffe19ac",
+      "review_key": "P229",
+      "grade": 2,
+      "reason": "Miles Davis is credited and jazz/instrumental-jazz evidence directly supports the requested similarity."
+    },
+    {
+      "query_id": "tobi-a04",
+      "track_id": "47a61908-964f-49b7-ab8f-da5e269acd28",
+      "review_key": "P230",
+      "grade": 2,
+      "reason": "Miles Davis is credited and jazz/instrumental-jazz evidence directly supports the requested similarity."
+    },
+    {
+      "query_id": "tobi-a04",
+      "track_id": "5d2464ae-47cb-46f4-bb91-5a58f1b232f2",
+      "review_key": "P231",
+      "grade": 0,
+      "reason": "Folk/country-rock or soul/pop metadata does not establish Miles-Davis-like jazz."
+    },
+    {
+      "query_id": "tobi-a04",
+      "track_id": "6aa93a24-9acf-4c9c-a150-15b88b2b7c93",
+      "review_key": "P232",
+      "grade": 1,
+      "reason": "Jazz-fusion/electro-jazz evidence offers an adjacent relationship, while electro-funk dominates."
+    },
+    {
+      "query_id": "tobi-a04",
+      "track_id": "8e018b34-7a01-4e7c-a5de-8674f97633b8",
+      "review_key": "P233",
+      "grade": 2,
+      "reason": "Miles Davis is credited and jazz/instrumental-jazz evidence directly supports the requested similarity."
+    },
+    {
+      "query_id": "tobi-a04",
+      "track_id": "da3fe6f4-2f63-4716-a2bd-afb6ef64c042",
+      "review_key": "P234",
+      "grade": 0,
+      "reason": "Folk/country-rock or soul/pop metadata does not establish Miles-Davis-like jazz."
+    },
+    {
+      "query_id": "tobi-a04",
+      "track_id": "decb2654-1600-4035-acdb-c53d14dc9ff9",
+      "review_key": "P235",
+      "grade": 0,
+      "reason": "Folk/country-rock or soul/pop metadata does not establish Miles-Davis-like jazz."
+    },
+    {
+      "query_id": "tobi-a05",
+      "track_id": "36f01030-b9b3-4372-a1ee-d7872b1393fa",
+      "review_key": "P236",
+      "grade": 2,
+      "reason": "Daft Punk is credited and house/electronic/disco/funk metadata supports the requested musical reference."
+    },
+    {
+      "query_id": "tobi-a05",
+      "track_id": "3af1473d-a093-42ef-b02e-a76d605ac0fa",
+      "review_key": "P237",
+      "grade": 2,
+      "reason": "Daft Punk is credited and house/electronic/disco/funk metadata supports the requested musical reference."
+    },
+    {
+      "query_id": "tobi-a05",
+      "track_id": "760a6cfb-a8e2-491a-96de-7153d14a8a62",
+      "review_key": "P238",
+      "grade": 2,
+      "reason": "Daft Punk is credited and house/electronic/disco/funk metadata supports the requested musical reference."
+    },
+    {
+      "query_id": "tobi-a05",
+      "track_id": "a3f75290-8e94-43b1-8433-3ed5425938cc",
+      "review_key": "P239",
+      "grade": 2,
+      "reason": "Daft Punk is credited and house/electronic/disco/funk metadata supports the requested musical reference."
+    },
+    {
+      "query_id": "tobi-e01",
+      "track_id": "45aedc54-8d0e-4219-bf13-6959c5b52e63",
+      "review_key": "P240",
+      "grade": 2,
+      "reason": "Alternative-rock metadata directly matches the request, and Linkin Park is not credited."
+    },
+    {
+      "query_id": "tobi-e01",
+      "track_id": "46f458ad-ebad-486e-8217-4a20110bb20e",
+      "review_key": "P241",
+      "grade": 0,
+      "reason": "Dominant death/thrash/black metal is not alternative rock; generic rock tags are insufficient for that specific style."
+    },
+    {
+      "query_id": "tobi-e01",
+      "track_id": "6eecd29b-b08a-47a0-a90d-51816a808f88",
+      "review_key": "P242",
+      "grade": 2,
+      "reason": "Alternative-rock metadata directly matches the request, and Linkin Park is not credited."
+    },
+    {
+      "query_id": "tobi-e01",
+      "track_id": "aafe934a-0652-4084-a464-30cd8fdf3799",
+      "review_key": "P243",
+      "grade": 0,
+      "reason": "Dominant death/thrash/black metal is not alternative rock; generic rock tags are insufficient for that specific style."
+    },
+    {
+      "query_id": "tobi-e02",
+      "track_id": "147d8fd9-c9fa-48ab-844a-07b830efe205",
+      "review_key": "P244",
+      "grade": 2,
+      "reason": "Hip-Hop/Rap or explicit hip-hop metadata matches the request, and 21 Savage is not credited."
+    },
+    {
+      "query_id": "tobi-e02",
+      "track_id": "26c6a833-2176-4b88-a01b-45f37c762fe0",
+      "review_key": "P245",
+      "grade": 2,
+      "reason": "Hip-Hop/Rap or explicit hip-hop metadata matches the request, and 21 Savage is not credited."
+    },
+    {
+      "query_id": "tobi-e02",
+      "track_id": "8770973d-aa02-48d6-8753-84b745d09dee",
+      "review_key": "P246",
+      "grade": 2,
+      "reason": "Hip-Hop/Rap or explicit hip-hop metadata matches the request, and 21 Savage is not credited."
+    },
+    {
+      "query_id": "tobi-e02",
+      "track_id": "9f214bc9-ae27-480d-bc5f-01907f077fab",
+      "review_key": "P247",
+      "grade": 2,
+      "reason": "Hip-Hop/Rap or explicit hip-hop metadata matches the request, and 21 Savage is not credited."
+    },
+    {
+      "query_id": "tobi-e03",
+      "track_id": "0b908cbb-0b74-4d0c-b611-ec6ed4f96335",
+      "review_key": "P248",
+      "grade": 2,
+      "reason": "Pop/chamber-pop or pop-related metadata directly supports the request; Adele is not credited."
+    },
+    {
+      "query_id": "tobi-e03",
+      "track_id": "f4925496-44ec-464d-9f38-ee74252ca3b0",
+      "review_key": "P249",
+      "grade": 2,
+      "reason": "Pop/chamber-pop or pop-related metadata directly supports the request; Adele is not credited."
+    },
+    {
+      "query_id": "tobi-e04",
+      "track_id": "1cf84129-056d-4e7a-96c9-10bd968eb490",
+      "review_key": "P250",
+      "grade": 2,
+      "reason": "Metal/metalcore or speed/progressive metal metadata supports the request; Metallica is not credited."
+    },
+    {
+      "query_id": "tobi-e04",
+      "track_id": "6da8c716-3c7f-40ec-af83-a7933d91d21c",
+      "review_key": "P251",
+      "grade": 2,
+      "reason": "Metal/metalcore or speed/progressive metal metadata supports the request; Metallica is not credited."
+    },
+    {
+      "query_id": "tobi-e05",
+      "track_id": "32bb6f88-0d69-4f09-a020-492116cffb55",
+      "review_key": "P252",
+      "grade": 2,
+      "reason": "Rock or a documented rock subgenre matches the broad request; this is not an excluded Numb recording."
+    },
+    {
+      "query_id": "tobi-e05",
+      "track_id": "6aa93a24-9acf-4c9c-a150-15b88b2b7c93",
+      "review_key": "P253",
+      "grade": 1,
+      "reason": "Electro/jazz-funk dominates, with only a limited broad rock association."
+    },
+    {
+      "query_id": "tobi-e05",
+      "track_id": "dbf94769-0af7-4f8d-befa-44e9c377595e",
+      "review_key": "P254",
+      "grade": 2,
+      "reason": "Rock or a documented rock subgenre matches the broad request; this is not an excluded Numb recording."
+    },
+    {
+      "query_id": "tobi-e05",
+      "track_id": "e1da64a9-3561-4e50-84a2-078aa7108ab4",
+      "review_key": "P255",
+      "grade": 2,
+      "reason": "Rock or a documented rock subgenre matches the broad request; this is not an excluded Numb recording."
+    },
+    {
+      "query_id": "tobi-f01",
+      "track_id": "32bb6f88-0d69-4f09-a020-492116cffb55",
+      "review_key": "P256",
+      "grade": 2,
+      "reason": "Nu-metal or alternative-metal/hard-rock metadata gives concrete overlap with the liked Linkin Park seed; the supplied known songs are not repeated."
+    },
+    {
+      "query_id": "tobi-f01",
+      "track_id": "6aa93a24-9acf-4c9c-a150-15b88b2b7c93",
+      "review_key": "P257",
+      "grade": 0,
+      "reason": "Dominant electro/jazz-funk does not establish similarity to the liked Numb seed."
+    },
+    {
+      "query_id": "tobi-f01",
+      "track_id": "dbf94769-0af7-4f8d-befa-44e9c377595e",
+      "review_key": "P258",
+      "grade": 1,
+      "reason": "Broad rock matches, but the recording is stylistically distant from the liked nu-metal/alternative-rock seed."
+    },
+    {
+      "query_id": "tobi-f01",
+      "track_id": "e1da64a9-3561-4e50-84a2-078aa7108ab4",
+      "review_key": "P259",
+      "grade": 2,
+      "reason": "Nu-metal or alternative-metal/hard-rock metadata gives concrete overlap with the liked Linkin Park seed; the supplied known songs are not repeated."
+    },
+    {
+      "query_id": "tobi-f02",
+      "track_id": "147d8fd9-c9fa-48ab-844a-07b830efe205",
+      "review_key": "P260",
+      "grade": 1,
+      "reason": "Hip-hop matches the genre, but the liked 21 Savage seed provides no specific subgenre evidence. Trap or a stronger style match is not invented."
+    },
+    {
+      "query_id": "tobi-f02",
+      "track_id": "26c6a833-2176-4b88-a01b-45f37c762fe0",
+      "review_key": "P261",
+      "grade": 1,
+      "reason": "Hip-hop matches the genre, but the liked 21 Savage seed provides no specific subgenre evidence. Trap or a stronger style match is not invented."
+    },
+    {
+      "query_id": "tobi-f02",
+      "track_id": "9f214bc9-ae27-480d-bc5f-01907f077fab",
+      "review_key": "P262",
+      "grade": 1,
+      "reason": "Hip-hop matches the genre, but the liked 21 Savage seed provides no specific subgenre evidence. Trap or a stronger style match is not invented."
+    },
+    {
+      "query_id": "tobi-f03",
+      "track_id": "9307b08c-3442-45b1-a5e9-0bd9cfba45b0",
+      "review_key": "P263",
+      "grade": 1,
+      "reason": "Pop or pop/soul overlaps broadly, but the Skyfall seed has orchestral/ballad evidence not established by this candidate."
+    },
+    {
+      "query_id": "tobi-f03",
+      "track_id": "f4925496-44ec-464d-9f38-ee74252ca3b0",
+      "review_key": "P264",
+      "grade": 1,
+      "reason": "Pop or pop/soul overlaps broadly, but the Skyfall seed has orchestral/ballad evidence not established by this candidate."
+    },
+    {
+      "query_id": "tobi-f04",
+      "track_id": "45aedc54-8d0e-4219-bf13-6959c5b52e63",
+      "review_key": "P265",
+      "grade": 1,
+      "reason": "Alternative or hard rock gives only a broad/partial match to the specific Linkin Park seed."
+    },
+    {
+      "query_id": "tobi-f04",
+      "track_id": "46f458ad-ebad-486e-8217-4a20110bb20e",
+      "review_key": "P266",
+      "grade": 0,
+      "reason": "Dominant death/thrash/black metal does not establish alternative rock similar to In the End."
+    },
+    {
+      "query_id": "tobi-f04",
+      "track_id": "6eecd29b-b08a-47a0-a90d-51816a808f88",
+      "review_key": "P267",
+      "grade": 2,
+      "reason": "Alternative-rock, alternative-metal and nu-metal evidence gives specific overlap with In the End; Metallica is not credited."
+    },
+    {
+      "query_id": "tobi-f04",
+      "track_id": "aafe934a-0652-4084-a464-30cd8fdf3799",
+      "review_key": "P268",
+      "grade": 0,
+      "reason": "Dominant death/thrash/black metal does not establish alternative rock similar to In the End."
+    },
+    {
+      "query_id": "tobi-f04",
+      "track_id": "c20d7266-4680-454d-9f27-9e76b6391032",
+      "review_key": "P269",
+      "grade": 1,
+      "reason": "Alternative or hard rock gives only a broad/partial match to the specific Linkin Park seed."
+    },
+    {
+      "query_id": "tobi-f05",
+      "track_id": "235ce5ac-5c3f-4fae-8bd5-3386ae9ab2ef",
+      "review_key": "P270",
+      "grade": 1,
+      "reason": "Rock is supported, but requested energy and/or specific Numb-like style is not established jointly. Title wording is not treated as energy evidence."
+    },
+    {
+      "query_id": "tobi-f05",
+      "track_id": "6eecd29b-b08a-47a0-a90d-51816a808f88",
+      "review_key": "P271",
+      "grade": 1,
+      "reason": "Rock is supported, but requested energy and/or specific Numb-like style is not established jointly. Title wording is not treated as energy evidence."
+    },
+    {
+      "query_id": "tobi-f05",
+      "track_id": "c20d7266-4680-454d-9f27-9e76b6391032",
+      "review_key": "P272",
+      "grade": 1,
+      "reason": "Rock is supported, but requested energy and/or specific Numb-like style is not established jointly. Title wording is not treated as energy evidence."
+    },
+    {
+      "query_id": "tobi-f05",
+      "track_id": "f631d940-fa20-4eaf-a3ff-8f9cf5bcc39e",
+      "review_key": "P273",
+      "grade": 1,
+      "reason": "Rock is supported, but requested energy and/or specific Numb-like style is not established jointly. Title wording is not treated as energy evidence."
+    },
+    {
+      "query_id": "tobi-f05",
+      "track_id": "fc3ae7ab-0c30-4ef3-94ef-7e9a8c1ecaeb",
+      "review_key": "P274",
+      "grade": 1,
+      "reason": "Rock is supported, but requested energy and/or specific Numb-like style is not established jointly. Title wording is not treated as energy evidence."
+    },
+    {
+      "query_id": "tobi-g01",
+      "track_id": "45aedc54-8d0e-4219-bf13-6959c5b52e63",
+      "review_key": "P275",
+      "grade": 2,
+      "reason": "Alternative rock is explicitly documented."
+    },
+    {
+      "query_id": "tobi-g01",
+      "track_id": "46f458ad-ebad-486e-8217-4a20110bb20e",
+      "review_key": "P276",
+      "grade": 0,
+      "reason": "Death/thrash/black metal dominates, without defensible alternative-rock evidence."
+    },
+    {
+      "query_id": "tobi-g01",
+      "track_id": "6eecd29b-b08a-47a0-a90d-51816a808f88",
+      "review_key": "P277",
+      "grade": 2,
+      "reason": "Alternative rock is explicitly documented."
+    },
+    {
+      "query_id": "tobi-g01",
+      "track_id": "aafe934a-0652-4084-a464-30cd8fdf3799",
+      "review_key": "P278",
+      "grade": 0,
+      "reason": "Death/thrash/black metal dominates, without defensible alternative-rock evidence."
+    },
+    {
+      "query_id": "tobi-g01",
+      "track_id": "c20d7266-4680-454d-9f27-9e76b6391032",
+      "review_key": "P279",
+      "grade": 1,
+      "reason": "Hard/classic rock is adjacent but does not establish the requested alternative-rock style."
+    },
+    {
+      "query_id": "tobi-g02",
+      "track_id": "6aa93a24-9acf-4c9c-a150-15b88b2b7c93",
+      "review_key": "P280",
+      "grade": 1,
+      "reason": "Jazz-funk or jazz-rap supplies a partial jazz relationship."
+    },
+    {
+      "query_id": "tobi-g02",
+      "track_id": "78da6903-42b0-4fe7-9481-c2c4bef746e0",
+      "review_key": "P281",
+      "grade": 0,
+      "reason": "Ambient/electronic music dominates, with only an isolated jazz tag and no stronger jazz evidence."
+    },
+    {
+      "query_id": "tobi-g02",
+      "track_id": "7c6adc5d-22df-4dd3-ae7c-bc5b6cea7d9f",
+      "review_key": "P282",
+      "grade": 1,
+      "reason": "Jazz-funk or jazz-rap supplies a partial jazz relationship."
+    },
+    {
+      "query_id": "tobi-g02",
+      "track_id": "d4801b97-6170-4418-8725-e8aa5f6b431b",
+      "review_key": "P283",
+      "grade": 2,
+      "reason": "Instrumental/acid/nu-jazz evidence supports the broad jazz request."
+    },
+    {
+      "query_id": "tobi-g03",
+      "track_id": "147d8fd9-c9fa-48ab-844a-07b830efe205",
+      "review_key": "P284",
+      "grade": 2,
+      "reason": "Hip-Hop/Rap or an explicit hip-hop subgenre directly matches the broad request."
+    },
+    {
+      "query_id": "tobi-g03",
+      "track_id": "26c6a833-2176-4b88-a01b-45f37c762fe0",
+      "review_key": "P285",
+      "grade": 2,
+      "reason": "Hip-Hop/Rap or an explicit hip-hop subgenre directly matches the broad request."
+    },
+    {
+      "query_id": "tobi-g03",
+      "track_id": "8770973d-aa02-48d6-8753-84b745d09dee",
+      "review_key": "P286",
+      "grade": 2,
+      "reason": "Hip-Hop/Rap or an explicit hip-hop subgenre directly matches the broad request."
+    },
+    {
+      "query_id": "tobi-g03",
+      "track_id": "9f214bc9-ae27-480d-bc5f-01907f077fab",
+      "review_key": "P287",
+      "grade": 2,
+      "reason": "Hip-Hop/Rap or an explicit hip-hop subgenre directly matches the broad request."
+    },
+    {
+      "query_id": "tobi-g04",
+      "track_id": "2e8a335e-98cb-4d3b-bc40-0dd1765864e3",
+      "review_key": "P288",
+      "grade": 1,
+      "reason": "Pop-related evidence is present, but upbeat pop is not strongly established; hip-hop dominance or missing mood evidence limits full credit."
+    },
+    {
+      "query_id": "tobi-g04",
+      "track_id": "87183976-8970-4492-98c2-61a8098b881d",
+      "review_key": "P289",
+      "grade": 1,
+      "reason": "Pop-related evidence is present, but upbeat pop is not strongly established; hip-hop dominance or missing mood evidence limits full credit."
+    },
+    {
+      "query_id": "tobi-g04",
+      "track_id": "de8225b5-1e9b-4583-90b4-4ba134590d78",
+      "review_key": "P290",
+      "grade": 1,
+      "reason": "Pop-related evidence is present, but upbeat pop is not strongly established; hip-hop dominance or missing mood evidence limits full credit."
+    },
+    {
+      "query_id": "tobi-g05",
+      "track_id": "988d1409-6982-4755-9d2d-9858dd4d0417",
+      "review_key": "P291",
+      "grade": 1,
+      "reason": "R&B/soul or rhythm-and-blues evidence gives partial relevance, while mellow mood is not well established."
+    },
+    {
+      "query_id": "tobi-g05",
+      "track_id": "c1b1f880-a850-47d0-9a61-2c49e1d6aede",
+      "review_key": "P292",
+      "grade": 2,
+      "reason": "R&B/soul with mellow/chilled/soft/smooth evidence supports the full request."
+    },
+    {
+      "query_id": "tobi-g05",
+      "track_id": "d6aae158-e781-48ce-bc53-a6f9ea8d8c65",
+      "review_key": "P293",
+      "grade": 1,
+      "reason": "R&B/soul or rhythm-and-blues evidence gives partial relevance, while mellow mood is not well established."
+    },
+    {
+      "query_id": "tobi-g05",
+      "track_id": "da3fe6f4-2f63-4716-a2bd-afb6ef64c042",
+      "review_key": "P294",
+      "grade": 2,
+      "reason": "R&B/soul with mellow/chilled/soft/smooth evidence supports the full request."
+    },
+    {
+      "query_id": "tobi-g05",
+      "track_id": "dbf94769-0af7-4f8d-befa-44e9c377595e",
+      "review_key": "P295",
+      "grade": 1,
+      "reason": "R&B/soul or rhythm-and-blues evidence gives partial relevance, while mellow mood is not well established."
+    },
+    {
+      "query_id": "tobi-p01",
+      "track_id": "6959c769-0483-4d47-a805-1332a2efbaae",
+      "review_key": "P296",
+      "grade": 2,
+      "reason": "Linkin Park credit or documented nu-metal/alternative-metal/rap-rock evidence is compatible with the Numb playlist seed."
+    },
+    {
+      "query_id": "tobi-p01",
+      "track_id": "95752ea9-4454-4a2c-8261-b8ec2dbceb8a",
+      "review_key": "P297",
+      "grade": 2,
+      "reason": "Linkin Park credit or documented nu-metal/alternative-metal/rap-rock evidence is compatible with the Numb playlist seed."
+    },
+    {
+      "query_id": "tobi-p01",
+      "track_id": "a0b65472-98d3-4fdf-8804-9e8375818b9d",
+      "review_key": "P298",
+      "grade": 2,
+      "reason": "Linkin Park credit or documented nu-metal/alternative-metal/rap-rock evidence is compatible with the Numb playlist seed."
+    },
+    {
+      "query_id": "tobi-p01",
+      "track_id": "ec35cc12-11bd-4988-a9cb-d124058e3932",
+      "review_key": "P299",
+      "grade": 2,
+      "reason": "Linkin Park credit or documented nu-metal/alternative-metal/rap-rock evidence is compatible with the Numb playlist seed."
+    },
+    {
+      "query_id": "tobi-p02",
+      "track_id": "046913bd-ba92-4955-94f0-756a1a81d391",
+      "review_key": "P300",
+      "grade": 2,
+      "reason": "The playlist seed artist is credited with verified hip-hop metadata."
+    },
+    {
+      "query_id": "tobi-p02",
+      "track_id": "1b5b6cf3-2327-447c-8d82-f17949c7fdfe",
+      "review_key": "P301",
+      "grade": 1,
+      "reason": "Hip-hop matches broadly, but sparse seed metadata does not establish a stronger specific playlist-style match."
+    },
+    {
+      "query_id": "tobi-p02",
+      "track_id": "3f87c549-e501-4b6f-a14a-cd145690d545",
+      "review_key": "P302",
+      "grade": 1,
+      "reason": "Hip-hop matches broadly, but sparse seed metadata does not establish a stronger specific playlist-style match."
+    },
+    {
+      "query_id": "tobi-p02",
+      "track_id": "8770973d-aa02-48d6-8753-84b745d09dee",
+      "review_key": "P303",
+      "grade": 1,
+      "reason": "Hip-hop matches broadly, but sparse seed metadata does not establish a stronger specific playlist-style match."
+    },
+    {
+      "query_id": "tobi-p03",
+      "track_id": "0a4d3fa5-55f8-4c0e-a612-5e906335929a",
+      "review_key": "P304",
+      "grade": 1,
+      "reason": "Pop, folk-pop, soul or vocal-ballad-related metadata gives broad compatibility, without a strong verified match to the orchestral/soul Skyfall seed."
+    },
+    {
+      "query_id": "tobi-p03",
+      "track_id": "12ba4a14-12ee-4842-a993-314ae69aab16",
+      "review_key": "P305",
+      "grade": 0,
+      "reason": "Instrumental psychedelic/progressive rock does not establish a pop/vocal match to this playlist seed."
+    },
+    {
+      "query_id": "tobi-p03",
+      "track_id": "19f86e38-92f8-4df1-854b-6f648b2f39b8",
+      "review_key": "P306",
+      "grade": 1,
+      "reason": "Pop, folk-pop, soul or vocal-ballad-related metadata gives broad compatibility, without a strong verified match to the orchestral/soul Skyfall seed."
+    },
+    {
+      "query_id": "tobi-p03",
+      "track_id": "35cc6cd7-b006-4909-b4cf-029275f3072e",
+      "review_key": "P307",
+      "grade": 1,
+      "reason": "Pop, folk-pop, soul or vocal-ballad-related metadata gives broad compatibility, without a strong verified match to the orchestral/soul Skyfall seed."
+    },
+    {
+      "query_id": "tobi-p03",
+      "track_id": "38c20a43-ec71-4d8a-9dd6-6cfeddb1e0f4",
+      "review_key": "P308",
+      "grade": 1,
+      "reason": "Pop, folk-pop, soul or vocal-ballad-related metadata gives broad compatibility, without a strong verified match to the orchestral/soul Skyfall seed."
+    },
+    {
+      "query_id": "tobi-p03",
+      "track_id": "391c2fe4-1f6d-4c1c-b855-763620185569",
+      "review_key": "P309",
+      "grade": 1,
+      "reason": "Pop, folk-pop, soul or vocal-ballad-related metadata gives broad compatibility, without a strong verified match to the orchestral/soul Skyfall seed."
+    },
+    {
+      "query_id": "tobi-p03",
+      "track_id": "8dc4851e-6ff7-418c-89a1-c816fc4fc045",
+      "review_key": "P310",
+      "grade": 1,
+      "reason": "Pop, folk-pop, soul or vocal-ballad-related metadata gives broad compatibility, without a strong verified match to the orchestral/soul Skyfall seed."
+    },
+    {
+      "query_id": "tobi-p03",
+      "track_id": "a3d1780e-51b0-480c-ae91-f2460200098b",
+      "review_key": "P311",
+      "grade": 1,
+      "reason": "Pop, folk-pop, soul or vocal-ballad-related metadata gives broad compatibility, without a strong verified match to the orchestral/soul Skyfall seed."
+    },
+    {
+      "query_id": "tobi-p03",
+      "track_id": "be2bf481-cc5c-40fb-8057-177547ad9b84",
+      "review_key": "P312",
+      "grade": 1,
+      "reason": "Pop, folk-pop, soul or vocal-ballad-related metadata gives broad compatibility, without a strong verified match to the orchestral/soul Skyfall seed."
+    },
+    {
+      "query_id": "tobi-p03",
+      "track_id": "d67eb538-5ad6-4035-b3b6-8ba3f6aa49d3",
+      "review_key": "P313",
+      "grade": 1,
+      "reason": "Pop, folk-pop, soul or vocal-ballad-related metadata gives broad compatibility, without a strong verified match to the orchestral/soul Skyfall seed."
+    },
+    {
+      "query_id": "tobi-p04",
+      "track_id": "3dd9e229-b749-4e68-8894-fe41f7361a76",
+      "review_key": "P314",
+      "grade": 2,
+      "reason": "Same-artist or nu-metal/alternative-metal/rap-rock metadata matches the two Linkin Park playlist seeds."
+    },
+    {
+      "query_id": "tobi-p04",
+      "track_id": "95752ea9-4454-4a2c-8261-b8ec2dbceb8a",
+      "review_key": "P315",
+      "grade": 2,
+      "reason": "Same-artist or nu-metal/alternative-metal/rap-rock metadata matches the two Linkin Park playlist seeds."
+    },
+    {
+      "query_id": "tobi-p04",
+      "track_id": "a0b65472-98d3-4fdf-8804-9e8375818b9d",
+      "review_key": "P316",
+      "grade": 2,
+      "reason": "Same-artist or nu-metal/alternative-metal/rap-rock metadata matches the two Linkin Park playlist seeds."
+    },
+    {
+      "query_id": "tobi-p05",
+      "track_id": "0b11e915-b695-46cd-8c8e-c1a6de6f2f81",
+      "review_key": "P317",
+      "grade": 2,
+      "reason": "Verified rock/nu-metal/rap-rock or hip-hop metadata is compatible with at least one of the two mixed-playlist seeds. Matching both genres at once is not required."
+    },
+    {
+      "query_id": "tobi-p05",
+      "track_id": "1cf6681e-44b9-4be8-8478-53205818e21d",
+      "review_key": "P318",
+      "grade": 2,
+      "reason": "Verified rock/nu-metal/rap-rock or hip-hop metadata is compatible with at least one of the two mixed-playlist seeds. Matching both genres at once is not required."
+    },
+    {
+      "query_id": "tobi-p05",
+      "track_id": "26562a56-7e85-45dc-8f08-47157aa9463f",
+      "review_key": "P319",
+      "grade": 2,
+      "reason": "Verified rock/nu-metal/rap-rock or hip-hop metadata is compatible with at least one of the two mixed-playlist seeds. Matching both genres at once is not required."
+    },
+    {
+      "query_id": "tobi-p05",
+      "track_id": "6959c769-0483-4d47-a805-1332a2efbaae",
+      "review_key": "P320",
+      "grade": 2,
+      "reason": "Verified rock/nu-metal/rap-rock or hip-hop metadata is compatible with at least one of the two mixed-playlist seeds. Matching both genres at once is not required."
+    },
+    {
+      "query_id": "tobi-p05",
+      "track_id": "940b023f-de26-4c5d-a836-1adb69517f36",
+      "review_key": "P321",
+      "grade": 2,
+      "reason": "Verified rock/nu-metal/rap-rock or hip-hop metadata is compatible with at least one of the two mixed-playlist seeds. Matching both genres at once is not required."
+    },
+    {
+      "query_id": "tobi-p05",
+      "track_id": "ec35cc12-11bd-4988-a9cb-d124058e3932",
+      "review_key": "P322",
+      "grade": 2,
+      "reason": "Verified rock/nu-metal/rap-rock or hip-hop metadata is compatible with at least one of the two mixed-playlist seeds. Matching both genres at once is not required."
+    }
+  ]
+}
