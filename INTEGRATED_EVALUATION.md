@@ -194,3 +194,5 @@ the other 514 current-pool pairs, or explicit acceptance of the sampled-human,
 AI-assisted protocol. Metadata-only labels can favor lexical retrieval and do
 not prove how relevant songs sound. The actual semantic model is Qwen, rather
 than the proposal's Sentence-BERT, and this difference is disclosed in the report.
+Tobi confirmed after discussing it with Janani that Qwen is the team's revised
+encoder choice; see [R1_REVIEW_FIXES.md](R1_REVIEW_FIXES.md).

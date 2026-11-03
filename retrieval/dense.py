@@ -38,6 +38,12 @@ class DenseRetriever(RetrievalModule):
         model_name: str = DEFAULT_MODEL_NAME,
     ) -> None:
 
+        if embedding_field == DEFAULT_EMBEDDING_FIELD and model_name != DEFAULT_MODEL_NAME:
+            raise ValueError(
+                f"{DEFAULT_EMBEDDING_FIELD} contains precomputed {DEFAULT_MODEL_NAME} vectors. "
+                "Use that query encoder, or regenerate matching track embeddings before changing models."
+            )
+
         # ---------------------------------------------------------
         # Device selection
         # ---------------------------------------------------------

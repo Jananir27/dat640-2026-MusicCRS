@@ -71,12 +71,12 @@ class AdvancedChatIntegrationTests(unittest.TestCase):
         self.assertEqual(self.state.pending_recommendation_ids, ["a", "b", "c"])
         self.assertEqual(len(self.calls), 1)
 
-    def test_empty_playlist_does_not_invoke_part4(self):
+    def test_empty_playlist_invokes_configured_part4_discovery(self):
         state = ConversationState()
         response, changed = self.intelligence.handle("Recommend rock songs", state)
         self.assertFalse(changed)
-        self.assertIn("Add at least one", response)
-        self.assertEqual(len(self.calls), 0)
+        self.assertIn("Here are recommendations", response)
+        self.assertEqual(len(self.calls), 1)
 
     def test_help_uses_existing_handler_without_llm(self):
         response, updated = self.intelligence.handle("What can you do?", self.state)

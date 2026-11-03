@@ -11,8 +11,8 @@ from threading import Lock
 from types import SimpleNamespace
 
 from .adaptive_retrieval import AdaptiveMusicRetriever, metadata_features
-from .relevance_feedback import RankedTrack, RocchioFeedback, artist_keys, name_key, values
-from .request_constraints import ConstraintError as FeedbackReferenceError, resolve_exclusions, split_request_exclusions
+from .relevance_feedback import RankedTrack, RocchioFeedback, artist_keys, name_key
+from .request_constraints import ConstraintError as FeedbackReferenceError, resolve_preference_exclusions
 
 
 class FeedbackRankingError(RuntimeError):
@@ -26,33 +26,10 @@ def remember_r1_exclusions(service, state, preferences, request=""):
     an artist; a qualified reference excludes all exact title/artist duplicates.
     This also prevents full-catalog feedback expansion undoing R1 filtering.
     """
-    catalog = service.catalog.metadata_dict
-    artists = set()
-    for artist in preferences.get("excluded_artists", []):
-        artists.update(resolve_exclusions(artist, catalog, kind="artist").artists)
-    if preferences.get("avoid_playlist_artists"):
-        artists.update(name_key(a) for t in state.playlist_ids if t in catalog
-                       for a in values(catalog[t].get("artist_name")))
-    excluded = set()
-    for reference in preferences.get("excluded_tracks", []):
-        try:
-            resolved = resolve_exclusions(reference, catalog, kind="track")
-        except FeedbackReferenceError:
-            # Recover a qualifier only from the negative clause, never from a
-            # positive seed elsewhere in the request.
-            _, negative = split_request_exclusions(request)
-            if not negative:
-                raise
-            context = resolve_exclusions(negative[len("exclude "):], catalog)
-            ids = {t for t in context.track_ids
-                   if name_key(reference) in {name_key(v) for v in values(catalog[t].get("track_name"))}}
-            if not ids:
-                raise
-            excluded.update(ids)
-        else:
-            excluded.update(resolved.track_ids)
-    state.feedback.excluded_artists.update(artists)
-    state.feedback.excluded_track_ids.update(excluded)
+    resolved = resolve_preference_exclusions(preferences, service.catalog.metadata_dict, request, state.playlist_ids)
+    state.feedback.excluded_artists.update(resolved.artists)
+    state.feedback.excluded_track_ids.update(resolved.track_ids)
+    return resolved
 
 
 class FeedbackRecommendationAdapter:

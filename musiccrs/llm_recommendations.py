@@ -2,37 +2,12 @@
 from __future__ import annotations
 
 from time import perf_counter
-import re
-import unicodedata
 from typing import Any
 
 from .feedback_workflow import remember_r1_exclusions
 from .music_features import classify_tags
-
-
-def _norm(value: Any) -> str:
-    plain = unicodedata.normalize("NFKD", str(value)).casefold()
-    plain = "".join(c for c in plain if not unicodedata.combining(c))
-    return " ".join(re.sub(r"[^\w]+", " ", plain).split())
-
-
-def _values(value: Any) -> list[str]:
-    return [str(x) for x in value] if isinstance(value, (list, tuple, set)) else ([] if value is None else [str(value)])
-
-
-def _artist_matches(artist_field: Any, forbidden: set[str]) -> bool:
-    # Also handle compound credits such as 'Linkin Park feat. Jay-Z'.
-    for artist in _values(artist_field):
-        name = _norm(artist)
-        for banned in forbidden:
-            if banned and (name == banned or f" {banned} " in f" {name} "):
-                return True
-    return False
-
-
-def _track_matches(title_field: Any, forbidden: set[str]) -> bool:
-    # Exact metadata title comparisons, ignoring punctuation and case.
-    return any(_norm(title) in forbidden for title in _values(title_field))
+from .relevance_feedback import artist_keys
+from .request_constraints import resolve_preference_exclusions, split_request_exclusions
 
 
 def recommend_with_llm(request: str, parser: Any, service: Any, state: Any,
@@ -52,7 +27,8 @@ def recommend_with_llm(request: str, parser: Any, service: Any, state: Any,
     query_parts = list(prefs["genre"]) + list(prefs["mood"])
     query_parts += [f"music similar to {artist}" for artist in prefs["preferred_artists"]]
     if not query_parts:
-        query_parts = [request]
+        positive_request, _ = split_request_exclusions(request)
+        query_parts = [positive_request]
     # Do not inject excluded names into the retrieval query.
     retrieval_query = " ".join(query_parts)
 
@@ -70,23 +46,25 @@ def recommend_with_llm(request: str, parser: Any, service: Any, state: Any,
     )
     t2 = perf_counter()
 
-    excluded_artists = {_norm(x) for x in prefs["excluded_artists"]}
-    excluded_tracks = {_norm(x) for x in prefs["excluded_tracks"]}
-    playlist_artists: set[str] = set()
-    if prefs["avoid_playlist_artists"]:
-        for track_id in playlist_ids:
-            seed = service.get_track(track_id)
-            if seed:
-                playlist_artists.update(_norm(x) for x in _values(seed.get("artist_name")))
+    if not shared_feedback:
+        catalog = getattr(getattr(service, "catalog", None), "metadata_dict", None)
+        partial_catalog = catalog is None
+        if partial_catalog:
+            catalog = {track["track_id"]: track for track in candidates}
+            for tid in playlist_ids:
+                seed = service.get_track(tid)
+                if seed:
+                    catalog[tid] = seed
+        exclusions = resolve_preference_exclusions(prefs, catalog, request, playlist_ids,
+                                                    allow_missing=partial_catalog)
 
     recommendations = []
     for track in candidates:
         track_id = track.get("track_id")
         if track_id in playlist_ids:
             continue
-        if not shared_feedback and _artist_matches(track.get("artist_name"), excluded_artists | playlist_artists):
-            continue
-        if not shared_feedback and _track_matches(track.get("track_name"), excluded_tracks):
+        if not shared_feedback and (track_id in exclusions.track_ids
+                                    or artist_keys(track) & exclusions.artists):
             continue
         recommendations.append(track)
     if shared_feedback:

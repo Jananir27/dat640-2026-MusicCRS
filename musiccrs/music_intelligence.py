@@ -1142,8 +1142,10 @@ class MusicIntelligence:
         original_message = message
         exclusion = None
 
-        # Preserve compatibility with the existing lightweight Task 6 test service.
-        if not state.playlist_ids and not hasattr(self.service, "get_r5_entities"):
+        # A configured advanced request can discover music without playlist seeds,
+        # including on providers exposing only the original playlist interface.
+        advanced_request = self._advanced_recommender is not None and message.strip() != "/recommend"
+        if not state.playlist_ids and not advanced_request and not hasattr(self.service, "get_r5_entities"):
             return "Add at least one song to your playlist first, and I can suggest related tracks.", False
 
         if hasattr(self.service, "catalog"):
@@ -1164,10 +1166,7 @@ class MusicIntelligence:
                     )
                 self._apply_feedback(update, state)
         # Part 4 is opt-in. Keep the original R6 algorithm for bare /recommend.
-        if (
-            self._advanced_recommender is not None
-            and message.strip() != "/recommend"
-        ):
+        if advanced_request:
             # Old pending choices must not survive a new recommendation request.
             state.pending_recommendation_ids.clear()
             try:

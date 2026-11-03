@@ -1,0 +1,323 @@
+{
+  "base_commit": "99c0b67fd8a8a1b93825151808f8789f9a32d3c9",
+  "resolved_review_items": [
+    1,
+    2,
+    3,
+    4
+  ],
+  "model_requirement": {
+    "proposal": "Sentence-BERT",
+    "actual_encoder": "Qwen/Qwen3-Embedding-0.6B",
+    "actual_track_field": "metadata-qwen3_embedding_0.6b",
+    "acceptance": "Team choice confirmed by Tobi after discussion with Janani",
+    "status": "Resolved: Qwen is the team-confirmed revised encoder choice",
+    "mismatched_query_encoder_guard": "passed",
+    "decision_source": "User confirmation in this conversation on 2026-11-03; no instructor approval is asserted"
+  },
+  "python_tests": {
+    "count": 212,
+    "passed": true,
+    "command": "MUSICCRS_NLU_LOCAL_ONLY=1 HF_HUB_OFFLINE=1 HF_DATASETS_OFFLINE=1 .venv/bin/python -m unittest discover -s tests -p 'test_*.py'"
+  },
+  "r1_regression_tests": {
+    "count": 10,
+    "passed": true,
+    "command": "python -m unittest tests.test_r1_exclusion_regressions"
+  },
+  "legacy_integration": {
+    "scenarios": 18,
+    "turns": 74,
+    "passed": true,
+    "dense_rankings": "synthetic",
+    "command": "python -m tests.full_music_smoke --offline --quiet"
+  },
+  "real_catalog_validation": {
+    "catalog_size": 47071,
+    "llm_preferences": "Fixed test parser; no external LLM calls",
+    "real_catalog_checks": [
+      {
+        "request": "Recommend metal without Metallica",
+        "advanced": false,
+        "playlist_seed": false,
+        "returned_ids": [
+          "ed5c9953-3ba6-4bb9-80e4-7bedcc4a1833",
+          "2d651b12-6918-4f1e-9ec7-25a65356579f",
+          "ebf803e7-5661-498f-bdb9-edb39799c477",
+          "c409fa2e-7980-4daf-99f7-53c18dc8492f",
+          "e5ed0632-10da-441f-b068-58956172b984"
+        ],
+        "excluded_artist_returned": false
+      },
+      {
+        "request": "Recommend metal , no Metallica",
+        "advanced": false,
+        "playlist_seed": false,
+        "returned_ids": [
+          "ed5c9953-3ba6-4bb9-80e4-7bedcc4a1833",
+          "2d651b12-6918-4f1e-9ec7-25a65356579f",
+          "ebf803e7-5661-498f-bdb9-edb39799c477",
+          "c409fa2e-7980-4daf-99f7-53c18dc8492f",
+          "e5ed0632-10da-441f-b068-58956172b984"
+        ],
+        "excluded_artist_returned": false
+      },
+      {
+        "request": "Recommend metal without Metallica",
+        "advanced": false,
+        "playlist_seed": true,
+        "returned_ids": [
+          "6959c769-0483-4d47-a805-1332a2efbaae",
+          "fd777591-2c63-40af-bb62-ee2c9899baaa",
+          "5583de40-9e05-4f27-b172-7a4e7d10ad5f",
+          "a0b65472-98d3-4fdf-8804-9e8375818b9d",
+          "95752ea9-4454-4a2c-8261-b8ec2dbceb8a"
+        ],
+        "excluded_artist_returned": false
+      },
+      {
+        "request": "Recommend metal , no Metallica",
+        "advanced": false,
+        "playlist_seed": true,
+        "returned_ids": [
+          "6959c769-0483-4d47-a805-1332a2efbaae",
+          "fd777591-2c63-40af-bb62-ee2c9899baaa",
+          "5583de40-9e05-4f27-b172-7a4e7d10ad5f",
+          "a0b65472-98d3-4fdf-8804-9e8375818b9d",
+          "95752ea9-4454-4a2c-8261-b8ec2dbceb8a"
+        ],
+        "excluded_artist_returned": false
+      },
+      {
+        "request": "Recommend metal without Metallica",
+        "advanced": true,
+        "playlist_seed": false,
+        "returned_ids": [
+          "6272871f-2c42-4346-904f-5ed329071fc0",
+          "2e47c5d5-2c1b-4a49-8154-f9c3201fa051",
+          "7c67aa1f-bec8-452c-8758-fc2b134eed38",
+          "bc48e2d4-be32-4f37-bbf9-ef6915385f0a",
+          "89125388-14d3-4f3e-aaaa-3897671657d6"
+        ],
+        "excluded_artist_returned": false
+      },
+      {
+        "request": "Recommend metal , no Metallica",
+        "advanced": true,
+        "playlist_seed": false,
+        "returned_ids": [
+          "6272871f-2c42-4346-904f-5ed329071fc0",
+          "2e47c5d5-2c1b-4a49-8154-f9c3201fa051",
+          "7c67aa1f-bec8-452c-8758-fc2b134eed38",
+          "bc48e2d4-be32-4f37-bbf9-ef6915385f0a",
+          "89125388-14d3-4f3e-aaaa-3897671657d6"
+        ],
+        "excluded_artist_returned": false
+      },
+      {
+        "request": "Recommend metal without Metallica",
+        "advanced": true,
+        "playlist_seed": true,
+        "returned_ids": [
+          "fd777591-2c63-40af-bb62-ee2c9899baaa",
+          "d486142f-8ad2-4b3a-9068-4f2608250e8e",
+          "dd64c1f2-694f-4477-ae4b-248d71e4b72e",
+          "847bec30-2d1a-4e3f-abf7-19e6e234572c",
+          "b49f1ad9-d4fe-4b91-a66e-f93c68d99416"
+        ],
+        "excluded_artist_returned": false
+      },
+      {
+        "request": "Recommend metal , no Metallica",
+        "advanced": true,
+        "playlist_seed": true,
+        "returned_ids": [
+          "fd777591-2c63-40af-bb62-ee2c9899baaa",
+          "d486142f-8ad2-4b3a-9068-4f2608250e8e",
+          "dd64c1f2-694f-4477-ae4b-248d71e4b72e",
+          "847bec30-2d1a-4e3f-abf7-19e6e234572c",
+          "b49f1ad9-d4fe-4b91-a66e-f93c68d99416"
+        ],
+        "excluded_artist_returned": false
+      },
+      {
+        "request": "Recommend rock, exclude Numb by Linkin Park",
+        "llm_excluded_track": "Numb",
+        "excluded_ids": [
+          "ffc14c3d-21b1-4938-b58e-28c21c4d39a3"
+        ],
+        "other_artists_same_title_remains_eligible": true
+      },
+      {
+        "request": "Recommend rock, exclude Numb by Linkin Park",
+        "llm_excluded_track": "Numb by Linkin Park",
+        "excluded_ids": [
+          "ffc14c3d-21b1-4938-b58e-28c21c4d39a3"
+        ],
+        "other_artists_same_title_remains_eligible": true
+      },
+      {
+        "request": "Recommend rock, exclude Numb by Linkin Park",
+        "llm_excluded_track": "Numb by 21 Savage",
+        "excluded_ids": [
+          "ffc14c3d-21b1-4938-b58e-28c21c4d39a3"
+        ],
+        "other_artists_same_title_remains_eligible": true
+      }
+    ],
+    "r4_replay": {
+      "reference_runs_sha256": "2c4f82e45d49a3f74a3c61da8a8a3ed348619025c98c9665e230565c9295bcd9",
+      "queries": 50,
+      "rankings_replayed": 200,
+      "matched": true,
+      "mismatches": [],
+      "maximum_score_difference": 0.0,
+      "current_source_sha256": {
+        "musiccrs/__init__.py": "ac49b0ff68fd443b618381f2061f41704475eb70fc9fcdb6f4fcd995f485301c",
+        "musiccrs/adaptive_retrieval.py": "243cd56c3db74dc011d035a4739ab787a02908726d078602549912d54771335e",
+        "musiccrs/feedback_language.py": "8ae15d1921816c010222bb8cc15d11077f6ebd6455a10da6e6bf714f26a01a71",
+        "musiccrs/feedback_retrieval.py": "57124b0e2be58a7fe6e7370970fff97cdd41eb2e99397d40587bf6910bd365ae",
+        "musiccrs/feedback_workflow.py": "873b1d7bd28bd4e76e1a64c8e3634575a9438f9449cde3f989843fe65968b176",
+        "musiccrs/llm_preference_parser.py": "10fe54b9578dc88dfacbb5134290188a64dc0ca35cb8d3e8cfd3c41c5111b0c1",
+        "musiccrs/llm_recommendations.py": "faf93c4143350018d3f3d8e250a95e2e2bbd44e55d5b7f3a86a286fc8c340df9",
+        "musiccrs/music_features.py": "3cdd0ff9c7584b49e4fa652484f017b9f991cc26b41b97a49c2a1e108266765f",
+        "musiccrs/music_intelligence.py": "8483750c65fed5ee367d9b54e2e5bc0b861eb87289985dc5abb2258352c79495",
+        "musiccrs/music_service.py": "ef92ad7ad3e9ea0abec96e6bbf733be3fe21b61228a7819a686526369af86daa",
+        "musiccrs/musiccrs.py": "4621299409e50726dd5f61066e98d97450ae69c05a0a95a0175b6aacd6850b4f",
+        "musiccrs/playlist_store.py": "b0244659049ebfa697ac4b0bfc63128489dd970b3b8dfec36226a18136ef3c71",
+        "musiccrs/r5_nlu.py": "b4a670a92a4230e76905d9e710575d751327c641e2163cb3f77bb137521c9c89",
+        "musiccrs/recommendation_explanations.py": "3d0db4ac5a1ce57434e9d9077b26e054512a44a901500737b52e9dd98c0555ac",
+        "musiccrs/relevance_feedback.py": "5bf2673acb8413ce2a5a00420c06da8b79fad05d0431fd89e6a7e44d0e9293db",
+        "musiccrs/request_constraints.py": "54b2b52dffce7fc4692aca947c3fee846aa5217cd4a4a7abb434abc8d64ea5fe",
+        "retrieval/__init__.py": "fe15f37b825dc589d1cf02b9df41b1f03366a0632fc6d18bfac3016f68e09be2",
+        "retrieval/analyze_candidate_recall.py": "967b9f9e9c51eb55ce8f2cfbeb0ba35ee74b75e508d6ba03c67fb3817da8159e",
+        "retrieval/analyze_specificity.py": "cd1e543ebe3678b9a6e0a3773ee6d015decde87fdb7ba505249e4e3f361ef525",
+        "retrieval/base.py": "4ea7633ac45e0f7440ee28a68ab2a3d10289309c51351f637669f0adf239bf80",
+        "retrieval/bm25.py": "c2a3ddd14125463e0dd4cc469738e864f5a2bbb58261e19420d76d8abe6a6fcb",
+        "retrieval/bm25_enhanced.py": "2d60533e4d8bdb689f1444fe7dc146e387c918073a9210df9701870c0ed3dedd",
+        "retrieval/build_specificity_ensemble.py": "5f622796368aa81965c8b448abd528eb0b527dec399ff5bed255fe08b0de6247",
+        "retrieval/data_loader.py": "075f7cdd3029251520470ca0309c001f21025189ed45cc1670261fa71b75caf0",
+        "retrieval/dense.py": "b0e80f0e7f746bd77577d577212f85f5e9ac3ef1d31addefae3633cf9524d214",
+        "retrieval/evaluation/__init__.py": "3740e5a3a38e5ce03ec639f6c72775c5d52b28ab29d7353892de341aecc65580",
+        "retrieval/evaluation/adaptive.py": "760948f5b3ebf7fbb4a9cf157d9b8290486d87c59b2ff64b645594861d4ff64c",
+        "retrieval/evaluation/diversity.py": "f1c738c634af36545b811b3c06d87c80a0a383bda36bbcc82963240b3a76937a",
+        "retrieval/evaluation/evaluate.py": "ce33bbf8845e8a133f90ab62aa1858549beb519f533fd0b8e16729561430a436",
+        "retrieval/evaluation/integrated.py": "4cd4492d71ac0426bc403b99c00b2f7570c549c335adc98335b01ceb9f60c117",
+        "retrieval/evaluation/make_ground_truth.py": "f3555e12ac4e1bf5b49a1a3a060b355c0c93b8a58bd055a7a7b0445a0a75b68b",
+        "retrieval/evaluation/metrics.py": "26e8330ad18c7466809b4f00805a472c142a64ce1a50c8a64792ac54d8acbb7e",
+        "retrieval/evaluation/part4.py": "ffe881ca58e8621b71f82b970bb67a858ebbc4ecd238606c648815b43da6acef",
+        "retrieval/evaluation/r4_finalize.py": "1daae797c1d5914ef241f855b093added3475d0aa84f39d887d88de1012f31ce",
+        "retrieval/evaluation/review_labels.py": "9ee08300d94b6e62d7cbc0c2d2eb7ecc39ca680926c66d8de689afbe9815a45a",
+        "retrieval/exact_match.py": "97e2e9c27ab0af60078516b78d51f9c91da113d0e4aab87715866092d22ae5f6",
+        "retrieval/export_final.py": "08c243715d92cbb8d22527108c70c68d09179bf8f99050dda94b80646ab53664",
+        "retrieval/final.py": "1d071f05fc1bc3722eec9d9a94aa63afe4dd47aa080e6f07d369b57d1b131af2",
+        "retrieval/hybrid.py": "72ece2c3b008cf53d195c4cb4d2f405f0363a2e426fc2ef8302fbc4e37836583",
+        "retrieval/query_optimizer.py": "22eb8941e1ccbe2603705838be9df1d2f24d8432f8345d1f26781416feedf8c6",
+        "retrieval/rerank_union_candidates.py": "de660bd3301523e8e14509679edbe325eeb90fb89dc3c26509ab08e15711697a",
+        "retrieval/run_adaptive_goal_hybrid.py": "0a9287e59e57c979003a395ab5d94798bf3b6d1fe3e5ed3c579a699f0c88201d",
+        "retrieval/run_adaptive_goal_top100.py": "1e1547ad4165bf97f102061f8423fb31c0d00777e7dc9d54bcb542104d40aa56",
+        "retrieval/run_bm25_baseline.py": "e21f4ea71d348fa1e344d449c20cf28d8ef0e89a4e899da7fa41ac2f7ea6ae8b",
+        "retrieval/run_bm25_tags.py": "6ad05378354a45fdd891079af9b4ef1baee2f1c3101415380540962ac1570217",
+        "retrieval/run_dense.py": "57df1f8c2ac38c9dce7bb46acf8edcc49f6b566311dfdc8861ff0937a9523013",
+        "retrieval/run_exact_hh_rerank.py": "812cc615c81200f07f22b032ed4b04523f27d7b80b78f45402f17431aa551022",
+        "retrieval/run_goal_aware_hybrid.py": "5da80963eee86ccf58b4effc028767da386ed82d1d5481e8dd28f1157b322c5b",
+        "retrieval/run_goal_aware_hybrid_chunked.py": "9e8c2a6e47b67e80708a0477ca2f053a0dfb4bb21eecd7f9db7ca166428d7cdd",
+        "retrieval/run_hybrid.py": "930768d7feb8b0bd9718ade4e1cb04f684a0519ff80df4015735ce0718eefaa6",
+        "retrieval/run_hybrid_bpr.py": "cd901896f67c8ad367b05b50d287dfd1dd54b5246f37aa7288e6115b0a902463",
+        "retrieval/run_hybrid_chunked.py": "f8de24e2b3891fb76d77d0cd75590f19d87aac5a7aba110ce55ca9e7c51545f5",
+        "retrieval/run_query_optimized_hybrid.py": "f88c17147c95ffd9d18157a2e3c1bc076fd62d93574d1484f306670c4d0a48fa",
+        "retrieval/save_hybrid_candidates.py": "a48ef6b83fd650c36fd59612ecf62d428c3402196c7d6562484cce86a1a3c245",
+        "retrieval/tune_bpr_reranking.py": "4c7aaab5a8cf0bb32272c322bd48be5d4b3e68327277ed4af2b1424c8fc200c3",
+        "retrieval/tune_candidate_expansion_diversity.py": "5a36ee23d63487caf349177a70c9c401dc8a4de28d62e0b05cc75adf6138fbf4",
+        "retrieval/tune_candidate_expansion_specificity.py": "fede460a20b3df526e5edb10c8e0dd916422858f8044ee848540032196b4c217",
+        "retrieval/tune_diversity_reranking.py": "5a195cc7bc0245e825e43d18e209aa98f34cf7ae9829871f0100766712886afb",
+        "retrieval/tune_exact_by_specificity.py": "93471a6aa0e72b42382df36222aca77820c0d440dd7642f3d65f8e4c0fa91753",
+        "retrieval/tune_hh_query.py": "1474077cb7bbf16069bbfe1f4e281c8b52eeea95a0c328df5ce9e4e1bc943b9c",
+        "retrieval/tune_hybrid.py": "65527e0f3ee50a0511ee1823223f42ae9c1895ced64634550a71deaafebffcce",
+        "retrieval/tune_prediction_fusion.py": "e713a03f4e562efeeed65e5671d6b4f8ad6e74e7288e77878fd0ca4081f25f3f",
+        "retrieval/tune_selective_expansion.py": "f880ff7d17de44b2f7a2deb102430adef4febef9dba173d09db6667117746816"
+      },
+      "scope": "Ranking replay only. Original warm latency samples belong to the recorded run; no new relevance labels or metric gains are claimed."
+    },
+    "note": "No labels, timing samples or original reports changed."
+  },
+  "live_preference_extraction": {
+    "external_llm_calls": 3,
+    "model": "llama3.3:70b-instruct-q4_K_M",
+    "scope": "Live preference extraction and deterministic full-catalog identity resolution; no retrieval latency or relevance metrics",
+    "checks": [
+      {
+        "request": "Recommend metal, no Metallica",
+        "preferences": {
+          "genre": [
+            "metal"
+          ],
+          "mood": [],
+          "preferred_artists": [],
+          "excluded_artists": [
+            "Metallica"
+          ],
+          "excluded_tracks": [],
+          "use_playlist_context": false,
+          "avoid_playlist_artists": false
+        },
+        "excluded_artist_keys": [
+          "metallica"
+        ],
+        "excluded_track_ids": []
+      },
+      {
+        "request": "Recommend metal without Metallica",
+        "preferences": {
+          "genre": [
+            "metal"
+          ],
+          "mood": [],
+          "preferred_artists": [],
+          "excluded_artists": [
+            "Metallica"
+          ],
+          "excluded_tracks": [],
+          "use_playlist_context": false,
+          "avoid_playlist_artists": false
+        },
+        "excluded_artist_keys": [
+          "metallica"
+        ],
+        "excluded_track_ids": []
+      },
+      {
+        "request": "Recommend rock, exclude Numb by Linkin Park",
+        "preferences": {
+          "genre": [
+            "rock"
+          ],
+          "mood": [],
+          "preferred_artists": [],
+          "excluded_artists": [],
+          "excluded_tracks": [
+            "Numb by Linkin Park"
+          ],
+          "use_playlist_context": false,
+          "avoid_playlist_artists": false
+        },
+        "excluded_artist_keys": [],
+        "excluded_track_ids": [
+          "ffc14c3d-21b1-4938-b58e-28c21c4d39a3"
+        ]
+      }
+    ]
+  },
+  "source_sha256": {
+    "musiccrs/request_constraints.py": "54b2b52dffce7fc4692aca947c3fee846aa5217cd4a4a7abb434abc8d64ea5fe",
+    "musiccrs/feedback_workflow.py": "873b1d7bd28bd4e76e1a64c8e3634575a9438f9449cde3f989843fe65968b176",
+    "musiccrs/llm_recommendations.py": "faf93c4143350018d3f3d8e250a95e2e2bbd44e55d5b7f3a86a286fc8c340df9",
+    "musiccrs/llm_preference_parser.py": "10fe54b9578dc88dfacbb5134290188a64dc0ca35cb8d3e8cfd3c41c5111b0c1",
+    "musiccrs/music_intelligence.py": "8483750c65fed5ee367d9b54e2e5bc0b861eb87289985dc5abb2258352c79495",
+    "retrieval/dense.py": "b0e80f0e7f746bd77577d577212f85f5e9ac3ef1d31addefae3633cf9524d214",
+    "tests/test_r1_exclusion_regressions.py": "a6c29438d540388b8ba3a436ca03befc07da980813c90943124185255e52db76",
+    "tests/test_task6_chat_integration.py": "dd40be5bb48865494961d5b67b078fd7bb24a8827dc15c35d27c8f926e55142c",
+    "R1_REVIEW_FIXES.md": "63aa376e36ef47441570bfecbff1c27e8915ab174f168824bfc275f03ddda27e"
+  },
+  "scope": "Regression and integration correctness; no new relevance labels or replacement latency measurements. The model choice records the user-confirmed team decision."
+}

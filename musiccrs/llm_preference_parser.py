@@ -47,6 +47,8 @@ Rules:
   artists than those already in their playlist.
 - "avoid repeating tracks" alone does not mean avoid_playlist_artists.
 - Preserve names of artists and tracks as written by the user.
+- For a track qualified by an artist, preserve "title by artist" in
+  excluded_tracks. Do not turn that qualifier into an artist-wide exclusion.
 - Do not recommend any songs; only extract fields.
 """
 

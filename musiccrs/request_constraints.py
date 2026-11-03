@@ -7,7 +7,7 @@ from functools import lru_cache
 import re
 import unicodedata
 
-from .relevance_feedback import artist_names, name_key, values
+from .relevance_feedback import artist_keys, artist_names, name_key, values
 from .music_features import extract_preferences
 
 
@@ -70,11 +70,14 @@ class ResolvedExclusions:
         return ResolvedExclusions(self.track_ids | other.track_ids, self.artists | other.artists)
 
 
-def resolve_exclusions(text, catalog, displayed_ids=(), select_positions=None, focus_id=None, *, kind=None):
+def resolve_exclusions(text, catalog, displayed_ids=(), select_positions=None, focus_id=None, *, kind=None,
+                       allow_missing=False):
     """Resolve a scalar or list atomically, preserving literal catalog names.
 
     Explicit artist/track kinds come from the structured R1 interface. A bare
     ambiguous title asks for an artist. Hard track bans include matching remasters.
+    Only candidate-only legacy providers may allow missing references: an absent
+    target cannot be returned from that snapshot. Ambiguities still fail closed.
     """
     if not isinstance(text, str) or not text.strip() or len(text) > 2000:
         raise ConstraintError("Please give a nonempty exclusion of at most 2000 characters.")
@@ -155,6 +158,33 @@ def resolve_exclusions(text, catalog, displayed_ids=(), select_positions=None, f
                 return resolve(reference[:match.start()]).joined(resolve(reference[match.end():]))
             except ConstraintError as exc:
                 error = exc
-        raise error or ConstraintError(f'I could not identify "{reference}". Please give an exact artist or title and artist.')
+        if error:
+            raise error
+        if allow_missing:
+            return ResolvedExclusions()
+        raise ConstraintError(f'I could not identify "{reference}". Please give an exact artist or title and artist.')
 
     return resolve(text)
+
+
+def resolve_preference_exclusions(preferences, catalog, request="", playlist_ids=(), *, allow_missing=False):
+    """Resolve structured R1 exclusions using the same identities as chat.
+
+    A deterministically understood negative clause is authoritative. In
+    particular, an LLM dropping or changing the artist in "Numb by Linkin Park"
+    must not exclude a different artist's recording. Without such a clause,
+    validated LLM references are resolved against metadata, with ambiguity checks.
+    """
+    _, negative = split_request_exclusions(request)
+    if negative and not re.match(r"(?:the\s+)?style\s+of\b", negative[len("exclude "):], re.I):
+        resolved = resolve_exclusions(negative[len("exclude "):], catalog, allow_missing=allow_missing)
+    else:
+        resolved = ResolvedExclusions()
+        for kind, field in (("artist", "excluded_artists"), ("track", "excluded_tracks")):
+            for reference in preferences.get(field, []):
+                resolved = resolved.joined(resolve_exclusions(reference, catalog, kind=kind,
+                                                               allow_missing=allow_missing))
+    if preferences.get("avoid_playlist_artists"):
+        resolved.artists.update(artist for tid in playlist_ids if tid in catalog
+                                for artist in artist_keys(catalog[tid]))
+    return resolved
